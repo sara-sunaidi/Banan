@@ -23,6 +23,8 @@
 		56290E96279F23AF00F3AC5F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E95279F23AF00F3AC5F /* Accelerate.framework */; };
 		56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E9B279F786700F3AC5F /* opencv2.framework */; };
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
+		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
+		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
+		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */,
 				56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */,
 				56290E96279F23AF00F3AC5F /* Accelerate.framework in Frameworks */,
 				56290E94279F23A800F3AC5F /* CoreFoundation.framework in Frameworks */,
@@ -125,7 +130,6 @@
 			children = (
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
-				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
@@ -134,6 +138,7 @@
 				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
 				56290E9D279F7C8200F3AC5F /* Banan-Bridging-Header.h */,
 				56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */,
+				56290EB627A1C0B100F3AC5F /* Controllers */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 		56290E8C279F231100F3AC5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56290EB727A1FF5E00F3AC5F /* AVKit.framework */,
 				56290E95279F23AF00F3AC5F /* Accelerate.framework */,
 				56290E93279F23A800F3AC5F /* CoreFoundation.framework */,
 				56290E91279F235800F3AC5F /* CoreMedia.framework */,
@@ -166,6 +172,15 @@
 				56290E9B279F786700F3AC5F /* opencv2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56290EB627A1C0B100F3AC5F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				56290D2B279E088F00F3AC5F /* ViewController.swift */,
+				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +317,7 @@
 			files = (
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
+				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 			);
@@ -483,6 +499,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SUA68HSKPH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -493,6 +510,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,7 +518,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.banan.Banan;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -518,6 +537,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SUA68HSKPH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -528,6 +548,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +556,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.banan.Banan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
