@@ -12,6 +12,11 @@
 		4D51A2C127B1391700C3F300 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4D51A2C027B1391700C3F300 /* FirebaseAnalyticsSwift-Beta */; };
 		4D51A2C327B1391700C3F300 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4D51A2C227B1391700C3F300 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		4D51A2C527B1391700C3F300 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4D51A2C427B1391700C3F300 /* FirebaseAuth */; };
+		4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */; };
+		4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */; };
+		4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */; };
+		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
+		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -51,6 +56,11 @@
 
 /* Begin PBXFileReference section */
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1ViewController.swift; sourceTree = "<group>"; };
+		4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
+		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
+		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +160,11 @@
 				56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */,
 				4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */,
 				56290EB627A1C0B100F3AC5F /* Controllers */,
+				4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */,
+				4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */,
+				4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */,
+				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
+				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -336,9 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
+				4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */,
+				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
+				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
+				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 			);
@@ -520,7 +540,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = D5JCDLCJN6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -558,7 +578,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = D5JCDLCJN6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
