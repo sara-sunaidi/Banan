@@ -12,6 +12,10 @@ class SignUp1ViewController: UIViewController {
     var password : String = ""
     var cheak : Bool = false
     var email : String = ""
+    var dob : String = ""
+    var sex : String = ""
+    var name : String = ""
+
     
     @IBOutlet weak var Email: UITextField!
     
@@ -197,6 +201,10 @@ class SignUp1ViewController: UIViewController {
             if let ema = Email.text{
             destinationVC?.em = ema
             destinationVC?.pass = password
+            destinationVC?.dob = dob
+            destinationVC?.sex = sex
+            destinationVC?.name = name
+
             }
             
             }

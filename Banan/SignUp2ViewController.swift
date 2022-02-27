@@ -7,14 +7,51 @@
 
 import UIKit
 import Foundation
-
+//extension UIDatePicker
+//{
+//    /// set the date picker values and set min/max
+//    /// - parameter date: Date to set the picker to
+//    /// - parameter unit: (years, days, months, hours, minutes...)
+//    /// - parameter deltaMinimum: minimum date delta in units
+//    /// - parameter deltaMaximum: maximum date delta in units
+//    /// - parameter animated: Whether or not to use animation for setting picker
+//    func setDate(_ date:Date, unit:NSCalendar.Unit, deltaMinimum:Int, deltaMaximum:Int, animated:Bool)
+//    {
+//        setDate(date, animated: animated)
+//
+//        setMinMax(unit: unit, deltaMinimum: deltaMinimum, deltaMaximum: deltaMaximum)
+//    }
+//
+//    /// set the min/max for the date picker (uses the pickers current date)
+//    /// - parameter unit: (years, days, months, hours, minutes...)
+//    /// - parameter deltaMinimum: minimum date delta in units
+//    /// - parameter deltaMaximum: maximum date delta in units
+//    func setMinMax(unit:NSCalendar.Unit, deltaMinimum:Int, deltaMaximum:Int)
+//    {
+//        if let gregorian = NSCalendar(calendarIdentifier:.gregorian)
+//        {
+//            if let minDate = gregorian.date(byAdding: unit, value: deltaMinimum, to: self.date)
+//            {
+//                minimumDate = minDate
+//            }
+//
+//            if let maxDate = gregorian.date(byAdding: unit, value: deltaMaximum, to: self.date)
+//            {
+//                maximumDate = maxDate
+//            }
+//        }
+//    }
+//}
 class SignUp2ViewController: UIViewController {
     var em : String = ""
     var pass : String = ""
     var dob : String = ""
-    var Dob1 : UIDatePicker? = nil
+   // var Dob1 : UIDatePicker? = nil
+    var sex : String = ""
+    var name : String = ""
 
-   
+
+   var date1 = Date()
 
     //let datepicker = UIDatePicker()
 
@@ -23,14 +60,20 @@ class SignUp2ViewController: UIViewController {
     //let he = SignUp1ViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "MMM dd, YYYY"
+        let date = dateFormatter.date(from: dob)
+        DOB.date = date ?? date1
        // DOB?.setValue(Dob1)
-
+//        DOB.setDate(date, unit:.year, deltaMinimum:-80, deltaMaximum:-6, animated: true)
         let calendar = Calendar(identifier: .gregorian)
         var comps = DateComponents()
-        comps.year = 0
+        comps.year = -6
+        comps.month = 0
         let maxDate = calendar.date(byAdding: comps, to: Date())
         comps.year = -80
         let minDate = calendar.date(byAdding: comps, to: Date())
+
         DOB.maximumDate = maxDate
         DOB.minimumDate = minDate
         // Do any additional setup after loading the view.
@@ -93,7 +136,10 @@ class SignUp2ViewController: UIViewController {
             destinationVC?.em1 = em
             destinationVC?.pass1 = pass
             destinationVC?.dob1 = dob
-            destinationVC?.Dob = DOB
+            destinationVC?.Sex = sex
+            destinationVC?.name = name
+
+          //  destinationVC?.Dob = DOB
 
 
             //}
@@ -104,6 +150,10 @@ class SignUp2ViewController: UIViewController {
                 let destinationVC = segue.destination as? SignUp1ViewController
                 destinationVC?.email = em
                 destinationVC?.password = pass
+                destinationVC?.dob = dob
+                destinationVC?.sex = sex
+                destinationVC?.name = name
+
 
    
                 }

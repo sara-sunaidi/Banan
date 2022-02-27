@@ -18,6 +18,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var dob2 : String = ""
     var sex1 : String = ""
     var score : String = "٠"
+    var name : String = ""
     
     let database = Firestore.firestore()
         
@@ -29,7 +30,9 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
        
     override func viewDidLoad() {
         super.viewDidLoad()
+        Name.text = name
         Name.layer.cornerRadius = 15.0
+        Name.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         Name.delegate = self
         print(em2,pass2,dob2,sex1)
 
@@ -39,12 +42,18 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         performSegue(withIdentifier: "SignUp4To3", sender: self)
     }
     
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+            guard let textFieldText = textField.text,
+                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                    return false
+            }
         let allowedCharacters = CharacterSet.letters
          let characterSet = CharacterSet(charactersIn: string)
-         return allowedCharacters.isSuperset(of: characterSet)
-    }
+            let substringToReplace = textFieldText[rangeOfTextToReplace]
+            let count = textFieldText.count - substringToReplace.count + string.count
+            return count <= 10 && allowedCharacters.isSuperset(of: characterSet)
+        }
    
 
     @IBAction func CreateAccount(_ sender: UIButton) {
@@ -107,6 +116,12 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         if segue.identifier == "SignUp4To3" {
             let destinationVC = segue.destination as? SignUp3ViewController
             destinationVC?.Sex = sex1
+            destinationVC?.em1 = em2
+            destinationVC?.pass1 = pass2
+            destinationVC?.dob1 = dob2
+            destinationVC?.name = Name.text ?? ""
+
+
             }
         }
     /*

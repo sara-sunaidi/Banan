@@ -188,13 +188,13 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="أدخل البريد الالكتروني" textAlignment="right" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-Me-hWV">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-Me-hWV">
                                 <rect key="frame" x="287" y="452" width="400" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="emailChanged:" destination="AlA-Tx-4ep" eventType="editingDidEnd" id="E0j-do-VsZ"/>
                                     <action selector="emailChanged:" destination="AlA-Tx-4ep" eventType="editingChanged" id="Pma-RA-ebr"/>
@@ -526,13 +526,13 @@
                                     <action selector="backButton:" destination="dye-SA-LIa" eventType="touchUpInside" id="kMc-oM-IQb"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="الاسم" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-BJ-1o0">
-                                <rect key="frame" x="289" y="485" width="400" height="70"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="الاسم" textAlignment="right" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-BJ-1o0">
+                                <rect key="frame" x="289" y="469" width="400" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y3W-3C-nYG"/>
@@ -599,7 +599,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7yl-H5-OTY"/>
-        <segue reference="b4Q-kP-pBJ"/>
+        <segue reference="epm-ui-d91"/>
         <segue reference="xxO-rX-2AB"/>
     </inferredMetricsTieBreakers>
     <resources>

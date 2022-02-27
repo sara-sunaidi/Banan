@@ -13,14 +13,16 @@ class SignUp3ViewController: UIViewController {
     var em1 : String = ""
     var pass1 : String = ""
     var dob1 : String = ""
-    var Dob : UIDatePicker? = nil
+    var name : String = ""
+   // var Dob : UIDatePicker? = nil
     
     @IBOutlet weak var boy: UIButton!
     @IBOutlet weak var girl: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        boy.tintColor = UIColor.white
+        girl.tintColor = UIColor.white
         switch (Sex){
         case "Girl":
             GIRL(girl)
@@ -89,6 +91,8 @@ class SignUp3ViewController: UIViewController {
             destinationVC?.pass2 = pass1
             destinationVC?.dob2 = dob1
             destinationVC?.sex1 = Sex
+            destinationVC?.sex1 = Sex
+            destinationVC?.name = name
 
             //}
             
@@ -97,7 +101,13 @@ class SignUp3ViewController: UIViewController {
             if segue.identifier == "SignUp3To2" {
                 let destinationVC = segue.destination as? SignUp2ViewController
                // if let date = dob{
-                destinationVC?.Dob1 = Dob
+                destinationVC?.dob = dob1
+                destinationVC?.em = em1
+                destinationVC?.pass = pass1
+                destinationVC?.sex = Sex
+                destinationVC?.name = name
+
+
         }
             
             
