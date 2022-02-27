@@ -6,11 +6,24 @@
 //
 
 import UIKit
+//import XCTest
+
+extension String {
+    var underlined: NSAttributedString {
+        NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+    }
+}
 
 class StartScreenViewController: UIViewController {
 
+    @IBOutlet weak var SignIn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //SignIn.currentTitle?.NSUnderlineStyle
+        SignIn.setAttributedTitle("تسجيل الدخول".underlined, for: .normal)
+      //  SignIn.titleLabel?.font = .systemFont(ofSize: 30)
 
         // Do any additional setup after loading the view.
     }
@@ -20,10 +33,12 @@ class StartScreenViewController: UIViewController {
     }
     
     @IBAction func SignUp1(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "SignUp1" )
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated:  true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(identifier: "SignUp1" )
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated:  true)
+        performSegue(withIdentifier: "StartToSignUp1", sender: self)
+
     }
     
     @IBAction func SignIn(_ sender: UIButton) {

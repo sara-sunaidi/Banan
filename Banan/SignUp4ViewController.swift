@@ -7,21 +7,108 @@
 
 import UIKit
 import Firebase
+import FirebaseCore
+import FirebaseFirestore
+import Foundation
+//import FirebaseStorage
 
+class SignUp4ViewController: UIViewController , UITextFieldDelegate {
+    var em2 : String = ""
+    var pass2 : String = ""
+    var dob2 : String = ""
+    var sex1 : String = ""
+    var score : String = "٠"
+    
+    let database = Firestore.firestore()
+        
+    @IBOutlet weak var Name: UITextField!
+    
+    // Get a reference to the storage service using the default Firebase App
+    //let storage = Storage.storage()
 
-class SignUp4ViewController: UIViewController {
+       
     override func viewDidLoad() {
         super.viewDidLoad()
+        Name.layer.cornerRadius = 15.0
+        Name.delegate = self
+        print(em2,pass2,dob2,sex1)
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func backButton(_ sender: Any) {
+        performSegue(withIdentifier: "SignUp4To3", sender: self)
+    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let allowedCharacters = CharacterSet.letters
+         let characterSet = CharacterSet(charactersIn: string)
+         return allowedCharacters.isSuperset(of: characterSet)
+    }
+   
 
     @IBAction func CreateAccount(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: "reemakd326@gmail.com", password: "123456") { authResult, error in
+        print(em2,pass2,dob2,sex1,Name.text)
+
+        if Name.text == "" {
+            let alert = UIAlertController(title: "تنبيه", message:"الرجاء ادخال الاسم", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                            switch action.style{
+                                case .default:
+                                print("default")
+
+                                case .cancel:
+                                print("cancel")
+
+                                case .destructive:
+                                print("destructive")
+
+                            }
+                        }))
+                        self.present(alert, animated: true, completion: nil)        }
+        else{
+            Auth.auth().createUser(withEmail: em2, password: pass2) { [self] authResult, error in
+            if error == nil {
           // ...
+            let uid = Auth.auth().currentUser?.uid
+            self.writeData(id: uid ?? "error")
+            
+            self.performSegue(withIdentifier: "ToHomePage", sender: self)
+            }
+            else {
+                let alert = UIAlertController(title: "تنبيه", message:"هذا المستخدم مسجل بالفعل \(self.em2)", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                                switch action.style{
+                                    case .default:
+                                    print("default")
+
+                                    case .cancel:
+                                    print("cancel")
+
+                                    case .destructive:
+                                    print("destructive")
+
+                                }
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+            }
         }
+        }
+
     }
+    
+    func writeData(id: String){
+        let docref = database.document("Children/\(id)")
+        docref.setData(["Email": em2, "Name": Name.text, "DOB": dob2, "Gender": sex1, "Score": score])
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SignUp4To3" {
+            let destinationVC = segue.destination as? SignUp3ViewController
+            destinationVC?.Sex = sex1
+            }
+        }
     /*
     // MARK: - Navigation
 
