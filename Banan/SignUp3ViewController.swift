@@ -21,8 +21,10 @@ class SignUp3ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         boy.tintColor = UIColor.white
         girl.tintColor = UIColor.white
+
         switch (Sex){
         case "Girl":
             GIRL(girl)

@@ -34,6 +34,14 @@ class SignUp1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Email.layer.cornerRadius = 15.0
+        
+        triangle.tintColor = UIColor.white
+        green.tintColor = UIColor.white
+        star.tintColor = UIColor.white
+        flower.tintColor = UIColor.white
+        parallelogram.tintColor = UIColor.white
+        circle.tintColor = UIColor.white
+        
         Email.text? = email
 //        if password == "star123" {
 //            star(star)

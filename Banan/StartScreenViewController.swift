@@ -42,6 +42,8 @@ class StartScreenViewController: UIViewController {
     }
     
     @IBAction func SignIn(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToLogIn", sender: self)
+
     }
     /*
     // MARK: - Navigation

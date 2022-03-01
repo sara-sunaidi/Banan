@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J52-NQ-hUa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ix6-fj-7RI">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -142,6 +142,7 @@
                     <connections>
                         <outlet property="SignIn" destination="t9v-n6-BqY" id="YF3-6F-r67"/>
                         <segue destination="AlA-Tx-4ep" kind="presentation" identifier="StartToSignUp1" modalPresentationStyle="currentContext" id="YiQ-fX-NIg"/>
+                        <segue destination="J52-NQ-hUa" kind="presentation" identifier="ToLogIn" modalPresentationStyle="currentContext" id="iRR-6x-4xd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-8Z-s3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -545,8 +546,9 @@
                     <navigationItem key="navigationItem" id="KBq-My-oAb"/>
                     <connections>
                         <outlet property="Name" destination="UHY-BJ-1o0" id="emy-ND-13s"/>
-                        <segue destination="hWM-78-z9x" kind="presentation" identifier="ToHomePage" modalPresentationStyle="currentContext" id="S7J-7d-A8h"/>
+                        <segue destination="hWM-78-z9x" kind="presentation" identifier="ToHomePage1" modalPresentationStyle="currentContext" id="S7J-7d-A8h"/>
                         <segue destination="XOq-Zb-asf" kind="presentation" identifier="SignUp4To3" modalPresentationStyle="currentContext" id="k0L-Sn-PAP"/>
+                        <segue destination="TId-jZ-MzO" kind="presentation" identifier="ToHomePage" modalPresentationStyle="currentContext" id="62k-Uq-p9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bG7-2d-bSZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -782,6 +784,7 @@
                         <outlet property="star123" destination="cQu-TM-bfE" id="VI0-rJ-A12"/>
                         <outlet property="triangle" destination="mMn-ml-hwt" id="v4O-uo-z3c"/>
                         <segue destination="TId-jZ-MzO" kind="presentation" identifier="GoToHomePage" modalPresentationStyle="currentContext" id="C36-KF-fOy"/>
+                        <segue destination="Ix6-fj-7RI" kind="presentation" identifier="GoToStartPage" modalPresentationStyle="currentContext" id="FGK-uu-hDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N48-k0-x3O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -887,10 +890,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="902-ur-R6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="1813"/>
+            <point key="canvasLocation" x="2328" y="1961"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="C36-KF-fOy"/>
         <segue reference="k0L-Sn-PAP"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>
