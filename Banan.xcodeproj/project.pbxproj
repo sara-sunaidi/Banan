@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
+		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
+		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
 		4DC0E30627BC136100560589 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E30527BC136100560589 /* FirebaseAnalytics */; };
 		4DC0E30827BC136100560589 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E30727BC136100560589 /* FirebaseAnalyticsSwift-Beta */; };
 		4DC0E30A27BC136100560589 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E30927BC136100560589 /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -67,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
 		4DC0E31F27BFDBA400560589 /* homepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepageViewController.swift; sourceTree = "<group>"; };
 		4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1ViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
 				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 				4DC0E31F27BFDBA400560589 /* homepageViewController.swift */,
+				4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			children = (
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
+				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -392,7 +398,9 @@
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
+				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
+				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
