@@ -261,11 +261,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d9-Ij-IlI">
-                                <rect key="frame" x="760" y="45" width="27" height="40"/>
+                                <rect key="frame" x="760" y="45" width="33" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.13770000000000002" green="0.26117999999999991" blue="0.27000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Vector"/>
+                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButton:" destination="AlA-Tx-4ep" eventType="touchUpInside" id="wFw-pD-2t8"/>
@@ -345,11 +346,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuS-4l-R4g">
-                                <rect key="frame" x="760" y="45" width="27" height="40"/>
+                                <rect key="frame" x="760" y="45" width="33" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.13770000000000002" green="0.26117999999999991" blue="0.27000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Vector"/>
+                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButton:" destination="xfT-gP-6CW" eventType="touchUpInside" id="4mj-sI-lFw"/>
@@ -423,11 +425,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehY-o9-YQ6">
-                                <rect key="frame" x="760" y="45" width="27" height="40"/>
+                                <rect key="frame" x="760" y="45" width="33" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.13770000000000002" green="0.26117999999999991" blue="0.27000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Vector"/>
+                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButton:" destination="XOq-Zb-asf" eventType="touchUpInside" id="8hr-0c-ZWX"/>
@@ -516,11 +519,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h3-Iv-TWK">
-                                <rect key="frame" x="760" y="45" width="27" height="40"/>
+                                <rect key="frame" x="760" y="45" width="33" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Vector"/>
+                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButton:" destination="dye-SA-LIa" eventType="touchUpInside" id="kMc-oM-IQb"/>
@@ -598,8 +602,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7yl-H5-OTY"/>
-        <segue reference="epm-ui-d91"/>
+        <segue reference="k0L-Sn-PAP"/>
+        <segue reference="b4Q-kP-pBJ"/>
         <segue reference="xxO-rX-2AB"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -608,9 +612,9 @@
         <image name="SignUp Screen3" width="278" height="398"/>
         <image name="SignUp Screen4" width="278" height="398"/>
         <image name="Start Screen" width="556" height="796"/>
-        <image name="Vector" width="9" height="13"/>
         <image name="Vector (1)" width="4" height="7"/>
         <image name="boy1" width="193" height="189"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="circle-1" width="82" height="91"/>
         <image name="girl1" width="187" height="201"/>
         <image name="green123-1" width="82" height="100"/>

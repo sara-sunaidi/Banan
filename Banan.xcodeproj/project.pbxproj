@@ -22,6 +22,7 @@
 		4DC0E31C27BC136100560589 /* FirebaseFunctionsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E31B27BC136100560589 /* FirebaseFunctionsSwift-Beta */; };
 		4DC0E31E27BC136100560589 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E31D27BC136100560589 /* FirebaseStorage */; };
 		4DC0E32027BFDBA400560589 /* homepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0E31F27BFDBA400560589 /* homepageViewController.swift */; };
+		4DC0E32327CD2D0D00560589 /* FlexibleSteppedProgressBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC0E32227CD2D0D00560589 /* FlexibleSteppedProgressBar */; };
 		4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */; };
 		4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */; };
 		4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */; };
@@ -108,6 +109,7 @@
 				56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */,
 				4DC0E30A27BC136100560589 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */,
+				4DC0E32327CD2D0D00560589 /* FlexibleSteppedProgressBar in Frameworks */,
 				4DC0E30627BC136100560589 /* FirebaseAnalytics in Frameworks */,
 				4DC0E31627BC136100560589 /* FirebaseFirestore in Frameworks */,
 				4DC0E30827BC136100560589 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
@@ -260,6 +262,7 @@
 				4DC0E31927BC136100560589 /* FirebaseFirestoreSwift-Beta */,
 				4DC0E31B27BC136100560589 /* FirebaseFunctionsSwift-Beta */,
 				4DC0E31D27BC136100560589 /* FirebaseStorage */,
+				4DC0E32227CD2D0D00560589 /* FlexibleSteppedProgressBar */,
 			);
 			productName = Banan;
 			productReference = 56290D24279E088F00F3AC5F /* Banan.app */;
@@ -336,6 +339,7 @@
 			mainGroup = 56290D1B279E088F00F3AC5F;
 			packageReferences = (
 				4DC0E30427BC136100560589 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4DC0E32127CD2D0C00560589 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */,
 			);
 			productRefGroup = 56290D25279E088F00F3AC5F /* Products */;
 			projectDirPath = "";
@@ -759,6 +763,14 @@
 				kind = branch;
 			};
 		};
+		4DC0E32127CD2D0C00560589 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amratab/FlexibleSteppedProgressBar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -826,6 +838,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4DC0E30427BC136100560589 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		4DC0E32227CD2D0D00560589 /* FlexibleSteppedProgressBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DC0E32127CD2D0C00560589 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */;
+			productName = FlexibleSteppedProgressBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

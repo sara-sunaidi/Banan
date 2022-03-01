@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import FlexibleSteppedProgressBar
 
 class SignUp1ViewController: UIViewController {
 
@@ -15,8 +16,8 @@ class SignUp1ViewController: UIViewController {
     var dob : String = ""
     var sex : String = ""
     var name : String = ""
+    //var progressBar1 = progressBar(stepNum: 0)
 
-    
     @IBOutlet weak var Email: UITextField!
     
     @IBOutlet weak var emailError: UILabel!

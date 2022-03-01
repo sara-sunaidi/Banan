@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "FlexibleSteppedProgressBar",
+        "repositoryURL": "https://github.com/amratab/FlexibleSteppedProgressBar.git",
+        "state": {
+          "branch": null,
+          "revision": "48802fa37e1395c601331bddc6efb361450255fc",
+          "version": "0.7.2"
+        }
+      },
+      {
         "package": "GoogleAppMeasurement",
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
