@@ -44,7 +44,6 @@
 		56290E92279F235800F3AC5F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E91279F235800F3AC5F /* CoreMedia.framework */; };
 		56290E94279F23A800F3AC5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E93279F23A800F3AC5F /* CoreFoundation.framework */; };
 		56290E96279F23AF00F3AC5F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E95279F23AF00F3AC5F /* Accelerate.framework */; };
-		56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E9B279F786700F3AC5F /* opencv2.framework */; };
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
@@ -95,7 +94,6 @@
 		56290E91279F235800F3AC5F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		56290E93279F23A800F3AC5F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		56290E95279F23AF00F3AC5F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		56290E9B279F786700F3AC5F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		56290E9D279F7C8200F3AC5F /* Banan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Banan-Bridging-Header.h"; sourceTree = "<group>"; };
 		56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				4DC0E31427BC136100560589 /* FirebaseDatabase in Frameworks */,
 				56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */,
 				4DC0E30A27BC136100560589 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */,
 				4DC0E32327CD2D0D00560589 /* FlexibleSteppedProgressBar in Frameworks */,
 				4DC0E30627BC136100560589 /* FirebaseAnalytics in Frameworks */,
 				4DC0E31627BC136100560589 /* FirebaseFirestore in Frameworks */,
@@ -223,7 +220,6 @@
 				56290E91279F235800F3AC5F /* CoreMedia.framework */,
 				56290E8F279F234A00F3AC5F /* CoreGraphics.framework */,
 				56290E8D279F231100F3AC5F /* AssetsLibrary.framework */,
-				56290E9B279F786700F3AC5F /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
