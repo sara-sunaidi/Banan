@@ -47,6 +47,7 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		56F91E4927D65CE700C1E4A9 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F91E4827D65CE700C1E4A9 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		56F91E4827D65CE700C1E4A9 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				56290E90279F234A00F3AC5F /* CoreGraphics.framework in Frameworks */,
 				4DC0E31E27BC136100560589 /* FirebaseStorage in Frameworks */,
 				56290E8E279F231100F3AC5F /* AssetsLibrary.framework in Frameworks */,
+				56F91E4927D65CE700C1E4A9 /* opencv2.framework in Frameworks */,
 				4DC0E31027BC136100560589 /* FirebaseAuth in Frameworks */,
 				4DC0E31C27BC136100560589 /* FirebaseFunctionsSwift-Beta in Frameworks */,
 				4DC0E31A27BC136100560589 /* FirebaseFirestoreSwift-Beta in Frameworks */,
@@ -220,6 +223,7 @@
 				56290E91279F235800F3AC5F /* CoreMedia.framework */,
 				56290E8F279F234A00F3AC5F /* CoreGraphics.framework */,
 				56290E8D279F231100F3AC5F /* AssetsLibrary.framework */,
+				56F91E4827D65CE700C1E4A9 /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
