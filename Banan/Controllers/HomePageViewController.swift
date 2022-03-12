@@ -95,6 +95,10 @@ class HomePageViewController : UIViewController{
     }
     
     
+    @IBAction func pressLearn(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToLearnLetterPage", sender: self)
+        
+    }
     @IBAction func profilePressed(_ sender: UIButton) {
         //print("gggggg")
     }
