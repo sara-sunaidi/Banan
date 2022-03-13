@@ -6,8 +6,11 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseFirestore
 class WordsViewController: UIViewController {
+    
+    let database = Firestore.firestore()
 
 //buttons
     @IBOutlet weak var button1: UIButton!
@@ -44,7 +47,14 @@ class WordsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        database.collection("Letters").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+               // self.groupByLevel(dbSnapshot: querySnapshot)
+                }
+//
+        }
         addImageToUIImageView()
         // Do any additional setup after loading the view.
     }
