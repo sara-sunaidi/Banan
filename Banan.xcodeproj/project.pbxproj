@@ -48,8 +48,10 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
-		56F856B227DCC39800A8C6A8 /* LettersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B127DCC39700A8C6A8 /* LettersViewController.swift */; };
+		56F856B227DCC39800A8C6A8 /* Letters2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */; };
 		56F856B527DD2AE900A8C6A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B427DD2AE900A8C6A8 /* Extensions.swift */; };
+		56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */; };
+		56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */; };
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,8 +107,10 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		56F856B127DCC39700A8C6A8 /* LettersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersViewController.swift; sourceTree = "<group>"; };
+		56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters2ViewController.swift; sourceTree = "<group>"; };
 		56F856B427DD2AE900A8C6A8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
+		56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,12 +241,14 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */,
+				56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
 				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
 				56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */,
 				56F856B427DD2AE900A8C6A8 /* Extensions.swift */,
-				56F856B127DCC39700A8C6A8 /* LettersViewController.swift */,
+				56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -405,10 +411,12 @@
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
+				56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */,
 				4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
-				56F856B227DCC39800A8C6A8 /* LettersViewController.swift in Sources */,
+				56F856B227DCC39800A8C6A8 /* Letters2ViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
+				56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				56F856B527DD2AE900A8C6A8 /* Extensions.swift in Sources */,
