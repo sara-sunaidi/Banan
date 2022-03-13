@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "SignUp Screen4 (1).png",
+      "filename" : "image 126 (10).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SignUp Screen4 (1)@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SignUp Screen4 (1)@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
