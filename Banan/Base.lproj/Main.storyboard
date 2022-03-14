@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ix6-fj-7RI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tuj-UF-kBX">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -892,19 +892,73 @@
             </objects>
             <point key="canvasLocation" x="2328" y="1961"/>
         </scene>
+        <!--Learn Letter View Controller-->
+        <scene sceneID="g7S-Gy-QBA">
+            <objects>
+                <viewController id="Tuj-UF-kBX" customClass="LearnLetterViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iwu-ud-O03">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LetterBackground" translatesAutoresizingMaskIntoConstraints="NO" id="taT-Vh-7Ui">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7cI-Oq-jET">
+                                <rect key="frame" x="150" y="63" width="594" height="30"/>
+                                <color key="tintColor" red="0.46274507050000002" green="0.65882354970000001" blue="0.61960786580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9BP-lf-dtc"/>
+                                </constraints>
+                            </progressView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PxN-L2-nz1">
+                                <rect key="frame" x="38" y="19" width="240" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="NFl-eT-BqG">
+                                        <rect key="frame" x="60" y="13" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Light" translatesAutoresizingMaskIntoConstraints="NO" id="Xae-Xs-TS3">
+                                        <rect key="frame" x="-40" y="-40" width="300" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lcc-G2-Onl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lcc-G2-Onl" firstAttribute="trailing" secondItem="7cI-Oq-jET" secondAttribute="trailing" constant="90" id="4R7-bL-I8w"/>
+                            <constraint firstItem="7cI-Oq-jET" firstAttribute="top" secondItem="Lcc-G2-Onl" secondAttribute="top" constant="39" id="MmF-hV-Xvg"/>
+                            <constraint firstItem="7cI-Oq-jET" firstAttribute="leading" secondItem="Lcc-G2-Onl" secondAttribute="leading" constant="150" id="sNj-lJ-C7a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressView1" destination="7cI-Oq-jET" id="P50-PA-YMm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAH-QH-jfo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434.5323741007196" y="2014.572864321608"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="FGK-uu-hDd"/>
         <segue reference="C36-KF-fOy"/>
         <segue reference="k0L-Sn-PAP"/>
-        <segue reference="epm-ui-d91"/>
+        <segue reference="b4Q-kP-pBJ"/>
         <segue reference="YiQ-fX-NIg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BrailleBlocks1" width="638" height="261"/>
         <image name="BrailleBlocks2" width="638" height="261"/>
+        <image name="Crown" width="74" height="107"/>
         <image name="DashBorad" width="77" height="116"/>
         <image name="HomePage" width="834" height="1194"/>
         <image name="HomePageBar" width="477" height="108"/>
+        <image name="LetterBackground" width="834" height="1194"/>
+        <image name="Light" width="242" height="242"/>
         <image name="LogInBackround" width="834" height="1194"/>
         <image name="Points" width="74" height="62"/>
         <image name="QuestionMark" width="59" height="67"/>
