@@ -8,10 +8,21 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseDatabase
+import FirebaseCore
 class WordsViewController: UIViewController {
     
     let database = Firestore.firestore()
+    var allWords = [[String : Any]]()
+    var first = [[String : Any]]()
+    var second = [[String : Any]]()
+    var category : String = ""
+    var arabicCategory : String = ""
 
+    var num : Int = 0
+    
+    @IBOutlet weak var Category: UILabel!
+    
 //buttons
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -47,24 +58,147 @@ class WordsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        database.collection("Letters").getDocuments() { (querySnapshot, err) in
+
+        Category.text = arabicCategory
+        
+        addShadow(button: button1)
+        addShadow(button: button2)
+        addShadow(button: button3)
+        addShadow(button: button4)
+        addShadow(button: button5)
+        addShadow(button: button6)
+        addShadow(button: button7)
+        addShadow(button: button8)
+        addShadow(button: button9)
+
+        database.collection("Words").whereField("Category", isEqualTo: category).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                for i in querySnapshot!.documentChanges {
+                    let docid = i.document.documentID
+                    let word = i.document.get("Arabic")
+                   // let letters = i.document.get("AllLetters")
+                    
+                    self.addImageToUIImageView(docid: docid,word: word as! String)
+
+                }
+                //print(querySnapshot ?? "nooooooo")
                // self.groupByLevel(dbSnapshot: querySnapshot)
                 }
-//
+    //
         }
-        addImageToUIImageView()
+        
+        //firebase.firestore().enablePersistence()
+//        let docRef = database.collection("Words").document("Foods")
+//        docRef.getDocument { (querySnapshot, error) in
+//            if let document = querySnapshot, document.exists {
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data: \(dataDescription)")
+//                //self.groupByLevel(dbSnapshot: querySnapshot)
+////                for doc in querySnapshot!.documentID {
+////                    self.allWords.append(doc)
+////                }
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+//        database.collection("Words").document("Foods").getDocument { (querySnapshot, err) in
+//            if let err = err {
+//                print("الاوللError getting documents: \(err)")
+//            } else {
+//                //self.groupByLevel(dbSnapshot: querySnapshot)
+//                print(querySnapshot ?? "الثانيhhhhhh")
+//                }
+////
+//        }
+      //  addImageToUIImageView()
         // Do any additional setup after loading the view.
     }
-    
+    func groupByLevel(dbSnapshot: QuerySnapshot?) {
+            print("heeeenaaaaa\(dbSnapshot!.documents.count)")
+            
+            for document in dbSnapshot!.documents {
+                var dat = document.data()
+               // dat["Letters"] = document.value(forKey: "AllLetters")
+                //dat["Word"] = document.value(forKey: "Arabic")
+                dat["gg"] = document.documentID
 
-    func addImageToUIImageView(){
-        let yourImage: UIImage = UIImage(named: "apple")!
-        img1?.image = yourImage
-        word1.text = foods[2]
+                dat["Image"] = UIImage (named: document.documentID)
+                
+                self.allWords.append(dat)
+                
             }
+        
+        
+        //...
+        }
+//    func groupByLevel(dbSnapshot: QuerySnapshot?) {
+//            print(dbSnapshot!.documents.count)
+//
+//            for document in dbSnapshot!.documents {
+//                var dat = document.data()
+//                dat["food1"] = document.documentID
+//                dat["food2"] = document.documentID
+//
+//               // self.allWords.append(dat)
+//
+//            }
+        
+       //first=allWords.filter({$0["Level"] as! String == "First"})
+//        second = allLetters.filter({$0["Level"] as! String == "Second"})
+        //...
+        
+
+    func addImageToUIImageView(docid: String, word: String){
+        num+=1
+        let yourImage: UIImage = UIImage(named: docid)!
+       // print(allWords[0])
+        getImg().image = yourImage
+        getLabel().text = word
+        
+    }
+    
+    func getImg() -> UIImageView{
+        switch(num){
+        case 1: return img1
+        case 2: return img2
+        case 3: return img3
+        case 4: return img4
+        case 5: return img5
+        case 6: return img6
+        case 7: return img7
+        case 8: return img8
+        case 9: return img9
+        default: return img1
+
+        }
+        
+    }
+    func getLabel() -> UILabel{
+        switch(num){
+        case 1: return word1
+        case 2: return word2
+        case 3: return word3
+        case 4: return word4
+        case 5: return word5
+        case 6: return word6
+        case 7: return word7
+        case 8: return word8
+        case 9: return word9
+        default: return word1
+
+        }
+        
+    }
+    
+    func addShadow(button : UIButton){
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowRadius = 0.0
+        button.layer.masksToBounds = false
+    }
     /*
     // MARK: - Navigation
 
