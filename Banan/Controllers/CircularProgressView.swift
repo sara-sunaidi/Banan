@@ -50,7 +50,8 @@ struct ProgressBar: View {
                 .rotationEffect(Angle(degrees: 270))
                 .animation(.easeInOut(duration: 2.0))
             
-            Text("\(Int(progress*100))%")
+            Text("\(Int(progress*100))%".convertedDigitsToLocale(Locale(identifier: "AR")))
+                .foregroundColor(Color(red: 35 / 255, green: 66 / 255, blue: 68 / 255))
                 .font(.system(size: 20))
                 .fontWeight(.black)
         }

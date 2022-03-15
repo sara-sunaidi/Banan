@@ -75,26 +75,34 @@ class LevelsViewController: UIViewController {
                     
                     self.completedLevels = dataDescription?["CompletedLevel"] as! [String]
                     self.completedLetters = dataDescription?["CompletedLetter"] as! [String]
-                    
+                    print("comppp")
                 } else {
                     Swift.print("Document does not exist")
                 }
-                self.buttonLevels()
+                
+                self.db.collection("Letters").getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        print("oo")
+                        self.groupByLevel(dbSnapshot: querySnapshot)
+                        print("lll")
+                        self.buttonLevels()
+                        }
+        //
+                }
+//                self.buttonLevels()
             }
         }
+        
+        
 
-        db.collection("Letters").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                self.groupByLevel(dbSnapshot: querySnapshot)
-                }
-//
-        }
+  
         }
     
     func buttonLevels(){
-        
+        print("kk")
+        print(first.count)
         designButton(completed: completedLevels.contains("First"), levelArray: first, label: firstLabel, button: firstButton)
         
         designButton(completed: completedLevels.contains("Second"), levelArray: second, label: secondLabel, button: secondButton)
@@ -125,6 +133,10 @@ class LevelsViewController: UIViewController {
         
         let filteredArray = levelArray.map{$0["Letter"]} as! [String]
         let intersect = Set(filteredArray).intersection(completedLetters).count
+        print("filtere count:")
+        print(filteredArray.count)
+        print("intersect:")
+        print(intersect)
         
         //English num to Arabic num
         let arabicIntersect = "\(intersect)".convertedDigitsToLocale(Locale(identifier: "AR"))
@@ -151,6 +163,7 @@ print(arabicTotal)
     
     
     func groupByLevel(dbSnapshot: QuerySnapshot?) {
+        print("grouping")
             print(dbSnapshot!.documents.count)
             
             for document in dbSnapshot!.documents {
@@ -172,7 +185,7 @@ print(arabicTotal)
         eighth = allLetters.filter({$0["Level"] as! String == "Eighth"})
         ninth = allLetters.filter({$0["Level"] as! String == "Ninth"})
         tenth = allLetters.filter({$0["Level"] as! String == "Tenth"})
-
+print("end grouping")
         }
         
     
