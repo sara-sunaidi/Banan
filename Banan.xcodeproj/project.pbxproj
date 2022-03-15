@@ -48,6 +48,13 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */; };
+		56BD5EBA27E0F4A600F6DBB6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB927E0F4A600F6DBB6 /* Extension.swift */; };
+		56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */; };
+		56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */; };
+		56BD5EC027E0F63300F6DBB6 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBF27E0F63300F6DBB6 /* Letters3ViewController.swift */; };
+		56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EC127E0F6A700F6DBB6 /* Letters2ViewController.swift */; };
+		56BD5EC427E0F7E500F6DBB6 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +109,13 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPageViewController.swift; sourceTree = "<group>"; };
+		56BD5EB927E0F4A600F6DBB6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
+		56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		56BD5EBF27E0F63300F6DBB6 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
+		56BD5EC127E0F6A700F6DBB6 /* Letters2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters2ViewController.swift; sourceTree = "<group>"; };
+		56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +246,14 @@
 			isa = PBXGroup;
 			children = (
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
+				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
+				56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */,
+				56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */,
+				56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */,
+				56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
+				56BD5EBF27E0F63300F6DBB6 /* Letters3ViewController.swift */,
+				56BD5EC127E0F6A700F6DBB6 /* Letters2ViewController.swift */,
 				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
 			);
 			path = Controllers;
@@ -391,17 +412,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BD5EBA27E0F4A600F6DBB6 /* Extension.swift in Sources */,
 				4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */,
 				4DC0E32027BFDBA400560589 /* homepageViewController.swift in Sources */,
+				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */,
+				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
+				56BD5EC427E0F7E500F6DBB6 /* LevelsViewController.swift in Sources */,
+				56BD5EC027E0F63300F6DBB6 /* Letters3ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
+				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
+				56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 			);

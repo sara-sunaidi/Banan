@@ -17,12 +17,18 @@ class HomePageViewController : UIViewController{
     @IBOutlet weak var points: UILabel!
     var Profile : String = ""
     var Score : String = ""
+    
+    var allLetters = [String]()
+    var lettersCount = Int()
+    var wordsCount = Int()
+    var completedLetters = [String]()
+    var completedWords = [String]()
+    
     let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-   
-    
         if let userId = Auth.auth().currentUser?.uid {
                 let collectionRef = self.db.collection("Children")
                 let thisUserDoc = collectionRef.document(userId)
@@ -32,6 +38,10 @@ class HomePageViewController : UIViewController{
                         return
                     }
                     if let doc = document {
+                        let dataDescription = doc.data()
+                        self.completedLetters = dataDescription?["CompletedLetter"] as! [String]
+                        self.completedWords = dataDescription?["CompletedWord"] as! [String]
+                        
                         self.name.text =  doc.get("Name") as? String
                         self.points.text = doc.get("Score") as? String
                         let Profile = doc.get("Gender") as? String
@@ -48,6 +58,36 @@ class HomePageViewController : UIViewController{
                     }
                 })
             }
+        
+        db.collection("Letters").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                //self.getAllLetters(dbSnapshot: querySnapshot)
+                print("2")
+                self.lettersCount = querySnapshot?.documents.count ?? 0
+//                for document in querySnapshot!.documents {
+//                    self.allLetters.append(document.documentID)
+//
+//                }
+                }
+    //
+        }
+        
+        db.collection("Words").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                //self.getAllLetters(dbSnapshot: querySnapshot)
+                print("2")
+                self.wordsCount = querySnapshot?.documents.count ?? 0
+//                for document in querySnapshot!.documents {
+//                    self.allLetters.append(document.documentID)
+//
+//                }
+                }
+    //
+        }
 
 //            if let userId = Auth.auth().currentUser?.uid {
 //                print("gggggg")
@@ -94,7 +134,26 @@ class HomePageViewController : UIViewController{
       
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // do the same for all three views
+        
+        if segue.identifier == "GoToLearningPage"{
+            let destination = segue.destination as! LearningPageViewController
+            print("tteesstt")
+//            print(Float(completedLetters.count)/Float(lettersCount))
+//            destination.letterPercent = Float(completedLetters.count)/Float(lettersCount)
+//            destination.wordPercent = Float(completedWords.count)/Float(wordsCount)
+            destination.allLettersCount = lettersCount
+            destination.allWordsCount = wordsCount
+            destination.completedWords = completedWords
+//            destination.allLetters = allLetters
+            destination.completedLetters = completedLetters
+        }
+    }
+    @IBAction func pressLearn(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToLearningPage", sender: self)
+        
+    }
     @IBAction func profilePressed(_ sender: UIButton) {
         //print("gggggg")
     }
