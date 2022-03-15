@@ -58,6 +58,9 @@ class LearWordsViewController: UIViewController {
         //print(allWords[0])
     }
     
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func materialButton(_ sender: UIButton) {

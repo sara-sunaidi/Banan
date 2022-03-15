@@ -115,6 +115,12 @@ class WordsViewController: UIViewController {
       //  addImageToUIImageView()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func groupByLevel(dbSnapshot: QuerySnapshot?) {
             print("heeeenaaaaa\(dbSnapshot!.documents.count)")
             

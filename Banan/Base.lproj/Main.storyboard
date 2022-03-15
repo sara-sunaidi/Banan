@@ -1257,6 +1257,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButton:" destination="J52-NQ-hUa" eventType="touchUpInside" id="J7F-LR-Wrk"/>
+                                    <action selector="backButton:" destination="XYE-yz-tae" eventType="touchUpInside" id="XrP-8m-glW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تدرب على الكلمات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-zq-yNB">
@@ -1455,6 +1456,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButton:" destination="J52-NQ-hUa" eventType="touchUpInside" id="NhB-fV-BSL"/>
+                                    <action selector="backButton:" destination="mR9-5J-Lph" eventType="touchUpInside" id="Pa4-aR-51a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIV-l1-uMl">
