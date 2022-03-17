@@ -19,6 +19,8 @@ class WordsViewController: UIViewController {
     var category : String = ""
     var arabicCategory : String = ""
     
+    var index : Int = 0
+    
     @IBOutlet weak var Category: UILabel!
     
 //buttons
@@ -82,49 +84,7 @@ class WordsViewController: UIViewController {
         addImageToUIImageView(index: 7, img: img8, label: word8)
         addImageToUIImageView(index: 8, img: img9, label: word9)
         
-//        database.collection("Words").whereField("Category", isEqualTo: category).getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for i in querySnapshot!.documentChanges {
-//                    let docid = i.document.documentID
-//                    let word = i.document.get("Arabic")
-//                   // let letters = i.document.get("AllLetters")
-//
-//                    self.addImageToUIImageView(docid: docid,word: word as! String)
-//
-//                }
-//                //print(querySnapshot ?? "nooooooo")
-//               // self.groupByLevel(dbSnapshot: querySnapshot)
-//                }
-//    //
-//        }
-        
-        //firebase.firestore().enablePersistence()
-//        let docRef = database.collection("Words").document("Foods")
-//        docRef.getDocument { (querySnapshot, error) in
-//            if let document = querySnapshot, document.exists {
-//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                print("Document data: \(dataDescription)")
-//                //self.groupByLevel(dbSnapshot: querySnapshot)
-////                for doc in querySnapshot!.documentID {
-////                    self.allWords.append(doc)
-////                }
-//            } else {
-//                print("Document does not exist")
-//            }
-//        }
-//        database.collection("Words").document("Foods").getDocument { (querySnapshot, err) in
-//            if let err = err {
-//                print("الاوللError getting documents: \(err)")
-//            } else {
-//                //self.groupByLevel(dbSnapshot: querySnapshot)
-//                print(querySnapshot ?? "الثانيhhhhhh")
-//                }
-////
-//        }
-      //  addImageToUIImageView()
-        // Do any additional setup after loading the view.
+
     }
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -155,22 +115,31 @@ class WordsViewController: UIViewController {
     
     
     @IBAction func button1Pressed(_ sender: UIButton) {
+        index = 0
     }
     @IBAction func button2Pressed(_ sender: UIButton) {
+        index = 1
     }
     @IBAction func button3Pressed(_ sender: UIButton) {
+        index = 2
     }
     @IBAction func button4Pressed(_ sender: UIButton) {
+        index = 3
     }
     @IBAction func button5Pressed(_ sender: UIButton) {
+        index = 4
     }
     @IBAction func button6Pressed(_ sender: UIButton) {
+        index = 5
     }
     @IBAction func button7Pressed(_ sender: UIButton) {
+        index = 6
     }
     @IBAction func button8Pressed(_ sender: UIButton) {
+        index = 7
     }
     @IBAction func button9Pressed(_ sender: UIButton) {
+        index = 8
     }
     
     /*

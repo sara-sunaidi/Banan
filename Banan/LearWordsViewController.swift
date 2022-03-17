@@ -67,40 +67,9 @@ class LearWordsViewController: UIViewController {
             }
         }
             
-//        designButton(button: material, completed: completedCategory.contains("Material"))
-//        designButton(button: food, completed: completedCategory.contains("Food"))
-//        designButton(button: place, completed: completedCategory.contains("Place"))
-//        designButton(button: animal, completed: completedCategory.contains("Animal"))
 
-//        database.collection("Words").whereField("Category", isEqualTo: "Food").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                self.groupByLevel(dbSnapshot: querySnapshot)
-//        // Do any additional setup after loading the view.
-//    }
-//       }
-//
     }
-//    func groupByLevel(dbSnapshot: QuerySnapshot?) {
-//            print("heeeenaaaaa\(dbSnapshot!.documents.count)")
-//
-//            for document in dbSnapshot!.documents {
-//                var dat = document.data()
-//                //dat["Letters"] = document.value(forKey: "AllLetters")
-//               // dat["Word"] = document.value(forKey: "Arabic")
-//               // dat["gg"] = document.documentID
-//                dat["Image"] = UIImage (named: document.documentID)
-//
-//                self.allWords.append(dat)
-//
-////                print(allWords[0])
-//
-//            }
-//        print(allWords[0])
-//
-//        //print(allWords[0])
-//    }
+
     func buttonCategory() {
         
         designButton(button: material, completed: completedCategory.contains("Material"), label: completedMaterial, catArray: allMaterial)
