@@ -39,6 +39,12 @@ class LearWordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        material.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        food.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        place.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        animal.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        
+        
         if let userId = Auth.auth().currentUser?.uid {
             let collectionRef = self.database.collection("Children")
             let thisUserDoc = collectionRef.document(userId)

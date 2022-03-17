@@ -59,6 +59,16 @@ class WordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        button1.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button2.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button3.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button4.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button5.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button6.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button7.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button8.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        button9.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
+        
         Category.text = arabicCategory
         print("ooooooooooo")
         print(completedWords)
