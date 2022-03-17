@@ -14,12 +14,10 @@ class WordsViewController: UIViewController {
     
     let database = Firestore.firestore()
     var allWords = [[String : Any]]()
-    var first = [[String : Any]]()
-    var second = [[String : Any]]()
+    var completedWords = [String]()
+
     var category : String = ""
     var arabicCategory : String = ""
-
-    var num : Int = 0
     
     @IBOutlet weak var Category: UILabel!
     
@@ -54,40 +52,53 @@ class WordsViewController: UIViewController {
     @IBOutlet weak var word8: UILabel!
     @IBOutlet weak var word9: UILabel!
     
-    let foods = ["موز", "ليمون", "تفاح" ,"كمثرى" ,"بطيخ" ,"جزر" ,"عنب" ,"خوخ" ,"طماطم"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         Category.text = arabicCategory
+        print("ooooooooooo")
+        print(completedWords)
+        print("ooooooooooo")
+
+        designButton(button: button1, completed: completedWords.contains(allWords[0]["word"] as! String))
+        designButton(button: button2, completed: completedWords.contains(allWords[1]["word"] as! String))
+        designButton(button: button3, completed: completedWords.contains(allWords[2]["word"] as! String))
+        designButton(button: button4, completed: completedWords.contains(allWords[3]["word"] as! String))
+        designButton(button: button5, completed: completedWords.contains(allWords[4]["word"] as! String))
+        designButton(button: button6, completed: completedWords.contains(allWords[5]["word"] as! String))
+        designButton(button: button7, completed: completedWords.contains(allWords[6]["word"] as! String))
+        designButton(button: button8, completed: completedWords.contains(allWords[7]["word"] as! String))
+        designButton(button: button9, completed: completedWords.contains(allWords[8]["word"] as! String))
         
-        addShadow(button: button1)
-        addShadow(button: button2)
-        addShadow(button: button3)
-        addShadow(button: button4)
-        addShadow(button: button5)
-        addShadow(button: button6)
-        addShadow(button: button7)
-        addShadow(button: button8)
-        addShadow(button: button9)
-
-        database.collection("Words").whereField("Category", isEqualTo: category).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for i in querySnapshot!.documentChanges {
-                    let docid = i.document.documentID
-                    let word = i.document.get("Arabic")
-                   // let letters = i.document.get("AllLetters")
-                    
-                    self.addImageToUIImageView(docid: docid,word: word as! String)
-
-                }
-                //print(querySnapshot ?? "nooooooo")
-               // self.groupByLevel(dbSnapshot: querySnapshot)
-                }
-    //
-        }
+        addImageToUIImageView(index: 0, img: img1, label: word1)
+        addImageToUIImageView(index: 1, img: img2, label: word2)
+        addImageToUIImageView(index: 2, img: img3, label: word3)
+        addImageToUIImageView(index: 3, img: img4, label: word4)
+        addImageToUIImageView(index: 4, img: img5, label: word5)
+        addImageToUIImageView(index: 5, img: img6, label: word6)
+        addImageToUIImageView(index: 6, img: img7, label: word7)
+        addImageToUIImageView(index: 7, img: img8, label: word8)
+        addImageToUIImageView(index: 8, img: img9, label: word9)
+        
+//        database.collection("Words").whereField("Category", isEqualTo: category).getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for i in querySnapshot!.documentChanges {
+//                    let docid = i.document.documentID
+//                    let word = i.document.get("Arabic")
+//                   // let letters = i.document.get("AllLetters")
+//
+//                    self.addImageToUIImageView(docid: docid,word: word as! String)
+//
+//                }
+//                //print(querySnapshot ?? "nooooooo")
+//               // self.groupByLevel(dbSnapshot: querySnapshot)
+//                }
+//    //
+//        }
         
         //firebase.firestore().enablePersistence()
 //        let docRef = database.collection("Words").document("Foods")
@@ -119,92 +130,49 @@ class WordsViewController: UIViewController {
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    func groupByLevel(dbSnapshot: QuerySnapshot?) {
-            print("heeeenaaaaa\(dbSnapshot!.documents.count)")
-            
-            for document in dbSnapshot!.documents {
-                var dat = document.data()
-               // dat["Letters"] = document.value(forKey: "AllLetters")
-                //dat["Word"] = document.value(forKey: "Arabic")
-                dat["gg"] = document.documentID
-
-                dat["Image"] = UIImage (named: document.documentID)
-                
-                self.allWords.append(dat)
-                
-            }
-        
-        
-        //...
-        }
-//    func groupByLevel(dbSnapshot: QuerySnapshot?) {
-//            print(dbSnapshot!.documents.count)
-//
-//            for document in dbSnapshot!.documents {
-//                var dat = document.data()
-//                dat["food1"] = document.documentID
-//                dat["food2"] = document.documentID
-//
-//               // self.allWords.append(dat)
-//
-//            }
-        
-       //first=allWords.filter({$0["Level"] as! String == "First"})
-//        second = allLetters.filter({$0["Level"] as! String == "Second"})
-        //...
         
 
-    func addImageToUIImageView(docid: String, word: String){
-        num+=1
-        let yourImage: UIImage = UIImage(named: docid)!
+    func addImageToUIImageView(index: Int, img: UIImageView, label: UILabel){
+        let yourImage: UIImage = UIImage(named: allWords[index]["word"] as! String)!
        // print(allWords[0])
-        getImg().image = yourImage
-        getLabel().text = word
+        img.image = yourImage
+        label.text = (allWords[index]["arabic"] as! String)
         
     }
     
-    func getImg() -> UIImageView{
-        switch(num){
-        case 1: return img1
-        case 2: return img2
-        case 3: return img3
-        case 4: return img4
-        case 5: return img5
-        case 6: return img6
-        case 7: return img7
-        case 8: return img8
-        case 9: return img9
-        default: return img1
 
-        }
-        
-    }
-    func getLabel() -> UILabel{
-        switch(num){
-        case 1: return word1
-        case 2: return word2
-        case 3: return word3
-        case 4: return word4
-        case 5: return word5
-        case 6: return word6
-        case 7: return word7
-        case 8: return word8
-        case 9: return word9
-        default: return word1
-
-        }
-        
-    }
     
-    func addShadow(button : UIButton){
+    func designButton(button : UIButton, completed: Bool){
+        if (completed){
+            button.tintColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
+        }
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         button.layer.shadowOpacity = 0.8
         button.layer.shadowRadius = 0.0
         button.layer.masksToBounds = false
     }
+    
+    
+    @IBAction func button1Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button2Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button3Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button4Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button5Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button6Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button7Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button8Pressed(_ sender: UIButton) {
+    }
+    @IBAction func button9Pressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
