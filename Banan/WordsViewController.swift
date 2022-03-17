@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseDatabase
 import FirebaseCore
+import CoreMIDI
 class WordsViewController: UIViewController {
     
     let database = Firestore.firestore()
@@ -19,6 +20,9 @@ class WordsViewController: UIViewController {
     var category : String = ""
     var arabicCategory : String = ""
     
+    var letters = [String]()
+    var Braille = [String]()
+
     var index : Int = 0
     
     @IBOutlet weak var Category: UILabel!
@@ -70,9 +74,7 @@ class WordsViewController: UIViewController {
         button9.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         
         Category.text = arabicCategory
-        print("ooooooooooo")
-        print(completedWords)
-        print("ooooooooooo")
+ 
 
         designButton(button: button1, completed: completedWords.contains(allWords[0]["word"] as! String))
         designButton(button: button2, completed: completedWords.contains(allWords[1]["word"] as! String))
@@ -94,6 +96,7 @@ class WordsViewController: UIViewController {
         addImageToUIImageView(index: 7, img: img8, label: word8)
         addImageToUIImageView(index: 8, img: img9, label: word9)
         
+
 
     }
     
@@ -123,33 +126,61 @@ class WordsViewController: UIViewController {
         button.layer.masksToBounds = false
     }
     
+    func getBraille(num: Int) {
+        letters = allWords[num]["allLetters"] as! [String]
+        for i in letters {
+        let docRef = database.collection("Letters").document(i)
+           docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.get("Braille")
+               
+                        self.Braille.append(dataDescription as! String)
+                
+                    } else {
+                        print("Document does not exist")
+                    }
+                }}}
     
     @IBAction func button1Pressed(_ sender: UIButton) {
         index = 0
+        getBraille(num: index)
+        print(Braille)
     }
     @IBAction func button2Pressed(_ sender: UIButton) {
         index = 1
+        getBraille(num: index)
+        print(Braille)
+
     }
     @IBAction func button3Pressed(_ sender: UIButton) {
         index = 2
+        getBraille(num: index)
+        print(Braille)
+
     }
     @IBAction func button4Pressed(_ sender: UIButton) {
         index = 3
+        getBraille(num: index)
     }
     @IBAction func button5Pressed(_ sender: UIButton) {
         index = 4
+        getBraille(num: index)
     }
     @IBAction func button6Pressed(_ sender: UIButton) {
         index = 5
+        getBraille(num: index)
     }
     @IBAction func button7Pressed(_ sender: UIButton) {
         index = 6
+        getBraille(num: index)
     }
     @IBAction func button8Pressed(_ sender: UIButton) {
         index = 7
+        getBraille(num: index)
     }
     @IBAction func button9Pressed(_ sender: UIButton) {
         index = 8
+        getBraille(num: index)
     }
     
     /*

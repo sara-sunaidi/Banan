@@ -1354,7 +1354,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="material" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-om-cOB">
-                                <rect key="frame" x="401" y="447" width="242" height="233"/>
+                                <rect key="frame" x="401" y="420" width="248" height="277"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أدوات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOp-96-luq">
@@ -1383,7 +1383,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="foods" translatesAutoresizingMaskIntoConstraints="NO" id="aeI-VP-TuJ">
-                                <rect key="frame" x="66" y="460" width="215" height="180"/>
+                                <rect key="frame" x="56" y="460" width="240" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أطعمة" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoN-DM-AZ6">
@@ -1393,10 +1393,6 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.26227785910000001" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="animal" translatesAutoresizingMaskIntoConstraints="NO" id="jor-49-efG">
-                                <rect key="frame" x="89" y="755" width="268" height="163"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="حيوانات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sl-Bd-CCf">
                                 <rect key="frame" x="259" y="688" width="104" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1404,6 +1400,10 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.26227785910000001" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="E5B-lL-EX5">
+                                <rect key="frame" x="335" y="736" width="405" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أماكن" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-OI-Owy">
                                 <rect key="frame" x="628" y="688" width="71" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1425,8 +1425,8 @@
                                 <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="E5B-lL-EX5">
-                                <rect key="frame" x="323" y="736" width="417" height="181"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="animal" translatesAutoresizingMaskIntoConstraints="NO" id="jor-49-efG">
+                                <rect key="frame" x="95" y="761" width="268" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
