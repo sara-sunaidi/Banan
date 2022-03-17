@@ -53,6 +53,9 @@
 		56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */; };
 		56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */; };
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
+		71CD8F8627DFE6270049062B /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8527DFE6270049062B /* WordViewController.swift */; };
+		71CD8F8827E19E4A0049062B /* CustomAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CD8F8727E19E480049062B /* CustomAlertView.xib */; };
+		71CD8F8A27E251710049062B /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8927E251710049062B /* CustomAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,9 @@
 		56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
 		56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		71CD8F8527DFE6270049062B /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
+		71CD8F8727E19E480049062B /* CustomAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertView.xib; sourceTree = "<group>"; };
+		71CD8F8927E251710049062B /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
+				71CD8F8727E19E480049062B /* CustomAlertView.xib */,
 				56290D35279E089000F3AC5F /* Info.plist */,
 				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
 				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
@@ -241,6 +248,7 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71CD8F8527DFE6270049062B /* WordViewController.swift */,
 				56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */,
 				56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
@@ -249,6 +257,7 @@
 				56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */,
 				56F856B427DD2AE900A8C6A8 /* Extensions.swift */,
 				56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */,
+				71CD8F8927E251710049062B /* CustomAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CD8F8827E19E4A0049062B /* CustomAlertView.xib in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
@@ -416,11 +426,13 @@
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				56F856B227DCC39800A8C6A8 /* Letters2ViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
+				71CD8F8627DFE6270049062B /* WordViewController.swift in Sources */,
 				56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				56F856B527DD2AE900A8C6A8 /* Extensions.swift in Sources */,
 				56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */,
+				71CD8F8A27E251710049062B /* CustomAlertViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
@@ -603,7 +615,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -642,7 +654,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

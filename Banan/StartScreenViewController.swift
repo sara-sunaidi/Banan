@@ -30,6 +30,7 @@ class StartScreenViewController: UIViewController {
     
 
     @IBAction func StartAsVisitor(_ sender: Any) {
+        performSegue(withIdentifier: "ToWord", sender: self)
     }
     
     @IBAction func SignUp1(_ sender: UIButton) {

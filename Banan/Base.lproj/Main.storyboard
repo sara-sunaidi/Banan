@@ -124,7 +124,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-n6-BqY">
-                                <rect key="frame" x="299" y="1068" width="147" height="46"/>
+                                <rect key="frame" x="299" y="1069" width="147" height="45"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="تسجيل الدخول">
                                     <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="27"/>
@@ -145,6 +145,7 @@
                         <outlet property="SignIn" destination="t9v-n6-BqY" id="YF3-6F-r67"/>
                         <segue destination="AlA-Tx-4ep" kind="presentation" identifier="StartToSignUp1" modalPresentationStyle="currentContext" id="YiQ-fX-NIg"/>
                         <segue destination="J52-NQ-hUa" kind="presentation" identifier="ToLogIn" modalPresentationStyle="currentContext" id="iRR-6x-4xd"/>
+                        <segue destination="xfo-WX-wKH" kind="presentation" identifier="ToWord" modalPresentationStyle="currentContext" id="c34-sR-Gd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-8Z-s3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1905,6 +1906,142 @@
             </objects>
             <point key="canvasLocation" x="3223.741007194245" y="1975.8793969849246"/>
         </scene>
+        <!--Word View Controller-->
+        <scene sceneID="dJs-Po-IGS">
+            <objects>
+                <viewController id="xfo-WX-wKH" customClass="WordViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2IK-qB-RPo">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WordBackground" translatesAutoresizingMaskIntoConstraints="NO" id="MY0-dX-hZB">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="موز" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUw-PD-rbV">
+                                <rect key="frame" x="267" y="66" width="300" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="oIS-RR-Z9u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-t6-nhk" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="55" y="221" width="80" height="80"/>
+                                <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="speaker" imagePadding="0.0" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <directionalEdgeInsets key="contentInsets" top="5" leading="5" bottom="5" trailing="5"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-qO-gHy" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="55" y="336" width="80" height="80"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="QuestionMark" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="5" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQA-VU-y0q" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="609" y="111" width="205" height="70"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="تحقق" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.70588235294117641" green="0.81176470588235294" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" red="0.70588235290000001" green="0.81176470590000005" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                    <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.70588235294117641" green="0.81176470588235294" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="checkAnswerBtn:" destination="xfo-WX-wKH" eventType="touchUpInside" id="AZS-sU-ZdS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ0-bg-PLW" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="55" y="106" width="80" height="80"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="logOut" imagePlacement="top" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="1" green="0.99999994039999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onClickExit:" destination="xfo-WX-wKH" eventType="touchUpInside" id="cIR-Ov-hKf"/>
+                                    <segue destination="Ix6-fj-7RI" kind="presentation" identifier="ToStart" modalPresentationStyle="currentContext" id="3de-eZ-qvg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTR-7u-NDq" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="609" y="205" width="205" height="70"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Vector" imagePlacement="trailing" title="الكلمة السابقة" imagePadding="10" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.65490196078431373" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" red="0.91372549020000005" green="0.65490196079999996" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
+                                    <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onClickPreWord:" destination="xfo-WX-wKH" eventType="touchUpInside" id="DGW-iN-0qU"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banana" translatesAutoresizingMaskIntoConstraints="NO" id="eO4-ld-7oM">
+                                <rect key="frame" x="257" y="295" width="320" height="320"/>
+                                <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KSR-q1-flg"/>
+                        <color key="backgroundColor" red="1" green="0.99999994039999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="KSR-q1-flg" firstAttribute="trailing" secondItem="eTR-7u-NDq" secondAttribute="trailing" constant="20" id="19K-Tk-ecj"/>
+                            <constraint firstItem="eTR-7u-NDq" firstAttribute="top" secondItem="lQA-VU-y0q" secondAttribute="bottom" constant="24" id="3wv-Zi-VJ9"/>
+                            <constraint firstItem="lQA-VU-y0q" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.239808" constant="5" id="43G-jL-7Z7"/>
+                            <constraint firstItem="eO4-ld-7oM" firstAttribute="top" secondItem="tUw-PD-rbV" secondAttribute="bottom" constant="186" id="7aO-1g-YNH"/>
+                            <constraint firstItem="eO4-ld-7oM" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.335008" constant="-79.999551999999994" id="8im-96-Bbi"/>
+                            <constraint firstAttribute="trailing" secondItem="MY0-dX-hZB" secondAttribute="trailing" id="FVX-gb-IRi"/>
+                            <constraint firstItem="eYm-t6-nhk" firstAttribute="leading" secondItem="KSR-q1-flg" secondAttribute="leading" constant="55" id="JPI-Rx-St8"/>
+                            <constraint firstItem="eYm-t6-nhk" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.0670017" id="KtI-n2-TH0"/>
+                            <constraint firstItem="KSR-q1-flg" firstAttribute="trailing" secondItem="lQA-VU-y0q" secondAttribute="trailing" constant="20" id="NtZ-Ow-JJ5"/>
+                            <constraint firstItem="lQA-VU-y0q" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.0586265" id="UJb-Bl-hu6"/>
+                            <constraint firstItem="eYm-t6-nhk" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.0959233" id="Vxb-1B-iH9"/>
+                            <constraint firstItem="eO4-ld-7oM" firstAttribute="centerX" secondItem="2IK-qB-RPo" secondAttribute="centerX" id="Xin-8h-U2C"/>
+                            <constraint firstItem="MY0-dX-hZB" firstAttribute="top" secondItem="2IK-qB-RPo" secondAttribute="top" id="ZPC-xS-V8m"/>
+                            <constraint firstItem="OJ0-bg-PLW" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.0670017" id="apR-w1-n1d"/>
+                            <constraint firstItem="eTR-7u-NDq" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.0586265" id="fWp-oz-zyC"/>
+                            <constraint firstItem="eYm-t6-nhk" firstAttribute="top" secondItem="OJ0-bg-PLW" secondAttribute="bottom" constant="35" id="fhf-1N-Oek"/>
+                            <constraint firstItem="oZ9-qO-gHy" firstAttribute="top" secondItem="eYm-t6-nhk" secondAttribute="bottom" constant="35" id="gQY-r9-e3j"/>
+                            <constraint firstItem="oZ9-qO-gHy" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.0959233" id="h7Z-hl-1Xb"/>
+                            <constraint firstItem="tUw-PD-rbV" firstAttribute="centerX" secondItem="2IK-qB-RPo" secondAttribute="centerX" id="i37-IP-9Ml"/>
+                            <constraint firstItem="eTR-7u-NDq" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.239808" constant="5" id="kmA-Za-C7n"/>
+                            <constraint firstItem="oZ9-qO-gHy" firstAttribute="leading" secondItem="KSR-q1-flg" secondAttribute="leading" constant="55" id="mgj-7J-xWl"/>
+                            <constraint firstItem="MY0-dX-hZB" firstAttribute="leading" secondItem="2IK-qB-RPo" secondAttribute="leading" id="pGI-TO-mNp"/>
+                            <constraint firstItem="OJ0-bg-PLW" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.0959233" id="qUh-57-cWR"/>
+                            <constraint firstItem="OJ0-bg-PLW" firstAttribute="leading" secondItem="KSR-q1-flg" secondAttribute="leading" constant="55" id="sTt-72-can"/>
+                            <constraint firstItem="eO4-ld-7oM" firstAttribute="centerY" secondItem="2IK-qB-RPo" secondAttribute="centerY" constant="-142" id="uEh-c7-ENf"/>
+                            <constraint firstAttribute="bottom" secondItem="MY0-dX-hZB" secondAttribute="bottom" id="vuo-vl-hK4"/>
+                            <constraint firstItem="OJ0-bg-PLW" firstAttribute="top" secondItem="KSR-q1-flg" secondAttribute="top" constant="106" id="x9m-8J-DAJ"/>
+                            <constraint firstItem="oZ9-qO-gHy" firstAttribute="height" secondItem="MY0-dX-hZB" secondAttribute="height" multiplier="0.0670017" id="xHw-fq-65n"/>
+                            <constraint firstItem="tUw-PD-rbV" firstAttribute="top" secondItem="KSR-q1-flg" secondAttribute="top" constant="66" id="xlp-Rj-Tpu"/>
+                            <constraint firstItem="lQA-VU-y0q" firstAttribute="centerY" secondItem="OJ0-bg-PLW" secondAttribute="centerY" id="zWf-OQ-f9V"/>
+                            <constraint firstItem="eO4-ld-7oM" firstAttribute="width" secondItem="MY0-dX-hZB" secondAttribute="width" multiplier="0.479616" constant="-79.999743999999964" id="zki-06-ein"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="r2h-p7-1wf"/>
+                    <connections>
+                        <outlet property="speakerBtn" destination="eYm-t6-nhk" id="gsZ-WE-GtT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5N-Pn-wDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464.74820143884898" y="1945.7286432160804"/>
+        </scene>
         <!--Levels View Controller-->
         <scene sceneID="g3B-jI-Slo">
             <objects>
@@ -1921,7 +2058,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="a4P-Z1-UzK" secondAttribute="height" multiplier="11:15" id="pHv-Kl-Gtj"/>
                                 </constraints>
-                                <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.13725490196078433" green="0.2627450980392157" blue="0.27058823529411763" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
@@ -3622,12 +3759,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="62k-Uq-p9X"/>
+        <segue reference="C36-KF-fOy"/>
         <segue reference="7yl-H5-OTY"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>
+        <segue reference="3de-eZ-qvg"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Banana" width="380" height="521"/>
         <image name="BrailleBlocks1" width="638" height="261"/>
         <image name="BrailleBlocks2" width="638" height="261"/>
         <image name="DashBorad" width="77" height="116"/>
@@ -3642,7 +3781,9 @@
         <image name="SignUp Screen3" width="278" height="398"/>
         <image name="SignUp Screen4" width="278" height="398"/>
         <image name="Start Screen" width="556" height="796"/>
+        <image name="Vector" width="9" height="13"/>
         <image name="Vector (1)" width="4" height="7"/>
+        <image name="WordBackground" width="834" height="1194"/>
         <image name="boy1" width="193" height="189"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="circle-1" width="82" height="91"/>
@@ -3652,11 +3793,13 @@
         <image name="dottedLine" width="107" height="512"/>
         <image name="girl1" width="187" height="201"/>
         <image name="green123-1" width="82" height="100"/>
+        <image name="logOut" width="48" height="47"/>
         <image name="logo,png" width="248" height="283"/>
         <image name="parallelogram-1" width="127" height="116"/>
         <image name="rectangle.portrait.and.arrow.right.fill" catalog="system" width="128" height="108"/>
         <image name="red123-1" width="136" height="133"/>
         <image name="scoreBackground" width="129" height="49"/>
+        <image name="speaker" width="71" height="67"/>
         <image name="star123-1" width="138" height="170"/>
         <image name="triangle-1" width="99" height="82"/>
         <systemColor name="systemBackgroundColor">
