@@ -1,23 +1,16 @@
 //
-//  CustomConfirmationViewController.swift
+//  CustomAcknowledgementViewController.swift
 //  Banan
 //
 //  Created by Madawi Ahmed
 //
-
 import Foundation
 import UIKit
 import SwiftUI
 
-// Protocol in UIView Class for navigation purposes
-protocol CustomConfirmationViewControllerDelegate {
-    func didYesButtonTapped()
-}
+class CustomAcknowledgementViewController: UIView {
 
-class CustomConfirmationViewController : UIView {
-    
-    static let instance = CustomConfirmationViewController()
-    
+    static let instance = CustomAcknowledgementViewController()
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var alertView: UIView!
@@ -25,11 +18,17 @@ class CustomConfirmationViewController : UIView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
     
-    var delegate: CustomConfirmationViewControllerDelegate?
+    // enum to perform diffrent format for each AcknowledgementType.
+    enum AcknowledgementType {
+        case positive
+        case negative
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Bundle.main.loadNibNamed("CustomConfirmationView", owner: self, options: nil)
+        
+        Bundle.main.loadNibNamed("CustomAcknowledgementView", owner: self, options: nil)
+        
         commonInit()
         
     }
@@ -40,7 +39,7 @@ class CustomConfirmationViewController : UIView {
     
     private func commonInit() {
         
-        Bundle.main.loadNibNamed("CustomConfirmationView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("CustomAcknowledgementView", owner: self, options: nil)
         
         // img format
         img.layer.cornerRadius = img.bounds.size.width/2
@@ -54,32 +53,28 @@ class CustomConfirmationViewController : UIView {
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    func showAlert(title: String, message: String) {
-        print("### in showAlert confirmation")
+    func showAlert(title: String, message: String, acknowledgementType: AcknowledgementType) {
+        
         commonInit()
         
         self.title?.text = title
         self.message?.text = message
-//        if we needed to change img :
+        
+        switch acknowledgementType {
+            
+        case .positive:
+            img?.image = UIImage(named: "CheckSign")
+            
+        case .negative:
             img?.image = UIImage(named: "ExclamationMark")
-
+        } // end switch
+        
         UIApplication.shared.keyWindow?.addSubview(parentView!)
     }
     
-    @IBAction func onClickYes(_ sender: Any) {
-        print("### in Yes btn ")
-        parentView.removeFromSuperview()
-        
-        delegate?.didYesButtonTapped()
-        
+    @IBAction func onClickDone(_ sender: Any) {
+            parentView.removeFromSuperview()
     }
-    
-    
-    @IBAction func onClickCancel(_ sender: Any) {
-        print("### in Cancel btn ")
-        parentView.removeFromSuperview()
-
-    }
-    
+   
     
 }

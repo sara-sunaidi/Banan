@@ -53,6 +53,8 @@
 		56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */; };
 		56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */; };
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
+		7175C5CE27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7175C5CD27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib */; };
+		7175C5D027E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7175C5CF27E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift */; };
 		71BDF55827E3DE6400D0CB80 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */; };
 		71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */; };
 		71BDF55D27E4342C00D0CB80 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */; };
@@ -119,6 +121,8 @@
 		56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
 		56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		7175C5CD27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAcknowledgementView.xib; sourceTree = "<group>"; };
+		7175C5CF27E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
 		71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationViewController.swift; sourceTree = "<group>"; };
 		71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
 				71CD8F8727E19E480049062B /* CustomAlertView.xib */,
 				71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */,
+				7175C5CD27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib */,
 				56290D35279E089000F3AC5F /* Info.plist */,
 				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
 				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
@@ -269,6 +274,7 @@
 				56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */,
 				71CD8F8927E251710049062B /* CustomAlertViewController.swift */,
 				71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */,
+				7175C5CF27E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7175C5CE27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib in Resources */,
 				71CD8F8827E19E4A0049062B /* CustomAlertView.xib in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
@@ -451,6 +458,7 @@
 				71CD8F8627DFE6270049062B /* WordViewController.swift in Sources */,
 				56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
+				7175C5D027E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				56F856B527DD2AE900A8C6A8 /* Extensions.swift in Sources */,
 				56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */,

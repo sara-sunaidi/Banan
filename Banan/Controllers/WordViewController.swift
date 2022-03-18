@@ -10,7 +10,6 @@ import UIKit
 class WordViewController: UIViewController, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
     
     static let instance = WordViewController()
-    static let alertInstance = CustomAlertViewController.instance
     
     @IBOutlet weak var speakerBtn: UIButton!
     
@@ -41,52 +40,22 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
         // # play audio
+        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت النيقاتيف", acknowledgementType: .negative)
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
         // # will be implemented in Group3
         
-        // Snackbar calling is here
-        let viewModel: SnackbarViewModel
+        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
         
-        viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
-        
-        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-        let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
-        showSnackbar(snackbar: snackbar)
-    }
-    
-    // The coming three methods to handle correct answer pop-up actions
-    func didContinueButtonTapped() {
-        print("Continue tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
-        
-        // # update the completed words list
-    }
-    func didRedoButtonTapped() {
-        print("Redo tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
-        
-        // # display the letter page again with the same index
-    }
-    func didExitButtonTapped() {
-        print("Exit tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    // The coming two methods to handle exit confirmation pop-up actions
-    func didYesButtonTapped() {
-        print("Yes tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func didCancelButtonTapped() {
-        print("Cancel tapped in word controller")
-        // do nothing
+        //        // Snackbar calling is here
+        //        let viewModel: SnackbarViewModel
+        //
+        //        viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+        //
+        //        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+        //        let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
+        //        showSnackbar(snackbar: snackbar)
     }
     
     public func showSnackbar(snackbar: SnackbarView){
@@ -124,13 +93,43 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
                         if finished{
                             snackbar.removeFromSuperview()
                         }
-                       
+                        
                     })
                 })
                 
-               
+                
             }
         })
+    }
+    
+    // The coming three methods to handle correct answer pop-up actions
+    
+    func didContinueButtonTapped() {
+        print("Continue tapped in word controller")
+        //        performSegue(withIdentifier: "ToStart", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        
+        // # update the completed words list
+    }
+    func didRedoButtonTapped() {
+        print("Redo tapped in word controller")
+        //        performSegue(withIdentifier: "ToStart", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        
+        // # display the letter page again with the same index
+    }
+    func didExitButtonTapped() {
+        print("Exit tapped in word controller")
+        //        performSegue(withIdentifier: "ToStart", sender: self)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // The coming method to handle exit confirmation pop-up actions
+    
+    func didYesButtonTapped() {
+        print("Yes tapped in word controller")
+        //        performSegue(withIdentifier: "ToStart", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -30,18 +30,20 @@ class CustomAlertViewController : UIView {
     
     var delegate: CustomAlertViewControllerDelegate?
     
-    // enum to perform diffrent format/handlers for each alertType.
+    // enum to perform diffrent format for each alertType.
     enum AlertType {
         case word
         case letter
     }
     
-    var currentAlertType: AlertType?
+//    var currentAlertType: AlertType?
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         Bundle.main.loadNibNamed("CustomAlertView", owner: self, options: nil)
+        
         commonInit()
         
     }
@@ -71,7 +73,7 @@ class CustomAlertViewController : UIView {
     }
     
     func showAlert(title: String, message: String, alertType: AlertType) {
-        currentAlertType = alertType
+//        currentAlertType = alertType
         commonInit()
         
         self.title?.text = title
