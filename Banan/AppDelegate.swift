@@ -18,9 +18,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let storage = Storage.storage()
         //let db = Firebase.firestore()
+        
+        self.fetchLettersInfo()
+        self.fetchWordsInfo()
+        
+        //Auto Login
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+
+                //Fetch user data
+                self.fetchUserInfo()
+                UserDefaults.standard.set(true, forKey: "isLogged")
+                //                Set is logged in child to true
+//                animatedSplashVC.isChild = true
+   
+                
+            } else {
+                print("user not exist ")
+                UserDefaults.standard.set(false, forKey: "isLogged")
+
+//                Set is logged in child to false
+//                animatedSplashVC.isChild = false
+            }
+        }
+        
         return true
     }
+    
+    func fetchWordsInfo(){
+        FirebaseRequest.setDBListenerWords(completion: fetchWords(_:_:))
+    }
+    func fetchWords(_ data:Any?, _ error:Error?) -> Void {
 
+        if let data = data as? [Words]{
+            
+                LocalStorage.allWordsInfo = data
+
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+        }
+    }
+    func fetchLettersInfo(){
+        FirebaseRequest.setDBListenerLetters(completion: fetchLetters(_:_:))
+    }
+    
+    func fetchLetters(_ data:Any?, _ error:Error?) -> Void {
+
+        if let data = data as? [Letters]{
+            
+                LocalStorage.allLettersInfo = data
+            
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+        }
+    }
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -35,6 +88,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func fetchUserInfo(){
+        FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
+    }
+    
+    func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
 
+        if let data = data as? [String:Any]{
+            do{
+                //Convert data to type Child
+                let child = Child(
+                    DOB: data["DOB"] as! String,
+                    completedLetters: data["CompletedLetter"] as! [String],
+                    completedWords: data["CompletedWord"] as! [String],
+                    completedLevels: data["CompletedLevel"] as! [String] ,
+                    completedCategories: data["CompletedCategory"] as! [String],
+                    email: data["Email"] as! String ,
+                    name: data["Name"] as! String,
+                    score: data["Score"] as! String,
+                    gender: data["Gender"] as! String)
+
+                //Store child object in local storage
+                LocalStorage.childValue = child
+            }catch{
+                print("error while decoding ",error.localizedDescription)
+            }
+            
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+        }
+    }
 }
 

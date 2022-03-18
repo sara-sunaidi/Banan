@@ -10,7 +10,7 @@ import UIKit
 class Letters3ViewController: UIViewController {
 
     
-    var letters : [[String: Any]]?
+    var letters : [Letters]?
     var completedLetters: [String]?
     var levelTitle: String?
     @IBOutlet weak var levelName: UILabel!
@@ -18,19 +18,41 @@ class Letters3ViewController: UIViewController {
     @IBOutlet weak var letterTwo: UIButton!
     @IBOutlet weak var letterThree: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                
-        levelName.text = levelTitle
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
         
         assignLettersImage(btn: letterOne, index: 0)
         assignLettersImage(btn: letterTwo, index: 1)
         assignLettersImage(btn: letterThree, index: 2)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+                
+        levelName.text = levelTitle
+        getChildData()
+        
+        assignLettersImage(btn: letterOne, index: 0)
+        assignLettersImage(btn: letterTwo, index: 1)
+        assignLettersImage(btn: letterThree, index: 2)
+    }
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }
+        
+    }
+    
+    func setChildInfo(child: Child){
+        self.completedLetters = child.completedLetters
+    }
+    
     func assignLettersImage( btn: UIButton, index: Int){
         print("imhere")
         print(letters![index])
-        btn.setBackgroundImage( letters![index]["Image"] as? UIImage, for: .normal)
+        let image = UIImage(named: "\(letters![index].Letter)Pic.png")
+        btn.setBackgroundImage( image , for: .normal)
         btn.layer.cornerRadius = 30
         btn.layoutIfNeeded()
         btn.subviews.first?.contentMode = .scaleAspectFit
@@ -44,7 +66,7 @@ class Letters3ViewController: UIViewController {
         
         
         
-        if(completedLetters!.contains(letters![index]["Letter"] as! String)){
+        if(completedLetters!.contains(letters![index].Letter)){
             btn.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
         }
     }

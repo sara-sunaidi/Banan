@@ -24,6 +24,9 @@ class homepageViewController: UIViewController {
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated:  true)
         
+        //added, need to test it
+        LocalStorage.removeChild()
+        
     } catch let signOutError as NSError {
       print("Error signing out: %@", signOutError)
     }

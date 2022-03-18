@@ -11,27 +11,28 @@ import FirebaseFirestore
 import Firebase
 
 class LevelsViewController: UIViewController {
-
     
-    let db = Firestore.firestore()
     
-    var allLetters = [[String: Any]]()
+//    let db = Firestore.firestore()
+    
+    var allLetters = [Letters]()
     
     //levels
-    var first = [[String: Any]]()
-    var second = [[String: Any]]()
-    var third = [[String: Any]]()
-    var fourth = [[String: Any]]()
-    var fifth = [[String: Any]]()
-    var sixth = [[String: Any]]()
-    var seventh = [[String: Any]]()
-    var eighth = [[String: Any]]()
-    var ninth = [[String: Any]]()
-    var tenth = [[String: Any]]()
-
+    var first = [Letters]()
+    var second = [Letters]()
+    var third = [Letters]()
+    var fourth = [Letters]()
+    var fifth = [Letters]()
+    var sixth = [Letters]()
+    var seventh = [Letters]()
+    var eighth = [Letters]()
+    var ninth = [Letters]()
+    var tenth = [Letters]()
     
-    var chosenLevel = [[String: Any]]()
+    
+    var chosenLevel = [Letters]()
     var levelTitle : String?
+    
     var completedLevels = [String]()
     var completedLetters = [String]()
     
@@ -60,45 +61,44 @@ class LevelsViewController: UIViewController {
     @IBOutlet weak var ninthLable: UILabel!
     @IBOutlet weak var tenthLable: UILabel!
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
+        getLettersData()
+        groupByLevel()
+        buttonLevels()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        if let userId = Auth.auth().currentUser?.uid {
-                let collectionRef = self.db.collection("Children")
-                let thisUserDoc = collectionRef.document(userId)
-
-            thisUserDoc.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data()
-                    
-                    self.completedLevels = dataDescription?["CompletedLevel"] as! [String]
-                    self.completedLetters = dataDescription?["CompletedLetter"] as! [String]
-                    print("comppp")
-                } else {
-                    Swift.print("Document does not exist")
-                }
-                
-                self.db.collection("Letters").getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        print("oo")
-                        self.groupByLevel(dbSnapshot: querySnapshot)
-                        print("lll")
-                        self.buttonLevels()
-                        }
-        //
-                }
-//                self.buttonLevels()
-            }
+        
+        getChildData()
+        getLettersData()
+        groupByLevel()
+        buttonLevels()
+        
+    }
+    func getLettersData(){
+        print("in getLettersData")
+        let lett = LocalStorage.allLettersInfo
+        if lett != nil{
+            print("itsnill")
+            allLetters = lett!
+            print(allLetters)
+            
+        }
+    }
+    
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
         }
         
-        
-
-  
-        }
+    }
+    
+    func setChildInfo(child: Child){
+        self.completedLetters = child.completedLetters
+        self.completedLevels = child.completedLevels
+    }
     
     func buttonLevels(){
         print("kk")
@@ -123,15 +123,15 @@ class LevelsViewController: UIViewController {
         designButton(completed: completedLevels.contains("Ninth"), levelArray: ninth, label: ninthLable, button: ninthButton)
         
         designButton(completed: completedLevels.contains("Tenth"), levelArray: tenth, label: tenthLable, button: tenthButton)
-       
-
-
+        
+        
+        
     }
     
     
-    func designButton(completed: Bool, levelArray: [[String : Any]], label: UILabel, button: UIButton){
+    func designButton(completed: Bool, levelArray: [Letters], label: UILabel, button: UIButton){
         
-        let filteredArray = levelArray.map{$0["Letter"]} as! [String]
+        let filteredArray = levelArray.map{$0.Letter}
         let intersect = Set(filteredArray).intersection(completedLetters).count
         print("filtere count:")
         print(filteredArray.count)
@@ -147,7 +147,7 @@ class LevelsViewController: UIViewController {
             button.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
         }
         print("ar total:")
-print(arabicTotal)
+        print(arabicTotal)
         print("inter se")
         print(arabicIntersect)
         label.text = "\(arabicTotal)/\(arabicIntersect) من الأحرف تم دراستها"
@@ -162,32 +162,20 @@ print(arabicTotal)
     }
     
     
-    func groupByLevel(dbSnapshot: QuerySnapshot?) {
-        print("grouping")
-            print(dbSnapshot!.documents.count)
-            
-            for document in dbSnapshot!.documents {
-                var dat = document.data()
-                dat["Letter"] = document.documentID
-                dat["Image"] = UIImage (named: "\(document.documentID)Pic.png")
-                
-                self.allLetters.append(dat)
-                
-            }
-        
-        first = allLetters.filter({$0["Level"] as! String == "First"})
-        second = allLetters.filter({$0["Level"] as! String == "Second"})
-        third = allLetters.filter({$0["Level"] as! String == "Third"})
-        fourth = allLetters.filter({$0["Level"] as! String == "Fourth"})
-        fifth = allLetters.filter({$0["Level"] as! String == "Fifth"})
-        sixth = allLetters.filter({$0["Level"] as! String == "Sixth"})
-        seventh = allLetters.filter({$0["Level"] as! String == "Seventh"})
-        eighth = allLetters.filter({$0["Level"] as! String == "Eighth"})
-        ninth = allLetters.filter({$0["Level"] as! String == "Ninth"})
-        tenth = allLetters.filter({$0["Level"] as! String == "Tenth"})
-print("end grouping")
-        }
-        
+    func groupByLevel() {
+        first = allLetters.filter({$0.Level == "First"})
+        second = allLetters.filter({$0.Level  == "Second"})
+        third = allLetters.filter({$0.Level == "Third"})
+        fourth = allLetters.filter({$0.Level == "Fourth"})
+        fifth = allLetters.filter({$0.Level == "Fifth"})
+        sixth = allLetters.filter({$0.Level == "Sixth"})
+        seventh = allLetters.filter({$0.Level == "Seventh"})
+        eighth = allLetters.filter({$0.Level == "Eighth"})
+        ninth = allLetters.filter({$0.Level == "Ninth"})
+        tenth = allLetters.filter({$0.Level == "Tenth"})
+        print("end grouping")
+    }
+    
     
     @IBAction func pressBack(_ sender: UIButton) {
         //performSegue(withIdentifier: "GoToHomePage", sender: self)
@@ -199,7 +187,7 @@ print("end grouping")
         case firstButton:
             print("ggg")
             chosenLevel = first
-//            levelTitle = "المستوى الثاني"
+            //            levelTitle = "المستوى الثاني"
             print("in first")
             levelTitle = "المستوى الأول"
             break;
@@ -209,7 +197,7 @@ print("end grouping")
             levelTitle = "المستوى الثاني"
             print("in second")
             break;
-        
+            
         case thirdButton:
             chosenLevel = third
             levelTitle = "المستوى الثالث"
@@ -262,14 +250,14 @@ print("end grouping")
             print("select another btn level")
         }
         if(chosenLevel.count == 2){
-        self.performSegue(withIdentifier: "GoToLetters2", sender: self)
+            self.performSegue(withIdentifier: "GoToLetters2", sender: self)
         }
         else if( chosenLevel.count == 3){
             self.performSegue(withIdentifier: "GoToLetters3", sender: self)
         }
         else if(chosenLevel.count == 4){
             self.performSegue(withIdentifier: "GoToLetters4", sender: self)
-            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -278,23 +266,22 @@ print("end grouping")
         if segue.identifier == "GoToLetters2"{
             let destination = segue.destination as! Letters2ViewController
             destination.letters = chosenLevel
-            destination.completedLetters = completedLetters
             destination.levelTitle = levelTitle
         }
         
         else if segue.identifier == "GoToLetters3"{
             let destination = segue.destination as! Letters3ViewController
             destination.letters = chosenLevel
-            destination.completedLetters = completedLetters
+            //            destination.completedLetters = completedLetters
             destination.levelTitle = levelTitle
         }
         
         else if segue.identifier == "GoToLetters4"{
             let destination = segue.destination as! Letters4ViewController
             destination.letters = chosenLevel
-            destination.completedLetters = completedLetters
+            //            destination.completedLetters = completedLetters
             destination.levelTitle = levelTitle
         }
     }
-
+    
 }

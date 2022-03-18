@@ -143,11 +143,12 @@
                         <outlet property="SignIn" destination="t9v-n6-BqY" id="YF3-6F-r67"/>
                         <segue destination="AlA-Tx-4ep" kind="presentation" identifier="StartToSignUp1" modalPresentationStyle="currentContext" id="YiQ-fX-NIg"/>
                         <segue destination="J52-NQ-hUa" kind="presentation" identifier="ToLogIn" modalPresentationStyle="currentContext" id="iRR-6x-4xd"/>
+                        <segue destination="TId-jZ-MzO" kind="presentation" identifier="GoToHomePage" modalPresentationStyle="currentContext" id="kQ8-fG-EeK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-8Z-s3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766.906474820144" y="1115.5778894472362"/>
+            <point key="canvasLocation" x="1780" y="1101"/>
         </scene>
         <!--Sign Up1 View Controller-->
         <scene sceneID="9ds-e0-zQx">
@@ -874,6 +875,15 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9z-EI-MvP">
+                                <rect key="frame" x="214" y="155" width="139" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="logout"/>
+                                <connections>
+                                    <action selector="pressLogout:" destination="TId-jZ-MzO" eventType="touchUpInside" id="tbR-N3-2C9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VWi-Su-21G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -894,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="902-ur-R6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="1961"/>
+            <point key="canvasLocation" x="2326.6187050359713" y="1960.8040201005026"/>
         </scene>
         <!--Learning Page View Controller-->
         <scene sceneID="cUH-74-1ao">
@@ -2628,7 +2638,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="62k-Uq-p9X"/>
+        <segue reference="kQ8-fG-EeK"/>
         <segue reference="k0L-Sn-PAP"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>

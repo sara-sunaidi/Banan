@@ -18,6 +18,13 @@ class StartScreenViewController: UIViewController {
 
     @IBOutlet weak var SignIn: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
+        if(isLogged){
+            print("in iiiff")
+            self.performSegue(withIdentifier: "GoToHomePage", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
