@@ -55,6 +55,8 @@
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
 		71BDF55827E3DE6400D0CB80 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */; };
 		71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */; };
+		71BDF55D27E4342C00D0CB80 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */; };
+		71BDF55F27E4346C00D0CB80 /* SnackbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55E27E4346B00D0CB80 /* SnackbarViewModel.swift */; };
 		71CD8F8627DFE6270049062B /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8527DFE6270049062B /* WordViewController.swift */; };
 		71CD8F8827E19E4A0049062B /* CustomAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CD8F8727E19E480049062B /* CustomAlertView.xib */; };
 		71CD8F8A27E251710049062B /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8927E251710049062B /* CustomAlertViewController.swift */; };
@@ -119,6 +121,8 @@
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 		71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
 		71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationViewController.swift; sourceTree = "<group>"; };
+		71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
+		71BDF55E27E4346B00D0CB80 /* SnackbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewModel.swift; sourceTree = "<group>"; };
 		71CD8F8527DFE6270049062B /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		71CD8F8727E19E480049062B /* CustomAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertView.xib; sourceTree = "<group>"; };
 		71CD8F8927E251710049062B /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				71BDF55B27E433D800D0CB80 /* Snackbar */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
@@ -266,6 +271,15 @@
 				71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71BDF55B27E433D800D0CB80 /* Snackbar */ = {
+			isa = PBXGroup;
+			children = (
+				71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */,
+				71BDF55E27E4346B00D0CB80 /* SnackbarViewModel.swift */,
+			);
+			path = Snackbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +440,7 @@
 				4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */,
 				4DC0E32027BFDBA400560589 /* homepageViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
+				71BDF55D27E4342C00D0CB80 /* SnackbarView.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */,
@@ -443,6 +458,7 @@
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
+				71BDF55F27E4346C00D0CB80 /* SnackbarViewModel.swift in Sources */,
 				71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
