@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 
 // Protocol in UIView Class for navigation purposes
-
 protocol CustomAlertViewControllerDelegate {
     func didExitButtonTapped()
     func didContinueButtonTapped()

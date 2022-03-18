@@ -1973,7 +1973,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onClickExit:" destination="xfo-WX-wKH" eventType="touchUpInside" id="cIR-Ov-hKf"/>
-                                    <segue destination="Ix6-fj-7RI" kind="presentation" identifier="ToStart" modalPresentationStyle="currentContext" id="3de-eZ-qvg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTR-7u-NDq" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
@@ -3763,7 +3762,6 @@
         <segue reference="7yl-H5-OTY"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>
-        <segue reference="3de-eZ-qvg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Banana" width="380" height="521"/>

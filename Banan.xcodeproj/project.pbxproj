@@ -53,6 +53,8 @@
 		56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */; };
 		56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */; };
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
+		71BDF55827E3DE6400D0CB80 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */; };
+		71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */; };
 		71CD8F8627DFE6270049062B /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8527DFE6270049062B /* WordViewController.swift */; };
 		71CD8F8827E19E4A0049062B /* CustomAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CD8F8727E19E480049062B /* CustomAlertView.xib */; };
 		71CD8F8A27E251710049062B /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD8F8927E251710049062B /* CustomAlertViewController.swift */; };
@@ -115,6 +117,8 @@
 		56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
 		56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
+		71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationViewController.swift; sourceTree = "<group>"; };
 		71CD8F8527DFE6270049062B /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		71CD8F8727E19E480049062B /* CustomAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertView.xib; sourceTree = "<group>"; };
 		71CD8F8927E251710049062B /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
 				71CD8F8727E19E480049062B /* CustomAlertView.xib */,
+				71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */,
 				56290D35279E089000F3AC5F /* Info.plist */,
 				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
 				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
@@ -258,6 +263,7 @@
 				56F856B427DD2AE900A8C6A8 /* Extensions.swift */,
 				56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */,
 				71CD8F8927E251710049062B /* CustomAlertViewController.swift */,
+				71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
+				71BDF55827E3DE6400D0CB80 /* CustomConfirmationView.xib in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +443,7 @@
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
+				71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
