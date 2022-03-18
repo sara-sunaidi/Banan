@@ -68,9 +68,12 @@ class FirebaseRequest{
             for document in documentSnapshot!.documents {
                 var dat = document.data()
                 dat["Letter"] = document.documentID
-//                dat["Image"] = UIImage (named: "\(document.documentID)Pic.png")
+                dat["imageName"] = "\(document.documentID)Pic.png"
                 
-                allLetters.append(Letters(Braille: dat["Braille"] as! String, Letter: dat["Letter"] as! String, Level: dat["Level"] as! String))
+                allLetters.append(Letters(Braille: dat["Braille"] as! String,
+                                          Letter: dat["Letter"] as! String,
+                                          Level: dat["Level"] as! String,
+                                         imageName: dat["imageName"] as! String))
                 
             }
             print("SUCESSLetter!!")
@@ -100,9 +103,13 @@ class FirebaseRequest{
             for document in documentSnapshot!.documents {
                 var dat = document.data()
                 dat["Word"] = document.documentID
-//                dat["Image"] = UIImage (named: "\(document.documentID)Pic.png")
+                dat["imageName"] = "\(document.documentID).png"
                 
-                allWords.append(Words(AllLetters: dat["AllLetters"] as! [String], Arabic: dat["Arabic"] as! String, Category: dat["Category"] as! String, Word: dat["Word"] as! String))
+                allWords.append(Words(AllLetters: dat["AllLetters"] as! [String],
+                                      Arabic: dat["Arabic"] as! String,
+                                      Category: dat["Category"] as! String,
+                                      Word: dat["Word"] as! String,
+                                     imageName: dat["imageName"] as! String))
                 
             }
             print("SUCESSLetter!!")

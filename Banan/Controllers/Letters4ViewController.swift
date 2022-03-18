@@ -53,6 +53,8 @@ class Letters4ViewController: UIViewController {
     
     func assignLettersImage( btn: UIButton, index: Int){
         let image = UIImage(named: "\(letters![index].Letter)Pic.png")
+        //or
+        // let image = UIImage(named: "\(letters![index].imageName)")
         btn.setBackgroundImage( image , for: .normal)
         btn.layer.cornerRadius = 30
         btn.layoutIfNeeded()

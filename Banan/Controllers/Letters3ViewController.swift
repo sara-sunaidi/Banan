@@ -52,6 +52,8 @@ class Letters3ViewController: UIViewController {
         print("imhere")
         print(letters![index])
         let image = UIImage(named: "\(letters![index].Letter)Pic.png")
+        //or
+        // let image = UIImage(named: "\(letters![index].imageName)")
         btn.setBackgroundImage( image , for: .normal)
         btn.layer.cornerRadius = 30
         btn.layoutIfNeeded()

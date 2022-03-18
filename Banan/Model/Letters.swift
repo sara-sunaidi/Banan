@@ -13,4 +13,5 @@ struct Letters: Codable {
     var Braille :String = ""
     var Letter :String = ""
     var Level :String = ""
+    var imageName :String = ""
 }
