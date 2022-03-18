@@ -46,16 +46,16 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
     @IBAction func onClickGuide(_ sender: Any) {
         // # will be implemented in Group3
         
-        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
+//        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
         
-        //        // Snackbar calling is here
-        //        let viewModel: SnackbarViewModel
-        //
-        //        viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
-        //
-        //        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-        //        let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
-        //        showSnackbar(snackbar: snackbar)
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+        
+                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+        
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
+                showSnackbar(snackbar: snackbar)
     }
     
     public func showSnackbar(snackbar: SnackbarView){
@@ -67,7 +67,7 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
             x: (view.frame.size.width-width)/2,
             y: view.frame.size.height,
             width: width,
-            height: 130)
+            height: 140)
         
         view.addSubview(snackbar)
         
@@ -75,9 +75,9 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
         UIView.animate(withDuration: 0.5, animations: {
             snackbar.frame = CGRect(
                 x: (self.view.frame.size.width-width)/2,
-                y: self.view.frame.size.height - 140,
+                y: self.view.frame.size.height - 150,
                 width: width,
-                height: 130)
+                height: 140)
         }, completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
@@ -88,7 +88,7 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
                             x: (self.view.frame.size.width-width)/2,
                             y: self.view.frame.size.height,
                             width: width,
-                            height: 130)
+                            height: 140)
                     }, completion: { finished in
                         if finished{
                             snackbar.removeFromSuperview()
