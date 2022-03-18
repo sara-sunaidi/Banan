@@ -13,5 +13,6 @@ struct Words: Codable {
     var Arabic :String = ""
     var Category :String = ""
     var Word: String = ""
+    var imageName : String = ""
 
 }
