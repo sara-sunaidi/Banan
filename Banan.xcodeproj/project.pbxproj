@@ -48,6 +48,11 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		719B1C6D27D771620072A008 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719B1C6C27D771620072A008 /* Tajawal-Regular.ttf */; };
+		719B1C6F27D776EB0072A008 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719B1C6E27D776EB0072A008 /* Almarai-Regular.ttf */; };
+		719B1C7127D8F8F50072A008 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B1C7027D8F8F50072A008 /* ViewProfileViewController.swift */; };
+		719B1C7327DE797A0072A008 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B1C7227DE797A0072A008 /* ResetPasswordViewController.swift */; };
+		719B1C7527E1D4800072A008 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719B1C7427E1D4800072A008 /* Almarai-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,11 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		719B1C6C27D771620072A008 /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
+		719B1C6E27D776EB0072A008 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		719B1C7027D8F8F50072A008 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
+		719B1C7227DE797A0072A008 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		719B1C7427E1D4800072A008 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +184,7 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				719B1C6B27D770FE0072A008 /* Fonts */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
@@ -234,8 +245,20 @@
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
 				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
+				719B1C7027D8F8F50072A008 /* ViewProfileViewController.swift */,
+				719B1C7227DE797A0072A008 /* ResetPasswordViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		719B1C6B27D770FE0072A008 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				719B1C7427E1D4800072A008 /* Almarai-Bold.ttf */,
+				719B1C6E27D776EB0072A008 /* Almarai-Regular.ttf */,
+				719B1C6C27D771620072A008 /* Tajawal-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,9 +387,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
+				719B1C6D27D771620072A008 /* Tajawal-Regular.ttf in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
+				719B1C6F27D776EB0072A008 /* Almarai-Regular.ttf in Resources */,
+				719B1C7527E1D4800072A008 /* Almarai-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +428,8 @@
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
+				719B1C7127D8F8F50072A008 /* ViewProfileViewController.swift in Sources */,
+				719B1C7327DE797A0072A008 /* ResetPasswordViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 			);
@@ -583,7 +611,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = CKU3XD8X9U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -622,7 +650,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = CKU3XD8X9U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

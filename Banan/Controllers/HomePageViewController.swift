@@ -13,6 +13,8 @@ import Firebase
 class HomePageViewController : UIViewController{
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var instruction: UIButton!
+    @IBOutlet weak var dashBoard: UIButton!
     @IBOutlet weak var profileImage: UIButton!
     @IBOutlet weak var points: UILabel!
     var Profile : String = ""
@@ -20,8 +22,9 @@ class HomePageViewController : UIViewController{
     let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-   
+        dashBoard.tintColor = UIColor.white
+        instruction.tintColor = UIColor.white
+        profileImage.tintColor = UIColor.white
     
         if let userId = Auth.auth().currentUser?.uid {
                 let collectionRef = self.db.collection("Children")
@@ -36,12 +39,12 @@ class HomePageViewController : UIViewController{
                         self.points.text = doc.get("Score") as? String
                         let Profile = doc.get("Gender") as? String
                         if Profile == "Boy"{
-                            self.profileImage.configuration? .background.image = UIImage(named: "boy123.png")
+                            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
                             //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
                            // profileImage.image = UIImage(named: "boy123.png")
                         }
                         else {
-                            self.profileImage.configuration? .background.image = UIImage(named: "girl123.png")
+                            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
                             //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
                             //profileImage.image = UIImage(named: "girl123.png")
                         }
@@ -96,6 +99,9 @@ class HomePageViewController : UIViewController{
     
     
     @IBAction func profilePressed(_ sender: UIButton) {
-        //print("gggggg")
+        
+        performSegue(withIdentifier: "GoToProfile", sender: self)
+
     }
-}
+    }
+
