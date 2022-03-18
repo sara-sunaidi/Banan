@@ -18,10 +18,21 @@ class StartScreenViewController: UIViewController {
 
     @IBOutlet weak var SignIn: UIButton!
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
+        if(isLogged){
+            print("in iiiff")
+            self.performSegue(withIdentifier: "GoToHomePage", sender: self)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //SignIn.currentTitle?.NSUnderlineStyle
+        let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
+        if(isLogged){
+            print("in iiiff")
+            self.performSegue(withIdentifier: "GoToHomePage", sender: self)
+        }
         SignIn.setAttributedTitle("تسجيل الدخول".underlined, for: .normal)
       //  SignIn.titleLabel?.font = .systemFont(ofSize: 30)
 

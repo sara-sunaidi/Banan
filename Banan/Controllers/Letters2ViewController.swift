@@ -9,26 +9,43 @@ import UIKit
 
 class Letters2ViewController: UIViewController {
 
-    var letters : [[String: Any]]?
+    var letters : [Letters]?
     var completedLetters: [String]?
     var levelTitle: String?
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var letterOne: UIButton!
     @IBOutlet weak var letterTwo: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
+        assignLettersImage(btn: letterOne, index: 0)
+        assignLettersImage(btn: letterTwo, index: 1)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         levelName.text = levelTitle
+        getChildData()
         
         assignLettersImage(btn: letterOne, index: 0)
         assignLettersImage(btn: letterTwo, index: 1)
         
         
     }
-    func assignLettersImage( btn: UIButton, index: Int){
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }
         
-        btn.setBackgroundImage( letters![index]["Image"] as! UIImage, for: .normal)
+    }
+    
+    func setChildInfo(child: Child){
+        self.completedLetters = child.completedLetters
+    }
+    func assignLettersImage( btn: UIButton, index: Int){
+        let image = UIImage(named: "\(letters![index].Letter)Pic.png")
+        btn.setBackgroundImage( image, for: .normal)
         btn.layer.cornerRadius = 30
         btn.layoutIfNeeded()
         btn.subviews.first?.contentMode = .scaleAspectFit
@@ -42,7 +59,7 @@ class Letters2ViewController: UIViewController {
         
         
         
-        if(completedLetters!.contains(letters![index]["Letter"] as! String)){
+        if(completedLetters!.contains(letters![index].Letter )){
             btn.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
         }
     }

@@ -17,7 +17,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var pass2 : String = ""
     var dob2 : String = ""
     var sex1 : String = ""
-    var score : String = "٠"
+    var score : String = "0"
     var name : String = ""
     
     let database = Firestore.firestore()
@@ -108,7 +108,8 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     
     func writeData(id: String){
         let docref = database.document("Children/\(id)")
-        docref.setData(["Email": em2, "Name": Name.text, "DOB": dob2, "Gender": sex1, "Score": score])
+        docref.setData(["Email": em2, "Name": Name.text, "DOB": dob2, "Gender": sex1, "Score": score,
+                        "CompletedCategory": [String](), "CompletedLetter": [String](), "CompletedLevel": [String](), "CompletedWord": [String]()])
 
     }
     
