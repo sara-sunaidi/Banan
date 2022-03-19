@@ -10,6 +10,7 @@ import SwiftUI
 class ResetPasswordViewController : UIViewController{
     var oldPass : String = ""
     var newPass : String = ""
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var oldTriangle: UIButton!
     @IBOutlet weak var oldGreen123: UIButton!
     @IBOutlet weak var oldStar123: UIButton!
@@ -24,6 +25,11 @@ class ResetPasswordViewController : UIViewController{
     @IBOutlet weak var newCircle: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        saveButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        saveButton.layer.shadowOpacity = 0.8
+        saveButton.layer.shadowRadius = 0.0
+        saveButton.layer.masksToBounds = false
         oldTriangle.tintColor = UIColor.white
         oldGreen123.tintColor = UIColor.white
         oldStar123.tintColor = UIColor.white
@@ -123,7 +129,7 @@ class ResetPasswordViewController : UIViewController{
          if user != nil{
             user?.reauthenticate(with: credential){authResult, error in
                 if let e = error{
-                    self.errorAlert("لم تنجح عملية تغير كلمة المرور")
+                    self.errorAlert("لم تنجح عملية تغير كلمة المرور هناك مشكلة")
                 }else{
                   
                        
@@ -180,6 +186,7 @@ class ResetPasswordViewController : UIViewController{
     
 }
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "GoToProfile", sender: self)
+        self.dismiss(animated: true, completion: nil)
+//        self.performSegue(withIdentifier: "GoToProfile", sender: self)
     }
 }

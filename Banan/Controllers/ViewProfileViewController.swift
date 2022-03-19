@@ -11,8 +11,10 @@ import SwiftUI
 class ViewProfileViewController : UIViewController{
     @IBOutlet weak var profileImage: UIButton!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var resetPassword: UIButton!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var logOut: UIButton!
     var calcAge = 0
     var current = 0
     var currentYear = 0
@@ -23,6 +25,16 @@ class ViewProfileViewController : UIViewController{
     let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetPassword.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        resetPassword.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        resetPassword.layer.shadowOpacity = 0.8
+        resetPassword.layer.shadowRadius = 0.0
+        resetPassword.layer.masksToBounds = false
+        logOut.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        logOut.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        logOut.layer.shadowOpacity = 0.8
+        logOut.layer.shadowRadius = 0.0
+        logOut.layer.masksToBounds = false
          self.email.text = Auth.auth().currentUser?.email
         if let userId = Auth.auth().currentUser?.uid {
                 let collectionRef = self.db.collection("Children")
@@ -48,27 +60,14 @@ class ViewProfileViewController : UIViewController{
                             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنه"}
                         else {  self.formatter.locale = Locale(identifier: "ar")
                             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
-                        //self.age.text = String(calcAge)
-//                        let current = self.format.string(from: NSNumber(value: currentYear))
-//                        print(current)
-////                        self.formatter.dateFormat = "yyyy"
-////                        self.formatter.locale = Locale(identifier: "ar")
-////                        let currentYear = Int(self.formatter.string(from: .now))
-//                        let  date =  doc.get("DOB") as? String
-//                        print (date)
-//                        let calcAge = date?.suffix(4) as! Int
-//                        //print(calcAge)
-////                       let Dob = self.format.string(from: NSNumber(value: calcAge ))
-//                        print(calcAge)
+
                         if Profile == "Boy"{
                             self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
-                            //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
-                           // profileImage.image = UIImage(named: "boy123.png")
+                           
                         }
                         else {
                             self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
-                            //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
-                            //profileImage.image = UIImage(named: "girl123.png")
+                            
                         }
                     }
                 })
@@ -82,7 +81,8 @@ class ViewProfileViewController : UIViewController{
      
     }
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "GoToHomePage", sender: self)
+        self.dismiss(animated: true, completion: nil)
+//        self.performSegue(withIdentifier: "GoToHomePage", sender: self)
     }
 }
 

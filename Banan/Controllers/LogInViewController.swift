@@ -23,6 +23,11 @@ class LogInViewContoller : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        LogInButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        LogInButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        LogInButton.layer.shadowOpacity = 0.8
+        LogInButton.layer.shadowRadius = 0.0
+        LogInButton.layer.masksToBounds = false
         emailTextfield.layer.cornerRadius = 15.0
         triangle.tintColor = UIColor.white
         green123.tintColor = UIColor.white
@@ -151,8 +156,9 @@ class LogInViewContoller : UIViewController{
         circle.tintColor = UIColor.white
     }
     @IBAction func BackButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "GoToStartPage", sender: self)
-        print("fdddd")
+        self.dismiss(animated: true, completion: nil)
+//        self.performSegue(withIdentifier: "GoToStartPage", sender: self)
+//        print("fdddd")
     }
     
     

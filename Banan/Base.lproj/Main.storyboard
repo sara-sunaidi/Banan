@@ -629,7 +629,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أدخل البريد اللإكتروني" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsr-Cq-C1Z">
-                                <rect key="frame" x="413" y="365" width="273" height="36"/>
+                                <rect key="frame" x="413" y="346" width="273" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="32"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -761,7 +761,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FbC-7F-eVG">
-                                <rect key="frame" x="286" y="421" width="400" height="71"/>
+                                <rect key="frame" x="293" y="400" width="400" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1039,8 +1039,10 @@
                     <connections>
                         <outlet property="age" destination="KWv-bz-KiG" id="eYy-Pq-bw7"/>
                         <outlet property="email" destination="bIE-fz-Wc7" id="4Yf-Lo-yRX"/>
+                        <outlet property="logOut" destination="OAI-jj-17l" id="awD-vW-l5V"/>
                         <outlet property="name" destination="QJa-dI-VfX" id="sAD-ca-MHC"/>
                         <outlet property="profileImage" destination="myw-8h-xPJ" id="8QQ-z2-SuT"/>
+                        <outlet property="resetPassword" destination="OAI-jj-17l" id="pNy-Tv-ygy"/>
                         <segue destination="Oj3-JA-lCc" kind="presentation" identifier="GoToResetPassword" modalPresentationStyle="currentContext" id="xao-uf-ZRF"/>
                         <segue destination="TId-jZ-MzO" kind="presentation" identifier="GoToHomePage" modalPresentationStyle="currentContext" id="tsA-lS-3bT"/>
                     </connections>
@@ -1266,6 +1268,7 @@
                         <outlet property="oldRed123" destination="uZZ-BE-sCb" id="JYo-9I-aeS"/>
                         <outlet property="oldStar123" destination="Rz7-LX-ds6" id="9v9-kn-fxD"/>
                         <outlet property="oldTriangle" destination="VqW-tE-FlL" id="m8T-kV-hDz"/>
+                        <outlet property="saveButton" destination="3cg-UD-2c7" id="vBn-Dy-3eP"/>
                         <segue destination="GiB-dk-lff" kind="presentation" identifier="GoToProfile" modalPresentationStyle="currentContext" id="hJC-iY-loa"/>
                     </connections>
                 </viewController>
@@ -1275,8 +1278,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GgH-Vc-8eh"/>
-        <segue reference="C36-KF-fOy"/>
+        <segue reference="xao-uf-ZRF"/>
+        <segue reference="hJC-iY-loa"/>
+        <segue reference="tsA-lS-3bT"/>
         <segue reference="7yl-H5-OTY"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>
