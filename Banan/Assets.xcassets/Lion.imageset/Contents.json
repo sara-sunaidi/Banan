@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "a76ce06be9c827c70c70e94132338ba4-lion-flat.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

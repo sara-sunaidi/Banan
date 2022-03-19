@@ -116,9 +116,13 @@ class LearningPageViewController: UIViewController {
     @IBAction func pressBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func pressLearnLetters(_ sender: UIButton) {
         self.performSegue(withIdentifier: "GoToLearnLettersPage", sender: self)
+    }
+    
+    @IBAction func pressLearnWords(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "GoToLearnWordsPage", sender: self)
     }
     
 }
