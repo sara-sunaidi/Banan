@@ -635,11 +635,9 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo,png" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-iM-wIy">
-                                <rect key="frame" x="285" y="10" width="264" height="283"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wfi-iM-wIy" secondAttribute="height" multiplier="264:283" id="vsm-ZY-cSc"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo,png" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-iM-wIy">
+                                <rect key="frame" x="293" y="10" width="248" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أدخل كلمة المرور" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwe-W1-mFs">
                                 <rect key="frame" x="455" y="520" width="230" height="37"/>
@@ -648,8 +646,9 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vl-ZA-0AN">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vl-ZA-0AN">
                                 <rect key="frame" x="188" y="1055" width="459" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.64705884459999996" blue="0.51372551919999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.90196078430000004" green="0.64705884459999996" blue="0.51372551919999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -685,7 +684,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meQ-Yl-qbp">
-                                <rect key="frame" x="359" y="601" width="106" height="150"/>
+                                <rect key="frame" x="359" y="601" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -776,12 +775,9 @@
                         <viewLayoutGuide key="safeArea" id="OSQ-UT-lSw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wfi-iM-wIy" firstAttribute="centerX" secondItem="3Vl-ZA-0AN" secondAttribute="centerX" id="0qa-nV-chL"/>
                             <constraint firstAttribute="bottom" secondItem="Jcw-Jx-BSi" secondAttribute="bottom" id="7Kz-cu-e20"/>
                             <constraint firstItem="Jcw-Jx-BSi" firstAttribute="top" secondItem="OZn-Fm-0aV" secondAttribute="top" id="9wf-2n-OXw"/>
                             <constraint firstItem="Jcw-Jx-BSi" firstAttribute="leading" secondItem="OZn-Fm-0aV" secondAttribute="leading" id="H5q-jO-YeH"/>
-                            <constraint firstItem="wfi-iM-wIy" firstAttribute="top" secondItem="OSQ-UT-lSw" secondAttribute="top" constant="10" id="fHU-GM-oKu"/>
-                            <constraint firstItem="wfi-iM-wIy" firstAttribute="centerX" secondItem="Jcw-Jx-BSi" secondAttribute="centerX" id="nsb-Ib-96B"/>
                             <constraint firstAttribute="trailing" secondItem="Jcw-Jx-BSi" secondAttribute="trailing" id="tAu-h7-Jf4"/>
                         </constraints>
                     </view>
