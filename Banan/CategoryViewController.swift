@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
-class LearWordsViewController: UIViewController {
+class CategoryViewController: UIViewController {
 
     let database = Firestore.firestore()
     var allWords = [[String : Any]]()
