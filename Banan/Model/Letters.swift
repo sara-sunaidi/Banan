@@ -10,6 +10,7 @@ import UIKit
 
 
 struct Letters: Codable {
+    var Arabic: String = ""
     var Braille :String = ""
     var Letter :String = ""
     var Level :String = ""

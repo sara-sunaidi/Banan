@@ -12,6 +12,8 @@ class Letters4ViewController: UIViewController {
     var letters : [Letters]?
     var completedLetters: [String]?
     var levelTitle: String?
+    var index = 0
+
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var letterOne: UIButton!
     @IBOutlet weak var letterTwo: UIButton!
@@ -80,7 +82,7 @@ class Letters4ViewController: UIViewController {
 
     @IBAction func selectLetter(_ sender: UIButton) {
     
-        var index = 0
+         index = 0
         
         switch sender{
         case letterOne:
@@ -103,7 +105,14 @@ class Letters4ViewController: UIViewController {
         }
         
         //send to noura's page
-        
+        performSegue(withIdentifier: "GoToLearnLetter", sender: self)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToLearnLetter"{
+            let destination = segue.destination as! LearnLetterViewController
+            destination.letters = letters
+            destination.index = index
+        }
+    }
 }

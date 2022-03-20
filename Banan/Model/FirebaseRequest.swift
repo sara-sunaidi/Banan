@@ -44,7 +44,7 @@ class FirebaseRequest{
                     return
                 }
                 print("SUCESS!!")
-
+                
                 //Featch changers successfully
                 print("data in seeting db listener")
                 completion(data,nil)
@@ -70,21 +70,22 @@ class FirebaseRequest{
                 dat["Letter"] = document.documentID
                 dat["imageName"] = "\(document.documentID)Pic.png"
                 
-                allLetters.append(Letters(Braille: dat["Braille"] as! String,
+                allLetters.append(Letters(Arabic: dat["Arabic"] as! String,
+                                          Braille: dat["Braille"] as! String,
                                           Letter: dat["Letter"] as! String,
                                           Level: dat["Level"] as! String,
-                                         imageName: dat["imageName"] as! String))
+                                          imageName: dat["imageName"] as! String))
                 
             }
             print("SUCESSLetter!!")
-
+            
             //Featch changers successfully
             print("data in seeting db listener")
             completion(allLetters,nil)
         }
         
-    //
-        }
+        //
+    }
     
     //listen to database updates for letters and words
     static func setDBListenerWords(completion:@escaping(_ data: Any?, _ err:Error?) -> Void){
@@ -109,16 +110,16 @@ class FirebaseRequest{
                                       Arabic: dat["Arabic"] as! String,
                                       Category: dat["Category"] as! String,
                                       Word: dat["Word"] as! String,
-                                     imageName: dat["imageName"] as! String))
+                                      imageName: dat["imageName"] as! String))
                 
             }
             print("SUCESSLetter!!")
-
+            
             //Featch changers successfully
             print("data in seeting db listener")
             completion(allWords,nil)
         }
         
-    //
-        }
+        //
+    }
 }
