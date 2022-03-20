@@ -114,6 +114,5 @@ class HomePageViewController : UIViewController{
         
     }
     @IBAction func profilePressed(_ sender: UIButton) {
-        //print("gggggg")
-    }
+        performSegue(withIdentifier: "GoToProfile", sender: self)    }
 }
