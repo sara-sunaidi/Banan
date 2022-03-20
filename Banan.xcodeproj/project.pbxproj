@@ -64,6 +64,8 @@
 		56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED527E4325600F6DBB6 /* Child.swift */; };
 		56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED727E432A900F6DBB6 /* Letters.swift */; };
 		56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED927E432EE00F6DBB6 /* Words.swift */; };
+		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
+		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		56BD5ED527E4325600F6DBB6 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		56BD5ED727E432A900F6DBB6 /* Letters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters.swift; sourceTree = "<group>"; };
 		56BD5ED927E432EE00F6DBB6 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				715BADEE27E7E4AB006087EC /* Fonts */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
@@ -292,6 +297,15 @@
 				56BD5ED927E432EE00F6DBB6 /* Words.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		715BADEE27E7E4AB006087EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */,
+				715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +437,8 @@
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
+				715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */,
+				715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

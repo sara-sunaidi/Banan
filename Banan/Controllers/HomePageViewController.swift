@@ -13,6 +13,8 @@ import Firebase
 class HomePageViewController : UIViewController{
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var instructions: UIButton!
+    @IBOutlet weak var dashBoard: UIButton!
     @IBOutlet weak var profileImage: UIButton!
     @IBOutlet weak var points: UILabel!
     var Profile : String = ""
@@ -32,7 +34,9 @@ class HomePageViewController : UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        profileImage.tintColor = UIColor.white
+        dashBoard.tintColor = UIColor.white
+        instructions.tintColor = UIColor.white
         getChildData()
         getLettersData()
         getWordsData()
@@ -71,12 +75,12 @@ class HomePageViewController : UIViewController{
         let Profile = child.gender
         
         if Profile == "Boy"{
-            self.profileImage.configuration? .background.image = UIImage(named: "boy123.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
             //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
            // profileImage.image = UIImage(named: "boy123.png")
         }
         else {
-            self.profileImage.configuration? .background.image = UIImage(named: "girl123.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
             //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
             //profileImage.image = UIImage(named: "girl123.png")
         }
@@ -90,24 +94,7 @@ class HomePageViewController : UIViewController{
 //
 //        }
 //    }
-    @IBAction func pressLogout(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-    do {
-      try firebaseAuth.signOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "startPage" )
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated:  true)
-        
-        //added, need to test it
-        LocalStorage.removeChild()
-        
-    } catch let signOutError as NSError {
-      print("Error signing out: %@", signOutError)
-    }
-      
-    
-    }
+
     
     @IBAction func pressLearn(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToLearningPage", sender: self)

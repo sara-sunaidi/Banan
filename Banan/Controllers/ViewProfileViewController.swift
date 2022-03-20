@@ -57,7 +57,7 @@ class ViewProfileViewController : UIViewController{
                      print(calcAge)
                         if calcAge > 10 {
                         self.formatter.locale = Locale(identifier: "ar")
-                            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنه"}
+                            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنة"}
                         else {  self.formatter.locale = Locale(identifier: "ar")
                             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
 
