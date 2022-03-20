@@ -110,6 +110,10 @@ class CategoryViewController: UIViewController {
     }
     
     @IBAction func animalButton(_ sender: UIButton) {
+        Category = "Animal"
+        arabicCategory = "حيوانات"
+        allWords = allAnimal
+        performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
 

@@ -78,7 +78,20 @@ class ViewProfileViewController : UIViewController{
         self.performSegue(withIdentifier: "GoToResetPassword", sender: self)
     }
     @IBAction func LogOutPressed(_ sender: UIButton) {
-     
+        let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "startPage" )
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated:  true)
+        
+        //added, need to test it
+        LocalStorage.removeChild()
+        
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
     }
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

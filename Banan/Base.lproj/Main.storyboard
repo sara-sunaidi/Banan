@@ -93,14 +93,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start Screen" id="Epf-qe-IGm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start Screen" translatesAutoresizingMaskIntoConstraints="NO" id="utG-4z-zx0">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="ultraLight"/>
                             </imageView>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3d-gR-yLS">
-                                <rect key="frame" x="203" y="965" width="425.00000000000045" height="80.000000000000455"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3d-gR-yLS">
+                                <rect key="frame" x="204.5" y="965" width="425" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="fAv-gT-lrR"/>
+                                    <constraint firstAttribute="width" constant="425" id="la6-4n-Z8h"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="إنشاء حساب" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
@@ -111,9 +112,12 @@
                                     <action selector="SignUp1:" destination="Ix6-fj-7RI" eventType="touchUpInside" id="6lK-1W-SqM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEp-SY-fbJ">
-                                <rect key="frame" x="203" y="877" width="425.00000000000045" height="80.000000000000455"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEp-SY-fbJ">
+                                <rect key="frame" x="204.5" y="875" width="425" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="425" id="7gE-F5-hC5"/>
+                                    <constraint firstAttribute="height" constant="80" id="BwF-VG-4Nj"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="ابدأ كزائر" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
@@ -124,28 +128,51 @@
                                     <action selector="StartAsVisitor:" destination="Ix6-fj-7RI" eventType="touchUpInside" id="1z3-L2-7fB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="لديك حساب؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQb-bY-1SE">
-                                <rect key="frame" x="444" y="1074" width="127" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
-                                <color key="textColor" red="0.13725490196078433" green="0.25882352941176467" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-n6-BqY">
-                                <rect key="frame" x="299" y="1068" width="147" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="تسجيل الدخول">
-                                    <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="27"/>
-                                    <color key="baseForegroundColor" red="0.92941176470588238" green="0.83529411764705885" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="SignIn:" destination="Ix6-fj-7RI" eventType="touchUpInside" id="WfD-fh-PVE"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQh-qT-SzQ">
+                                <rect key="frame" x="262" y="1058" width="310" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لديك حساب؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQb-bY-1SE">
+                                        <rect key="frame" x="168" y="15.5" width="127" height="29"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.13725490196078433" green="0.25882352941176467" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-n6-BqY">
+                                        <rect key="frame" x="11" y="7.5" width="147" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="تسجيل الدخول">
+                                            <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="27"/>
+                                            <color key="baseForegroundColor" red="0.92941176470588238" green="0.83529411764705885" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="SignIn:" destination="Ix6-fj-7RI" eventType="touchUpInside" id="WfD-fh-PVE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IQb-bY-1SE" firstAttribute="centerY" secondItem="UQh-qT-SzQ" secondAttribute="centerY" id="0Ss-WW-38I"/>
+                                    <constraint firstItem="t9v-n6-BqY" firstAttribute="centerY" secondItem="UQh-qT-SzQ" secondAttribute="centerY" id="2n3-YU-Ilm"/>
+                                    <constraint firstAttribute="trailing" secondItem="IQb-bY-1SE" secondAttribute="trailing" constant="15" id="Q3i-ng-Bnt"/>
+                                    <constraint firstItem="IQb-bY-1SE" firstAttribute="leading" secondItem="t9v-n6-BqY" secondAttribute="trailing" constant="10" id="Qgu-qL-0wE"/>
+                                    <constraint firstAttribute="width" constant="310" id="UKj-ie-W8L"/>
+                                    <constraint firstAttribute="height" constant="60" id="kPk-dI-8gM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KTg-gE-w2J" propertyAccessControl="none"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="utG-4z-zx0" firstAttribute="top" secondItem="EcT-eU-9X3" secondAttribute="top" id="4to-Dg-fyg"/>
+                            <constraint firstItem="iEp-SY-fbJ" firstAttribute="centerX" secondItem="EcT-eU-9X3" secondAttribute="centerX" id="5jO-Ep-SrF"/>
+                            <constraint firstAttribute="trailing" secondItem="utG-4z-zx0" secondAttribute="trailing" id="6yH-57-NnW"/>
+                            <constraint firstItem="KTg-gE-w2J" firstAttribute="bottom" secondItem="UQh-qT-SzQ" secondAttribute="bottom" constant="56" id="IZ6-zu-vzV"/>
+                            <constraint firstItem="K3d-gR-yLS" firstAttribute="centerX" secondItem="EcT-eU-9X3" secondAttribute="centerX" id="aE2-x2-OLI"/>
+                            <constraint firstItem="UQh-qT-SzQ" firstAttribute="centerX" secondItem="EcT-eU-9X3" secondAttribute="centerX" id="eqw-SW-wXl"/>
+                            <constraint firstItem="UQh-qT-SzQ" firstAttribute="top" secondItem="K3d-gR-yLS" secondAttribute="bottom" constant="13" id="jAT-qI-iDu"/>
+                            <constraint firstItem="K3d-gR-yLS" firstAttribute="top" secondItem="iEp-SY-fbJ" secondAttribute="bottom" constant="10" id="rYb-SH-WAT"/>
+                            <constraint firstItem="utG-4z-zx0" firstAttribute="leading" secondItem="EcT-eU-9X3" secondAttribute="leading" id="wWB-GQ-NUa"/>
+                            <constraint firstAttribute="bottom" secondItem="utG-4z-zx0" secondAttribute="bottom" id="zYT-1Q-PFz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="SignIn" destination="t9v-n6-BqY" id="YF3-6F-r67"/>
@@ -156,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-8Z-s3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="1101"/>
+            <point key="canvasLocation" x="1779.8561151079139" y="1100.502512562814"/>
         </scene>
         <!--Sign Up1 View Controller-->
         <scene sceneID="9ds-e0-zQx">
@@ -933,7 +960,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="تدرب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttO-GT-eGN">
-                                <rect key="frame" x="376.5" y="45" width="81.5" height="48"/>
+                                <rect key="frame" x="376.5" y="45" width="81" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2657,7 +2684,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wordsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2U3-55-X23">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wordsBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="2U3-55-X23">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2993,8 +3020,7 @@
                                 <state key="normal" title="Button" image="shape"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="small"/>
                                 <connections>
-                                    <action selector="animalButtom:" destination="OeH-OP-muD" eventType="touchUpInside" id="vcj-vC-rBE"/>
-                                    <action selector="animalButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="F4b-np-xWh"/>
+                                    <action selector="animalButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="J06-xR-y3I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-Td-idv">
@@ -3558,7 +3584,7 @@
         <image name="shape2" width="98" height="103"/>
         <image name="star123-1" width="138" height="170"/>
         <image name="triangle-1" width="99" height="82"/>
-        <image name="wordsBackground" width="556" height="790.5"/>
+        <image name="wordsBackground2" width="278" height="398"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
