@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3344E61D27DE85A200DDF909 /* LearnLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3344E61C27DE85A200DDF909 /* LearnLetterViewController.swift */; };
+		3344E62427E19CB400DDF909 /* dhal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3344E62327E19CB400DDF909 /* dhal.mp3 */; };
+		33D2F9AF27E42F05004B60A4 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2F9AE27E42F05004B60A4 /* WordViewController.swift */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		3344E61C27DE85A200DDF909 /* LearnLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLetterViewController.swift; sourceTree = "<group>"; };
+		3344E62327E19CB400DDF909 /* dhal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dhal.mp3; sourceTree = "<group>"; };
+		33D2F9AE27E42F05004B60A4 /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3344E62027E19BE600DDF909 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				3344E62327E19CB400DDF909 /* dhal.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		56290D1B279E088F00F3AC5F = {
 			isa = PBXGroup;
 			children = (
@@ -176,9 +188,11 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				3344E62027E19BE600DDF909 /* Sound */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
+				33D2F9AE27E42F05004B60A4 /* WordViewController.swift */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
 				56290D35279E089000F3AC5F /* Info.plist */,
@@ -367,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
+				3344E62427E19CB400DDF909 /* dhal.mp3 in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
@@ -406,6 +421,7 @@
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
+				33D2F9AF27E42F05004B60A4 /* WordViewController.swift in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 				3344E61D27DE85A200DDF909 /* LearnLetterViewController.swift in Sources */,
 			);
@@ -595,7 +611,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -608,7 +624,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noura.Banann;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -634,7 +650,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -646,7 +662,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noura.Banann;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
