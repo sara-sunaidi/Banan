@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmg-rd-yLo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tuj-UF-kBX">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -904,13 +904,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ytp-C2-ome">
-                                <rect key="frame" x="263" y="229" width="309" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChK-rR-eeB" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="580" y="189" width="205" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="0Tk-yg-ZDI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="تحقق" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.70588235290000001" green="0.81176470590000005" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" red="0.70588235290000001" green="0.81176470590000005" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                    <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.70588235290000001" green="0.81176470590000005" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ3-dF-hIB" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                <rect key="frame" x="580" y="283" width="205" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="YDQ-HM-bcM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Vector" imagePlacement="trailing" title="الكلمة السابقة" imagePadding="10" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.91372549020000005" green="0.65490196079999996" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" red="0.91372549020000005" green="0.65490196079999996" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
+                                    <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sam-4F-Eh2">
                                 <rect key="frame" x="38" y="328" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1059,12 +1084,25 @@
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ytp-C2-ome">
+                                <rect key="frame" x="239" y="235" width="309" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lcc-G2-Onl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Lcc-G2-Onl" firstAttribute="trailing" secondItem="7cI-Oq-jET" secondAttribute="trailing" constant="90" id="4R7-bL-I8w"/>
+                            <constraint firstItem="pZ3-dF-hIB" firstAttribute="leading" secondItem="ChK-rR-eeB" secondAttribute="leading" id="6Vd-WT-cTR"/>
+                            <constraint firstItem="pZ3-dF-hIB" firstAttribute="leading" secondItem="ytp-C2-ome" secondAttribute="trailing" constant="32" id="89Y-x5-ufC"/>
+                            <constraint firstItem="pZ3-dF-hIB" firstAttribute="top" secondItem="iwu-ud-O03" secondAttribute="top" constant="283" id="AQn-qC-Ep0"/>
                             <constraint firstItem="7cI-Oq-jET" firstAttribute="top" secondItem="Lcc-G2-Onl" secondAttribute="top" constant="39" id="MmF-hV-Xvg"/>
+                            <constraint firstItem="pZ3-dF-hIB" firstAttribute="top" secondItem="ChK-rR-eeB" secondAttribute="bottom" constant="24" id="cuh-nh-dXh"/>
+                            <constraint firstItem="pZ3-dF-hIB" firstAttribute="trailing" secondItem="ChK-rR-eeB" secondAttribute="trailing" id="gEY-E6-7Fu"/>
+                            <constraint firstItem="Lcc-G2-Onl" firstAttribute="trailing" secondItem="pZ3-dF-hIB" secondAttribute="trailing" constant="49" id="k2D-au-Uc4"/>
                             <constraint firstItem="7cI-Oq-jET" firstAttribute="leading" secondItem="Lcc-G2-Onl" secondAttribute="leading" constant="150" id="sNj-lJ-C7a"/>
                             <constraint firstItem="apA-DE-gym" firstAttribute="top" secondItem="Lcc-G2-Onl" secondAttribute="top" constant="106" id="wre-7a-d5H"/>
                         </constraints>
@@ -1554,6 +1592,7 @@
         <image name="SignUp Screen4" width="278" height="398"/>
         <image name="Sound" width="71" height="67"/>
         <image name="Start Screen" width="556" height="796"/>
+        <image name="Vector" width="9" height="13"/>
         <image name="Vector (1)" width="4" height="7"/>
         <image name="boy1" width="193" height="189"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
