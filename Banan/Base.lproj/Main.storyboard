@@ -2672,14 +2672,14 @@
                                 <rect key="frame" x="496" y="193" width="195" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.26227785910000001" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.13725490196078433" green="0.25882352941176467" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تدرب على الكلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x21-QH-fqI">
                                 <rect key="frame" x="272" y="70" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.26227785910000001" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.13725490196078433" green="0.25882352941176467" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H8-n5-RaT">
@@ -2939,7 +2939,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CategoryBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-Xi-gP2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LearnPage" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-Xi-gP2">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2952,21 +2952,21 @@
                                     <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="backButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="knW-ZV-jfw"/>
+                                    <action selector="backButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="OEP-xr-4ko"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تدرب على الكلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI5-Gh-xFs">
                                 <rect key="frame" x="272" y="70" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اختر التصنيف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4R-f1-ih8">
                                 <rect key="frame" x="512" y="193" width="195" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اختر تصنيف للكلمات التي تود تعلمها" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qj-IX-IuA">
@@ -2983,7 +2983,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="small"/>
                                 <connections>
-                                    <action selector="foodButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="mu9-EZ-6w2"/>
+                                    <action selector="foodButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="LHT-iV-8ir"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sro-QM-dEp">
@@ -2993,16 +2993,10 @@
                                 <state key="normal" title="Button" image="shape"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="small"/>
                                 <connections>
-                                    <action selector="animalButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="Fsg-8U-UH3"/>
+                                    <action selector="animalButtom:" destination="OeH-OP-muD" eventType="touchUpInside" id="vcj-vC-rBE"/>
+                                    <action selector="animalButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="F4b-np-xWh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKs-Fi-ZA2">
-                                <rect key="frame" x="163" y="737" width="200" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-Td-idv">
                                 <rect key="frame" x="440" y="390" width="300" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3010,7 +3004,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="small"/>
                                 <connections>
-                                    <action selector="materialButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="RuC-k3-4rD"/>
+                                    <action selector="materialButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="0ph-zS-S54"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrV-r1-gAv">
@@ -3062,7 +3056,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="small"/>
                                 <connections>
-                                    <action selector="placeButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="x3u-78-ncH"/>
+                                    <action selector="placeButton:" destination="OeH-OP-muD" eventType="touchUpInside" id="kQA-w8-AwC"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="shape2" translatesAutoresizingMaskIntoConstraints="NO" id="0Gc-aG-JA7">
@@ -3120,12 +3114,19 @@
                                 <rect key="frame" x="95" y="761" width="268" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKs-Fi-ZA2">
+                                <rect key="frame" x="163" y="737" width="200" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tzm-dU-ovu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="animal" destination="sro-QM-dEp" id="h7y-KN-8FB"/>
+                        <outlet property="animal" destination="sro-QM-dEp" id="wGk-g2-Vb5"/>
                         <outlet property="completedAnimal" destination="AKs-Fi-ZA2" id="nE0-OK-zZe"/>
                         <outlet property="completedFood" destination="9hH-R3-Cbf" id="Uwm-9F-PEB"/>
                         <outlet property="completedMaterial" destination="PrV-r1-gAv" id="wHH-LT-Fox"/>
@@ -3519,7 +3520,6 @@
         <image name="BrailleBlocks2" width="638" height="261"/>
         <image name="BraillePurple" width="512" height="729"/>
         <image name="BrailleYellow" width="512" height="729"/>
-        <image name="CategoryBackground" width="556" height="795"/>
         <image name="DashBorad" width="77" height="116"/>
         <image name="HomePage" width="834" height="1194"/>
         <image name="HomePageBar" width="477" height="108"/>

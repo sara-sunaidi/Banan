@@ -6,18 +6,18 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import Firebase
-import FirebaseAuth
+//import FirebaseFirestore
+//import Firebase
+//import FirebaseAuth
 class CategoryViewController: UIViewController {
 
-    let database = Firestore.firestore()
-    var allWords = [[String : Any]]()
+    //let database = Firestore.firestore()
+    var allWords = [Words]()
     
-    var allMaterial = [[String : Any]]()
-    var allFood = [[String : Any]]()
-    var allPlace = [[String : Any]]()
-    var allAnimal = [[String : Any]]()
+    var allMaterial = [Words]()
+    var allFood = [Words]()
+    var allPlace = [Words]()
+    var allAnimal = [Words]()
 
     var completedCategory = [String]()
     var completedWords = [String]()
@@ -30,12 +30,16 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var place: UIButton!
     @IBOutlet weak var animal: UIButton!
     
+    
     @IBOutlet weak var completedMaterial: UILabel!
     @IBOutlet weak var completedFood: UILabel!
     @IBOutlet weak var completedPlace: UILabel!
     @IBOutlet weak var completedAnimal: UILabel!
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
+        getWordsData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,41 +48,37 @@ class CategoryViewController: UIViewController {
         place.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         animal.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         
-        
-        if let userId = Auth.auth().currentUser?.uid {
-            let collectionRef = self.database.collection("Children")
-            let thisUserDoc = collectionRef.document(userId)
-            
-            thisUserDoc.getDocument { (document, error ) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data()
-                    
-                    self.completedCategory = dataDescription?["CompletedCategory"] as! [String]
-                    
-                    self.completedWords = dataDescription?["CompletedWord"] as! [String]
-                    
-                } else {
-                    print("doc does not exist")
-                }
-                
-                self.database.collection("Words").getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("error gitting document: \(err)")
-                    } else {
-                        self.groupByLevel(dbSnapshot: querySnapshot)
-                        self.buttonCategory()
-                    }
-                    
-                }
-            }
-        }
-            
+        getChildData()
+        getWordsData()
+        groupByLevel()
+        buttonCategory()
 
     }
+            
+    
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }}
+    
+    func setChildInfo(child: Child){
+        self.completedCategory = child.completedCategories
+        self.completedWords = child.completedWords
+        
+    }
+    
+    func getWordsData(){
+        let word = LocalStorage.allWordsInfo
+        if word != nil{
+            allWords = word!
+        }
+    }
 
+    
     func buttonCategory() {
         
-        designButton(button: material, completed: completedCategory.contains("Material"), label: completedMaterial, catArray: allMaterial)
+    designButton(button: material, completed: completedCategory.contains("Material"), label: completedMaterial, catArray: allMaterial)
     designButton(button: food, completed: completedCategory.contains("Food"), label: completedFood, catArray: allFood)
     designButton(button: place, completed: completedCategory.contains("Place"), label: completedPlace, catArray: allPlace)
     designButton(button: animal, completed: completedCategory.contains("Animal"), label: completedAnimal, catArray: allAnimal)
@@ -87,35 +87,35 @@ class CategoryViewController: UIViewController {
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+
     @IBAction func materialButton(_ sender: UIButton) {
-//        Category = "Material"
-//        arabicCategory = "أدوات"
-//        allWords = allMaterial
-//        performSegue(withIdentifier: "GoToWords", sender: self)
+        //        Category = "Material"
+        //        arabicCategory = "أدوات"
+        //        allWords = allMaterial
+        //        performSegue(withIdentifier: "GoToWords", sender: self)
     }
+
     @IBAction func foodButton(_ sender: UIButton) {
         Category = "Food"
         arabicCategory = "أطعمة"
         allWords = allFood
         performSegue(withIdentifier: "GoToWords", sender: self)
     }
+    
     @IBAction func placeButton(_ sender: UIButton) {
-//        Category = "Place"
-//        arabicCategory = "أماكن"
-//        allWords = allPlace
-//        performSegue(withIdentifier: "GoToWords", sender: self)
-    }
-    @IBAction func animalButton(_ sender: UIButton) {
-        Category = "Animal"
-        arabicCategory = "حيوانات"
-        allWords = allAnimal
-        performSegue(withIdentifier: "GoToWords", sender: self)
+        //        Category = "Place"
+        //        arabicCategory = "أماكن"
+        //        allWords = allPlace
+        //        performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
-    func designButton(button : UIButton, completed: Bool, label:UILabel, catArray: [[String : Any]]){
-        let filteredArray = catArray.map{$0["word"]} as! [String]
+    @IBAction func animalButton(_ sender: UIButton) {
+    }
+    
+
+    
+    func designButton(button : UIButton, completed: Bool, label:UILabel, catArray: [Words]){
+        let filteredArray = catArray.map{$0.Word}
         let intersect = Set(filteredArray).intersection(completedWords).count
         
         let arabicIntersect = "\(intersect)".convertedDigitsToLocale(Locale(identifier: "AR"))
@@ -134,28 +134,13 @@ class CategoryViewController: UIViewController {
         button.layer.masksToBounds = false
         
     }
-    func groupByLevel(dbSnapshot: QuerySnapshot?) {
-        print("grouping")
-            print(dbSnapshot!.documents.count)
-            
-            for document in dbSnapshot!.documents {
-                var dat = document.data()
-                dat["catogory"] = document.get("Category")
-                dat["word"] = document.documentID
-                dat["arabic"] = document.get("Arabic")
-                dat["allLetters"] = document.get("AllLetters")
+    func groupByLevel() {
 
-                self.allWords.append(dat)
-                
-            }
+        allMaterial = allWords.filter({$0.Category == "Material"})
+        allFood = allWords.filter({$0.Category == "Food"})
+        allPlace = allWords.filter({$0.Category == "Place"})
+        allAnimal = allWords.filter({$0.Category == "Animal"})
         
-        allMaterial = allWords.filter({$0["Category"] as! String == "Material"})
-        allFood = allWords.filter({$0["Category"] as! String == "Food"})
-        allPlace = allWords.filter({$0["Category"] as! String == "Place"})
-        allAnimal = allWords.filter({$0["Category"] as! String == "Animal"})
-        
-print("end grouping")
-        print(allFood)
         }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -163,8 +148,8 @@ print("end grouping")
             let destinationVC = segue.destination as? WordsViewController
             destinationVC?.category = Category
             destinationVC?.arabicCategory = arabicCategory
-            destinationVC?.allWords = allWords
-            destinationVC?.completedWords = completedWords
+           // destinationVC?.allWords = allWords
+           // destinationVC?.completedWords = completedWords
 
 
             }
@@ -183,3 +168,4 @@ print("end grouping")
     */
 
 }
+

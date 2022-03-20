@@ -14,7 +14,7 @@ import CoreMIDI
 class WordsViewController: UIViewController {
     
     let database = Firestore.firestore()
-    var allWords = [[String : Any]]()
+    var allWords = [Words]()
     var completedWords = [String]()
 
     var category : String = ""
@@ -59,6 +59,10 @@ class WordsViewController: UIViewController {
     @IBOutlet weak var word9: UILabel!
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
+        getWordsData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +79,18 @@ class WordsViewController: UIViewController {
         
         Category.text = arabicCategory
  
-
-        designButton(button: button1, completed: completedWords.contains(allWords[0]["word"] as! String))
-        designButton(button: button2, completed: completedWords.contains(allWords[1]["word"] as! String))
-        designButton(button: button3, completed: completedWords.contains(allWords[2]["word"] as! String))
-        designButton(button: button4, completed: completedWords.contains(allWords[3]["word"] as! String))
-        designButton(button: button5, completed: completedWords.contains(allWords[4]["word"] as! String))
-        designButton(button: button6, completed: completedWords.contains(allWords[5]["word"] as! String))
-        designButton(button: button7, completed: completedWords.contains(allWords[6]["word"] as! String))
-        designButton(button: button8, completed: completedWords.contains(allWords[7]["word"] as! String))
-        designButton(button: button9, completed: completedWords.contains(allWords[8]["word"] as! String))
+        getChildData()
+        getWordsData()
+        
+        designButton(button: button1, completed: completedWords.contains(allWords[0].Word))
+        designButton(button: button2, completed: completedWords.contains(allWords[1].Word))
+        designButton(button: button3, completed: completedWords.contains(allWords[2].Word))
+        designButton(button: button4, completed: completedWords.contains(allWords[3].Word))
+        designButton(button: button5, completed: completedWords.contains(allWords[4].Word))
+        designButton(button: button6, completed: completedWords.contains(allWords[5].Word))
+        designButton(button: button7, completed: completedWords.contains(allWords[6].Word))
+        designButton(button: button8, completed: completedWords.contains(allWords[7].Word))
+        designButton(button: button9, completed: completedWords.contains(allWords[8].Word))
         
         addImageToUIImageView(index: 0, img: img1, label: word1)
         addImageToUIImageView(index: 1, img: img2, label: word2)
@@ -100,16 +106,36 @@ class WordsViewController: UIViewController {
 
     }
     
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }}
+    
+    func setChildInfo(child: Child){
+        self.completedWords = child.completedWords
+    }
+    
+    func getWordsData(){
+        let word = LocalStorage.allWordsInfo
+        if word != nil{
+            allWords = word!
+            allWords = allWords.filter({$0.Category == category})
+
+        }
+        
+    }
+
+    
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
         
 
     func addImageToUIImageView(index: Int, img: UIImageView, label: UILabel){
-        let yourImage: UIImage = UIImage(named: allWords[index]["word"] as! String)!
-       // print(allWords[0])
+        let yourImage: UIImage = UIImage(named: allWords[index].Word)!
         img.image = yourImage
-        label.text = (allWords[index]["arabic"] as! String)
+        label.text = (allWords[index].Arabic)
         
     }
     
@@ -127,7 +153,7 @@ class WordsViewController: UIViewController {
     }
     
     func getBraille(num: Int) {
-        letters = allWords[num]["allLetters"] as! [String]
+        letters = allWords[num].AllLetters
         for i in letters {
         let docRef = database.collection("Letters").document(i)
            docRef.getDocument { (document, error) in
@@ -143,44 +169,44 @@ class WordsViewController: UIViewController {
     
     @IBAction func button1Pressed(_ sender: UIButton) {
         index = 0
-        getBraille(num: index)
-        print(Braille)
+        //getBraille(num: index)
+       // print(Braille)
     }
     @IBAction func button2Pressed(_ sender: UIButton) {
         index = 1
-        getBraille(num: index)
-        print(Braille)
+        //getBraille(num: index)
+       // print(Braille)
 
     }
     @IBAction func button3Pressed(_ sender: UIButton) {
         index = 2
-        getBraille(num: index)
-        print(Braille)
+       // getBraille(num: index)
+        //print(Braille)
 
     }
     @IBAction func button4Pressed(_ sender: UIButton) {
         index = 3
-        getBraille(num: index)
+        //getBraille(num: index)
     }
     @IBAction func button5Pressed(_ sender: UIButton) {
         index = 4
-        getBraille(num: index)
+        //getBraille(num: index)
     }
     @IBAction func button6Pressed(_ sender: UIButton) {
         index = 5
-        getBraille(num: index)
+        //getBraille(num: index)
     }
     @IBAction func button7Pressed(_ sender: UIButton) {
         index = 6
-        getBraille(num: index)
+       // getBraille(num: index)
     }
     @IBAction func button8Pressed(_ sender: UIButton) {
         index = 7
-        getBraille(num: index)
+        //getBraille(num: index)
     }
     @IBAction func button9Pressed(_ sender: UIButton) {
         index = 8
-        getBraille(num: index)
+        //getBraille(num: index)
     }
     
     /*

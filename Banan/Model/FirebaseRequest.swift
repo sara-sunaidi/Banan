@@ -103,13 +103,15 @@ class FirebaseRequest{
             for document in documentSnapshot!.documents {
                 var dat = document.data()
                 dat["Word"] = document.documentID
-                dat["imageName"] = "\(document.documentID).png"
+                //dat["imageName"] = "\(document.documentID).png"
                 
                 allWords.append(Words(AllLetters: dat["AllLetters"] as! [String],
                                       Arabic: dat["Arabic"] as! String,
                                       Category: dat["Category"] as! String,
-                                      Word: dat["Word"] as! String,
-                                     imageName: dat["imageName"] as! String))
+                                      Word: dat["Word"] as! String
+                                      //,
+//                                     imageName: dat["imageName"] as! String
+                                     ))
                 
             }
             print("SUCESSLetter!!")
