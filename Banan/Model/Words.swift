@@ -14,5 +14,4 @@ struct Words: Codable {
     var Category :String = ""
     var Word: String = ""
     var imageName: String = ""
-
 }

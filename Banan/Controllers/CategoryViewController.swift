@@ -6,12 +6,9 @@
 //
 
 import UIKit
-//import FirebaseFirestore
-//import Firebase
-//import FirebaseAuth
+
 class CategoryViewController: UIViewController {
 
-    //let database = Firestore.firestore()
     var allWords = [Words]()
     
     var allMaterial = [Words]()
@@ -152,9 +149,6 @@ class CategoryViewController: UIViewController {
             let destinationVC = segue.destination as? WordsViewController
             destinationVC?.category = Category
             destinationVC?.arabicCategory = arabicCategory
-           // destinationVC?.allWords = allWords
-           // destinationVC?.completedWords = completedWords
-
 
             }
             }
