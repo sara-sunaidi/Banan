@@ -98,7 +98,7 @@ class ResetPasswordViewController : UIViewController{
     }
     func selectoldButton(_ sender: UIButton){
         deSelectOldButton()
-        sender.tintColor = UIColor.systemGray
+        sender.tintColor = UIColor.systemGray3
     }
     func deSelectOldButton(){
         oldTriangle.tintColor = UIColor.white
@@ -110,7 +110,7 @@ class ResetPasswordViewController : UIViewController{
     }
     func selectNewButton(_ sender: UIButton){
         deSelectNewButton()
-        sender.tintColor = UIColor.systemGray
+        sender.tintColor = UIColor.systemGray3
     }
     func deSelectNewButton(){
         newTriangle.tintColor = UIColor.white

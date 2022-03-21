@@ -139,7 +139,7 @@ class LogInViewContoller : UIViewController{
     
     func selectButton(_ sender: UIButton){
         deSelectButton()
-        sender.tintColor = UIColor.systemGray
+        sender.tintColor = UIColor.systemGray3
     }
     func deSelectButton(){
         triangle.tintColor = UIColor.white
