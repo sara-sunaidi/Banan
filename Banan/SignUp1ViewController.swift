@@ -10,13 +10,14 @@ import UIKit
 
 class SignUp1ViewController: UIViewController {
 
+    static var sharedInstance:SignUp1ViewController?
+    
     var password : String = ""
     var cheak : Bool = false
     var email : String = ""
     var dob : String = ""
     var sex : String = ""
     var name : String = ""
-    //var progressBar1 = progressBar(stepNum: 0)
 
     @IBOutlet weak var Email: UITextField!
     
@@ -33,6 +34,8 @@ class SignUp1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SignUp1ViewController.sharedInstance = self
+        
         Email.layer.cornerRadius = 15.0
         
         triangle.tintColor = UIColor.white
@@ -43,9 +46,7 @@ class SignUp1ViewController: UIViewController {
         circle.tintColor = UIColor.white
         
         Email.text? = email
-//        if password == "star123" {
-//            star(star)
-//        }
+
         switch(password){
         case "star123":
             star(star)
@@ -90,10 +91,7 @@ class SignUp1ViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-               let vc = storyboard.instantiateViewController(identifier: "startPage" )
-               vc.modalPresentationStyle = .overFullScreen
-              present(vc, animated:  true)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func star(_ sender: UIButton) {
         password = "star123"
@@ -208,8 +206,8 @@ class SignUp1ViewController: UIViewController {
         if segue.identifier == "SignUp1To2" {
             let destinationVC = segue.destination as? SignUp2ViewController
             if let ema = Email.text{
-            destinationVC?.em = ema
-            destinationVC?.pass = password
+            destinationVC?.email = ema
+            destinationVC?.password = password
             destinationVC?.dob = dob
             destinationVC?.sex = sex
             destinationVC?.name = name

@@ -10,22 +10,18 @@ import Firebase
 import FirebaseCore
 import FirebaseFirestore
 import Foundation
-//import FirebaseStorage
 
 class SignUp4ViewController: UIViewController , UITextFieldDelegate {
-    var em2 : String = ""
-    var pass2 : String = ""
-    var dob2 : String = ""
-    var sex1 : String = ""
+    var email : String = ""
+    var password : String = ""
+    var dob : String = ""
+    var sex : String = ""
     var score : String = "0"
     var name : String = ""
     
     let database = Firestore.firestore()
         
     @IBOutlet weak var Name: UITextField!
-    
-    // Get a reference to the storage service using the default Firebase App
-    //let storage = Storage.storage()
 
        
     override func viewDidLoad() {
@@ -34,12 +30,19 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         Name.layer.cornerRadius = 15.0
         Name.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         Name.delegate = self
-        print(em2,pass2,dob2,sex1)
 
-        // Do any additional setup after loading the view.
     }
     @IBAction func backButton(_ sender: Any) {
-        performSegue(withIdentifier: "SignUp4To3", sender: self)
+        dismissVC()
+        self.dismiss(animated: true, completion: nil)
+    }
+    func dismissVC(){
+        SignUp3ViewController.sharedInstance?.email = email
+        SignUp3ViewController.sharedInstance?.password = password
+        SignUp3ViewController.sharedInstance?.dob = dob
+        SignUp3ViewController.sharedInstance?.sex = sex
+        SignUp3ViewController.sharedInstance?.name = Name.text ?? ""
+
     }
     
     
@@ -57,7 +60,6 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
    
 
     @IBAction func CreateAccount(_ sender: UIButton) {
-        print(em2,pass2,dob2,sex1,Name.text)
 
         if Name.text == "" {
             let alert = UIAlertController(title: "تنبيه", message:"الرجاء ادخال الاسم", preferredStyle: .alert)
@@ -76,7 +78,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
                         }))
                         self.present(alert, animated: true, completion: nil)        }
         else{
-            Auth.auth().createUser(withEmail: em2, password: pass2) { [self] authResult, error in
+            Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
             if error == nil {
           // ...
             let uid = Auth.auth().currentUser?.uid
@@ -85,7 +87,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
             self.performSegue(withIdentifier: "ToHomePage", sender: self)
             }
             else {
-                let alert = UIAlertController(title: "تنبيه", message:"هذا المستخدم مسجل بالفعل \(self.em2)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "تنبيه", message:"هذا المستخدم مسجل بالفعل \(self.email)", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                 switch action.style{
                                     case .default:
@@ -108,7 +110,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     
     func writeData(id: String){
         let docref = database.document("Children/\(id)")
-        docref.setData(["Email": em2, "Name": Name.text, "DOB": dob2, "Gender": sex1, "Score": score,
+        docref.setData(["Email": email, "Name": Name.text, "DOB": dob, "Gender": sex, "Score": score,
                         "CompletedCategory": [String](), "CompletedLetter": [String](), "CompletedLevel": [String](), "CompletedWord": [String]()])
 
     }
@@ -116,10 +118,10 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignUp4To3" {
             let destinationVC = segue.destination as? SignUp3ViewController
-            destinationVC?.Sex = sex1
-            destinationVC?.em1 = em2
-            destinationVC?.pass1 = pass2
-            destinationVC?.dob1 = dob2
+            destinationVC?.email = email
+            destinationVC?.password = password
+            destinationVC?.dob = dob
+            destinationVC?.sex = sex
             destinationVC?.name = Name.text ?? ""
 
 

@@ -7,65 +7,29 @@
 
 import UIKit
 import Foundation
-//extension UIDatePicker
-//{
-//    /// set the date picker values and set min/max
-//    /// - parameter date: Date to set the picker to
-//    /// - parameter unit: (years, days, months, hours, minutes...)
-//    /// - parameter deltaMinimum: minimum date delta in units
-//    /// - parameter deltaMaximum: maximum date delta in units
-//    /// - parameter animated: Whether or not to use animation for setting picker
-//    func setDate(_ date:Date, unit:NSCalendar.Unit, deltaMinimum:Int, deltaMaximum:Int, animated:Bool)
-//    {
-//        setDate(date, animated: animated)
-//
-//        setMinMax(unit: unit, deltaMinimum: deltaMinimum, deltaMaximum: deltaMaximum)
-//    }
-//
-//    /// set the min/max for the date picker (uses the pickers current date)
-//    /// - parameter unit: (years, days, months, hours, minutes...)
-//    /// - parameter deltaMinimum: minimum date delta in units
-//    /// - parameter deltaMaximum: maximum date delta in units
-//    func setMinMax(unit:NSCalendar.Unit, deltaMinimum:Int, deltaMaximum:Int)
-//    {
-//        if let gregorian = NSCalendar(calendarIdentifier:.gregorian)
-//        {
-//            if let minDate = gregorian.date(byAdding: unit, value: deltaMinimum, to: self.date)
-//            {
-//                minimumDate = minDate
-//            }
-//
-//            if let maxDate = gregorian.date(byAdding: unit, value: deltaMaximum, to: self.date)
-//            {
-//                maximumDate = maxDate
-//            }
-//        }
-//    }
-//}
+
 class SignUp2ViewController: UIViewController {
-    var em : String = ""
-    var pass : String = ""
+    
+    static var sharedInstance:SignUp2ViewController?
+
+    var email : String = ""
+    var password : String = ""
     var dob : String = ""
-   // var Dob1 : UIDatePicker? = nil
     var sex : String = ""
     var name : String = ""
 
-
-   var date1 = Date()
-
-    //let datepicker = UIDatePicker()
+    var date1 = Date()
 
     @IBOutlet weak var DOB: UIDatePicker!
     
-    //let he = SignUp1ViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        SignUp2ViewController.sharedInstance = self
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "MMM dd, YYYY"
         let date = dateFormatter.date(from: dob)
         DOB.date = date ?? date1
-       // DOB?.setValue(Dob1)
-//        DOB.setDate(date, unit:.year, deltaMinimum:-80, deltaMaximum:-6, animated: true)
         let calendar = Calendar(identifier: .gregorian)
         var comps = DateComponents()
         comps.year = -6
@@ -79,9 +43,17 @@ class SignUp2ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func backButton(_ sender: Any) {
-        performSegue(withIdentifier: "SignUp2To1", sender: self)
+        dismissVC()
+        self.dismiss(animated: true, completion: nil)
     }
-    
+    func dismissVC(){
+        SignUp1ViewController.sharedInstance?.email = email
+        SignUp1ViewController.sharedInstance?.password = password
+        SignUp1ViewController.sharedInstance?.dob = dob
+        SignUp1ViewController.sharedInstance?.sex = sex
+        SignUp1ViewController.sharedInstance?.name = name
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,10 +74,7 @@ class SignUp2ViewController: UIViewController {
     
     
     @IBAction func SignUp3(_ sender: UIButton) {
-       /* let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "SignUp3" )
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated:  true)*/
+  
         if dob == "" {
             let alert = UIAlertController(title: "تنبيه", message:"الرجاء ادخل تاريخ الميلاد", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -132,35 +101,14 @@ class SignUp2ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignUp2To3" {
             let destinationVC = segue.destination as? SignUp3ViewController
-           // if let date = dob{
-            destinationVC?.em1 = em
-            destinationVC?.pass1 = pass
-            destinationVC?.dob1 = dob
-            destinationVC?.Sex = sex
+            destinationVC?.email = email
+            destinationVC?.password = password
+            destinationVC?.dob = dob
+            destinationVC?.sex = sex
             destinationVC?.name = name
-
-          //  destinationVC?.Dob = DOB
-
-
-            //}
             
             }
-        else {
-            if segue.identifier == "SignUp2To1" {
-                let destinationVC = segue.destination as? SignUp1ViewController
-                destinationVC?.email = em
-                destinationVC?.password = pass
-                destinationVC?.dob = dob
-                destinationVC?.sex = sex
-                destinationVC?.name = name
-
-
-   
-                }
-        }
-            
-            
-            
+        
         }
     /*
     // MARK: - Navigation

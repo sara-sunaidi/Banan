@@ -151,8 +151,7 @@ class LogInViewContoller : UIViewController{
         circle.tintColor = UIColor.white
     }
     @IBAction func BackButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "GoToStartPage", sender: self)
-        print("fdddd")
+        self.dismiss(animated: true, completion: nil)
     }
     
     
