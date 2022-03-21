@@ -490,7 +490,7 @@
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="qXJ-i8-dif">
                                 <rect key="frame" x="0.0" y="529" width="834" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <locale key="locale" localeIdentifier="en"/>
+                                <locale key="locale" localeIdentifier="ar"/>
                                 <connections>
                                     <action selector="datePickerChanged:" destination="xfT-gP-6CW" eventType="valueChanged" id="wGN-vD-FuW"/>
                                 </connections>
