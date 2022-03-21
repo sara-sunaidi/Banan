@@ -10,6 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 import Firebase
 
+@available(iOS 15.0, *)
 class HomePageViewController : UIViewController{
     @IBOutlet weak var name: UILabel!
     

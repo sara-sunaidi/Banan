@@ -7,11 +7,19 @@
 
 import UIKit
 
+// Protocol in UIView Class for navigation purposes
+protocol WordViewControllerDelegate {
+    func didCheckTapped()
+}
+
+
 class WordViewController: UIViewController, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
     
     static let instance = WordViewController()
     
     @IBOutlet weak var speakerBtn: UIButton!
+    
+    var delegate: WordViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +30,9 @@ class WordViewController: UIViewController, CustomAlertViewControllerDelegate, C
     }
     @IBAction func checkAnswerBtn(_ sender: Any) {
         // # check answer method call
+        delegate?.didCheckTapped()
         // call alert dialog
-        CustomAlertViewController.instance.showAlert(title: "أحسنت !", message: "لقد أجبت إجابة صحيحة", alertType: .word)
+//        CustomAlertViewController.instance.showAlert(title: "أحسنت !", message: "لقد أجبت إجابة صحيحة", alertType: .word)
         
     }
     
