@@ -27,7 +27,9 @@ class SignUp2ViewController: UIViewController {
         SignUp2ViewController.sharedInstance = self
 
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "EN")
         dateFormatter.dateFormat =  "MMM dd, YYYY"
+     
         let date = dateFormatter.date(from: dob)
         DOB.date = date ?? date1
         let calendar = Calendar(identifier: .gregorian)
@@ -63,7 +65,9 @@ class SignUp2ViewController: UIViewController {
         print("print \(sender.date)")
 
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "EN")
             dateFormatter.dateFormat = "MMM dd, YYYY"
+        
         let somedateString = dateFormatter.string(from: sender.date)
         
         dob = somedateString
