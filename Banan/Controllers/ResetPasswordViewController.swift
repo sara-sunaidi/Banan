@@ -141,10 +141,10 @@ class ResetPasswordViewController : UIViewController{
                         switch action.style{
                             case .default:
                             print("default")
-                            self.performSegue(withIdentifier: "GoToProfile", sender: self)
+                            self.dismiss(animated: true, completion: nil)
                             case .cancel:
                             print("cancel")
-                            self.performSegue(withIdentifier: "GoToProfile", sender: self)
+                           self.dismiss(animated: true, completion: nil)
                             case .destructive:
                             print("destructive")
                             
