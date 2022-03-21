@@ -15,7 +15,8 @@ class Letters2ViewController: UIViewController {
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var letterOne: UIButton!
     @IBOutlet weak var letterTwo: UIButton!
-    
+    var index = 0
+
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
         assignLettersImage(btn: letterOne, index: 0)
@@ -71,7 +72,7 @@ class Letters2ViewController: UIViewController {
     }
 
     @IBAction func selectLetter(_ sender: UIButton) {
-        var index = 0
+         index = 0
         
         switch sender{
         case letterOne:
@@ -87,7 +88,17 @@ class Letters2ViewController: UIViewController {
         }
         
         //send to noura's page
-        
+        performSegue(withIdentifier: "GoToLearnLetter", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToLearnLetter"{
+            let destination = segue.destination as! LearnLetterViewController
+            destination.letters = letters
+            destination.index = index
+        }
+    }
+
     
 }

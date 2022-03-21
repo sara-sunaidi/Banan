@@ -52,6 +52,7 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */; };
 		56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */; };
 		56BD5EBA27E0F4A600F6DBB6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB927E0F4A600F6DBB6 /* Extension.swift */; };
 		56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */; };
@@ -124,6 +125,7 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLetterViewController.swift; sourceTree = "<group>"; };
 		56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPageViewController.swift; sourceTree = "<group>"; };
 		56BD5EB927E0F4A600F6DBB6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */,
 				56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
+				569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */,
 				56BD5EBF27E0F63300F6DBB6 /* Letters3ViewController.swift */,
 				56BD5EC127E0F6A700F6DBB6 /* Letters2ViewController.swift */,
 				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
@@ -484,6 +487,7 @@
 				56BD5EC427E0F7E500F6DBB6 /* LevelsViewController.swift in Sources */,
 				56BD5EC027E0F63300F6DBB6 /* Letters3ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
+				569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,

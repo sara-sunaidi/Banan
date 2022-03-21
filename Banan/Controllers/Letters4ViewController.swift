@@ -17,7 +17,8 @@ class Letters4ViewController: UIViewController {
     @IBOutlet weak var letterTwo: UIButton!
     @IBOutlet weak var letterThree: UIButton!
     @IBOutlet weak var letterFour: UIButton!
-    
+    var index = 0
+
     
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
@@ -80,7 +81,7 @@ class Letters4ViewController: UIViewController {
 
     @IBAction func selectLetter(_ sender: UIButton) {
     
-        var index = 0
+         index = 0
         
         switch sender{
         case letterOne:
@@ -103,7 +104,15 @@ class Letters4ViewController: UIViewController {
         }
         
         //send to noura's page
-        
+        performSegue(withIdentifier: "GoToLearnLetter", sender: self)
+
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToLearnLetter"{
+            let destination = segue.destination as! LearnLetterViewController
+            destination.letters = letters
+            destination.index = index
+        }
+    }
 }
