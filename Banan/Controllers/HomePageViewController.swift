@@ -37,6 +37,17 @@ class HomePageViewController : UIViewController{
         profileImage.tintColor = UIColor.white
         dashBoard.tintColor = UIColor.white
         instructions.tintColor = UIColor.white
+        dashBoard.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        dashBoard.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        dashBoard.layer.shadowOpacity = 0.8
+        dashBoard.layer.shadowRadius = 0.0
+        dashBoard.layer.masksToBounds = false
+        
+        instructions.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        instructions.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        instructions.layer.shadowOpacity = 0.8
+        instructions.layer.shadowRadius = 0.0
+        instructions.layer.masksToBounds = false
         getChildData()
         getLettersData()
         getWordsData()
