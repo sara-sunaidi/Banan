@@ -100,10 +100,10 @@ class CategoryViewController: UIViewController {
     }
     
     @IBAction func placeButton(_ sender: UIButton) {
-        //        Category = "Place"
-        //        arabicCategory = "أماكن"
-        //        allWords = allPlace
-        //        performSegue(withIdentifier: "GoToWords", sender: self)
+        Category = "Place"
+        arabicCategory = "أماكن"
+        allWords = allPlace
+        performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
     @IBAction func animalButton(_ sender: UIButton) {

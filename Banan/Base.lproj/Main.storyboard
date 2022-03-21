@@ -2677,9 +2677,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wordsBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="2U3-55-X23">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wordsBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="2U3-55-X23">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اختر الكلمة التي تود التدرب عليها" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBp-Q2-BCm">
                                 <rect key="frame" x="259" y="255" width="432" height="34"/>
@@ -2915,6 +2914,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yg2-t0-etQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2U3-55-X23" firstAttribute="leading" secondItem="Yg2-t0-etQ" secondAttribute="leading" id="18D-Ie-sLA"/>
+                            <constraint firstItem="2U3-55-X23" firstAttribute="trailing" secondItem="Yg2-t0-etQ" secondAttribute="trailing" id="5XG-ij-QMv"/>
+                            <constraint firstItem="2U3-55-X23" firstAttribute="top" secondItem="Yg2-t0-etQ" secondAttribute="top" id="PdK-Q5-dHx"/>
+                            <constraint firstAttribute="bottom" secondItem="2U3-55-X23" secondAttribute="bottom" id="aBk-zy-DM4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="Category" destination="o7f-mB-hhS" id="MGZ-uS-7cL"/>
@@ -2959,9 +2964,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LearnPage" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-Xi-gP2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LearnPage" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-Xi-gP2">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KT-NA-zPz">
                                 <rect key="frame" x="760" y="45" width="33" height="45"/>
@@ -3143,6 +3147,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tzm-dU-ovu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Dgh-Xi-gP2" secondAttribute="bottom" id="9pA-3V-Rw2"/>
+                            <constraint firstItem="Dgh-Xi-gP2" firstAttribute="trailing" secondItem="Tzm-dU-ovu" secondAttribute="trailing" id="YdO-hw-i1A"/>
+                            <constraint firstItem="Dgh-Xi-gP2" firstAttribute="top" secondItem="Tzm-dU-ovu" secondAttribute="top" id="dqq-19-2nj"/>
+                            <constraint firstItem="Dgh-Xi-gP2" firstAttribute="leading" secondItem="Tzm-dU-ovu" secondAttribute="leading" id="h9s-ra-t1K"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="animal" destination="sro-QM-dEp" id="wGk-g2-Vb5"/>
