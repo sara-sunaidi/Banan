@@ -23,7 +23,7 @@ class SignUp3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SignUp3ViewController.sharedInstance = self
-
+        
         boy.tintColor = UIColor.white
         girl.tintColor = UIColor.white
 
@@ -58,15 +58,19 @@ class SignUp3ViewController: UIViewController {
     @IBAction func BOY(_ sender: UIButton) {
         sex = "Boy"
         selectButton(sender)
+      
     }
     
     func selectButton(_ sender: UIButton){
             deSelectButton()
             sender.tintColor = UIColor.systemGray3
+        sender.configuration?.background.strokeColor = UIColor.systemYellow
         }
         func deSelectButton(){
             boy.tintColor = UIColor.white
             girl.tintColor = UIColor.white
+            boy.configuration?.background.strokeColor = UIColor.white
+            girl.configuration?.background.strokeColor = UIColor.white
             
         }
     

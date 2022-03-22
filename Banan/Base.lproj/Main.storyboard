@@ -652,7 +652,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="girl1" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="girl1" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background" strokeWidth="4">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="GIRL:" destination="XOq-Zb-asf" eventType="touchUpInside" id="r2R-cX-9P9"/>
                                 </connections>
@@ -663,7 +668,10 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="boy1" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background"/>
+                                    <backgroundConfiguration key="background" strokeWidth="4">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BOY:" destination="XOq-Zb-asf" eventType="touchUpInside" id="iWr-NK-z09"/>
@@ -4098,7 +4106,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yD0-41-uUe"/>
-        <segue reference="sZa-XB-zTk"/>
+        <segue reference="DBf-gC-w3l"/>
         <segue reference="62k-Uq-p9X"/>
         <segue reference="YTN-t0-tK2"/>
     </inferredMetricsTieBreakers>
