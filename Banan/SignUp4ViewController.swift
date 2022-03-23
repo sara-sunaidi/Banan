@@ -62,46 +62,38 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     @IBAction func CreateAccount(_ sender: UIButton) {
 
         if Name.text == "" {
-            let alert = UIAlertController(title: "تنبيه", message:"الرجاء ادخال الاسم", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                            switch action.style{
-                                case .default:
-                                print("default")
-
-                                case .cancel:
-                                print("cancel")
-
-                                case .destructive:
-                                print("destructive")
-
-                            }
-                        }))
-                        self.present(alert, animated: true, completion: nil)        }
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل الاسم", acknowledgementType: .negative)      }
         else{
             Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
-            if error == nil {
+                if let e = error{
+        
+                    print(e)
+                    if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                                            
+                        switch errorCode {
+                                                
+                            case .emailAlreadyInUse:
+                              CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "هذا المستخدم مسجل بالفعل \(email)", acknowledgementType: .negative)
+                                               
+                                break
+                            case .networkError:
+                              CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء التحقق من الاتصال بالانترنت", acknowledgementType: .negative)
+                                break
+                                                
+                            @unknown default:
+                              CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "حدث خطأ! حاول مجددا", acknowledgementType: .negative)
+                                                
+                                break
+                                            }
+                                        }
+                }
+                else {
           // ...
             let uid = Auth.auth().currentUser?.uid
             self.writeData(id: uid ?? "error")
+                
             
             self.performSegue(withIdentifier: "ToHomePage", sender: self)
-            }
-            else {
-                let alert = UIAlertController(title: "تنبيه", message:"هذا المستخدم مسجل بالفعل \(self.email)", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                                switch action.style{
-                                    case .default:
-                                    print("default")
-
-                                    case .cancel:
-                                    print("cancel")
-
-                                    case .destructive:
-                                    print("destructive")
-
-                                }
-                            }))
-                            self.present(alert, animated: true, completion: nil)
             }
         }
         }

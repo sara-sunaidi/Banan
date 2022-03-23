@@ -8,8 +8,12 @@
 import UIKit
 //import FlexibleSteppedProgressBar
 
-class SignUp1ViewController: UIViewController {
-
+class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerDelegate {
+    
+    func didYesButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     static var sharedInstance:SignUp1ViewController?
     
     var password : String = ""
@@ -35,6 +39,8 @@ class SignUp1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SignUp1ViewController.sharedInstance = self
+        
+        CustomConfirmationViewController.instance.delegate = self
         
         Email.layer.cornerRadius = 15.0
         
@@ -91,7 +97,12 @@ class SignUp1ViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        if Email.text == "" {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else {
+        CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل انت متأكد من الخروج؟ علما بانه لن يتم حفظ المعلومات المدخلة")
+        }
     }
     @IBAction func star(_ sender: UIButton) {
         password = "star123"
@@ -138,61 +149,15 @@ class SignUp1ViewController: UIViewController {
         present(vc, animated:  true)*/
         if Email.text == "" || password == "" || cheak == true{
             if Email.text == "" {
-                let alert = UIAlertController(title: "تنبيه", message:"الرجاء إدخال البريد الالكتروني", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                                switch action.style{
-                                    case .default:
-                                    print("default")
-
-                                    case .cancel:
-                                    print("cancel")
-
-                                    case .destructive:
-                                    print("destructive")
-
-                                }
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-
-
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل البريد الإلكتروني", acknowledgementType: .negative)
             }
-        
-            if cheak == true {
-                let alert = UIAlertController(title: "تنبيه", message:"الرجاء إدخال البريد الالكتروني بشكل صحيح", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                                switch action.style{
-                                    case .default:
-                                    print("default")
-
-                                    case .cancel:
-                                    print("cancel")
-
-                                    case .destructive:
-                                    print("destructive")
-
-                                }
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                }
-            
             else {
-                let alert = UIAlertController(title: "تنبيه",     message:"الرجاء اختيار شكل لتعيين كلمة المرور",
-                    preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                                switch action.style{
-                                    case .default:
-                                    print("default")
-
-                                    case .cancel:
-                                    print("cancel")
-
-                                    case .destructive:
-                                    print("destructive")
-
-                                }
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-
+            if cheak == true {
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل البريد الإلكتروني بشكل صحيح", acknowledgementType: .negative)
+                }
+            }
+            if password == "" && Email.text != "" && cheak != true {
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء اختر شكل لتعيين كلمة المرور", acknowledgementType: .negative)
             }
             
         }

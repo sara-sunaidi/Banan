@@ -194,9 +194,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUp Screen1" translatesAutoresizingMaskIntoConstraints="NO" id="Z1f-aF-ZEI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUp Screen1" translatesAutoresizingMaskIntoConstraints="NO" id="Z1f-aF-ZEI">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="أدخل البريد الإلكتروني" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ5-8r-3wZ">
                                 <rect key="frame" x="372" y="371" width="315" height="42"/>
@@ -412,6 +411,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j0X-kZ-B2g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z1f-aF-ZEI" firstAttribute="top" secondItem="Gjv-yR-xGX" secondAttribute="top" id="2Sc-hW-Hk8"/>
+                            <constraint firstAttribute="bottom" secondItem="Z1f-aF-ZEI" secondAttribute="bottom" id="NmF-le-J8M"/>
+                            <constraint firstItem="Z1f-aF-ZEI" firstAttribute="leading" secondItem="j0X-kZ-B2g" secondAttribute="leading" id="Ypx-C0-1o9"/>
+                            <constraint firstItem="Z1f-aF-ZEI" firstAttribute="trailing" secondItem="j0X-kZ-B2g" secondAttribute="trailing" id="YxT-O4-R7n"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="44O-tM-Rkt"/>
                     <connections>
@@ -439,9 +444,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUp Screen2" translatesAutoresizingMaskIntoConstraints="NO" id="0xb-LL-lew">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUp Screen2" translatesAutoresizingMaskIntoConstraints="NO" id="0xb-LL-lew">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CC-ka-AsH">
                                 <rect key="frame" x="184.75333750243499" y="1058" width="459" height="71"/>
@@ -580,6 +584,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="834-5t-afU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0xb-LL-lew" firstAttribute="trailing" secondItem="834-5t-afU" secondAttribute="trailing" id="GZw-1l-wKY"/>
+                            <constraint firstAttribute="bottom" secondItem="0xb-LL-lew" secondAttribute="bottom" id="TjF-UJ-gst"/>
+                            <constraint firstItem="0xb-LL-lew" firstAttribute="top" secondItem="1hA-Jq-wqX" secondAttribute="top" id="bxJ-vw-myy"/>
+                            <constraint firstItem="0xb-LL-lew" firstAttribute="leading" secondItem="834-5t-afU" secondAttribute="leading" id="kqY-SL-1fO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xeW-tg-nMf"/>
                     <connections>
@@ -599,9 +609,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUp Screen3" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-6g-7Bh">
-                                <rect key="frame" x="0.0" y="-13" width="834" height="1221"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUp Screen3" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-6g-7Bh">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bJ-AT-2bL">
                                 <rect key="frame" x="186.39021491009134" y="1058" width="459" height="71.000000000000455"/>
@@ -763,6 +772,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C7U-GO-Jq4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Abz-6g-7Bh" firstAttribute="top" secondItem="NfY-wa-nUQ" secondAttribute="top" id="NrS-ot-zhC"/>
+                            <constraint firstItem="Abz-6g-7Bh" firstAttribute="trailing" secondItem="C7U-GO-Jq4" secondAttribute="trailing" id="VvE-RC-HM6"/>
+                            <constraint firstItem="Abz-6g-7Bh" firstAttribute="leading" secondItem="C7U-GO-Jq4" secondAttribute="leading" id="qaF-JA-xlJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Abz-6g-7Bh" secondAttribute="bottom" id="xD1-Ai-dQj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ejh-Mo-r8n"/>
                     <connections>
@@ -783,9 +798,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUp Screen4" translatesAutoresizingMaskIntoConstraints="NO" id="urR-pX-WP8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUp Screen4" translatesAutoresizingMaskIntoConstraints="NO" id="urR-pX-WP8">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEj-sc-5UX">
                                 <rect key="frame" x="185.47415333432218" y="1058" width="459" height="71"/>
@@ -915,6 +929,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y3W-3C-nYG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="urR-pX-WP8" firstAttribute="leading" secondItem="y3W-3C-nYG" secondAttribute="leading" id="83h-Qs-muw"/>
+                            <constraint firstAttribute="bottom" secondItem="urR-pX-WP8" secondAttribute="bottom" id="8dy-Nf-BUY"/>
+                            <constraint firstItem="urR-pX-WP8" firstAttribute="top" secondItem="V3a-pF-dAZ" secondAttribute="top" id="Z7U-1Z-QmD"/>
+                            <constraint firstItem="urR-pX-WP8" firstAttribute="trailing" secondItem="y3W-3C-nYG" secondAttribute="trailing" id="tUw-zH-k6t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KBq-My-oAb"/>
                     <connections>
@@ -4105,10 +4125,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yD0-41-uUe"/>
+        <segue reference="JKX-fh-ZYg"/>
         <segue reference="DBf-gC-w3l"/>
         <segue reference="62k-Uq-p9X"/>
-        <segue reference="YTN-t0-tK2"/>
+        <segue reference="YiQ-fX-NIg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BrailleBlocks1" width="638" height="261"/>

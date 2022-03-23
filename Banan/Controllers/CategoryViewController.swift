@@ -86,10 +86,10 @@ class CategoryViewController: UIViewController {
     }
 
     @IBAction func materialButton(_ sender: UIButton) {
-        //        Category = "Material"
-        //        arabicCategory = "أدوات"
-        //        allWords = allMaterial
-        //        performSegue(withIdentifier: "GoToWords", sender: self)
+        Category = "Material"
+        arabicCategory = "أدوات"
+        allWords = allMaterial
+        performSegue(withIdentifier: "GoToWords", sender: self)
     }
 
     @IBAction func foodButton(_ sender: UIButton) {
