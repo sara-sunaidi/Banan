@@ -44,7 +44,6 @@
 		56290E92279F235800F3AC5F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E91279F235800F3AC5F /* CoreMedia.framework */; };
 		56290E94279F23A800F3AC5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E93279F23A800F3AC5F /* CoreFoundation.framework */; };
 		56290E96279F23AF00F3AC5F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E95279F23AF00F3AC5F /* Accelerate.framework */; };
-		56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290E9B279F786700F3AC5F /* opencv2.framework */; };
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
@@ -53,8 +52,10 @@
 		56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */; };
 		56F856BA27DE38C600A8C6A8 /* Letters3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */; };
 		56F91E5F27D6A54300C1E4A9 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */; };
+		712065E727E8F5E9006B6E68 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712065E627E8F5E9006B6E68 /* CustomButton.swift */; };
 		7175C5CE27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7175C5CD27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib */; };
 		7175C5D027E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7175C5CF27E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift */; };
+		71A3A90527E9860D009F9B09 /* extenstion_UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A90427E9860D009F9B09 /* extenstion_UIImage.swift */; };
 		71BDF55827E3DE6400D0CB80 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */; };
 		71BDF55A27E3EC4700D0CB80 /* CustomConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */; };
 		71BDF55D27E4342C00D0CB80 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */; };
@@ -109,7 +110,6 @@
 		56290E91279F235800F3AC5F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		56290E93279F23A800F3AC5F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		56290E95279F23AF00F3AC5F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		56290E9B279F786700F3AC5F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		56290E9D279F7C8200F3AC5F /* Banan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Banan-Bridging-Header.h"; sourceTree = "<group>"; };
 		56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
@@ -121,8 +121,10 @@
 		56F856B727DE2B6C00A8C6A8 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
 		56F856B927DE38C600A8C6A8 /* Letters3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters3ViewController.swift; sourceTree = "<group>"; };
 		56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		712065E627E8F5E9006B6E68 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7175C5CD27E4DCD9004FF2F2 /* CustomAcknowledgementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAcknowledgementView.xib; sourceTree = "<group>"; };
 		7175C5CF27E4E0B1004FF2F2 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
+		71A3A90427E9860D009F9B09 /* extenstion_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extenstion_UIImage.swift; sourceTree = "<group>"; };
 		71BDF55727E3DE6400D0CB80 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
 		71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationViewController.swift; sourceTree = "<group>"; };
 		71BDF55C27E4342C00D0CB80 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
@@ -140,7 +142,6 @@
 				4DC0E31427BC136100560589 /* FirebaseDatabase in Frameworks */,
 				56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */,
 				4DC0E30A27BC136100560589 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				56290E9C279F786700F3AC5F /* opencv2.framework in Frameworks */,
 				4DC0E32327CD2D0D00560589 /* FlexibleSteppedProgressBar in Frameworks */,
 				4DC0E30627BC136100560589 /* FirebaseAnalytics in Frameworks */,
 				4DC0E31627BC136100560589 /* FirebaseFirestore in Frameworks */,
@@ -225,6 +226,7 @@
 				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 				4DC0E31F27BFDBA400560589 /* homepageViewController.swift */,
 				4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */,
+				712065E627E8F5E9006B6E68 /* CustomButton.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -255,7 +257,6 @@
 				56290E91279F235800F3AC5F /* CoreMedia.framework */,
 				56290E8F279F234A00F3AC5F /* CoreGraphics.framework */,
 				56290E8D279F231100F3AC5F /* AssetsLibrary.framework */,
-				56290E9B279F786700F3AC5F /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +272,7 @@
 				4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */,
 				56F91E5E27D6A54200C1E4A9 /* LevelsViewController.swift */,
 				56F856B427DD2AE900A8C6A8 /* Extensions.swift */,
+				71A3A90427E9860D009F9B09 /* extenstion_UIImage.swift */,
 				56F856B127DCC39700A8C6A8 /* Letters2ViewController.swift */,
 				71CD8F8927E251710049062B /* CustomAlertViewController.swift */,
 				71BDF55927E3EC4700D0CB80 /* CustomConfirmationViewController.swift */,
@@ -446,8 +448,10 @@
 			files = (
 				4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */,
 				4DC0E32027BFDBA400560589 /* homepageViewController.swift in Sources */,
+				71A3A90527E9860D009F9B09 /* extenstion_UIImage.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* TakePhotoController.swift in Sources */,
 				71BDF55D27E4342C00D0CB80 /* SnackbarView.swift in Sources */,
+				712065E727E8F5E9006B6E68 /* CustomButton.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				56F856B827DE2B6E00A8C6A8 /* Letters4ViewController.swift in Sources */,
@@ -655,7 +659,9 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "الرجاء السماح لبنان بالوصول الى الكاميرا";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "الرجاء السماح لبنان بالوصول الى المايكروفون";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "الرجاء السماح لبنان بالوصول الى الصور";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -669,7 +675,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -695,7 +701,9 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "الرجاء السماح لبنان بالوصول الى الكاميرا";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "الرجاء السماح لبنان بالوصول الى المايكروفون";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "الرجاء السماح لبنان بالوصول الى الصور";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -708,7 +716,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";

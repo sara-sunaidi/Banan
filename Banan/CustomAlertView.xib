@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -92,12 +93,12 @@
                                         <constraint firstAttribute="width" constant="75" id="A3u-jC-ERO"/>
                                         <constraint firstAttribute="height" constant="75" id="HPU-SY-0VS"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="replayVector" imagePlacement="top" cornerStyle="capsule">
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="replayVector"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="replayVector" cornerStyle="capsule">
                                         <backgroundConfiguration key="background">
-                                            <color key="backgroundColor" red="0.89411764705882346" green="0.8901960784313725" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.89411764709999997" green="0.89019607840000003" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </backgroundConfiguration>
-                                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="2" trailing="0.0"/>
                                     </buttonConfiguration>
                                     <connections>
                                         <action selector="onClickRedo:" destination="-1" eventType="touchUpInside" id="PI0-iW-CQl"/>

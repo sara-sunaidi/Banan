@@ -9,13 +9,16 @@
 import UIKit
 
 class ProcessImageController: UIViewController{
+    
     public var source_image: UIImage? = nil
     
     @IBOutlet weak var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("### in viewDidLoad Process vc ")
         if let src_img = self.source_image {
+            print("### in viewDidLoad Process vc  IF statmenet")
             showImage(image: src_img)
         }
     }
@@ -23,9 +26,9 @@ class ProcessImageController: UIViewController{
   
     @IBAction func processImage(_ sender: UIButton) {
         
-        if let img = self.source_image {
+//        if let img = self.source_image {
 //            showImage(image: OpenCVWrapper.detectEdges(inRGBImage: img.normalized!))
-        }
+//        }
     }
     
     

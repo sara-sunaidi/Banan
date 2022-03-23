@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ix6-fj-7RI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ix6-fj-7RI">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Take Photo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TakePhotoController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TakePhotoController" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +34,7 @@
                     <connections>
                         <outlet property="photoButton" destination="dJu-Bv-Duu" id="RLw-ma-dsd"/>
                         <segue destination="cEY-4p-icW" kind="show" identifier="ProcessImageController" id="W1K-Mf-KYL"/>
+                        <segue destination="xfo-WX-wKH" kind="presentation" identifier="sendPhotoToWord" modalPresentationStyle="currentContext" id="DGG-Yd-oBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,10 +49,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QS-a4-yKJ">
-                                <rect key="frame" x="9" y="168" width="396" height="376"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-X7-0Pv">
                                 <rect key="frame" x="158" y="718" width="105" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,6 +62,10 @@
                                     <action selector="processImage:" destination="cEY-4p-icW" eventType="touchUpInside" id="txu-QE-gnH"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QS-a4-yKJ">
+                                <rect key="frame" x="109" y="117" width="621" height="551"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aOh-3H-ASO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ua4-tz-5m7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1818.840579710145" y="61.607142857142854"/>
+            <point key="canvasLocation" x="1818.7050359712232" y="61.306532663316581"/>
         </scene>
         <!--Start Screen View Controller-->
         <scene sceneID="IIi-Yk-U53">
@@ -1909,7 +1911,7 @@
         <!--Word View Controller-->
         <scene sceneID="dJs-Po-IGS">
             <objects>
-                <viewController id="xfo-WX-wKH" customClass="WordViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xfo-WX-wKH" customClass="WordViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2IK-qB-RPo">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1942,12 +1944,11 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-qO-gHy" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
                                 <rect key="frame" x="55" y="340" width="90" height="90"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="QuestionMark"/>
                                 <buttonConfiguration key="configuration" style="plain" image="QuestionMark" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="5" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onClickGuide:" destination="xfo-WX-wKH" eventType="touchUpInside" id="xXA-bt-Kah"/>
@@ -1971,10 +1972,11 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ0-bg-PLW" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
                                 <rect key="frame" x="55" y="106" width="90" height="90"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="logOut" imagePlacement="top" cornerStyle="capsule">
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="logOut"/>
+                                <buttonConfiguration key="configuration" style="plain" image="logOut" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="1" green="0.99999994039999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
@@ -1997,8 +1999,13 @@
                                     <action selector="onClickPreWord:" destination="xfo-WX-wKH" eventType="touchUpInside" id="DGW-iN-0qU"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banana" translatesAutoresizingMaskIntoConstraints="NO" id="eO4-ld-7oM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eO4-ld-7oM">
                                 <rect key="frame" x="257" y="295" width="320" height="320"/>
+                                <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-Ai-ACS">
+                                <rect key="frame" x="159" y="623" width="543" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
@@ -2040,12 +2047,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="r2h-p7-1wf"/>
                     <connections>
+                        <outlet property="imageView" destination="eO4-ld-7oM" id="jac-Tk-Tig"/>
                         <outlet property="speakerBtn" destination="eYm-t6-nhk" id="gsZ-WE-GtT"/>
+                        <outlet property="tempImgView" destination="cwN-Ai-ACS" id="BKE-6R-UlA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5N-Pn-wDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464.74820143884898" y="1945.7286432160804"/>
+            <point key="canvasLocation" x="275.53956834532374" y="928.643216080402"/>
         </scene>
         <!--Levels View Controller-->
         <scene sceneID="g3B-jI-Slo">
@@ -3764,13 +3773,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="DGG-Yd-oBI"/>
         <segue reference="C36-KF-fOy"/>
         <segue reference="7yl-H5-OTY"/>
         <segue reference="epm-ui-d91"/>
         <segue reference="YiQ-fX-NIg"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Banana" width="380" height="521"/>
         <image name="BrailleBlocks1" width="638" height="261"/>
         <image name="BrailleBlocks2" width="638" height="261"/>
         <image name="DashBorad" width="77" height="116"/>
