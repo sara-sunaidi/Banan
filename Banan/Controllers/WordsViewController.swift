@@ -13,15 +13,15 @@ import FirebaseCore
 import CoreMIDI
 class WordsViewController: UIViewController {
     
-    let database = Firestore.firestore()
+//    let database = Firestore.firestore()
     var allWords = [Words]()
     var completedWords = [String]()
 
     var category : String = ""
     var arabicCategory : String = ""
     
-    var letters = [String]()
-    var Braille = [String]()
+//    var letters = [String]()
+    //var Braille = [String]()
 
     var index : Int = 0
     
@@ -152,63 +152,78 @@ class WordsViewController: UIViewController {
         button.layer.masksToBounds = false
     }
     
-    func getBraille(num: Int) {
-        letters = allWords[num].AllLetters
-        for i in letters {
-        let docRef = database.collection("Letters").document(i)
-           docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.get("Braille")
-               
-                        self.Braille.append(dataDescription as! String)
-                
-                    } else {
-                        print("Document does not exist")
-                    }
-                }}}
+//    func getBraille(num: Int) {
+//        letters = allWords[num].AllLetters
+//        for i in letters {
+//        let docRef = database.collection("Letters").document(i)
+//           docRef.getDocument { (document, error) in
+//                    if let document = document, document.exists {
+//                        let dataDescription = document.get("Braille")
+//
+//                        self.Braille.append(dataDescription as! String)
+//
+//                    } else {
+//                        print("Document does not exist")
+//                    }
+//                }}}
     
     @IBAction func button1Pressed(_ sender: UIButton) {
         index = 0
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
        // print(Braille)
     }
     @IBAction func button2Pressed(_ sender: UIButton) {
         index = 1
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
        // print(Braille)
 
     }
     @IBAction func button3Pressed(_ sender: UIButton) {
         index = 2
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
        // getBraille(num: index)
         //print(Braille)
 
     }
     @IBAction func button4Pressed(_ sender: UIButton) {
         index = 3
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
     }
     @IBAction func button5Pressed(_ sender: UIButton) {
         index = 4
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
     }
     @IBAction func button6Pressed(_ sender: UIButton) {
         index = 5
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
     }
     @IBAction func button7Pressed(_ sender: UIButton) {
         index = 6
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
        // getBraille(num: index)
     }
     @IBAction func button8Pressed(_ sender: UIButton) {
         index = 7
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
     }
     @IBAction func button9Pressed(_ sender: UIButton) {
         index = 8
+        performSegue(withIdentifier: "GoToLearnWord", sender: self)
         //getBraille(num: index)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToLearnWord"{
+            let destination = segue.destination as! WordViewController
+            destination.allWords = allWords
+            destination.index = index
+        }
+    }
     /*
     // MARK: - Navigation
 
