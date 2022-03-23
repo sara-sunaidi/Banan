@@ -156,21 +156,22 @@ class LogInViewContoller : UIViewController{
     
     
     func errorAlert (_ e : String){
-        let alert = UIAlertController(title: "تنبيه", message: e, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-                
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-                
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "تنبيه", message: e, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//            switch action.style{
+//                case .default:
+//                print("default")
+//
+//                case .cancel:
+//                print("cancel")
+//
+//                case .destructive:
+//                print("destructive")
+//
+//            }
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: e ,acknowledgementType: .negative)
     }
     
     @IBAction func signUp(_ sender: UIButton) {

@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 import SwiftUI
-class ResetPasswordViewController : UIViewController{
+class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewControllerDelegate {
+    var flag :Bool = false
     var oldPass : String = ""
     var newPass : String = ""
     @IBOutlet weak var saveButton: UIButton!
@@ -26,6 +27,8 @@ class ResetPasswordViewController : UIViewController{
     @IBOutlet weak var newCircle: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        flag = false
+        CustomAcknowledgementViewController.instance.delegate = self
         saveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         saveButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         saveButton.layer.shadowOpacity = 0.8
@@ -128,7 +131,7 @@ class ResetPasswordViewController : UIViewController{
             if self.newPass != "" {
                 if self.oldPass != self.newPass {
          if user != nil{
-            user?.reauthenticate(with: credential){authResult, error in
+             user?.reauthenticate(with: credential){ [self]authResult, error in
                 if let e = error{
                     self.errorAlert("لم تنجح عملية تغير كلمة المرور هناك مشكلة")
                 }else{
@@ -136,21 +139,24 @@ class ResetPasswordViewController : UIViewController{
                        
                             
                                 Auth.auth().currentUser?.updatePassword(to: self.newPass)
-                    let alert = UIAlertController(title: "تأكيد", message: "تم تغير كلمة المرور بنجاح", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                        switch action.style{
-                            case .default:
-                            print("default")
-                            self.dismiss(animated: true, completion: nil)
-                            case .cancel:
-                            print("cancel")
-                           self.dismiss(animated: true, completion: nil)
-                            case .destructive:
-                            print("destructive")
+                    
+//                    let alert = UIAlertController(title: "تأكيد", message: "تم تغير كلمة المرور بنجاح", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//                        switch action.style{
+//                            case .default:
+//                            print("default")
+//                            self.dismiss(animated: true, completion: nil)
+//                            case .cancel:
+//                            print("cancel")
+//                           self.dismiss(animated: true, completion: nil)
+//                            case .destructive:
+//                            print("destructive")
                             
-                        }
-                    }))
-                    self.present(alert, animated: true, completion: nil)
+//                        }
+//                    }))
+//                    self.present(alert, animated: true, completion: nil)
+                    self.flag = true
+                    CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغير كلمة المرور بنجاح" , acknowledgementType: .positive)
                     
                
                 
@@ -169,25 +175,29 @@ class ResetPasswordViewController : UIViewController{
     }
     
     func errorAlert (_ e : String){
-        let alert = UIAlertController(title: "تنبيه", message: e, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-                
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-                
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
-    
+//        let alert = UIAlertController(title: "تنبيه", message: e, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//            switch action.style{
+//                case .default:
+//                print("default")
+//
+//                case .cancel:
+//                print("cancel")
+//
+//                case .destructive:
+//                print("destructive")
+//
+//            }
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+     CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: e , acknowledgementType: .negative)
 }
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
 //        self.performSegue(withIdentifier: "GoToProfile", sender: self)
+    }
+    func didDoneButtonTapped(){
+        if flag  {
+            self.dismiss(animated: true, completion: nil)}
     }
 }

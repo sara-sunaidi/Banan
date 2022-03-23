@@ -7,7 +7,9 @@
 import Foundation
 import UIKit
 import SwiftUI
-
+protocol CustomAcknowledgementViewControllerDelegate {
+    func didDoneButtonTapped()
+}
 class CustomAcknowledgementViewController: UIView {
 
     static let instance = CustomAcknowledgementViewController()
@@ -17,7 +19,7 @@ class CustomAcknowledgementViewController: UIView {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
-    
+    var delegate : CustomAcknowledgementViewControllerDelegate?
     // enum to perform diffrent format for each AcknowledgementType.
     enum AcknowledgementType {
         case positive
@@ -74,6 +76,7 @@ class CustomAcknowledgementViewController: UIView {
     
     @IBAction func onClickDone(_ sender: Any) {
             parentView.removeFromSuperview()
+        delegate?.didDoneButtonTapped()
     }
    
     
