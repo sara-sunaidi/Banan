@@ -7,10 +7,10 @@
 
 import UIKit
 
-// Protocol in UIView Class for navigation purposes
-protocol WordViewControllerDelegate {
-    func didCheck()
-}
+//// Protocol in UIView Class for navigation purposes
+//protocol WordViewControllerDelegate {
+//    func didCheck()
+//}
 
 var wordVC = WordViewController()
 
@@ -18,13 +18,14 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     static let instance = WordViewController()
     
-    var delegate: WordViewControllerDelegate?
+    //    var delegate: WordViewControllerDelegate?
     
     @IBOutlet weak var speakerBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tempImgView: UIImageView!
     var newImage: UIImage!
     
-    @IBOutlet weak var tempImgView: UIImageView!
+    var expectedResult : String? // Store currrent word in here
     
     override func viewDidLoad() {
         print("## in view load WORD")
@@ -35,77 +36,85 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             print("### Nil")
         }else{
             print("### NOT Nil")
-//            imageView.image = newImage
+            //            imageView.image = newImage
             
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("image"), object: nil)
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
+        
         // start session
-   
+        
     }
     @objc func didGetNotification(_ notification:Notification){
-        let image = notification.object as! UIImage?
-        tempImgView.image = image
+        let result = notification.object as! String?
+        //        tempImgView.image = image
+        checkAnswer(result!)
     }
     
     
-     @IBAction func checkAnswerBtn(_ sender: Any) {
+    @IBAction func checkAnswerBtn(_ sender: Any) {
         // # check answer method call
         print("## in Check")
-         takePhotoVC.checkCameraPermissions()
-         let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-             takePhotoVC.didTapCheck()
-         }
-//         Timer.scheduledTimer(timeInterval: 1.0,
-//                                             target: takePhotoVC.checkCameraPermissions(),
-//                             selector: #selector(checkAnswer),
-//                                             userInfo: nil,
-//                                             repeats: false)
-//        takePhotoVC.checkCameraPermissions()
-        
-        
-//        delegate?.didCheck()
-//        TakePhotoController.instance.takePhoto()
-//        checkAnswer()
-        
+        takePhotoVC.checkCameraPermissions()
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
+            takePhotoVC.didTapCheck()
+        }
         
     }
     
-//    func setImage (_ i:UIImage){
-//        self.imageView.image = i
-//      
-//    }
+    //    func setImage (_ i:UIImage){
+    //        self.imageView.image = i
+    //
+    //    }
     
-    @objc private func checkAnswer(){
+    private func checkAnswer(_ actualResult: String){
+        
         print("## in CheckAnswer")
-        takePhotoVC.didTapCheck()
-//        delegate?.didCheck()
-        //        let image = TakePhotoController.instance.processAnswer()
-        //        TakePhotoController.instance.processAnswer()
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let takePhotoVC = storyboard.instantiateViewController(withIdentifier: "TakePhotoController") as! TakePhotoController
-//        takePhotoVC.loadViewIfNeeded()
-//
-//        print("##### the result \(takePhotoVC.isViewLoaded)")
+        expectedResult = "بنان" // # set with the comming values
+        print("##### actualResult is \(actualResult)")
+        if (actualResult != ""){
+            print("## in CheckAnswer IF")
+            if (actualResult == expectedResult){
+                // Correct Answer
+                correctAnswer()
+            }else if (actualResult == "UnDetermined"){
+                // show fix paper message
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
+                showSnackbar(snackbar: snackbar)
+                
+            }else{
+                // Incorrect Answer
+                
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
+                showSnackbar(snackbar: snackbar)
+            }
+        }
         
-        // call processvc
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "TakePhotoController" )as! TakePhotoController
-//        //               vc.source_image = image
-//        vc.modalPresentationStyle = .overFullScreen
-//        present(vc, animated:  true)
-//
-        // WE NEED TO START SESSION AGAIN
+    }
+    
+    private func correctAnswer(){
         
-        // call alert dialog
-        //        CustomAlertViewController.instance.showAlert(title: "أحسنت !", message: "لقد أجبت إجابة صحيحة", alertType: .word)
+        // Call pop up
+        CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
+        
+        // # update user info
     }
     
     @IBAction func onClickPreWord(_ sender: Any) {
         // # navigate to pre word
         // call alert dialog
-        CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
+        
     }
     @IBAction func onClickExit(_ sender: Any) {
         print("### in original exit btn")
@@ -123,17 +132,10 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
         //        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
         
-        // Snackbar calling is here
-        let viewModel: SnackbarViewModel
         
-        viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
-        
-        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-        let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
-        showSnackbar(snackbar: snackbar)
     }
     
-   
+    
     
     // The coming three methods to handle correct answer pop-up actions
     
@@ -164,7 +166,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         self.dismiss(animated: true, completion: nil)
     }
     
-    public func showSnackbar(snackbar: SnackbarView){
+    func showSnackbar(snackbar: SnackbarView){
         
         let width = view.frame.size.width/1.5
         
@@ -173,7 +175,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             x: (view.frame.size.width-width)/2,
             y: view.frame.size.height,
             width: width,
-            height: 140)
+            height: 130)
         
         view.addSubview(snackbar)
         
@@ -181,9 +183,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         UIView.animate(withDuration: 0.5, animations: {
             snackbar.frame = CGRect(
                 x: (self.view.frame.size.width-width)/2,
-                y: self.view.frame.size.height - 150,
+                y: self.view.frame.size.height - 140,
                 width: width,
-                height: 140)
+                height: 130)
         }, completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
@@ -194,7 +196,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                             x: (self.view.frame.size.width-width)/2,
                             y: self.view.frame.size.height,
                             width: width,
-                            height: 140)
+                            height: 130)
                     }, completion: { finished in
                         if finished{
                             snackbar.removeFromSuperview()
@@ -213,5 +215,5 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
 
 
 
-    
+
 

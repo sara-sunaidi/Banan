@@ -27,6 +27,8 @@ typedef struct _braille{
     int index;
 }braille;
 
+// crop state flag
+bool cropStatus = true;
 //define hash table
 //std::hash<int>;
 string word = "";
@@ -123,10 +125,17 @@ void searchK(int k){
 
 // Braille Detection Code :D v
 
-+ (UIImage *)detectRedShapesInImage:(UIImage *)image{
++ (NSString *)detectRedShapesInImage:(UIImage *)image{
     // set up hash table
      addKv();
     
+    cout << "crop Status is " << cropStatus<< endl;
+   
+    if (cropStatus == true) {
+   
+        // resetting value
+        word = "";
+        
     cv::Mat mat;
     UIImageToMat(image, mat);
     
@@ -362,15 +371,24 @@ void searchK(int k){
                cout << "Blocks values" << endl;
                cout <<i<< " - " << brailleSet[i].value << endl;
            }
-    cout << "$$ there final string is $$" <<word<< endl;
+    cout << "$$ there final string is " <<word<< endl;
+        
+    UIImage *maskedShapesImg = MatToUIImage(red_hue_image); //detectedCoordinatesImg
+        
+        return [NSString stringWithUTF8String:word.c_str()];
+        
     
-    
-    UIImage *maskedShapesImg = MatToUIImage(resultImg); //detectedCoordinatesImg
-    return maskedShapesImg;
+    }else {
+        return @"UnDetermined";
+    }
+      
     
 }
 
 + (UIImage *)detectFourCorner:(UIImage *)image{
+    
+    // updating status just in case
+    cropStatus = true;
     
     cv::Mat mat;
     UIImageToMat(image, mat);
@@ -379,8 +397,8 @@ void searchK(int k){
     // Blob based Detection: to detect base 4 corner
     cv::SimpleBlobDetector::Params Params;
     Params.filterByArea = true;
-    Params.minArea =  120.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
-    Params.maxArea =  350.0f; //50.0f * 50.0f; //20.0f * 20.0f;
+    Params.minArea =  100.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
+    Params.maxArea =  200.0f; //50.0f * 50.0f; //20.0f * 20.0f;
 
 
     cv::Ptr<cv::SimpleBlobDetector> BlobDetector = cv::SimpleBlobDetector::create(Params);
@@ -389,9 +407,16 @@ void searchK(int k){
 
      // Check keypoints existance
         if(keypoints.empty()){
-            cout << "there is no corner existance condition" << endl;
+            cout << "@Error: there is no corner existance condition" << endl;
            // return 1;
         }
+   
+    // Check keypoints existance
+       if(keypoints.size() != 4){
+           cout << "@Error: number of corners found is " << keypoints.size() << endl;
+           cropStatus = false;
+          // return 1;
+       }
     float blobSize = 0.0f;
         for (int i = 0; i < keypoints.size(); ++i) {
             blobSize += keypoints[i].size;
@@ -446,14 +471,14 @@ void searchK(int k){
         mc[i] = Point2f( mu[i].m10/mu[i].m00 , mu[i].m01/mu[i].m00 ); }
 
 
-    // draw contours
-    //    Mat drawing(canny_output.size(), CV_8UC3, Scalar(255,255,255));
-    //    for( int i = 0; i<contours.size(); i++ )
-    //    {
-    //        Scalar color = Scalar(167,151,0); // B G R values
-    //        drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, cv::Point());
-    //        circle( drawing, mc[i], 4, color, -1, 8, 0 );
-    //    }
+//    draw contours
+//        Mat drawing(canny_output.size(), CV_8UC3, Scalar(255,255,255));
+//        for( int i = 0; i<contours.size(); i++ )
+//        {
+//            Scalar color = Scalar(167,151,0); // B G R values
+//            drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, cv::Point());
+//            circle( drawing, mc[i], 4, color, -1, 8, 0 );
+//        }
 
     int x1 = static_cast<int>(mc[0].x);
     int y1 = static_cast<int>(mc[0].y);
@@ -472,7 +497,7 @@ void searchK(int k){
 
     if (mc.size() != 8){
 
-        cout <<"oh there is a problem! size is not 8"<< endl;
+        cout <<"@Error: size is not 8"<< endl;
         cout << mc.size() << endl;
 
     }
