@@ -186,7 +186,7 @@ class LearnLetterViewController: UIViewController {
     }
     // set progress bar
     func setProgress(){
-        
+        //var 
     }
     
     // animate progress bar
