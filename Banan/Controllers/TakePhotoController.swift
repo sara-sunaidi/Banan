@@ -15,10 +15,7 @@ class TakePhotoController: UIViewController,
                            UINavigationControllerDelegate
                          
 {
-    
-    
-   
-    
+
    
     
     static let instance = TakePhotoController()
@@ -91,7 +88,9 @@ class TakePhotoController: UIViewController,
             if device.isFocusModeSupported(.continuousAutoFocus) {
                 // here
                 try! device.lockForConfiguration()
-                device.focusMode = .continuousAutoFocus
+//                device.focusMode = .continuousAutoFocus
+                device.focusMode = .autoFocus
+                device.exposureMode = .autoExpose
                 device.unlockForConfiguration()
             }
             do{
@@ -121,6 +120,8 @@ class TakePhotoController: UIViewController,
     @objc func didTapCheck(){
         let photoSettings = AVCapturePhotoSettings()
         
+       
+        
         output.capturePhoto(with: photoSettings, delegate: self)
     }
     
@@ -134,12 +135,11 @@ class TakePhotoController: UIViewController,
         didTapCheck()
     }
     
-    func processImage(_ img: UIImage) -> UIImage{
-//        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
-//        let detectedImg = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
+    func processImage(_ img: UIImage) -> String{
+        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
+        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
 //        OpenCVWrapper.detectRedShapes(in: croppedImg)
-//        return detectedImg
-        return img
+        return result
     }
 //    @objc func didGetNotification(_ notification:Notification){
 //        let image = notification.object as! UIImage?
@@ -161,6 +161,9 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         print("##### inside extension")
+//        if device.isSilentModeOn {
+                    AudioServicesDisposeSystemSoundID(1108)
+//                }
         guard let data = photo.fileDataRepresentation() else {
             print("##### inside extension guard")
             return
@@ -177,8 +180,8 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
 //            wordVC.setImage(image!)
 //            NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("image"), object: nil)
            
-            let processedImg = processImage(image!)
-            NotificationCenter.default.post(name: Notification.Name("image"), object: processedImg)
+            let result = processImage(image!)
+            NotificationCenter.default.post(name: Notification.Name("result"), object: result)
             dismiss(animated: false)
 //            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordViewController")
 //            if vc is WordViewController {
@@ -214,6 +217,12 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
         //        self.navigationController?.pushViewController(pic, animated: true)
         
     }
+    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+           // dispose system shutter sound
+           AudioServicesDisposeSystemSoundID(1108)
+       }
+    
+    
 }
 
 

@@ -12,10 +12,16 @@ class SnackbarView: UIView {
     
     let viewModel:SnackbarViewModel
     
+    enum color {
+        case red
+        case yellow
+    }
+    
     private let label:UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
-        label.textColor = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1.0)// to suppurt dark mode
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = UIColor(red: 0.1882, green: 0.1843, blue: 0.0471, alpha: 1.0)
+//        UIColor(red: 0.6, green: 0, blue: 0, alpha: 1.0)// to suppurt dark mode
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -28,7 +34,7 @@ class SnackbarView: UIView {
         return imageView
         }()
     
-    init(viewModel: SnackbarViewModel, frame: CGRect){
+    init(viewModel: SnackbarViewModel, frame: CGRect , color: color){
         self.viewModel = viewModel
         super.init(frame: frame)
         
@@ -37,14 +43,26 @@ class SnackbarView: UIView {
         if(viewModel.image != nil){
             addSubview(imageView)
         }
-        
-        backgroundColor = UIColor(red: 1, green: 0.4275, blue: 0.4275, alpha: 0.4)
-//        layer.borderWidth = 2
-//        layer.borderColor = CGColor(red: 0.7529, green: 0.2431, blue: 0.1333, alpha: 0.2)
+        switch color {
+        case .red:
+            backgroundColor = UIColor(red: 1, green: 0.4275, blue: 0.4275, alpha: 0.4)
+            label.textColor = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1.0)
+        case .yellow:
+            backgroundColor = UIColor(red: 0.9294, green: 0.8, blue: 0.4549, alpha: 0.7)
+            label.textColor = UIColor(red: 0.6196, green: 0.4314, blue: 0, alpha: 1.0)
+        }
+       
         
         clipsToBounds = true
-        layer.cornerRadius = 40
+        layer.cornerRadius = 30
         layer.masksToBounds = true
+//        layer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 50).cgPath
+        layer.shadowColor =  UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+//        layer.shadowPath = layer.path
+        layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        layer.shadowOpacity = 0.8
+        layer.shadowRadius = 30
+        
         configure()
     }
     

@@ -10,7 +10,10 @@ import UIKit
 import SwiftUI
 import AVFoundation
 
-class LearnLetterViewController: UIViewController {
+class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate {
+    
+   
+    
     
     @IBOutlet weak var imageLetter: UIImageView!
     @IBOutlet weak var letter: UILabel!
@@ -32,6 +35,7 @@ class LearnLetterViewController: UIViewController {
     var strLetter: String = "حرف "
     //= "حرف اللام"
     var player: AVAudioPlayer?
+    var expectedResult : String?
     //    private let progressView: UIProgressView = {
     //        let progressView = UIProgressView(progressViewStyle: .bar)
     //        progressView.trackTintColor = .gray
@@ -52,7 +56,10 @@ class LearnLetterViewController: UIViewController {
             prevLetterButton.isHidden = true
             //need to change plain to default
             //            prevLetterButton.backgroundColor = UIColor(red: 134/255, green: 128/255, blue: 124/255, alpha: 0.5)
+        }else {
+            prevLetterButton.isHidden = false
         }
+       
         if(lettersWithout.contains(letters![index!].Letter)){
             strLetter = ""
         }
@@ -88,6 +95,60 @@ class LearnLetterViewController: UIViewController {
         addShadowBtn(exitBtn)
         
         addColor(letters![index!].Braille)
+        
+        CustomConfirmationViewController.instance.delegate = self
+        CustomAlertViewController.instance.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("letterResult"), object: nil)
+    }
+    
+    @objc func didGetNotification(_ notification:Notification){
+        let result = notification.object as! String?
+        checkAnswer(result!)
+    }
+    
+    private func checkAnswer(_ actualResult: String){
+        
+        print("## in CheckAnswer")
+        
+        expectedResult = letters![index!].Arabic
+        print("##### actualResult is \(actualResult)")
+        if (actualResult != ""){
+            
+            print("## in CheckAnswer IF")
+            if (actualResult == expectedResult){
+                // Correct Answer
+                correctAnswer()
+            }else if (actualResult == "UnDetermined"){
+                // show fix paper message
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
+                showSnackbar(snackbar: snackbar)
+            }else{
+                // Incorrect Answer
+                
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
+                showSnackbar(snackbar: snackbar)
+            }
+        }
+        
+    }
+    
+    private func correctAnswer(){
+        // Call pop up
+        CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
+        
+        // # update user info
     }
     
     @IBAction func pressSound(_ sender: UIButton) {
@@ -194,7 +255,8 @@ class LearnLetterViewController: UIViewController {
         
     }
     @IBAction func pressBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     
     @IBAction func pressPreviousLetter(_ sender: UIButton) {
@@ -203,6 +265,85 @@ class LearnLetterViewController: UIViewController {
         
         viewDidLoad()
     }
-      
     
+    @IBAction func pressCheckAnswer(_ sender: Any) {
+        print("## in Check")
+        takePhotoVC.checkCameraPermissions()
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
+            takePhotoVC.didTapCheck()
+        }
+       
+    }
+    
+    func didYesButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    public func showSnackbar(snackbar: SnackbarView){
+        
+        let width = view.frame.size.width/1.5
+        
+        // set frame to start position
+        snackbar.frame = CGRect(
+            x: (view.frame.size.width-width)/2,
+            y: view.frame.size.height,
+            width: width,
+            height: 130)
+        
+        view.addSubview(snackbar)
+        
+        // animate it upwards
+        UIView.animate(withDuration: 0.5, animations: {
+            snackbar.frame = CGRect(
+                x: (self.view.frame.size.width-width)/2,
+                y: self.view.frame.size.height - 140,
+                width: width,
+                height: 130)
+        }, completion: { done in
+            if done {
+                DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+                    
+                    // animate it downwards
+                    UIView.animate(withDuration: 0.5, animations: {
+                        snackbar.frame = CGRect(
+                            x: (self.view.frame.size.width-width)/2,
+                            y: self.view.frame.size.height,
+                            width: width,
+                            height: 130)
+                    }, completion: { finished in
+                        if finished{
+                            snackbar.removeFromSuperview()
+                        }
+                        
+                    })
+                })
+                
+                
+            }
+        })
+    }
+      
+    func didExitButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func didContinueButtonTapped() {
+        if (index == (letters!.count)-1){
+            self.dismiss(animated: true, completion: nil)
+        }else {
+            index = index! + 1
+            strLetter = "حرف "
+                viewDidLoad()
+        }
+       
+    }
+
+    func didRedoButtonTapped() {
+        strLetter = "حرف "
+        viewDidLoad()
+    }
 }
+
+
+
+//CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)

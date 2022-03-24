@@ -15,19 +15,20 @@
 
 import UIKit
 
-// Protocol in UIView Class for navigation purposes
-protocol WordViewControllerDelegate {
-    func didCheck()
-}
+//// Protocol in UIView Class for navigation purposes
+//protocol WordViewControllerDelegate {
+//    func didCheck()
+//}
 
 var wordVC = WordViewController()
 
 class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
     
-    static let instance = WordViewController()
+    //    static let instance = WordViewController()
     
-    var delegate: WordViewControllerDelegate?
+    //    var delegate: WordViewControllerDelegate?
     
+    @IBOutlet weak var fourLetttersView: UIView!
     var allWords : [Words]?
     var index: Int?
     var allLetters: [Letters]?
@@ -39,7 +40,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     @IBOutlet weak var letter3: UILabel!
     @IBOutlet weak var letter4: UILabel!
     @IBOutlet weak var letter5: UILabel!
-   
+    
     // braille block
     @IBOutlet weak var cr1: UIButton!
     @IBOutlet weak var cr2: UIButton!
@@ -74,20 +75,30 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     @IBOutlet weak var speakerBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var wordLabel: UILabel!
     
-    
+    @IBOutlet var superView: UIView!
+    @IBOutlet weak var preWordButton: CustomButton!
+    var expectedResult : String?
     var newImage: UIImage!
     
-//    @IBOutlet weak var tempImgView: UIImageView!
+    //    @IBOutlet weak var tempImgView: UIImageView!
     
     override func viewDidLoad() {
         
         print("## in view load WORD")
         super.viewDidLoad()
         
-         hideCircle()
+        if(index! == 0){
+            // or change background to gray?
+            preWordButton.isHidden = true
+            //need to change plain to default
+            //            prevLetterButton.backgroundColor = UIColor(red: 134/255, green: 128/255, blue: 124/255, alpha: 0.5)
+         }else {
+            preWordButton.isHidden = false
+        }
+        
+        hideCircle()
         
         addShadow(cr1)
         addShadow(cr2)
@@ -121,9 +132,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         addShadow(cr66666)
         
         
-//        addColor("101100")
-//        addColor("010111")
-//        addColor("101011")
+        //        addColor("101100")
+        //        addColor("010111")
+        //        addColor("101011")
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         if(newImage == nil){
@@ -133,7 +144,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             //            imageView.image = newImage
             
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("image"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
         // start session
         
@@ -149,7 +160,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         getWordBraille()
         
         showCircle(wordBraille.count)
-
+        
     }
     
     func getLettersData(){
@@ -163,44 +174,35 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         }
     }
     func getWordBraille(){
+        // reset wordBraille
+        wordBraille.removeAll()
         let wordLetter = allWords![index!].AllLetters
         
         for letterKey in wordLetter{
             let oneLetter = allLetters!.filter({$0.Letter == letterKey})
             let braille = oneLetter[0].Braille
-//            print("what?")
-//            print(braille)
+            //            print("what?")
+            //            print(braille)
             wordBraille.append(braille)
             
         }
-                print("printin word braille")
-                print(wordBraille)
+        print("printin word braille")
+        print(wordBraille)
     }
     
     @objc func didGetNotification(_ notification:Notification){
-        let image = notification.object as! UIImage?
-//        tempImgView.image = image
+        let result = notification.object as! String?
+        checkAnswer(result!)
     }
     
     
     @IBAction func checkAnswerBtn(_ sender: Any) {
-        // # check answer method call
+        // check answer method call
         print("## in Check")
         takePhotoVC.checkCameraPermissions()
-        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
         }
-        //         Timer.scheduledTimer(timeInterval: 1.0,
-        //                                             target: takePhotoVC.checkCameraPermissions(),
-        //                             selector: #selector(checkAnswer),
-        //                                             userInfo: nil,
-        //                                             repeats: false)
-        //        takePhotoVC.checkCameraPermissions()
-        
-        
-        //        delegate?.didCheck()
-        //        TakePhotoController.instance.takePhoto()
-        //        checkAnswer()
         
         
     }
@@ -210,36 +212,56 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     //
     //    }
     
-    @objc private func checkAnswer(){
+    private func checkAnswer(_ actualResult: String){
+        
         print("## in CheckAnswer")
-        takePhotoVC.didTapCheck()
-        //        delegate?.didCheck()
-        //        let image = TakePhotoController.instance.processAnswer()
-        //        TakePhotoController.instance.processAnswer()
         
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let takePhotoVC = storyboard.instantiateViewController(withIdentifier: "TakePhotoController") as! TakePhotoController
-        //        takePhotoVC.loadViewIfNeeded()
-        //
-        //        print("##### the result \(takePhotoVC.isViewLoaded)")
+        expectedResult = allWords![index!].Arabic
+        print("##### actualResult is \(actualResult)")
+        if (actualResult != ""){
+            print("## in CheckAnswer IF")
+            if (actualResult == expectedResult){
+                // Correct Answer
+                correctAnswer()
+            }else if (actualResult == "UnDetermined"){
+                // show fix paper message
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
+                showSnackbar(snackbar: snackbar)
+            }else{
+                // Incorrect Answer
+                
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
+                showSnackbar(snackbar: snackbar)
+            }
+        }
         
-        // call processvc
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let vc = storyboard.instantiateViewController(identifier: "TakePhotoController" )as! TakePhotoController
-        //        //               vc.source_image = image
-        //        vc.modalPresentationStyle = .overFullScreen
-        //        present(vc, animated:  true)
-        //
-        // WE NEED TO START SESSION AGAIN
-        
-        // call alert dialog
-        //        CustomAlertViewController.instance.showAlert(title: "أحسنت !", message: "لقد أجبت إجابة صحيحة", alertType: .word)
     }
     
-    @IBAction func onClickPreWord(_ sender: Any) {
-        // # navigate to pre word
-        // call alert dialog
+    private func correctAnswer(){
+        
+        // Call pop up
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
+        
+        // # update user info
+    }
+    
+    
+    @IBAction func onClickPreWord(_ sender: Any) {
+       
+        index = index! - 1
+        viewDidLoad()
+        
     }
     @IBAction func onClickExit(_ sender: Any) {
         print("### in original exit btn")
@@ -249,7 +271,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
         // # play audio
-        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت النيقاتيف", acknowledgementType: .negative)
+//        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت النيقاتيف", acknowledgementType: .negative)
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
@@ -257,33 +279,32 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
         //        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
         
-        // Snackbar calling is here
-        let viewModel: SnackbarViewModel
-        
-        viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
-        
-        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-        let snackbar = SnackbarView(viewModel: viewModel, frame: frame)
-        showSnackbar(snackbar: snackbar)
     }
-    
     
     
     // The coming three methods to handle correct answer pop-up actions
     
     func didContinueButtonTapped() {
         print("Continue tapped in word controller")
+        if (index == (allWords!.count)-1){
+            self.dismiss(animated: true, completion: nil)
+        }else {
+            index = index! + 1
+                   viewDidLoad()
+        }
         //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
+       
+        //        self.dismiss(animated: true, completion: nil)
         
-        // # update the completed words list
     }
     func didRedoButtonTapped() {
         print("Redo tapped in word controller")
         //        performSegue(withIdentifier: "ToStart", sender: self)
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+//        index = index! - 1
+        viewDidLoad()
         
-        // # display the letter page again with the same index
+       
     }
     func didExitButtonTapped() {
         print("Exit tapped in word controller")
@@ -307,7 +328,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             x: (view.frame.size.width-width)/2,
             y: view.frame.size.height,
             width: width,
-            height: 140)
+            height: 130)
         
         view.addSubview(snackbar)
         
@@ -315,9 +336,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         UIView.animate(withDuration: 0.5, animations: {
             snackbar.frame = CGRect(
                 x: (self.view.frame.size.width-width)/2,
-                y: self.view.frame.size.height - 150,
+                y: self.view.frame.size.height - 140,
                 width: width,
-                height: 140)
+                height: 130)
         }, completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
@@ -328,7 +349,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                             x: (self.view.frame.size.width-width)/2,
                             y: self.view.frame.size.height,
                             width: width,
-                            height: 140)
+                            height: 130)
                     }, completion: { finished in
                         if finished{
                             snackbar.removeFromSuperview()
@@ -353,7 +374,12 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2])
         }
         else if(num == 4){
-            
+            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: superView.frame.height/1.5)
+//            superView.addConstraints([
+////                NSLayoutConstraint(item: containerView, attribute: .CenterX, relatedBy: .Equal, toItem: labelView, attribute: .CenterX, multiplier: 1.0, constant: 0.0),
+//                NSLayoutConstraint(item: superView, attribute: .centerY, relatedBy: .equal, toItem: fourLetttersView, attribute: .centerY, multiplier: 10.0, constant: 0.0)
+//            ])
+//            fourLetttersView.
             setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[0],letter2,wordArray[0])
             setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[1],letter3,wordArray[1])
             setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2])
@@ -362,10 +388,10 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         else{
             
             setBraille(cr1,cr2,cr3,cr4,cr5,cr6,wordBraille[0],letter1,wordArray[0])
-            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[0],letter2,wordArray[1])
-            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[1],letter3,wordArray[2])
-            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[3])
-            setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,wordBraille[3],letter5,wordArray[4])
+            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[1],letter2,wordArray[1])
+            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[2],letter3,wordArray[2])
+            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[3],letter4,wordArray[3])
+            setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,wordBraille[4],letter5,wordArray[4])
         }
         
     }
@@ -378,7 +404,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         letter3.text = ""
         letter4.text = ""
         letter5.text = ""
-
+        
         cr1.isHidden = true
         cr2.isHidden = true
         cr3.isHidden = true
@@ -429,121 +455,121 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         crl.layer.cornerRadius = 0.5 * crl.bounds.size.width
     }
     
-    // add color to circle
-    func addColor(_ st: String){
-        for (i,s) in st.enumerated() {
-            
-            if(s=="1"){
-                if(i==0){
-                    cr1.backgroundColor = UIColor(named: "Color1")
-                    cr1.layer.borderWidth = 4
-                    cr1.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr11.backgroundColor = UIColor(named: "Color1")
-                    cr11.layer.borderWidth = 4
-                    cr11.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr111.backgroundColor = UIColor(named: "Color1")
-                    cr111.layer.borderWidth = 4
-                    cr111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr1111.backgroundColor = UIColor(named: "Color1")
-                    cr1111.layer.borderWidth = 4
-                    cr1111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr11111.backgroundColor = UIColor(named: "Color1")
-                    cr11111.layer.borderWidth = 4
-                    cr11111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                }
-                
-                else if(i==1){
-                    cr2.backgroundColor = UIColor(named: "Color1")
-                    cr2.layer.borderWidth = 4
-                    cr2.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr22.backgroundColor = UIColor(named: "Color1")
-                    cr22.layer.borderWidth = 4
-                    cr22.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr222.backgroundColor = UIColor(named: "Color1")
-                    cr222.layer.borderWidth = 4
-                    cr222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr2222.backgroundColor = UIColor(named: "Color1")
-                    cr2222.layer.borderWidth = 4
-                    cr2222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr22222.backgroundColor = UIColor(named: "Color1")
-                    cr22222.layer.borderWidth = 4
-                    cr22222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                }
-                
-                else if(i==2){
-                  cr3.backgroundColor = UIColor(named: "Color1")
-                    cr3.layer.borderWidth = 4
-                    cr3.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr33.backgroundColor = UIColor(named: "Color1")
-                      cr33.layer.borderWidth = 4
-                      cr33.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr333.backgroundColor = UIColor(named: "Color1")
-                      cr333.layer.borderWidth = 4
-                      cr333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr3333.backgroundColor = UIColor(named: "Color1")
-                      cr3333.layer.borderWidth = 4
-                      cr3333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr33333.backgroundColor = UIColor(named: "Color1")
-                      cr33333.layer.borderWidth = 4
-                      cr33333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                }
-                
-                else if(i==3){
-                    cr4.backgroundColor = UIColor(named: "Color1")
-                    cr4.layer.borderWidth = 4
-                    cr4.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr44.backgroundColor = UIColor(named: "Color1")
-                    cr44.layer.borderWidth = 4
-                    cr44.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr444.backgroundColor = UIColor(named: "Color1")
-                    cr444.layer.borderWidth = 4
-                    cr444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr4444.backgroundColor = UIColor(named: "Color1")
-                    cr4444.layer.borderWidth = 4
-                    cr4444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr44444.backgroundColor = UIColor(named: "Color1")
-                    cr44444.layer.borderWidth = 4
-                    cr44444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                }
-                
-                else if(i==4){
-                    cr5.backgroundColor = UIColor(named: "Color1")
-                    cr5.layer.borderWidth = 4
-                    cr5.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr55.backgroundColor = UIColor(named: "Color1")
-                    cr55.layer.borderWidth = 4
-                    cr55.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr555.backgroundColor = UIColor(named: "Color1")
-                    cr555.layer.borderWidth = 4
-                    cr555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr5555.backgroundColor = UIColor(named: "Color1")
-                    cr5555.layer.borderWidth = 4
-                    cr5555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr55555.backgroundColor = UIColor(named: "Color1")
-                    cr55555.layer.borderWidth = 4
-                    cr55555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    
-                }
-                else{
-                    cr6.backgroundColor = UIColor(named: "Color1")
-                    cr6.layer.borderWidth = 4
-                    cr6.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr66.backgroundColor = UIColor(named: "Color1")
-                    cr66.layer.borderWidth = 4
-                    cr66.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr666.backgroundColor = UIColor(named: "Color1")
-                    cr666.layer.borderWidth = 4
-                    cr666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr6666.backgroundColor = UIColor(named: "Color1")
-                    cr6666.layer.borderWidth = 4
-                    cr6666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                    cr66666.backgroundColor = UIColor(named: "Color1")
-                    cr66666.layer.borderWidth = 4
-                    cr66666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
-                }
-            }
-        }
-    }
+//    // add color to circle
+//    func addColor(_ st: String){
+//        for (i,s) in st.enumerated() {
+//
+//            if(s=="1"){
+//                if(i==0){
+//                    cr1.backgroundColor = UIColor(named: "Color1")
+//                    cr1.layer.borderWidth = 4
+//                    cr1.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr11.backgroundColor = UIColor(named: "Color1")
+//                    cr11.layer.borderWidth = 4
+//                    cr11.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr111.backgroundColor = UIColor(named: "Color1")
+//                    cr111.layer.borderWidth = 4
+//                    cr111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr1111.backgroundColor = UIColor(named: "Color1")
+//                    cr1111.layer.borderWidth = 4
+//                    cr1111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr11111.backgroundColor = UIColor(named: "Color1")
+//                    cr11111.layer.borderWidth = 4
+//                    cr11111.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                }
+//
+//                else if(i==1){
+//                    cr2.backgroundColor = UIColor(named: "Color1")
+//                    cr2.layer.borderWidth = 4
+//                    cr2.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr22.backgroundColor = UIColor(named: "Color1")
+//                    cr22.layer.borderWidth = 4
+//                    cr22.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr222.backgroundColor = UIColor(named: "Color1")
+//                    cr222.layer.borderWidth = 4
+//                    cr222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr2222.backgroundColor = UIColor(named: "Color1")
+//                    cr2222.layer.borderWidth = 4
+//                    cr2222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr22222.backgroundColor = UIColor(named: "Color1")
+//                    cr22222.layer.borderWidth = 4
+//                    cr22222.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                }
+//
+//                else if(i==2){
+//                    cr3.backgroundColor = UIColor(named: "Color1")
+//                    cr3.layer.borderWidth = 4
+//                    cr3.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr33.backgroundColor = UIColor(named: "Color1")
+//                    cr33.layer.borderWidth = 4
+//                    cr33.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr333.backgroundColor = UIColor(named: "Color1")
+//                    cr333.layer.borderWidth = 4
+//                    cr333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr3333.backgroundColor = UIColor(named: "Color1")
+//                    cr3333.layer.borderWidth = 4
+//                    cr3333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr33333.backgroundColor = UIColor(named: "Color1")
+//                    cr33333.layer.borderWidth = 4
+//                    cr33333.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                }
+//
+//                else if(i==3){
+//                    cr4.backgroundColor = UIColor(named: "Color1")
+//                    cr4.layer.borderWidth = 4
+//                    cr4.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr44.backgroundColor = UIColor(named: "Color1")
+//                    cr44.layer.borderWidth = 4
+//                    cr44.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr444.backgroundColor = UIColor(named: "Color1")
+//                    cr444.layer.borderWidth = 4
+//                    cr444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr4444.backgroundColor = UIColor(named: "Color1")
+//                    cr4444.layer.borderWidth = 4
+//                    cr4444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr44444.backgroundColor = UIColor(named: "Color1")
+//                    cr44444.layer.borderWidth = 4
+//                    cr44444.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                }
+//
+//                else if(i==4){
+//                    cr5.backgroundColor = UIColor(named: "Color1")
+//                    cr5.layer.borderWidth = 4
+//                    cr5.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr55.backgroundColor = UIColor(named: "Color1")
+//                    cr55.layer.borderWidth = 4
+//                    cr55.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr555.backgroundColor = UIColor(named: "Color1")
+//                    cr555.layer.borderWidth = 4
+//                    cr555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr5555.backgroundColor = UIColor(named: "Color1")
+//                    cr5555.layer.borderWidth = 4
+//                    cr5555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr55555.backgroundColor = UIColor(named: "Color1")
+//                    cr55555.layer.borderWidth = 4
+//                    cr55555.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//
+//                }
+//                else{
+//                    cr6.backgroundColor = UIColor(named: "Color1")
+//                    cr6.layer.borderWidth = 4
+//                    cr6.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr66.backgroundColor = UIColor(named: "Color1")
+//                    cr66.layer.borderWidth = 4
+//                    cr66.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr666.backgroundColor = UIColor(named: "Color1")
+//                    cr666.layer.borderWidth = 4
+//                    cr666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr6666.backgroundColor = UIColor(named: "Color1")
+//                    cr6666.layer.borderWidth = 4
+//                    cr6666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                    cr66666.backgroundColor = UIColor(named: "Color1")
+//                    cr66666.layer.borderWidth = 4
+//                    cr66666.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+//                }
+//            }
+//        }
+//    }
     
     // set braille for letter
     func setBraille(_ c1:UIButton,_ c2:UIButton, _ c3:UIButton, _ c4:UIButton, _ c5:UIButton, _ c6:UIButton,_ letter:String, _ label:UILabel,_ l:Character){
@@ -572,7 +598,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                 }
                 
                 else if(i==2){
-                  c3.backgroundColor = UIColor(named: "Color1")
+                    c3.backgroundColor = UIColor(named: "Color1")
                     c3.layer.borderWidth = 4
                     c3.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
                 }

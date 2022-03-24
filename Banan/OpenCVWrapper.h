@@ -12,10 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface OpenCVWrapper : NSObject
 
 + (NSString *)openCVVersionString;
-
-+ (UIImage *)detectEdgesInRGBImage:(UIImage *)image;
-
-+ (BOOL)isWallPixel:(UIImage *)image xCoordinate:(int)x yCoordinate:(int)y;
++ (NSString *)detectRedShapesInImage:(UIImage *)image;
++ (UIImage *)detectFourCorner:(UIImage *)image;
 
 
 @end
