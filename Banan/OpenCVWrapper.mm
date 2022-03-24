@@ -59,9 +59,38 @@ void addItem(int k, string v){
 
 void addKv(){
     cout << " ### inside addKv" << endl;
-    addItem(48,"ب");
-    addItem(46,"ن");
-    addItem(32,"ا");
+        addItem(48,"ب");
+        addItem(46,"ن");
+        addItem(32,"ا");
+        addItem(8, "ء");
+        addItem(12, "أ");
+        addItem(31, "ط");
+        addItem(35, "ح");
+        addItem(42, "ى");
+        addItem(59, "ع");
+        addItem(38, "د");
+        addItem(63, "ظ");
+        addItem(53, "ض");
+        addItem(52, "ف");
+        addItem(62, "ق");
+        addItem(49, "غ");
+        addItem(50, "ه");
+        addItem(22, "ج");
+        addItem(40, "ك");
+        addItem(45, "خ");
+        addItem(56, "ل");
+        addItem(44, "م");
+        addItem(58, "ر");
+        addItem(61, "ص");
+        addItem(28, "س");
+        addItem(37, "ش");
+        addItem(30, "ت");
+        addItem(39, "ث");
+        addItem(29, "ذ");
+        addItem(33, "ة");
+        addItem(23, "و");
+        addItem(20, "ي");
+        addItem(43, "ز");
 
 }
 

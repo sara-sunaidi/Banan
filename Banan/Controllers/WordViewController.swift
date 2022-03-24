@@ -218,7 +218,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
         expectedResult = allWords![index!].Arabic
         print("##### actualResult is \(actualResult)")
-        if (actualResult != ""){
+        
             print("## in CheckAnswer IF")
             if (actualResult == expectedResult){
                 // Correct Answer
@@ -244,7 +244,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
                 showSnackbar(snackbar: snackbar)
             }
-        }
+       
         
     }
     

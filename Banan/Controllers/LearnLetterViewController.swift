@@ -113,7 +113,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         expectedResult = letters![index!].Arabic
         print("##### actualResult is \(actualResult)")
-        if (actualResult != ""){
+        
             
             print("## in CheckAnswer IF")
             if (actualResult == expectedResult){
@@ -140,7 +140,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
                 showSnackbar(snackbar: snackbar)
             }
-        }
+        
         
     }
     
