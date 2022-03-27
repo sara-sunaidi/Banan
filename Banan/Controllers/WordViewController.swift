@@ -14,19 +14,12 @@
 
 
 import UIKit
+import Firebase
 
-//// Protocol in UIView Class for navigation purposes
-//protocol WordViewControllerDelegate {
-//    func didCheck()
-//}
-
-var wordVC = WordViewController()
+//var wordVC = WordViewController()
 
 class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
     
-    //    static let instance = WordViewController()
-    
-    //    var delegate: WordViewControllerDelegate?
     
     @IBOutlet weak var fourLetttersView: UIView!
     var allWords : [Words]?
@@ -80,7 +73,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     @IBOutlet var superView: UIView!
     @IBOutlet weak var preWordButton: CustomButton!
     var expectedResult : String?
-    var newImage: UIImage!
+    
+    let db = Firestore.firestore()
+
     
     //    @IBOutlet weak var tempImgView: UIImageView!
     
@@ -137,13 +132,13 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         //        addColor("101011")
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
-        if(newImage == nil){
-            print("### Nil")
-        }else{
-            print("### NOT Nil")
-            //            imageView.image = newImage
-            
-        }
+//        if(newImage == nil){
+//            print("### Nil")
+//        }else{
+//            print("### NOT Nil")
+//            //            imageView.image = newImage
+//
+//        }
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
         // start session
@@ -253,32 +248,35 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         // Call pop up
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
-        // # update user info
+        updateCompletedWord()
     }
     
+    func updateCompletedWord(){
+        if let userId = Auth.auth().currentUser?.uid {
+                let collectionRef = self.db.collection("Children")
+                let thisUserDoc = collectionRef.document(userId)
+            thisUserDoc.updateData([
+                "CompletedWord": FieldValue.arrayUnion([allWords![index!].Word])
+        ])
+            }
+    }
     
     @IBAction func onClickPreWord(_ sender: Any) {
-       
         index = index! - 1
         viewDidLoad()
         
     }
     @IBAction func onClickExit(_ sender: Any) {
         print("### in original exit btn")
-        //        self.dismiss(animated: true, completion: nil)
-        //        performSegue(withIdentifier: "ToWord", sender: self)
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
+//        print(allWords![index!])
         // # play audio
-//        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت النيقاتيف", acknowledgementType: .negative)
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
-        // # will be implemented in Group3
-        
-        //        CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "اختبار للاكنولجمنت البوستف", acknowledgementType: .positive)
-        
+        // # will be implemented in Group4
     }
     
     
@@ -287,28 +285,22 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     func didContinueButtonTapped() {
         print("Continue tapped in word controller")
         if (index == (allWords!.count)-1){
+            // if it was the last word in the category
             self.dismiss(animated: true, completion: nil)
         }else {
             index = index! + 1
                    viewDidLoad()
         }
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-       
-        //        self.dismiss(animated: true, completion: nil)
         
     }
     func didRedoButtonTapped() {
         print("Redo tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
-//        self.dismiss(animated: true, completion: nil)
-//        index = index! - 1
         viewDidLoad()
         
        
     }
     func didExitButtonTapped() {
         print("Exit tapped in word controller")
-        //        performSegue(withIdentifier: "ToStart", sender: self)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -365,6 +357,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     // show circle
     func showCircle(_ num: Int){
+        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
         let wordArabic = allWords![index!].Arabic
         var wordArray = Array(wordArabic)
         if(num == 3){

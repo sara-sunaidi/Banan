@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import AVFoundation
+import Firebase
 
 class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate {
     
@@ -36,6 +37,8 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     //= "حرف اللام"
     var player: AVAudioPlayer?
     var expectedResult : String?
+    
+    let db = Firestore.firestore()
     //    private let progressView: UIProgressView = {
     //        let progressView = UIProgressView(progressViewStyle: .bar)
     //        progressView.trackTintColor = .gray
@@ -149,8 +152,17 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
         // # update user info
+        updateCompletedLetter()
     }
-    
+    func updateCompletedLetter(){
+        if let userId = Auth.auth().currentUser?.uid {
+                let collectionRef = self.db.collection("Children")
+                let thisUserDoc = collectionRef.document(userId)
+            thisUserDoc.updateData([
+                "CompletedLetter": FieldValue.arrayUnion([letters![index!].Letter])
+        ])
+            }
+    }
     @IBAction func pressSound(_ sender: UIButton) {
         playSound()
     }
