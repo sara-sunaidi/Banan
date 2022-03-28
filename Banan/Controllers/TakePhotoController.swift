@@ -136,10 +136,11 @@ class TakePhotoController: UIViewController,
     }
     
     func processImage(_ img: UIImage) -> String{
-        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
-        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
+//        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
+//        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
 //        OpenCVWrapper.detectRedShapes(in: croppedImg)
-        return result
+//        return result
+        return "";
     }
 //    @objc func didGetNotification(_ notification:Notification){
 //        let image = notification.object as! UIImage?
