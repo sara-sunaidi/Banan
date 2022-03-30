@@ -102,7 +102,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("letterResult"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
     }
     
     @objc func didGetNotification(_ notification:Notification){
@@ -114,9 +114,9 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         print("## in CheckAnswer")
         
-        expectedResult = letters![index!].Arabic
+        expectedResult = getLetter(letters![index!].Arabic)
         print("##### actualResult is \(actualResult)")
-        
+        print("##### expectedResult is \(expectedResult)")
             
             print("## in CheckAnswer IF")
             if (actualResult == expectedResult){
@@ -145,6 +145,69 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
             }
         
         
+    }
+    
+    func getLetter(_ s: String)-> String{
+        switch s {
+        case "الهمزة المفردة":
+            return "ء"
+        case "الألف بهمزة":
+            return "أ"
+        case "الطاء":
+            return "ط"
+        case "الحاء":
+            return "ح"
+        case "الألف المقصورة":
+            return "ى"
+        case "الألف بدون همزة":
+            return "ا"
+        case "العين":
+            return "ع"
+        case "الباء":
+            return "ب"
+        case "الدال":
+            return "د"
+        case "الظاء":
+            return "ظ"
+        case "الضاد":
+            return "ض"
+        case "الفاء":
+            return "ف"
+        case "القاف":
+            return "ق"
+        case "الغين":
+            return "غ"
+        case "الهاء":
+            return "ه"
+        case "الجيم":
+            return "ج"
+        case "الكاف":
+            return "ك"
+        case "الخاء":
+            return "خ"
+        case "اللام":
+            return "ل"
+        case "الميم":
+            return "م"
+        case "النون":
+            return "ن"
+        case "الراء":
+            return "ر"
+        case "الصاد":
+            return "ص"
+        case "السين":
+            return "س"
+        case "الشين":
+            return "ش"
+        case "التاء":
+            return "ت"
+        case "الثاء":
+            return "ث"
+        case "الذال":
+            return "ذ"
+        default:
+           return "- not found in switch"
+        }
     }
     
     private func correctAnswer(){
