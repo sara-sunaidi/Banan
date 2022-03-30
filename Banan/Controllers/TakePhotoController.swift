@@ -9,47 +9,28 @@ import UIKit
 import AVFoundation
 import CoreImage
 
-var takePhotoVC = TakePhotoController()
+
+
+let takePhotoVC = TakePhotoController()
 
 class TakePhotoController: UIViewController,
                            UINavigationControllerDelegate
                          
 {
-
-   
-    
-    static let instance = TakePhotoController()
-    
     var session : AVCaptureSession?
     var output = AVCapturePhotoOutput()
-    let previewLayer = AVCaptureVideoPreviewLayer()
+   
     var capturedImage : UIImage?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        WordViewController.instance.delegate = self
         print("\(OpenCVWrapper.openCVVersionString())")
-//        checkCameraPermissions()
+
     }
-//    public func processAnswer() -> UIImage{
-//        // we need to handle the camera permissions denied case later (it causes a run failure)
-//        //        checkCameraPermissions()
-//        viewDidLoad()
-//        //        checkCameraPermissions()
-//        //            didTapCheck()
-//        takePhoto()
-//        return capturedImage!
-        
-        
-//    }
-    
-//    func didCheck() {
-//        print("### In Did Check")
-//        checkCameraPermissions()
-//    }
-//
+
     func checkCameraPermissions(){
+        
         switch AVCaptureDevice.authorizationStatus(for: .video){
             
         case .notDetermined:
@@ -69,7 +50,7 @@ class TakePhotoController: UIViewController,
             
         case .authorized:
             print("##### in authorized")
-            setUpCamera()
+            self.setUpCamera()
             
         case .denied:
             break
@@ -80,7 +61,8 @@ class TakePhotoController: UIViewController,
     }
     
     private func setUpCamera(){
-        print("##### first lins in setupCamera")
+        
+        print("- first lins in setupCamera")
         let session = AVCaptureSession()
         session.sessionPreset = AVCaptureSession.Preset.photo
         
@@ -89,27 +71,29 @@ class TakePhotoController: UIViewController,
                 // here
                 try! device.lockForConfiguration()
 //                device.focusMode = .continuousAutoFocus
-                device.focusMode = .autoFocus
+                device.focusMode = .continuousAutoFocus
                 device.exposureMode = .autoExpose
                 device.unlockForConfiguration()
             }
             do{
-                output = AVCapturePhotoOutput()
+                
                 let input = try AVCaptureDeviceInput(device: device)
-                print("##### outside canAddInput")
+                print("- outside canAddInput")
                 if session.canAddInput(input){
-                    print("##### inside canAddInput")
+                    print("- inside canAddInput")
                     session.addInput(input)
                 }
+                output = AVCapturePhotoOutput()
                 if session.canAddOutput(output){
-                    print("##### inside addOutput")
+                    print("- inside addOutput")
                     session.addOutput(output)
+                    output.isHighResolutionCaptureEnabled = true
                 }
-//                previewLayer.videoGravity = .resizeAspectFill
-//                previewLayer.session = session
+
                 session.startRunning()
+                print("- session started")
                 self.session = session
-//                checkCameraPermissions()
+               
                 
             } catch{
                 print(error)
@@ -118,39 +102,21 @@ class TakePhotoController: UIViewController,
     }
     
     @objc func didTapCheck(){
+        print("##### in didTapCheck")
         let photoSettings = AVCapturePhotoSettings()
-        
-       
-        
-        output.capturePhoto(with: photoSettings, delegate: self)
-    }
-    
-    @IBOutlet weak var photoButton: UIButton! {
-        didSet {
-            
-        }
-    }
-    
-    @IBAction func takePhoto() {
-        didTapCheck()
+//        photoSettings.flashMode = .on
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.isAutoStillImageStabilizationEnabled = true
+        output.capturePhoto(with: photoSettings, delegate: self as AVCapturePhotoCaptureDelegate)
+        print("##### in didTapCheck after output ")
     }
     
     func processImage(_ img: UIImage) -> String{
-        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
-        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
-//        OpenCVWrapper.detectRedShapes(in: croppedImg)
+//        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
+//        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
+        let result = OpenCVWrapper.detectRedShapes(in: img.normalized!)
         return result
     }
-//    @objc func didGetNotification(_ notification:Notification){
-//        let image = notification.object as! UIImage?
-//        imageView.image = image
-//    }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "sendPhotoToWord" {
-//            let dvc = segue.destination as! WordViewController
-//            dvc.newImage = capturedImage
-//        }
-//    }
     
     
 }
@@ -162,7 +128,7 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         print("##### inside extension")
 //        if device.isSilentModeOn {
-                    AudioServicesDisposeSystemSoundID(1108)
+//                    AudioServicesDisposeSystemSoundID(1108)
 //                }
         guard let data = photo.fileDataRepresentation() else {
             print("##### inside extension guard")
@@ -217,10 +183,10 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
         //        self.navigationController?.pushViewController(pic, animated: true)
         
     }
-    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-           // dispose system shutter sound
-           AudioServicesDisposeSystemSoundID(1108)
-       }
+//    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+//           // dispose system shutter sound
+//           AudioServicesDisposeSystemSoundID(1108)
+//       }
     
     
 }

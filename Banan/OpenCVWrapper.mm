@@ -32,7 +32,7 @@ bool cropStatus = true;
 //define hash table
 //std::hash<int>;
 string word = "";
- const int s = 3;
+ const int s = 32;
 int i = 0;
 struct item{
     int key;
@@ -98,8 +98,9 @@ void addKv(){
 void searchK(int k){
     cout << " ### inside searchK" << endl;
     for(int j=0 ; j<s ; j++){
-        if(ht[j]->key == k)
-            word= word+ht[j]->value;
+        if(ht[j]->key == k){
+            cout << " ### inside searchK if statement" << endl;
+            word= word+ht[j]->value;}
     }
 }
 
@@ -158,9 +159,9 @@ void searchK(int k){
     // set up hash table
      addKv();
 
-    cout << "crop Status is " << cropStatus<< endl;
+//    cout << "crop Status is " << cropStatus<< endl;
 
-    if (cropStatus == true) {
+//    if (cropStatus == true) {
 
         // resetting value
         word = "";
@@ -169,7 +170,6 @@ void searchK(int k){
     UIImageToMat(image, mat);
 
     //  0) Preprossesing:
-
 
     // Flipping the image to get mirror effect
     cv::flip(mat, mat, 1);
@@ -198,7 +198,10 @@ void searchK(int k){
     // Combine the above two range images
     cv::Mat red_hue_image;
     cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, red_hue_image);
-
+   
+    // to flip white and black
+    cv::bitwise_not(red_hue_image, red_hue_image);
+    
     // 2) Blur to remove noise:
     cv::GaussianBlur(red_hue_image, red_hue_image, cv::Size(9, 9), 2, 2);
 
@@ -207,8 +210,8 @@ void searchK(int k){
     // Detect full blobs regrardless of color to set the initial braille coordinate lines
     cv::SimpleBlobDetector::Params initParams;
     initParams.filterByArea = true;
-    initParams.minArea =  800.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
-    initParams.maxArea =  19000.0f; //50.0f * 50.0f; //20.0f * 20.0f;
+    initParams.minArea =  600.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
+//    initParams.maxArea =  19000.0f; //50.0f * 50.0f; //20.0f * 20.0f;
 
 
     cv::Ptr<cv::SimpleBlobDetector> initBlobDetector = cv::SimpleBlobDetector::create(initParams);
@@ -217,21 +220,21 @@ void searchK(int k){
 
      // Check keypoints existance & draw keypoints for displaying
         if(initKeypoints.empty()){
-            cout << "there is no braille existance condition" << endl;
+            cout << "0- there is no braille initKeypoints condition" << endl;
            // return 1;
         }
     cv::Mat detectedCoordinatesImg = cv::Mat(mat.size(), CV_8UC3);
     drawKeypoints(mat, initKeypoints, detectedCoordinatesImg, cvScalar(255, 0, 26), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
 
      // Detect red blobs only
-        cv::SimpleBlobDetector::Params params;
-            params.filterByArea = true;
-            params.minArea =  800.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
-            params.maxArea =  19000.0f; //50.0f * 50.0f; //20.0f * 20.0f;
+    cv::SimpleBlobDetector::Params params;
+        params.filterByArea = true;
+        params.minArea =  500.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
+//            params.maxArea =  19000.0f; //50.0f * 50.0f; //20.0f * 20.0f;
 
-     // The following two statements to detect white instead of black (default color)
-            params.filterByColor = true;
-            params.blobColor = 255;
+//     // The following two statements to detect white instead of black (default color)
+//            params.filterByColor = true;
+//            params.blobColor = 255;
 
         cv::Ptr<cv::SimpleBlobDetector> blobDetector = cv::SimpleBlobDetector::create(params);
         std::vector<cv::KeyPoint> keypoints;
@@ -239,7 +242,7 @@ void searchK(int k){
 
         // check keypoints existance & draw keypoints for displaying
             if(keypoints.empty()){
-                cout << "there is no braille existance condition" << endl;
+                cout << "1- there is no braille keypoints condition" << endl;
                // return 1;
             }
         cv::Mat detectedImg = cv::Mat(red_hue_image.size(), CV_8UC3);
@@ -400,16 +403,16 @@ void searchK(int k){
                cout << "Blocks values" << endl;
                cout <<i<< " - " << brailleSet[i].value << endl;
            }
-    cout << "$$ there final string is " <<word<< endl;
+    cout << "$$ the final string is " <<word<< endl;
 
     UIImage *maskedShapesImg = MatToUIImage(red_hue_image); //detectedCoordinatesImg
 
         return [NSString stringWithUTF8String:word.c_str()];
 
 
-    }else {
-        return @"UnDetermined";
-    }
+//    }else {
+//        return @"UnDetermined";
+//    }
 
 
 }

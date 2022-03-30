@@ -20,7 +20,7 @@
         <!--Take Photo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TakePhotoController" id="BYZ-38-t0r" customClass="TakePhotoController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4969,7 +4969,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aRI-FO-QJe"/>
         <segue reference="yD0-41-uUe"/>
         <segue reference="sZa-XB-zTk"/>
         <segue reference="62k-Uq-p9X"/>
