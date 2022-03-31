@@ -21,6 +21,8 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     
     let database = Firestore.firestore()
         
+    @IBOutlet weak var submit: UIButton!
+    
     @IBOutlet weak var Name: UITextField!
 
        
@@ -62,7 +64,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     @IBAction func CreateAccount(_ sender: UIButton) {
 
         if Name.text == "" {
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل الاسم", acknowledgementType: .negative)      }
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)      }
         else{
             Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
                 if let e = error{

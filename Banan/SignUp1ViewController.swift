@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 //import FlexibleSteppedProgressBar
 
 class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerDelegate {
@@ -91,7 +92,7 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
         if !predicate.evaluate(with: value)
         {
-            return "الرجاء ادخال الايميل بشكل صحيح"
+            return "الرجاء إدخال البريد الإلكتروني بشكل صحيح"
         }
         return nil
     }
@@ -149,15 +150,15 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
         present(vc, animated:  true)*/
         if Email.text == "" || password == "" || cheak == true{
             if Email.text == "" {
-                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل البريد الإلكتروني", acknowledgementType: .negative)
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال البريد الإلكتروني", acknowledgementType: .negative)
             }
             else {
             if cheak == true {
-                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل البريد الإلكتروني بشكل صحيح", acknowledgementType: .negative)
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال البريد الإلكتروني بشكل صحيح", acknowledgementType: .negative)
                 }
             }
             if password == "" && Email.text != "" && cheak != true {
-                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء اختر شكل لتعيين كلمة المرور", acknowledgementType: .negative)
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء اختيار شكل لتعيين كلمة المرور", acknowledgementType: .negative)
             }
             
         }

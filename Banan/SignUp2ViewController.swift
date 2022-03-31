@@ -18,6 +18,8 @@ class SignUp2ViewController: UIViewController {
     var sex : String = ""
     var name : String = ""
 
+    @IBOutlet weak var submit: UIButton!
+    
     var date1 = Date()
 
     @IBOutlet weak var DOB: UIDatePicker!
@@ -80,7 +82,7 @@ class SignUp2ViewController: UIViewController {
     @IBAction func SignUp3(_ sender: UIButton) {
   
         if dob == "" {
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل تاريخ الميلاد", acknowledgementType: .negative)       }
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال تاريخ الميلاد", acknowledgementType: .negative)       }
         else{
             performSegue(withIdentifier: "SignUp2To3", sender: self)
 

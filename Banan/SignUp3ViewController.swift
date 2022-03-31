@@ -17,6 +17,8 @@ class SignUp3ViewController: UIViewController {
     var dob : String = ""
     var name : String = ""
     
+    @IBOutlet weak var submit: UIButton!
+    
     @IBOutlet weak var boy: UIButton!
     @IBOutlet weak var girl: UIButton!
     
@@ -77,7 +79,7 @@ class SignUp3ViewController: UIViewController {
     @IBAction func SignUp4(_ sender: UIButton) {
 
         if sex == "" {
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء اختر شكل لتعيين الشخصية", acknowledgementType: .negative)       }
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء اختيار شكل لتعيين الشخصية", acknowledgementType: .negative)       }
         else{
         performSegue(withIdentifier: "SignUp3To4", sender: self)
         }
