@@ -15,6 +15,7 @@ struct Child: Codable {
     var completedLevels = [String]()
     var completedCategories = [String]()
 
+    var completedGameAnimal = [[String: String]]()
     var email :String = ""
     var name :String = ""
     var score :String = "0"

@@ -69,7 +69,7 @@ class FirebaseRequest{
                 var dat = document.data()
                 dat["Letter"] = document.documentID
                 dat["imageName"] = "\(document.documentID)Pic.png"
-                
+            
                 allLetters.append(Letters(Arabic: dat["Arabic"] as! String,
                                           Braille: dat["Braille"] as! String,
                                           Letter: dat["Letter"] as! String,
@@ -121,6 +121,41 @@ class FirebaseRequest{
             completion(allWords,nil)
         }
         
-        //
+    }
+    
+    //fetch game
+    static func setDBListenerGame(completion:@escaping(_ data: Any?, _ err:Error?) -> Void){
+        
+        db.collection("GameAnimals").addSnapshotListener{ (documentSnapshot, error) in
+            
+            guard let document = documentSnapshot else {
+                //Error
+                print("Error fetching document: \(error!)")
+                completion(nil,error)
+                print("Not!!")
+                return
+            }
+            var allGameAnimal = [Game]()
+            
+            for document in documentSnapshot!.documents {
+                var dat = document.data()
+                dat["Animal"] = document.documentID
+//                dat["imageName"] = "\(document.documentID)"
+
+                allGameAnimal.append(Game(AllLetters: dat["AllLetters"] as! [String],
+                                      Arabic: dat["Arabic"] as! String,
+                                      Level: dat["Level"] as! String,
+                                          Points: dat["Points"] as! String ,
+                                          Animal: dat["Animal"] as! String
+//                                      imageName: dat["imageName"] as! String
+                                     ))
+                
+            }
+            print("SUCESSLetter!!")
+            
+            //Featch changers successfully
+            print("data in seeting db listener")
+            completion(allGameAnimal,nil)
+        }
     }
 }

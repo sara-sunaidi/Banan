@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.fetchLettersInfo()
         self.fetchWordsInfo()
+        self.fetchGameInfo()
         
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
@@ -45,6 +46,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func fetchGameInfo(){
+        FirebaseRequest.setDBListenerGame(completion: fetchGame(_:_:))
+    }
+    
+    func fetchGame(_ data:Any?, _ error:Error?) -> Void {
+
+        if let data = data as? [Game]{
+            
+            LocalStorage.allGameInfo = data
+
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+        }
+    }
+    
     func fetchWordsInfo(){
         FirebaseRequest.setDBListenerWords(completion: fetchWords(_:_:))
     }
@@ -58,6 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
         }
     }
+    
+    
     func fetchLettersInfo(){
         FirebaseRequest.setDBListenerLetters(completion: fetchLetters(_:_:))
     }
@@ -103,6 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completedWords: data["CompletedWord"] as! [String],
                     completedLevels: data["CompletedLevel"] as! [String] ,
                     completedCategories: data["CompletedCategory"] as! [String],
+                    completedGameAnimal: data["CompletedGameAnimal"] as! [[String: String]],
                     email: data["Email"] as! String ,
                     name: data["Name"] as! String,
                     score: data["Score"] as! String,

@@ -50,6 +50,8 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		562E3EB127F68B9C00CBEEE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */; };
+		562E3EB327F746FC00CBEEE2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB227F746FB00CBEEE2 /* Game.swift */; };
 		569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */; };
 		569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24627EBBA5100F13AAB /* WordViewController.swift */; };
 		569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */; };
@@ -133,6 +135,8 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		562E3EB227F746FB00CBEEE2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLetterViewController.swift; sourceTree = "<group>"; };
 		569FF24627EBBA5100F13AAB /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoController.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
+				562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */,
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
@@ -333,6 +338,7 @@
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
 				56BD5ED327E431F000F6DBB6 /* LocalStorage.swift */,
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
+				562E3EB227F746FB00CBEEE2 /* Game.swift */,
 				56BD5ED727E432A900F6DBB6 /* Letters.swift */,
 				56BD5ED927E432EE00F6DBB6 /* Words.swift */,
 			);
@@ -510,6 +516,7 @@
 				4DCEDC6F27B4CFC900026D14 /* SignUp1ViewController.swift in Sources */,
 				4D79BC7127E7283600BE663C /* ResetPasswordViewController.swift in Sources */,
 				569FF25227EBBEC600F13AAB /* SnackbarViewModel.swift in Sources */,
+				562E3EB127F68B9C00CBEEE2 /* GameViewController.swift in Sources */,
 				56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
@@ -536,6 +543,7 @@
 				569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */,
+				562E3EB327F746FC00CBEEE2 /* Game.swift in Sources */,
 				569FF24D27EBBC5D00F13AAB /* extention_UIImage.swift in Sources */,
 				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,

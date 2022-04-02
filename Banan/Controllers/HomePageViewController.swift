@@ -113,4 +113,12 @@ class HomePageViewController : UIViewController{
     }
     @IBAction func profilePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
+    
+    
+    @IBAction func pressGame(_ sender: UIButton) {
+    
+        performSegue(withIdentifier: "GoToGame", sender: self) 
+    
+    }
+    
 }

@@ -92,7 +92,6 @@ class LevelsViewController: UIViewController {
         if child != nil {
             setChildInfo(child: child!)
         }
-        
     }
     
     func setChildInfo(child: Child){
