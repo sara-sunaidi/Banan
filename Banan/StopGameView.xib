@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Almarai-Regular.ttf">
+            <string>Almarai-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StopGameViewController" customModule="Banan" customModuleProvider="target">
+            <connections>
+                <outlet property="alertView" destination="7R7-f5-ShW" id="2Gc-zO-5Xb"/>
+                <outlet property="parentView" destination="fTm-yY-wnk" id="SlE-Z4-mu3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hbO-c1-C6n">
+            <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-yY-wnk">
+                    <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7R7-f5-ShW">
+                            <rect key="frame" x="192" y="447" width="450" height="300"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srS-3H-amO" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                    <rect key="frame" x="50" y="114" width="350" height="55"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="wWk-D9-AVV"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="tinted" title="استمرار" cornerStyle="capsule">
+                                        <backgroundConfiguration key="background">
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.85098039219999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </backgroundConfiguration>
+                                        <fontDescription key="titleFontDescription" name="Almarai-Regular" family="Almarai" pointSize="26"/>
+                                        <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onClickYes:" destination="-1" eventType="touchUpInside" id="gu0-yY-UaE"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfT-f4-6Gc" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                    <rect key="frame" x="50" y="199" width="350" height="55"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="Lcn-ms-vWx"/>
+                                        <constraint firstAttribute="width" constant="350" id="qdR-jK-lBv"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="خروج" cornerStyle="capsule">
+                                        <backgroundConfiguration key="background">
+                                            <color key="backgroundColor" red="0.88235294119999996" green="0.42352941179999998" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </backgroundConfiguration>
+                                        <fontDescription key="titleFontDescription" name="Almarai-Regular" family="Almarai" pointSize="26"/>
+                                        <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onClickCancel:" destination="-1" eventType="touchUpInside" id="dlU-r4-pxs"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="الخيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbO-Uf-g4Z">
+                                    <rect key="frame" x="20" y="40" width="410" height="34"/>
+                                    <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="29"/>
+                                    <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="srS-3H-amO" firstAttribute="leading" secondItem="7R7-f5-ShW" secondAttribute="leading" constant="50" id="89a-bi-ua9"/>
+                                <constraint firstItem="ZfT-f4-6Gc" firstAttribute="top" secondItem="srS-3H-amO" secondAttribute="bottom" constant="30" id="8EK-HH-sVH"/>
+                                <constraint firstItem="ZfT-f4-6Gc" firstAttribute="leading" secondItem="7R7-f5-ShW" secondAttribute="leading" constant="50" id="Ap2-aV-thh"/>
+                                <constraint firstAttribute="trailing" secondItem="ZfT-f4-6Gc" secondAttribute="trailing" constant="50" id="CgU-IM-pZI"/>
+                                <constraint firstAttribute="bottom" secondItem="ZfT-f4-6Gc" secondAttribute="bottom" constant="46" id="Dvj-Kj-u3a"/>
+                                <constraint firstItem="srS-3H-amO" firstAttribute="centerX" secondItem="7R7-f5-ShW" secondAttribute="centerX" id="Jd2-sf-y9g"/>
+                                <constraint firstAttribute="trailing" secondItem="srS-3H-amO" secondAttribute="trailing" constant="50" id="QiN-zT-jXR"/>
+                                <constraint firstAttribute="width" constant="450" id="ff3-3E-SZC"/>
+                                <constraint firstItem="srS-3H-amO" firstAttribute="centerX" secondItem="jbO-Uf-g4Z" secondAttribute="centerX" id="nHy-yf-2et"/>
+                                <constraint firstAttribute="height" constant="300" id="nt8-Ug-L4u"/>
+                                <constraint firstItem="srS-3H-amO" firstAttribute="top" secondItem="jbO-Uf-g4Z" secondAttribute="bottom" constant="40" id="rM8-Uw-IDw"/>
+                                <constraint firstItem="ZfT-f4-6Gc" firstAttribute="centerX" secondItem="7R7-f5-ShW" secondAttribute="centerX" id="sqC-Y3-CRj"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7R7-f5-ShW" secondAttribute="bottom" constant="447" id="7NH-T4-scs"/>
+                        <constraint firstItem="7R7-f5-ShW" firstAttribute="centerX" secondItem="fTm-yY-wnk" secondAttribute="centerX" id="BcJ-cK-0cN"/>
+                        <constraint firstItem="7R7-f5-ShW" firstAttribute="centerY" secondItem="fTm-yY-wnk" secondAttribute="centerY" id="Ree-SL-W0Z"/>
+                        <constraint firstAttribute="trailing" secondItem="7R7-f5-ShW" secondAttribute="trailing" constant="192" id="VJM-mE-5w8"/>
+                        <constraint firstItem="7R7-f5-ShW" firstAttribute="leading" secondItem="fTm-yY-wnk" secondAttribute="leading" constant="192" id="eXZ-qx-j6H"/>
+                        <constraint firstItem="7R7-f5-ShW" firstAttribute="top" secondItem="fTm-yY-wnk" secondAttribute="top" constant="447" id="qEh-k1-IFS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="akk-Fy-pwB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="top" secondItem="hbO-c1-C6n" secondAttribute="top" id="6cc-ub-02H"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="leading" secondItem="akk-Fy-pwB" secondAttribute="leading" id="6mO-ly-F8k"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="centerY" secondItem="hbO-c1-C6n" secondAttribute="centerY" id="Fso-nZ-2BC"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="trailing" secondItem="akk-Fy-pwB" secondAttribute="trailing" id="KZ7-WX-wrV"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="leading" secondItem="hbO-c1-C6n" secondAttribute="leading" id="bMZ-fr-9Mi"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="centerX" secondItem="hbO-c1-C6n" secondAttribute="centerX" id="hwa-VZ-Tag"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="trailing" secondItem="akk-Fy-pwB" secondAttribute="trailing" id="j5b-ON-Pda"/>
+                <constraint firstAttribute="bottom" secondItem="fTm-yY-wnk" secondAttribute="bottom" id="ru9-Ma-vtJ"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="leading" secondItem="akk-Fy-pwB" secondAttribute="leading" id="sRP-J6-tK9"/>
+                <constraint firstItem="fTm-yY-wnk" firstAttribute="top" secondItem="hbO-c1-C6n" secondAttribute="top" id="vDM-J6-w6K"/>
+            </constraints>
+            <point key="canvasLocation" x="131.65467625899282" y="47.738693467336681"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

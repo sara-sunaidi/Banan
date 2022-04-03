@@ -52,6 +52,10 @@
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
 		562E3EB127F68B9C00CBEEE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */; };
 		562E3EB327F746FC00CBEEE2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB227F746FB00CBEEE2 /* Game.swift */; };
+		562E3EB527F8D92900CBEEE2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */; };
+		562E3EB727F8ED9400CBEEE2 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB627F8ED9000CBEEE2 /* LaunchViewController.swift */; };
+		562E3EBB27F8FA6A00CBEEE2 /* StopGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562E3EBA27F8FA6900CBEEE2 /* StopGameView.xib */; };
+		562E3EBD27F906DB00CBEEE2 /* StopGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EBC27F906D900CBEEE2 /* StopGameViewController.swift */; };
 		569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */; };
 		569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24627EBBA5100F13AAB /* WordViewController.swift */; };
 		569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */; };
@@ -137,6 +141,10 @@
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		562E3EB227F746FB00CBEEE2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		562E3EB627F8ED9000CBEEE2 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		562E3EBA27F8FA6900CBEEE2 /* StopGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopGameView.xib; sourceTree = "<group>"; };
+		562E3EBC27F906D900CBEEE2 /* StopGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopGameViewController.swift; sourceTree = "<group>"; };
 		569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLetterViewController.swift; sourceTree = "<group>"; };
 		569FF24627EBBA5100F13AAB /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoController.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
 				71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */,
+				562E3EBA27F8FA6900CBEEE2 /* StopGameView.xib */,
 				71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */,
 				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
@@ -298,10 +307,12 @@
 			isa = PBXGroup;
 			children = (
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
+				562E3EB627F8ED9000CBEEE2 /* LaunchViewController.swift */,
 				562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */,
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
+				562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */,
 				56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */,
 				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
 				56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */,
@@ -317,6 +328,7 @@
 				4D97C0B627E7261C00AC16A0 /* ViewProfileViewController.swift */,
 				4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */,
 				71A3A91427EB79D7009F9B09 /* CustomConfirmationViewController.swift */,
+				562E3EBC27F906D900CBEEE2 /* StopGameViewController.swift */,
 				71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */,
 				71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */,
 			);
@@ -482,6 +494,7 @@
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
+				562E3EBB27F8FA6A00CBEEE2 /* StopGameView.xib in Resources */,
 				71A3A90927EB7451009F9B09 /* CustomConfirmationView.xib in Resources */,
 				71A3A90B27EB7640009F9B09 /* CustomAcknowledgementView.xib in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
@@ -517,6 +530,7 @@
 				4D79BC7127E7283600BE663C /* ResetPasswordViewController.swift in Sources */,
 				569FF25227EBBEC600F13AAB /* SnackbarViewModel.swift in Sources */,
 				562E3EB127F68B9C00CBEEE2 /* GameViewController.swift in Sources */,
+				562E3EB527F8D92900CBEEE2 /* FirstViewController.swift in Sources */,
 				56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
@@ -530,9 +544,11 @@
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
+				562E3EB727F8ED9400CBEEE2 /* LaunchViewController.swift in Sources */,
 				71A3A91327EB78BE009F9B09 /* CustomButton.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */,
+				562E3EBD27F906DB00CBEEE2 /* StopGameViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
 				56BD5ED427E431F000F6DBB6 /* LocalStorage.swift in Sources */,
 				56BD5EC427E0F7E500F6DBB6 /* LevelsViewController.swift in Sources */,

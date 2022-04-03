@@ -13,7 +13,8 @@ import FirebaseStorage
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         let storage = Storage.storage()
@@ -42,6 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                animatedSplashVC.isChild = false
             }
         }
+        
+   UIWindow(frame: UIScreen.main.bounds)
+//            let vc = HomePageViewController()
+//            window?.rootViewController = vc
+//            window?.makeKeyAndVisible()
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomePageViewController
+//
+//        self.window?.rootViewController = animatedSplashVC
+//        self.window?.makeKeyAndVisible()
         
         return true
     }

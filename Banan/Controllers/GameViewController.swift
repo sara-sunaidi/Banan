@@ -7,7 +7,11 @@
 
 import UIKit
 
-class GameViewController: UIViewController, CustomConfirmationViewControllerDelegate {
+class GameViewController: UIViewController, StopGameViewControllerDelegate {
+
+    
+    
+    
     
     
     
@@ -80,7 +84,7 @@ class GameViewController: UIViewController, CustomConfirmationViewControllerDele
         updateAnimalInfo()
         
         
-        CustomConfirmationViewController.instance.delegate = self
+        StopGameViewController.instance.delegate = self
     }
     func designProgressbar(){
         
@@ -251,12 +255,20 @@ class GameViewController: UIViewController, CustomConfirmationViewControllerDele
         //new pop up, if press cancel =>
         //stopIcon.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
         
-            CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
+        StopGameViewController.instance.showAlert()
         
     }
     
-    func didYesButtonTapped() {
-        print("go back ples")
+//    func didYesButtonTapped() {
+//        print("go back ples")
+//        self.dismiss(animated: true, completion: nil)
+//    }
+    
+    func didContinueButtonTapped() {
+        stopIcon.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
+    }
+    
+    func didExitButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
 
