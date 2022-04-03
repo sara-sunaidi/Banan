@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import AVFoundation
 
-class GameViewController: UIViewController, StopGameViewControllerDelegate {
-
+class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate {
+    func didNextButtonTapped() {
+        print("next pressed")
+    }
     
-    
+    func didRedoButtonTapped() {
+        print("redo pressed")
+    }
     
     
     
@@ -32,6 +37,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
     
     @IBOutlet weak var skipButton: UIButton!
     
+    var player: AVAudioPlayer?
 
     var completedGameAnimal = [[String:String]]()
     
@@ -68,7 +74,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        player?.stop()
+
         if(index == gameLevel.count - 1){
             //last animal
             skipButton.isHidden = true
@@ -85,6 +92,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
         
         
         StopGameViewController.instance.delegate = self
+        LevelDoneViewController.instance.delegate = self
     }
     func designProgressbar(){
         
@@ -172,6 +180,24 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
     
     @IBAction func pressSpeaker(_ sender: UIButton) {
         print("play sound")
+        
+        
+        guard let url = Bundle.main.url(forResource: "\(gameLevel[index].Animal)", withExtension: "mp3") else { return }
+        //to find sound name:
+        //letters![index!].Letter
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
     
     
@@ -226,6 +252,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
         //else pop up message with total points and pass or fail
         //total point in level
         else{
+            LevelDoneViewController.instance.showAlert(title: "sara", level: "test", gameArray: gameLevel)
 //            var levelPoints = 0
 //            for i in gameLevel{
 //               print(i.Arabic)
@@ -248,6 +275,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate {
     }
     
     @IBAction func pressStop(_ sender: UIButton) {
+        
+        player?.stop()
         
         print("press stop")
         stopIcon.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
