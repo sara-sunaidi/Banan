@@ -19,7 +19,7 @@ class LogInViewContoller : UIViewController{
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var LogInButton: UIButton!
-    @IBOutlet weak var signUp: UIButton!
+//    @IBOutlet weak var signUp: UIButton!
     var cheak : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class LogInViewContoller : UIViewController{
         red123.tintColor = UIColor.white
         parallelogram.tintColor = UIColor.white
         circle.tintColor = UIColor.white
-        signUp.setAttributedTitle("إنشاء الحساب".underlined, for: .normal)
+//        signUp.setAttributedTitle("إنشاء الحساب".underlined, for: .normal)
     }
     @IBAction func trianglePass(_ sender: UIButton) {
         password = "triangle"
@@ -174,9 +174,9 @@ class LogInViewContoller : UIViewController{
         CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: e ,acknowledgementType: .negative)
     }
     
-    @IBAction func signUp(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "GoToSignUp", sender: self)
-    }
+//    @IBAction func signUp(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "GoToSignUp", sender: self)
+//    }
 }
 
 

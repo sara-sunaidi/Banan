@@ -113,4 +113,9 @@ class HomePageViewController : UIViewController{
     }
     @IBAction func profilePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
+
+    @IBAction func dashboardPressed(_ sender: Any) {
+        performSegue(withIdentifier: "ToDashboard", sender: self)
+    }
+    
 }
