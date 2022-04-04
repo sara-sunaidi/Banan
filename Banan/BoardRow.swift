@@ -30,7 +30,7 @@ struct BoardRow: View {
                         .frame(width: 23, height: 23)
                 })
                 
-                Text("بروقرس بار")
+                Text("بروقرس بار") // UIKit
             })
             
             Image(b.getEvaluationInfo())

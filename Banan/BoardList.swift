@@ -10,30 +10,17 @@ import SwiftUI
 struct BoardList: View {
     
     let boards = Board.dummyData()
+//    Board(level: "المستوى الأول", points: 70, eval: .outStanding)
     
     init(){
         UITableView.appearance().backgroundColor = UIColor.clear
        }
     
     var body: some View {
-//        VStack(alignment: .leading){
-//            LabelledDivider(label: "الإنجازات")
-//            Text("Test")
-//            Text("Test")
-//            Text("Test")
-//            Text("Test")
-//            Text("ha")
-//            Text("Test")
-//            Text("Test")
-//            Text("Test")
-//            Text("Test")
-//
-//
-//        }
+
         
        
         
-//        NavigationView{
         VStack(alignment: .leading, spacing: 0){
 //            LabelledDivider(label: "الإنجازات")
             List(boards){
@@ -47,13 +34,11 @@ struct BoardList: View {
         }
         .listRowInsets(EdgeInsets()) // hack for ios14
             .background(Color(red: 0.949, green: 0.953, blue: 0.961))
-//        .background(Color(red: 1.0, green: 0.0, blue: 0.0, opacity: 0))
 
         }
 
-           
-//    }
 }
+
 
 struct BoardList_Previews: PreviewProvider {
     static var previews: some View {
