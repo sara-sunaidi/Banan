@@ -1,8 +1,8 @@
 //
-//  LevelDoneViewController.swift
+//  LevelFailViewController.swift
 //  Banan
 //
-//  Created by Sara Alsunaidi on 03/04/2022.
+//  Created by Sara Alsunaidi on 04/04/2022.
 //
 
 import Foundation
@@ -10,22 +10,19 @@ import UIKit
 import SwiftUI
 
 // Protocol in UIView Class for navigation purposes
-protocol LevelDoneViewControllerDelegate {
+protocol LevelFailViewControllerDelegate {
     func didExitButtonTapped()
-    func didNextButtonTapped()
     func didRedoButtonTapped()
 }
 
-class LevelDoneViewController : UIView {
+class LevelFailViewController : UIView {
     
-    static let instance = LevelDoneViewController()
+    static let instance = LevelFailViewController()
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var redoBtn: CustomButton!
-
-    @IBOutlet weak var continueButton: CustomButton!
     
 
     @IBOutlet weak var exitBtn: CustomButton!
@@ -44,13 +41,13 @@ class LevelDoneViewController : UIView {
     @IBOutlet weak var levelScore: UILabel!
     
     
-    var delegate: LevelDoneViewControllerDelegate?
+    var delegate: LevelFailViewControllerDelegate?
 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        Bundle.main.loadNibNamed("LevelDoneView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("LevelFailView", owner: self, options: nil)
         
         commonInit()
         
@@ -62,7 +59,7 @@ class LevelDoneViewController : UIView {
     
     private func commonInit() {
         
-        Bundle.main.loadNibNamed("LevelDoneView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("LevelFailView", owner: self, options: nil)
         
         // img format
         img.layer.cornerRadius = img.bounds.size.width/2
@@ -112,7 +109,7 @@ class LevelDoneViewController : UIView {
 
 //            continueBtn?.setTitle("المتابعة للكلمة التالية", for: .normal)
 //            print("### in showAlert word")
-//            
+//
 ////        case .letter:
 //            img?.image = UIImage(named: "shinyStar")
 //            continueBtn?.setTitle("المتابعة للحرف التالي", for: .normal)
@@ -128,13 +125,6 @@ class LevelDoneViewController : UIView {
         return "\(arabicNum) +"
     }
     
-    
-    @IBAction func onClickContinue(_ sender: Any) {
-        print("### in continue btn ")
-        parentView.removeFromSuperview()
-        
-        delegate?.didNextButtonTapped()
-    }
     
     @IBAction func onClickRedo(_ sender: Any) {
         print("### in redo btn ")

@@ -16,4 +16,9 @@ struct Game: Codable {
     var Animal: String = ""
     var currentPoint: Int = 0
 //    var imageName: String = ""
+    
+    
+    mutating func setCurrent(point: Int){
+        currentPoint = point
+    }
 }

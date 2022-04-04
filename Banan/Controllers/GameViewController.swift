@@ -8,13 +8,23 @@
 import UIKit
 import AVFoundation
 
-class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate {
+class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate {
+    
+    
     func didNextButtonTapped() {
         print("next pressed")
+        index = 0
+        levelNum = ConvertLevel.FindNextLevel(levelName: levelNum)
+        progressBar.setProgress(0.0, animated: true)
+        updateLevel()
+        viewDidLoad()
     }
     
     func didRedoButtonTapped() {
         print("redo pressed")
+        index = 0
+        progressBar.setProgress(0.0, animated: true)
+        viewDidLoad()
     }
     
     
@@ -38,62 +48,91 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBOutlet weak var skipButton: UIButton!
     
     var player: AVAudioPlayer?
-
+    
     var completedGameAnimal = [[String:String]]()
     
-    var gameLevel = [
+    
+    var allGameLevels = [Game]()
+    
+    //from reema?
+    var gameLevel =
+    //[Game]()
+    [
         Game(
             AllLetters:["2lf","Sen","Dal"],
             Arabic: "أسد",
             Level:"First",
             Points: "100",
             Animal: "Lion"),
-        
-        
+
+
         Game(
             AllLetters:["Kaf","Lam","Baa"],
             Arabic: "كلب",
             Level:"First",
             Points: "130",
             Animal: "Dog"),
-        
+
         Game(
             AllLetters:["Gaf","Raa","Dal"],
             Arabic: "قرد",
             Level:"First",
             Points: "125",
             Animal: "Monkey")
-        
-        
     ]
+    //from reema
+    var levelTitle = ""
+    //"المستوى الأول"
+    //form reema
+    var levelNum = "First"
+    
     
     var levelPoints = 0
     var levelUserPoints = 0
     var index = 0
     var numOfHeart = 3;
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         player?.stop()
-
+        
+        levelTitle = ConvertLevel.FindLevelTitle(levelName: levelNum)
+        //design progressbar
+        designProgressbar()
+        
+        getChildData()
+        getGameData()
+//        groupByLevel()
+        
+        updatePassedLabel()
+        updateAnimalInfo()
+        
         if(index == gameLevel.count - 1){
             //last animal
             skipButton.isHidden = true
+        }else{
+            skipButton.isHidden = false
         }
-            
+        
         levelPoints = gameLevel.map({Int($0.Points)!}).reduce(0, +)
         levelUserPoints = gameLevel.map({$0.currentPoint}).reduce(0, +)
         
-        //design progressbar
-        designProgressbar()
-        getChildData()
-        updatePassedLabel()
-        updateAnimalInfo()
         
         
         StopGameViewController.instance.delegate = self
         LevelDoneViewController.instance.delegate = self
+        LevelFailViewController.instance.delegate = self
+        
     }
+//    func groupByLevel(){
+//        gameLevel = allGameLevels.filter({$0.Level == levelNum})
+//    }
+    
+    func updateLevel(){
+        gameLevel = allGameLevels.filter({$0.Level == levelNum})
+    }
+    
     func designProgressbar(){
         
         progressBar.layer.borderWidth = 5;
@@ -109,6 +148,16 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         progressBar.transform = CGAffineTransform(rotationAngle: .pi);
     }
     
+    func getGameData(){
+        print("in getLettersData")
+        let game = LocalStorage.allGameInfo
+        if game != nil{
+            print("game")
+            allGameLevels = game!
+            print(allGameLevels)
+            
+        }
+    }
     func getChildData(){
         let child = LocalStorage.childValue
         if child != nil {
@@ -134,15 +183,16 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     }
     
     func updateAnimalInfo(){
+        print(gameLevel[index].Animal)
         animalImage.image = UIImage(named: "\(gameLevel[index].Animal)")
-                
+        
         animalLabel.text = gameLevel[index].Arabic
         
         //update num of hearts because its new animal
         numOfHeart = 3;
         updateHeart()
     }
-
+    
     
     func updateHeart(){
         if(numOfHeart == 2){
@@ -222,23 +272,23 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBAction func pressCheck(_ sender: UIButton) {
         
-    
+        
         print("press check")
         
         //if the answer was correct, do the following
-        
+        print(gameLevel[index].Animal)
         var curPoints = Int(gameLevel[index].Points) ?? 0
         print(curPoints)
         //if num of heart == 0 ? (+20)
         curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
         curPoints += 20
         
-        gameLevel[index].currentPoint = curPoints
+        gameLevel[index].setCurrent(point: curPoints)
         print(curPoints)
         
         levelUserPoints = gameLevel.map({$0.currentPoint}).reduce(0, +)
-        
-        
+        print("what")
+        print(gameLevel[index].currentPoint)
         //update progresssbar
         progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
         
@@ -252,16 +302,45 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         //else pop up message with total points and pass or fail
         //total point in level
         else{
-            LevelDoneViewController.instance.showAlert(title: "sara", level: "test", gameArray: gameLevel)
-//            var levelPoints = 0
-//            for i in gameLevel{
-//               print(i.Arabic)
-//               print( i.currentPoint)
-//                levelPoints += i.currentPoint
-//            }
+            var title = ""
+            var imageName = ""
+            //            var lev
+            let userPercent = Float(levelUserPoints)/Float(levelPoints)
+            if(userPercent < 0.2){
+                title = "حاول مرة اخرى"
+                levelTitle = "لم تكمل \(levelTitle)"
+                
+                imageName = "tryAgain"
+                //diffrent pop up
+                LevelFailViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: gameLevel, totalScore: levelUserPoints , imageName: imageName)
+            }
+            else
+            {if (userPercent >= 0.2 && userPercent < 0.5 ){
+                title = "جيد"
+                levelTitle = "أكملت \(levelTitle)"
+                imageName = "good"
+            }
+                else if (userPercent >= 0.5 && userPercent < 0.75 ){
+                    title = "ممتاز"
+                    levelTitle = "أكملت \(levelTitle)"
+                    imageName = "excellent"
+                    
+                }else if (userPercent >= 0.75 ){
+                    title = "رائع"
+                    levelTitle = "أكملت \(levelTitle)"
+                    imageName = "perfect"
+                }
+                LevelDoneViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: gameLevel, totalScore: levelUserPoints , imageName: imageName)
+            }
+            //            var levelPoints = 0
+            //            for i in gameLevel{
+            //               print(i.Arabic)
+            //               print( i.currentPoint)
+            //                levelPoints += i.currentPoint
+            //            }
             print("level points: \(levelUserPoints)")
         }
-
+        
     }
     
     @IBAction func pressSkip(_ sender: UIButton) {
@@ -288,10 +367,10 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         
     }
     
-//    func didYesButtonTapped() {
-//        print("go back ples")
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    //    func didYesButtonTapped() {
+    //        print("go back ples")
+    //        self.dismiss(animated: true, completion: nil)
+    //    }
     
     func didContinueButtonTapped() {
         stopIcon.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
@@ -300,5 +379,5 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     func didExitButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
 }

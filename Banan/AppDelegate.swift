@@ -125,6 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
 
         if let data = data as? [String:Any]{
+            print("tteeesssttt")
+            print(data)
             do{
                 //Convert data to type Child
                 let child = Child(
@@ -133,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completedWords: data["CompletedWord"] as! [String],
                     completedLevels: data["CompletedLevel"] as! [String] ,
                     completedCategories: data["CompletedCategory"] as! [String],
-                    completedGameAnimal: data["CompletedGameAnimal"] as! [[String: String]],
+                    completedGameAnimal: data["CompletedGameAnimal"] as! [[String: String]] ,
                     email: data["Email"] as! String ,
                     name: data["Name"] as! String,
                     score: data["Score"] as! String,
