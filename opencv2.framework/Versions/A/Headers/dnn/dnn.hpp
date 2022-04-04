@@ -46,13 +46,20 @@
 #include <opencv2/core.hpp>
 #include "opencv2/core/async.hpp"
 
-#include "../dnn/version.hpp"
+#if !defined CV_DOXYGEN && !defined CV_STATIC_ANALYSIS && !defined CV_DNN_DONT_ADD_EXPERIMENTAL_NS
+#define CV__DNN_EXPERIMENTAL_NS_BEGIN namespace experimental_dnn_34_v23 {
+#define CV__DNN_EXPERIMENTAL_NS_END }
+namespace cv { namespace dnn { namespace experimental_dnn_34_v23 { } using namespace experimental_dnn_34_v23; }}
+#else
+#define CV__DNN_EXPERIMENTAL_NS_BEGIN
+#define CV__DNN_EXPERIMENTAL_NS_END
+#endif
 
 #include <opencv2/dnn/dict.hpp>
 
 namespace cv {
 namespace dnn {
-CV__DNN_INLINE_NS_BEGIN
+CV__DNN_EXPERIMENTAL_NS_BEGIN
 //! @addtogroup dnn
 //! @{
 
@@ -72,9 +79,9 @@ CV__DNN_INLINE_NS_BEGIN
         DNN_BACKEND_INFERENCE_ENGINE,            //!< Intel's Inference Engine computational backend
                                                  //!< @sa setInferenceEngineBackendType
         DNN_BACKEND_OPENCV,
-        DNN_BACKEND_VKCOM,
-        DNN_BACKEND_CUDA,
-        DNN_BACKEND_WEBNN,
+        // OpenCV 4.x: DNN_BACKEND_VKCOM,
+        // OpenCV 4.x: DNN_BACKEND_CUDA,
+
 #ifdef __OPENCV_BUILD
         DNN_BACKEND_INFERENCE_ENGINE_NGRAPH = 1000000,     // internal - use DNN_BACKEND_INFERENCE_ENGINE + setInferenceEngineBackendType()
         DNN_BACKEND_INFERENCE_ENGINE_NN_BUILDER_2019,      // internal - use DNN_BACKEND_INFERENCE_ENGINE + setInferenceEngineBackendType()
@@ -91,27 +98,11 @@ CV__DNN_INLINE_NS_BEGIN
         DNN_TARGET_OPENCL,
         DNN_TARGET_OPENCL_FP16,
         DNN_TARGET_MYRIAD,
-        DNN_TARGET_VULKAN,
-        DNN_TARGET_FPGA,  //!< FPGA device with CPU fallbacks using Inference Engine's Heterogeneous plugin.
-        DNN_TARGET_CUDA,
-        DNN_TARGET_CUDA_FP16,
-        DNN_TARGET_HDDL
+        DNN_TARGET_FPGA  //!< FPGA device with CPU fallbacks using Inference Engine's Heterogeneous plugin.
     };
 
     CV_EXPORTS std::vector< std::pair<Backend, Target> > getAvailableBackends();
     CV_EXPORTS_W std::vector<Target> getAvailableTargets(dnn::Backend be);
-
-    /**
-     * @brief Enables detailed logging of the DNN model loading with CV DNN API.
-     * @param[in] isDiagnosticsMode Indicates whether diagnostic mode should be set.
-     *
-     * Diagnostic mode provides detailed logging of the model loading stage to explore
-     * potential problems (ex.: not implemented layer type).
-     *
-     * @note In diagnostic mode series of assertions will be skipped, it can lead to the
-     * expected application crash.
-     */
-    CV_EXPORTS void enableModelDiagnostics(bool isDiagnosticsMode);
 
     /** @brief This class provides all data needed to initialize layer.
      *
@@ -236,15 +227,6 @@ CV__DNN_INLINE_NS_BEGIN
          */
         virtual void forward(InputArrayOfArrays inputs, OutputArrayOfArrays outputs, OutputArrayOfArrays internals);
 
-        /** @brief Tries to quantize the given layer and compute the quantization parameters required for fixed point implementation.
-         *  @param[in] scales input and output scales.
-         *  @param[in] zeropoints input and output zeropoints.
-         *  @param[out] params Quantized parameters required for fixed point implementation of that layer.
-         *  @returns True if layer can be quantized.
-         */
-        virtual bool tryQuantize(const std::vector<std::vector<float> > &scales,
-                                 const std::vector<std::vector<int> > &zeropoints, LayerParams& params);
-
         /** @brief Given the @p input blobs, computes the output @p blobs.
          *  @param[in]  inputs  the input blobs.
          *  @param[out] outputs allocated output blobs, which will store results of the computation.
@@ -306,23 +288,6 @@ CV__DNN_INLINE_NS_BEGIN
 
         virtual Ptr<BackendNode> initNgraph(const std::vector<Ptr<BackendWrapper> > &inputs, const std::vector<Ptr<BackendNode> >& nodes);
 
-        virtual Ptr<BackendNode> initVkCom(const std::vector<Ptr<BackendWrapper> > &inputs);
-
-        virtual Ptr<BackendNode> initWebnn(const std::vector<Ptr<BackendWrapper> > &inputs, const std::vector<Ptr<BackendNode> >& nodes);
-
-        /**
-         * @brief Returns a CUDA backend node
-         *
-         * @param   context  void pointer to CSLContext object
-         * @param   inputs   layer inputs
-         * @param   outputs  layer outputs
-         */
-        virtual Ptr<BackendNode> initCUDA(
-            void *context,
-            const std::vector<Ptr<BackendWrapper>>& inputs,
-            const std::vector<Ptr<BackendWrapper>>& outputs
-        );
-
        /**
         * @brief Automatic Halide scheduling based on layer hyper-parameters.
         * @param[in] node Backend node with Halide functions.
@@ -379,16 +344,6 @@ CV__DNN_INLINE_NS_BEGIN
          * element-wise multiplications or additions.
          */
         virtual void getScaleShift(Mat& scale, Mat& shift) const;
-
-        /**
-         * @brief Returns scale and zeropoint of layers
-         * @param[out] scale Output scale
-         * @param[out] zeropoint Output zeropoint
-         *
-         * By default, @p scale is 1 and @p zeropoint is 0.
-         */
-        virtual void getScaleZeropoint(float& scale, int& zeropoint) const;
-
 
         /**
          * @brief "Deattaches" all the layers, attached to particular layer.
@@ -475,21 +430,13 @@ CV__DNN_INLINE_NS_BEGIN
         /** @brief Adds new layer to the net.
          *  @param name   unique name of the adding layer.
          *  @param type   typename of the adding layer (type must be registered in LayerRegister).
-         *  @param dtype  datatype of output blobs.
          *  @param params parameters which will be used to initialize the creating layer.
          *  @returns unique identifier of created layer, or -1 if a failure will happen.
          */
-        int addLayer(const String &name, const String &type, const int &dtype, LayerParams &params);
-
-        /** @overload Datatype of output blobs set to default CV_32F */
         int addLayer(const String &name, const String &type, LayerParams &params);
-
         /** @brief Adds new layer and connects its first input to the first output of previously added layer.
          *  @see addLayer()
          */
-        int addLayerToPrev(const String &name, const String &type, const int &dtype, LayerParams &params);
-
-        /** @overload */
         int addLayerToPrev(const String &name, const String &type, LayerParams &params);
 
         /** @brief Converts string name of the layer to the integer identifier.
@@ -581,25 +528,6 @@ CV__DNN_INLINE_NS_BEGIN
         CV_WRAP_AS(forwardAndRetrieve) void forward(CV_OUT std::vector<std::vector<Mat> >& outputBlobs,
                                                     const std::vector<String>& outBlobNames);
 
-        /** @brief Returns a quantized Net from a floating-point Net.
-         *  @param calibData Calibration data to compute the quantization parameters.
-         *  @param inputsDtype Datatype of quantized net's inputs. Can be CV_32F or CV_8S.
-         *  @param outputsDtype Datatype of quantized net's outputs. Can be CV_32F or CV_8S.
-         */
-        CV_WRAP Net quantize(InputArrayOfArrays calibData, int inputsDtype, int outputsDtype);
-
-        /** @brief Returns input scale and zeropoint for a quantized Net.
-         *  @param scales output parameter for returning input scales.
-         *  @param zeropoints output parameter for returning input zeropoints.
-         */
-        CV_WRAP void getInputDetails(CV_OUT std::vector<float>& scales, CV_OUT std::vector<int>& zeropoints) const;
-
-        /** @brief Returns output scale and zeropoint for a quantized Net.
-         *  @param scales output parameter for returning output scales.
-         *  @param zeropoints output parameter for returning output zeropoints.
-         */
-        CV_WRAP void getOutputDetails(CV_OUT std::vector<float>& scales, CV_OUT std::vector<int>& zeropoints) const;
-
         /**
          * @brief Compile Halide layers.
          * @param[in] scheduler Path to YAML file with scheduling directives.
@@ -627,16 +555,13 @@ CV__DNN_INLINE_NS_BEGIN
          * @see Target
          *
          * List of supported combinations backend / target:
-         * |                        | DNN_BACKEND_OPENCV | DNN_BACKEND_INFERENCE_ENGINE | DNN_BACKEND_HALIDE |  DNN_BACKEND_CUDA |
-         * |------------------------|--------------------|------------------------------|--------------------|-------------------|
-         * | DNN_TARGET_CPU         |                  + |                            + |                  + |                   |
-         * | DNN_TARGET_OPENCL      |                  + |                            + |                  + |                   |
-         * | DNN_TARGET_OPENCL_FP16 |                  + |                            + |                    |                   |
-         * | DNN_TARGET_MYRIAD      |                    |                            + |                    |                   |
-         * | DNN_TARGET_FPGA        |                    |                            + |                    |                   |
-         * | DNN_TARGET_CUDA        |                    |                              |                    |                 + |
-         * | DNN_TARGET_CUDA_FP16   |                    |                              |                    |                 + |
-         * | DNN_TARGET_HDDL        |                    |                            + |                    |                   |
+         * |                        | DNN_BACKEND_OPENCV | DNN_BACKEND_INFERENCE_ENGINE | DNN_BACKEND_HALIDE |
+         * |------------------------|--------------------|------------------------------|--------------------|
+         * | DNN_TARGET_CPU         |                  + |                            + |                  + |
+         * | DNN_TARGET_OPENCL      |                  + |                            + |                  + |
+         * | DNN_TARGET_OPENCL_FP16 |                  + |                            + |                    |
+         * | DNN_TARGET_MYRIAD      |                    |                            + |                    |
+         * | DNN_TARGET_FPGA        |                    |                            + |                    |
          */
         CV_WRAP void setPreferableTarget(int targetId);
 
@@ -1133,557 +1058,8 @@ CV__DNN_INLINE_NS_BEGIN
                              CV_OUT std::vector<int>& indices,
                              const float eta = 1.f, const int top_k = 0);
 
-    /**
-     * @brief Enum of Soft NMS methods.
-     * @see softNMSBoxes
-     */
-    enum class SoftNMSMethod
-    {
-        SOFTNMS_LINEAR = 1,
-        SOFTNMS_GAUSSIAN = 2
-    };
-
-    /** @brief Performs soft non maximum suppression given boxes and corresponding scores.
-     * Reference: https://arxiv.org/abs/1704.04503
-     * @param bboxes a set of bounding boxes to apply Soft NMS.
-     * @param scores a set of corresponding confidences.
-     * @param updated_scores a set of corresponding updated confidences.
-     * @param score_threshold a threshold used to filter boxes by score.
-     * @param nms_threshold a threshold used in non maximum suppression.
-     * @param indices the kept indices of bboxes after NMS.
-     * @param top_k keep at most @p top_k picked indices.
-     * @param sigma parameter of Gaussian weighting.
-     * @param method Gaussian or linear.
-     * @see SoftNMSMethod
-     */
-    CV_EXPORTS_W void softNMSBoxes(const std::vector<Rect>& bboxes,
-                                   const std::vector<float>& scores,
-                                   CV_OUT std::vector<float>& updated_scores,
-                                   const float score_threshold,
-                                   const float nms_threshold,
-                                   CV_OUT std::vector<int>& indices,
-                                   size_t top_k = 0,
-                                   const float sigma = 0.5,
-                                   SoftNMSMethod method = SoftNMSMethod::SOFTNMS_GAUSSIAN);
-
-
-     /** @brief This class is presented high-level API for neural networks.
-      *
-      * Model allows to set params for preprocessing input image.
-      * Model creates net from file with trained weights and config,
-      * sets preprocessing input and runs forward pass.
-      */
-     class CV_EXPORTS_W_SIMPLE Model
-     {
-     public:
-         CV_DEPRECATED_EXTERNAL  // avoid using in C++ code, will be moved to "protected" (need to fix bindings first)
-         Model();
-
-         Model(const Model&) = default;
-         Model(Model&&) = default;
-         Model& operator=(const Model&) = default;
-         Model& operator=(Model&&) = default;
-
-         /**
-          * @brief Create model from deep learning network represented in one of the supported formats.
-          * An order of @p model and @p config arguments does not matter.
-          * @param[in] model Binary file contains trained weights.
-          * @param[in] config Text file contains network configuration.
-          */
-         CV_WRAP Model(const String& model, const String& config = "");
-
-         /**
-          * @brief Create model from deep learning network.
-          * @param[in] network Net object.
-          */
-         CV_WRAP Model(const Net& network);
-
-         /** @brief Set input size for frame.
-          *  @param[in] size New input size.
-          *  @note If shape of the new blob less than 0, then frame size not change.
-         */
-         CV_WRAP Model& setInputSize(const Size& size);
-
-         /** @overload
-         *  @param[in] width New input width.
-         *  @param[in] height New input height.
-         */
-         CV_WRAP inline
-         Model& setInputSize(int width, int height) { return setInputSize(Size(width, height)); }
-
-         /** @brief Set mean value for frame.
-          *  @param[in] mean Scalar with mean values which are subtracted from channels.
-         */
-         CV_WRAP Model& setInputMean(const Scalar& mean);
-
-         /** @brief Set scalefactor value for frame.
-          *  @param[in] scale Multiplier for frame values.
-         */
-         CV_WRAP Model& setInputScale(double scale);
-
-         /** @brief Set flag crop for frame.
-          *  @param[in] crop Flag which indicates whether image will be cropped after resize or not.
-         */
-         CV_WRAP Model& setInputCrop(bool crop);
-
-         /** @brief Set flag swapRB for frame.
-          *  @param[in] swapRB Flag which indicates that swap first and last channels.
-         */
-         CV_WRAP Model& setInputSwapRB(bool swapRB);
-
-         /** @brief Set preprocessing parameters for frame.
-         *  @param[in] size New input size.
-         *  @param[in] mean Scalar with mean values which are subtracted from channels.
-         *  @param[in] scale Multiplier for frame values.
-         *  @param[in] swapRB Flag which indicates that swap first and last channels.
-         *  @param[in] crop Flag which indicates whether image will be cropped after resize or not.
-         *  blob(n, c, y, x) = scale * resize( frame(y, x, c) ) - mean(c) )
-         */
-         CV_WRAP void setInputParams(double scale = 1.0, const Size& size = Size(),
-                                     const Scalar& mean = Scalar(), bool swapRB = false, bool crop = false);
-
-         /** @brief Given the @p input frame, create input blob, run net and return the output @p blobs.
-          *  @param[in]  frame  The input image.
-          *  @param[out] outs Allocated output blobs, which will store results of the computation.
-          */
-         CV_WRAP void predict(InputArray frame, OutputArrayOfArrays outs) const;
-
-
-         // ============================== Net proxy methods ==============================
-         // Never expose methods with network implementation details, like:
-         // - addLayer, addLayerToPrev, connect, setInputsNames, setInputShape, setParam, getParam
-         // - getLayer*, getUnconnectedOutLayers, getUnconnectedOutLayersNames, getLayersShapes
-         // - forward* methods, setInput
-
-         /// @sa Net::setPreferableBackend
-         CV_WRAP Model& setPreferableBackend(dnn::Backend backendId);
-         /// @sa Net::setPreferableTarget
-         CV_WRAP Model& setPreferableTarget(dnn::Target targetId);
-
-         CV_DEPRECATED_EXTERNAL
-         operator Net&() const { return getNetwork_(); }
-
-     //protected: - internal/tests usage only
-         Net& getNetwork_() const;
-         inline Net& getNetwork_() { return const_cast<const Model*>(this)->getNetwork_(); }
-
-         struct Impl;
-         inline Impl* getImpl() const { return impl.get(); }
-         inline Impl& getImplRef() const { CV_DbgAssert(impl); return *impl.get(); }
-     protected:
-         Ptr<Impl> impl;
-     };
-
-     /** @brief This class represents high-level API for classification models.
-      *
-      * ClassificationModel allows to set params for preprocessing input image.
-      * ClassificationModel creates net from file with trained weights and config,
-      * sets preprocessing input, runs forward pass and return top-1 prediction.
-      */
-     class CV_EXPORTS_W_SIMPLE ClassificationModel : public Model
-     {
-     public:
-         /**
-          * @brief Create classification model from network represented in one of the supported formats.
-          * An order of @p model and @p config arguments does not matter.
-          * @param[in] model Binary file contains trained weights.
-          * @param[in] config Text file contains network configuration.
-          */
-          CV_WRAP ClassificationModel(const String& model, const String& config = "");
-
-         /**
-          * @brief Create model from deep learning network.
-          * @param[in] network Net object.
-          */
-         CV_WRAP ClassificationModel(const Net& network);
-
-         /** @brief Given the @p input frame, create input blob, run net and return top-1 prediction.
-          *  @param[in]  frame  The input image.
-          */
-         std::pair<int, float> classify(InputArray frame);
-
-         /** @overload */
-         CV_WRAP void classify(InputArray frame, CV_OUT int& classId, CV_OUT float& conf);
-     };
-
-     /** @brief This class represents high-level API for keypoints models
-      *
-      * KeypointsModel allows to set params for preprocessing input image.
-      * KeypointsModel creates net from file with trained weights and config,
-      * sets preprocessing input, runs forward pass and returns the x and y coordinates of each detected keypoint
-      */
-     class CV_EXPORTS_W_SIMPLE KeypointsModel: public Model
-     {
-     public:
-         /**
-          * @brief Create keypoints model from network represented in one of the supported formats.
-          * An order of @p model and @p config arguments does not matter.
-          * @param[in] model Binary file contains trained weights.
-          * @param[in] config Text file contains network configuration.
-          */
-          CV_WRAP KeypointsModel(const String& model, const String& config = "");
-
-         /**
-          * @brief Create model from deep learning network.
-          * @param[in] network Net object.
-          */
-         CV_WRAP KeypointsModel(const Net& network);
-
-         /** @brief Given the @p input frame, create input blob, run net
-          *  @param[in]  frame  The input image.
-          *  @param thresh minimum confidence threshold to select a keypoint
-          *  @returns a vector holding the x and y coordinates of each detected keypoint
-          *
-          */
-         CV_WRAP std::vector<Point2f> estimate(InputArray frame, float thresh=0.5);
-     };
-
-     /** @brief This class represents high-level API for segmentation  models
-      *
-      * SegmentationModel allows to set params for preprocessing input image.
-      * SegmentationModel creates net from file with trained weights and config,
-      * sets preprocessing input, runs forward pass and returns the class prediction for each pixel.
-      */
-     class CV_EXPORTS_W_SIMPLE SegmentationModel: public Model
-     {
-     public:
-         /**
-          * @brief Create segmentation model from network represented in one of the supported formats.
-          * An order of @p model and @p config arguments does not matter.
-          * @param[in] model Binary file contains trained weights.
-          * @param[in] config Text file contains network configuration.
-          */
-          CV_WRAP SegmentationModel(const String& model, const String& config = "");
-
-         /**
-          * @brief Create model from deep learning network.
-          * @param[in] network Net object.
-          */
-         CV_WRAP SegmentationModel(const Net& network);
-
-         /** @brief Given the @p input frame, create input blob, run net
-          *  @param[in]  frame  The input image.
-          *  @param[out] mask Allocated class prediction for each pixel
-          */
-         CV_WRAP void segment(InputArray frame, OutputArray mask);
-     };
-
-     /** @brief This class represents high-level API for object detection networks.
-      *
-      * DetectionModel allows to set params for preprocessing input image.
-      * DetectionModel creates net from file with trained weights and config,
-      * sets preprocessing input, runs forward pass and return result detections.
-      * For DetectionModel SSD, Faster R-CNN, YOLO topologies are supported.
-      */
-     class CV_EXPORTS_W_SIMPLE DetectionModel : public Model
-     {
-     public:
-         /**
-          * @brief Create detection model from network represented in one of the supported formats.
-          * An order of @p model and @p config arguments does not matter.
-          * @param[in] model Binary file contains trained weights.
-          * @param[in] config Text file contains network configuration.
-          */
-         CV_WRAP DetectionModel(const String& model, const String& config = "");
-
-         /**
-          * @brief Create model from deep learning network.
-          * @param[in] network Net object.
-          */
-         CV_WRAP DetectionModel(const Net& network);
-
-         CV_DEPRECATED_EXTERNAL  // avoid using in C++ code (need to fix bindings first)
-         DetectionModel();
-
-         /**
-          * @brief nmsAcrossClasses defaults to false,
-          * such that when non max suppression is used during the detect() function, it will do so per-class.
-          * This function allows you to toggle this behaviour.
-          * @param[in] value The new value for nmsAcrossClasses
-          */
-         CV_WRAP DetectionModel& setNmsAcrossClasses(bool value);
-
-         /**
-          * @brief Getter for nmsAcrossClasses. This variable defaults to false,
-          * such that when non max suppression is used during the detect() function, it will do so only per-class
-          */
-         CV_WRAP bool getNmsAcrossClasses();
-
-         /** @brief Given the @p input frame, create input blob, run net and return result detections.
-          *  @param[in]  frame  The input image.
-          *  @param[out] classIds Class indexes in result detection.
-          *  @param[out] confidences A set of corresponding confidences.
-          *  @param[out] boxes A set of bounding boxes.
-          *  @param[in] confThreshold A threshold used to filter boxes by confidences.
-          *  @param[in] nmsThreshold A threshold used in non maximum suppression.
-          */
-         CV_WRAP void detect(InputArray frame, CV_OUT std::vector<int>& classIds,
-                             CV_OUT std::vector<float>& confidences, CV_OUT std::vector<Rect>& boxes,
-                             float confThreshold = 0.5f, float nmsThreshold = 0.0f);
-     };
-
-
-/** @brief This class represents high-level API for text recognition networks.
- *
- * TextRecognitionModel allows to set params for preprocessing input image.
- * TextRecognitionModel creates net from file with trained weights and config,
- * sets preprocessing input, runs forward pass and return recognition result.
- * For TextRecognitionModel, CRNN-CTC is supported.
- */
-class CV_EXPORTS_W_SIMPLE TextRecognitionModel : public Model
-{
-public:
-    CV_DEPRECATED_EXTERNAL  // avoid using in C++ code, will be moved to "protected" (need to fix bindings first)
-    TextRecognitionModel();
-
-    /**
-     * @brief Create Text Recognition model from deep learning network
-     * Call setDecodeType() and setVocabulary() after constructor to initialize the decoding method
-     * @param[in] network Net object
-     */
-    CV_WRAP TextRecognitionModel(const Net& network);
-
-    /**
-     * @brief Create text recognition model from network represented in one of the supported formats
-     * Call setDecodeType() and setVocabulary() after constructor to initialize the decoding method
-     * @param[in] model Binary file contains trained weights
-     * @param[in] config Text file contains network configuration
-     */
-    CV_WRAP inline
-    TextRecognitionModel(const std::string& model, const std::string& config = "")
-        : TextRecognitionModel(readNet(model, config)) { /* nothing */ }
-
-    /**
-     * @brief Set the decoding method of translating the network output into string
-     * @param[in] decodeType The decoding method of translating the network output into string, currently supported type:
-     *    - `"CTC-greedy"` greedy decoding for the output of CTC-based methods
-     *    - `"CTC-prefix-beam-search"` Prefix beam search decoding for the output of CTC-based methods
-     */
-    CV_WRAP
-    TextRecognitionModel& setDecodeType(const std::string& decodeType);
-
-    /**
-     * @brief Get the decoding method
-     * @return the decoding method
-     */
-    CV_WRAP
-    const std::string& getDecodeType() const;
-
-    /**
-     * @brief Set the decoding method options for `"CTC-prefix-beam-search"` decode usage
-     * @param[in] beamSize Beam size for search
-     * @param[in] vocPruneSize Parameter to optimize big vocabulary search,
-     * only take top @p vocPruneSize tokens in each search step, @p vocPruneSize <= 0 stands for disable this prune.
-     */
-    CV_WRAP
-    TextRecognitionModel& setDecodeOptsCTCPrefixBeamSearch(int beamSize, int vocPruneSize = 0);
-
-    /**
-     * @brief Set the vocabulary for recognition.
-     * @param[in] vocabulary the associated vocabulary of the network.
-     */
-    CV_WRAP
-    TextRecognitionModel& setVocabulary(const std::vector<std::string>& vocabulary);
-
-    /**
-     * @brief Get the vocabulary for recognition.
-     * @return vocabulary the associated vocabulary
-     */
-    CV_WRAP
-    const std::vector<std::string>& getVocabulary() const;
-
-    /**
-     * @brief Given the @p input frame, create input blob, run net and return recognition result
-     * @param[in] frame The input image
-     * @return The text recognition result
-     */
-    CV_WRAP
-    std::string recognize(InputArray frame) const;
-
-    /**
-     * @brief Given the @p input frame, create input blob, run net and return recognition result
-     * @param[in] frame The input image
-     * @param[in] roiRects List of text detection regions of interest (cv::Rect, CV_32SC4). ROIs is be cropped as the network inputs
-     * @param[out] results A set of text recognition results.
-     */
-    CV_WRAP
-    void recognize(InputArray frame, InputArrayOfArrays roiRects, CV_OUT std::vector<std::string>& results) const;
-};
-
-
-/** @brief Base class for text detection networks
- */
-class CV_EXPORTS_W_SIMPLE TextDetectionModel : public Model
-{
-protected:
-    CV_DEPRECATED_EXTERNAL  // avoid using in C++ code, will be moved to "protected" (need to fix bindings first)
-    TextDetectionModel();
-
-public:
-
-    /** @brief Performs detection
-     *
-     * Given the input @p frame, prepare network input, run network inference, post-process network output and return result detections.
-     *
-     * Each result is quadrangle's 4 points in this order:
-     * - bottom-left
-     * - top-left
-     * - top-right
-     * - bottom-right
-     *
-     * Use cv::getPerspectiveTransform function to retrive image region without perspective transformations.
-     *
-     * @note If DL model doesn't support that kind of output then result may be derived from detectTextRectangles() output.
-     *
-     * @param[in] frame The input image
-     * @param[out] detections array with detections' quadrangles (4 points per result)
-     * @param[out] confidences array with detection confidences
-     */
-    CV_WRAP
-    void detect(
-            InputArray frame,
-            CV_OUT std::vector< std::vector<Point> >& detections,
-            CV_OUT std::vector<float>& confidences
-    ) const;
-
-    /** @overload */
-    CV_WRAP
-    void detect(
-            InputArray frame,
-            CV_OUT std::vector< std::vector<Point> >& detections
-    ) const;
-
-    /** @brief Performs detection
-     *
-     * Given the input @p frame, prepare network input, run network inference, post-process network output and return result detections.
-     *
-     * Each result is rotated rectangle.
-     *
-     * @note Result may be inaccurate in case of strong perspective transformations.
-     *
-     * @param[in] frame the input image
-     * @param[out] detections array with detections' RotationRect results
-     * @param[out] confidences array with detection confidences
-     */
-    CV_WRAP
-    void detectTextRectangles(
-            InputArray frame,
-            CV_OUT std::vector<cv::RotatedRect>& detections,
-            CV_OUT std::vector<float>& confidences
-    ) const;
-
-    /** @overload */
-    CV_WRAP
-    void detectTextRectangles(
-            InputArray frame,
-            CV_OUT std::vector<cv::RotatedRect>& detections
-    ) const;
-};
-
-/** @brief This class represents high-level API for text detection DL networks compatible with EAST model.
- *
- * Configurable parameters:
- * - (float) confThreshold - used to filter boxes by confidences, default: 0.5f
- * - (float) nmsThreshold - used in non maximum suppression, default: 0.0f
- */
-class CV_EXPORTS_W_SIMPLE TextDetectionModel_EAST : public TextDetectionModel
-{
-public:
-    CV_DEPRECATED_EXTERNAL  // avoid using in C++ code, will be moved to "protected" (need to fix bindings first)
-    TextDetectionModel_EAST();
-
-    /**
-     * @brief Create text detection algorithm from deep learning network
-     * @param[in] network Net object
-     */
-    CV_WRAP TextDetectionModel_EAST(const Net& network);
-
-    /**
-     * @brief Create text detection model from network represented in one of the supported formats.
-     * An order of @p model and @p config arguments does not matter.
-     * @param[in] model Binary file contains trained weights.
-     * @param[in] config Text file contains network configuration.
-     */
-    CV_WRAP inline
-    TextDetectionModel_EAST(const std::string& model, const std::string& config = "")
-        : TextDetectionModel_EAST(readNet(model, config)) { /* nothing */ }
-
-    /**
-     * @brief Set the detection confidence threshold
-     * @param[in] confThreshold A threshold used to filter boxes by confidences
-     */
-    CV_WRAP
-    TextDetectionModel_EAST& setConfidenceThreshold(float confThreshold);
-
-    /**
-     * @brief Get the detection confidence threshold
-     */
-    CV_WRAP
-    float getConfidenceThreshold() const;
-
-    /**
-     * @brief Set the detection NMS filter threshold
-     * @param[in] nmsThreshold A threshold used in non maximum suppression
-     */
-    CV_WRAP
-    TextDetectionModel_EAST& setNMSThreshold(float nmsThreshold);
-
-    /**
-     * @brief Get the detection confidence threshold
-     */
-    CV_WRAP
-    float getNMSThreshold() const;
-};
-
-/** @brief This class represents high-level API for text detection DL networks compatible with DB model.
- *
- * Related publications: @cite liao2020real
- * Paper: https://arxiv.org/abs/1911.08947
- * For more information about the hyper-parameters setting, please refer to https://github.com/MhLiao/DB
- *
- * Configurable parameters:
- * - (float) binaryThreshold - The threshold of the binary map. It is usually set to 0.3.
- * - (float) polygonThreshold - The threshold of text polygons. It is usually set to 0.5, 0.6, and 0.7. Default is 0.5f
- * - (double) unclipRatio - The unclip ratio of the detected text region, which determines the output size. It is usually set to 2.0.
- * - (int) maxCandidates - The max number of the output results.
- */
-class CV_EXPORTS_W_SIMPLE TextDetectionModel_DB : public TextDetectionModel
-{
-public:
-    CV_DEPRECATED_EXTERNAL  // avoid using in C++ code, will be moved to "protected" (need to fix bindings first)
-    TextDetectionModel_DB();
-
-    /**
-     * @brief Create text detection algorithm from deep learning network.
-     * @param[in] network Net object.
-     */
-    CV_WRAP TextDetectionModel_DB(const Net& network);
-
-    /**
-     * @brief Create text detection model from network represented in one of the supported formats.
-     * An order of @p model and @p config arguments does not matter.
-     * @param[in] model Binary file contains trained weights.
-     * @param[in] config Text file contains network configuration.
-     */
-    CV_WRAP inline
-    TextDetectionModel_DB(const std::string& model, const std::string& config = "")
-        : TextDetectionModel_DB(readNet(model, config)) { /* nothing */ }
-
-    CV_WRAP TextDetectionModel_DB& setBinaryThreshold(float binaryThreshold);
-    CV_WRAP float getBinaryThreshold() const;
-
-    CV_WRAP TextDetectionModel_DB& setPolygonThreshold(float polygonThreshold);
-    CV_WRAP float getPolygonThreshold() const;
-
-    CV_WRAP TextDetectionModel_DB& setUnclipRatio(double unclipRatio);
-    CV_WRAP double getUnclipRatio() const;
-
-    CV_WRAP TextDetectionModel_DB& setMaxCandidates(int maxCandidates);
-    CV_WRAP int getMaxCandidates() const;
-};
-
 //! @}
-CV__DNN_INLINE_NS_END
+CV__DNN_EXPERIMENTAL_NS_END
 }
 }
 
