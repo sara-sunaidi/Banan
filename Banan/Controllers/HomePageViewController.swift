@@ -109,9 +109,6 @@ class HomePageViewController : UIViewController{
     
     }
     
-    @IBAction func dashboardPressed(_ sender: Any) {
-        performSegue(withIdentifier: "ToDashboard", sender: self)    }
-    
     @IBAction func pressLearn(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
@@ -119,5 +116,3 @@ class HomePageViewController : UIViewController{
     @IBAction func profilePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
 }
-
-
