@@ -30,7 +30,6 @@ class LearnLetterViewController: UIViewController {
     var letters : [Letters]?
     var index: Int?
     var strLetter: String = "حرف "
-    //= "حرف اللام"
     var player: AVAudioPlayer?
     //    private let progressView: UIProgressView = {
     //        let progressView = UIProgressView(progressViewStyle: .bar)
@@ -47,6 +46,10 @@ class LearnLetterViewController: UIViewController {
         //Alf = ا
         //2lf = أ
         //Ttt = ة
+        progressView1.setProgress(8.5, animated: true)
+
+        playSound("\(letters![index!].Letter)")
+
         if(index! == 0){
             // or change background to gray?
             prevLetterButton.isHidden = true
@@ -56,7 +59,6 @@ class LearnLetterViewController: UIViewController {
         if(lettersWithout.contains(letters![index!].Letter)){
             strLetter = ""
         }
-        //playSound()
         // progressView1.frame = CGRect(x: 50, y: 20, width: 1000, height: 100)
         strLetter += letters![index!].Arabic
         
@@ -66,6 +68,7 @@ class LearnLetterViewController: UIViewController {
         
         progressView1.layer.borderWidth = 5;
         progressView1.layer.borderColor =  UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
+        
         // Set the rounded edge for the outer bar
         progressView1.layer.cornerRadius = 15
         progressView1.clipsToBounds = true
@@ -91,8 +94,9 @@ class LearnLetterViewController: UIViewController {
     }
     
     @IBAction func pressSound(_ sender: UIButton) {
-        playSound()
+        playSound("\(letters![index!].Letter)")
     }
+    
     // add shadow to circle
     func addShadow(_ crl: UIButton){
         crl.backgroundColor = UIColor(red:204/255, green:204/255, blue:204/255, alpha:1)
@@ -163,12 +167,11 @@ class LearnLetterViewController: UIViewController {
     }
     
     // play sound
-    func playSound() {
-        //progressView1.setProgress(0.3, animated: true)
+    func playSound(_ name:String) {
         
-        guard let url = Bundle.main.url(forResource: "Thl", withExtension: "mp3") else { return }
-        //to find sound name:
-        //letters![index!].Letter
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+       
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -185,13 +188,14 @@ class LearnLetterViewController: UIViewController {
         
     }
     // set progress bar
-    func setProgress(){
-        
-    }
-    
+//    func setProgress(){
+//       // let filteredArray = levelArray.map{$0.Letter}
+//    }
+//
     // animate progress bar
     func animateProgress(){
-        
+        let i = 1/Float(letters?.count ?? 1)
+        progressView1.setProgress(i, animated: true)
     }
     @IBAction func pressBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
