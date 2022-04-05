@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Almarai-Regular.ttf">
+            <string>Almarai-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Hint4ViewController" customModule="Banan" customModuleProvider="target">
+            <connections>
+                <outlet property="OkBtn" destination="MBF-9m-uT5" id="eeF-Sb-bX7"/>
+                <outlet property="alertView" destination="LjB-3H-HBu" id="yLb-Ae-e3E"/>
+                <outlet property="block1" destination="1U3-Zr-HOr" id="oEA-10-oAq"/>
+                <outlet property="block2" destination="ToP-43-ovA" id="abn-Et-i3Q"/>
+                <outlet property="block3" destination="jmv-Tm-g7d" id="QZG-xO-4Dh"/>
+                <outlet property="block4" destination="M5c-qY-ozX" id="whj-dr-uLR"/>
+                <outlet property="cr1" destination="Nvp-ch-d46" id="ruP-Dq-544"/>
+                <outlet property="cr11" destination="Je7-Uv-6CQ" id="PyX-dC-dEi"/>
+                <outlet property="cr111" destination="7Ea-bF-tFq" id="q8a-6Y-Noo"/>
+                <outlet property="cr1111" destination="Svz-Vc-A5F" id="pZy-FO-ff5"/>
+                <outlet property="cr2" destination="EW0-yn-PXn" id="y2W-ub-2Oz"/>
+                <outlet property="cr22" destination="5o8-H8-IRp" id="3EJ-ED-08W"/>
+                <outlet property="cr222" destination="iwp-h2-d9O" id="D9y-C7-QaF"/>
+                <outlet property="cr2222" destination="keo-KL-yPF" id="mIY-NY-5I7"/>
+                <outlet property="cr3" destination="j73-qr-5wc" id="2XF-J6-WkU"/>
+                <outlet property="cr33" destination="xnk-pS-xXn" id="d5u-kg-pFi"/>
+                <outlet property="cr333" destination="zkL-ec-qqx" id="pDa-1r-3gX"/>
+                <outlet property="cr3333" destination="uJA-k9-cxl" id="EyP-HR-YNZ"/>
+                <outlet property="cr4" destination="i6L-7I-cB8" id="mhd-zf-Yhs"/>
+                <outlet property="cr44" destination="qVM-sm-1rN" id="UCQ-73-zNx"/>
+                <outlet property="cr444" destination="F4c-r2-cXA" id="lG3-YV-bij"/>
+                <outlet property="cr4444" destination="EdK-pn-SX0" id="goH-1S-mWt"/>
+                <outlet property="cr5" destination="nBZ-TN-UlT" id="e6x-fz-ewC"/>
+                <outlet property="cr55" destination="d91-Ri-Pol" id="lLs-Oq-CE2"/>
+                <outlet property="cr555" destination="5N6-yP-R5s" id="Sv8-Pi-LKb"/>
+                <outlet property="cr5555" destination="rzo-qR-RrJ" id="fEZ-8Y-qgi"/>
+                <outlet property="cr6" destination="uYM-Sc-D1V" id="9Da-a1-5KM"/>
+                <outlet property="cr66" destination="Vmw-S4-9bl" id="UqO-VL-DlR"/>
+                <outlet property="cr666" destination="R2a-PV-xqe" id="rv2-dj-nuv"/>
+                <outlet property="cr6666" destination="RMb-Qg-9ZQ" id="cn9-a6-0MN"/>
+                <outlet property="img" destination="iFm-l5-hjR" id="DNo-vh-50Y"/>
+                <outlet property="parentView" destination="CjU-Y7-X7o" id="KXo-lY-3cB"/>
+                <outlet property="title" destination="8Pp-28-fl0" id="kSU-2P-1jt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KbD-xP-Ofs">
+            <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-Y7-X7o">
+                    <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjB-3H-HBu">
+                            <rect key="frame" x="67.5" y="338" width="699" height="518"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hint" translatesAutoresizingMaskIntoConstraints="NO" id="iFm-l5-hjR">
+                                    <rect key="frame" x="259.5" y="-90" width="180" height="180"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="180" id="j1P-oW-75v"/>
+                                        <constraint firstAttribute="width" constant="180" id="xTF-Gp-Poe"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="حصان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-28-fl0" userLabel="أحسنت !">
+                                    <rect key="frame" x="307" y="98" width="85.5" height="42"/>
+                                    <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="36"/>
+                                    <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1U3-Zr-HOr">
+                                    <rect key="frame" x="79" y="193" width="109" height="152"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Nvp-ch-d46">
+                                            <rect key="frame" x="8" y="8" width="36" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES" updatesFrequently="YES" adjustable="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="EW0-yn-PXn">
+                                            <rect key="frame" x="9" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="nBZ-TN-UlT">
+                                            <rect key="frame" x="65" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uYM-Sc-D1V">
+                                            <rect key="frame" x="65" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="i6L-7I-cB8">
+                                            <rect key="frame" x="65" y="8" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="j73-qr-5wc">
+                                            <rect key="frame" x="9" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.85098039219999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="152" id="hWe-CO-4p5"/>
+                                        <constraint firstAttribute="width" constant="109" id="wpd-cQ-EJh"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToP-43-ovA">
+                                    <rect key="frame" x="223" y="193" width="109" height="152"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Je7-Uv-6CQ">
+                                            <rect key="frame" x="8" y="8" width="36" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES" updatesFrequently="YES" adjustable="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5o8-H8-IRp">
+                                            <rect key="frame" x="9" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="d91-Ri-Pol">
+                                            <rect key="frame" x="65" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Vmw-S4-9bl">
+                                            <rect key="frame" x="65" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qVM-sm-1rN">
+                                            <rect key="frame" x="65" y="8" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xnk-pS-xXn">
+                                            <rect key="frame" x="9" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.85098039219999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="152" id="64E-x9-d02"/>
+                                        <constraint firstAttribute="width" constant="109" id="yyQ-sU-iwd"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5c-qY-ozX">
+                                    <rect key="frame" x="511" y="193" width="109" height="152"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Svz-Vc-A5F">
+                                            <rect key="frame" x="8" y="8" width="36" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES" updatesFrequently="YES" adjustable="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="keo-KL-yPF">
+                                            <rect key="frame" x="9" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rzo-qR-RrJ">
+                                            <rect key="frame" x="65" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RMb-Qg-9ZQ">
+                                            <rect key="frame" x="65" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="EdK-pn-SX0">
+                                            <rect key="frame" x="65" y="8" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uJA-k9-cxl">
+                                            <rect key="frame" x="9" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.85098039219999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="109" id="ZRx-TQ-cy0"/>
+                                        <constraint firstAttribute="height" constant="152" id="zDh-Px-Tq7"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBF-9m-uT5" customClass="CustomButton" customModule="Banan" customModuleProvider="target">
+                                    <rect key="frame" x="149.5" y="413" width="400" height="65"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="400" id="0qP-DM-IgW"/>
+                                        <constraint firstAttribute="height" constant="65" id="UCY-1X-Fcf"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="إغلاق" cornerStyle="capsule">
+                                        <backgroundConfiguration key="background">
+                                            <color key="backgroundColor" red="0.88235294119999996" green="0.42352941179999998" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </backgroundConfiguration>
+                                        <fontDescription key="titleFontDescription" name="Almarai-Regular" family="Almarai" pointSize="26"/>
+                                        <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onClickOk:" destination="-1" eventType="touchUpInside" id="JNo-Ik-UeD"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmv-Tm-g7d">
+                                    <rect key="frame" x="367" y="193" width="109" height="152"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Ea-bF-tFq">
+                                            <rect key="frame" x="8" y="8" width="36" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES" updatesFrequently="YES" adjustable="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iwp-h2-d9O">
+                                            <rect key="frame" x="9" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5N6-yP-R5s">
+                                            <rect key="frame" x="65" y="58" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="R2a-PV-xqe">
+                                            <rect key="frame" x="65" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="F4c-r2-cXA">
+                                            <rect key="frame" x="65" y="8" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zkL-ec-qqx">
+                                            <rect key="frame" x="9" y="109" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                            <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title=""/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.85098039219999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="152" id="GZ5-o2-g1G"/>
+                                        <constraint firstAttribute="width" constant="109" id="cNV-Sr-xjx"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="iFm-l5-hjR" firstAttribute="centerX" secondItem="MBF-9m-uT5" secondAttribute="centerX" id="04M-90-wqm"/>
+                                <constraint firstItem="iFm-l5-hjR" firstAttribute="centerX" secondItem="8Pp-28-fl0" secondAttribute="centerX" id="0nw-4q-QKN"/>
+                                <constraint firstItem="ToP-43-ovA" firstAttribute="top" secondItem="LjB-3H-HBu" secondAttribute="top" constant="193" id="2gX-YN-onr"/>
+                                <constraint firstItem="jmv-Tm-g7d" firstAttribute="leading" secondItem="ToP-43-ovA" secondAttribute="trailing" constant="35" id="3VD-fF-WSn"/>
+                                <constraint firstItem="M5c-qY-ozX" firstAttribute="top" secondItem="LjB-3H-HBu" secondAttribute="top" constant="193" id="9Xe-pz-aj7"/>
+                                <constraint firstItem="8Pp-28-fl0" firstAttribute="top" secondItem="iFm-l5-hjR" secondAttribute="bottom" constant="8" id="9ff-QZ-Isz"/>
+                                <constraint firstItem="1U3-Zr-HOr" firstAttribute="top" secondItem="LjB-3H-HBu" secondAttribute="top" constant="193" id="Eg1-lU-VqD"/>
+                                <constraint firstItem="8Pp-28-fl0" firstAttribute="top" secondItem="iFm-l5-hjR" secondAttribute="bottom" constant="8" id="OEY-mQ-ZIx"/>
+                                <constraint firstItem="8Pp-28-fl0" firstAttribute="centerX" secondItem="LjB-3H-HBu" secondAttribute="centerX" id="RlA-j4-Rde"/>
+                                <constraint firstItem="iFm-l5-hjR" firstAttribute="top" secondItem="LjB-3H-HBu" secondAttribute="top" constant="-90" id="bc3-G4-ngI"/>
+                                <constraint firstAttribute="trailing" secondItem="M5c-qY-ozX" secondAttribute="trailing" constant="79" id="bxa-TI-3c2"/>
+                                <constraint firstItem="ToP-43-ovA" firstAttribute="leading" secondItem="1U3-Zr-HOr" secondAttribute="trailing" constant="35" id="hB1-Gi-1yB"/>
+                                <constraint firstItem="MBF-9m-uT5" firstAttribute="top" secondItem="1U3-Zr-HOr" secondAttribute="bottom" constant="68" id="nYs-ZT-VZn"/>
+                                <constraint firstItem="jmv-Tm-g7d" firstAttribute="top" secondItem="LjB-3H-HBu" secondAttribute="top" constant="193" id="ooL-MR-tuq"/>
+                                <constraint firstItem="M5c-qY-ozX" firstAttribute="leading" secondItem="jmv-Tm-g7d" secondAttribute="trailing" constant="35" id="s92-3C-mUR"/>
+                                <constraint firstItem="1U3-Zr-HOr" firstAttribute="leading" secondItem="LjB-3H-HBu" secondAttribute="leading" constant="79" id="yqV-00-KZX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LjB-3H-HBu" firstAttribute="centerX" secondItem="CjU-Y7-X7o" secondAttribute="centerX" id="2im-xb-wAH"/>
+                        <constraint firstAttribute="height" constant="1194" id="AOo-90-aa2"/>
+                        <constraint firstItem="LjB-3H-HBu" firstAttribute="centerY" secondItem="CjU-Y7-X7o" secondAttribute="centerY" id="SBb-AD-0cf"/>
+                        <constraint firstItem="LjB-3H-HBu" firstAttribute="leading" secondItem="CjU-Y7-X7o" secondAttribute="leading" constant="67.5" id="UQN-WZ-efy"/>
+                        <constraint firstItem="LjB-3H-HBu" firstAttribute="top" secondItem="CjU-Y7-X7o" secondAttribute="top" constant="338" id="VED-d9-7zU"/>
+                        <constraint firstAttribute="trailing" secondItem="LjB-3H-HBu" secondAttribute="trailing" constant="67.5" id="fY4-Y5-5vr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xCv-rr-HgE"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="CjU-Y7-X7o" firstAttribute="centerX" secondItem="KbD-xP-Ofs" secondAttribute="centerX" id="Drg-jV-YXd"/>
+                <constraint firstItem="CjU-Y7-X7o" firstAttribute="top" secondItem="KbD-xP-Ofs" secondAttribute="top" id="baT-ay-HVP"/>
+                <constraint firstItem="CjU-Y7-X7o" firstAttribute="centerY" secondItem="KbD-xP-Ofs" secondAttribute="centerY" id="eum-ub-3wy"/>
+                <constraint firstItem="CjU-Y7-X7o" firstAttribute="trailing" secondItem="xCv-rr-HgE" secondAttribute="trailing" id="oK5-Iq-Ijx"/>
+                <constraint firstAttribute="bottom" secondItem="CjU-Y7-X7o" secondAttribute="bottom" id="ppQ-s0-nqh"/>
+                <constraint firstItem="CjU-Y7-X7o" firstAttribute="leading" secondItem="xCv-rr-HgE" secondAttribute="leading" id="vUK-Cy-QIs"/>
+            </constraints>
+            <point key="canvasLocation" x="131.65467625899282" y="79.899497487437188"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="hint" width="58" height="70"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

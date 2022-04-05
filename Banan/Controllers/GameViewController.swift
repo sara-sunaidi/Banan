@@ -8,26 +8,9 @@
 import UIKit
 import AVFoundation
 
-class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate {
-    
-    
-    func didNextButtonTapped() {
-        print("next pressed")
-        index = 0
-        levelNum = ConvertLevel.FindNextLevel(levelName: levelNum)
-        progressBar.setProgress(0.0, animated: true)
-        updateLevel()
-        viewDidLoad()
-    }
-    
-    func didRedoButtonTapped() {
-        print("redo pressed")
-        index = 0
-        progressBar.setProgress(0.0, animated: true)
-        viewDidLoad()
-    }
-    
-    
+class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate, Hint5ViewControllerDelegate, Hint4ViewControllerDelegate
+, Hint3ViewControllerDelegate
+{
     
     
     @IBOutlet weak var heart1: UIButton!
@@ -44,7 +27,18 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBOutlet weak var passedAnimals: UILabel!
     
+    @IBOutlet weak var goodLabel: UILabel!
     
+    @IBOutlet weak var goodLine: UIImageView!
+    @IBOutlet weak var excellentLabel: UILabel!
+    
+    @IBOutlet weak var excellentLine: UIImageView!
+    @IBOutlet weak var perfectLabel: UILabel!
+    
+    @IBOutlet weak var perfectLine: UIImageView!
+    @IBOutlet weak var lineSuperView: UIView!
+    
+    @IBOutlet weak var labelSuperView: UIView!
     @IBOutlet weak var skipButton: UIButton!
     
     var player: AVAudioPlayer?
@@ -52,18 +46,32 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     var completedGameAnimal = [[String:String]]()
     
     
-    var allGameLevels = [Game]()
-    
+    var allGameAnimals = [Game]()
+    var allLetters: [Letters]?
     //from reema?
     var gameLevel =
     //[Game]()
     [
         Game(
-            AllLetters:["2lf","Sen","Dal"],
-            Arabic: "أسد",
+            AllLetters:["Ayn","Sad","Faa","Waw","Raa"],
+            Arabic: "عصفور",
             Level:"First",
             Points: "100",
-            Animal: "Lion"),
+            Animal: "Bird"),
+        
+        Game(
+            AllLetters:["Baa","Gaf","Raa","Ttt"],
+            Arabic: "بقرة",
+            Level:"First",
+            Points: "100",
+            Animal: "Cow"),
+        
+//        Game(
+//            AllLetters:["2lf","Sen","Dal"],
+//            Arabic: "أسد",
+//            Level:"First",
+//            Points: "100",
+//            Animal: "Lion"),
 
 
         Game(
@@ -73,12 +81,12 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             Points: "130",
             Animal: "Dog"),
 
-        Game(
-            AllLetters:["Gaf","Raa","Dal"],
-            Arabic: "قرد",
-            Level:"First",
-            Points: "125",
-            Animal: "Monkey")
+//        Game(
+//            AllLetters:["Gaf","Raa","Dal"],
+//            Arabic: "قرد",
+//            Level:"First",
+//            Points: "125",
+//            Animal: "Monkey")
     ]
     //from reema
     var levelTitle = ""
@@ -91,7 +99,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     var levelUserPoints = 0
     var index = 0
     var numOfHeart = 3;
-    
+    var animalBraille = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +111,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         
         getChildData()
         getGameData()
+        getLettersData()
 //        groupByLevel()
         
         updatePassedLabel()
@@ -123,17 +132,63 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         StopGameViewController.instance.delegate = self
         LevelDoneViewController.instance.delegate = self
         LevelFailViewController.instance.delegate = self
-        
+        Hint5ViewController.instance.delegate = self
+        Hint4ViewController.instance.delegate = self
+        Hint3ViewController.instance.delegate = self
+
     }
 //    func groupByLevel(){
 //        gameLevel = allGameLevels.filter({$0.Level == levelNum})
 //    }
     
+    func getLettersData(){
+        print("in getLettersData")
+        let lett = LocalStorage.allLettersInfo
+        if lett != nil{
+            print("itsnill")
+            allLetters = lett!
+            //            print(allLetters)
+            
+        }
+    }
+    func getWordBraille(){
+        // reset wordBraille
+        animalBraille.removeAll()
+        let animalLetter = gameLevel[index].AllLetters
+        print("animal letter count:")
+        print(animalLetter.count)
+        for letterKey in animalLetter{
+            let oneLetter = allLetters!.filter({$0.Letter == letterKey})
+            print(oneLetter)
+            let braille = oneLetter[0].Braille
+                        print("what?")
+                        print(braille)
+            animalBraille.append(braille)
+            
+        }
+        print("printin word braille")
+        print(animalBraille)
+    }
     func updateLevel(){
-        gameLevel = allGameLevels.filter({$0.Level == levelNum})
+        gameLevel = allGameAnimals.filter({$0.Level == levelNum})
     }
     
     func designProgressbar(){
+        
+        goodLabel.layer.position = .init(x: labelSuperView.frame.width * (1-0.2), y: labelSuperView.frame.height/2)
+                
+        excellentLabel.layer.position = .init(x: labelSuperView.frame.width * (1-0.5), y: labelSuperView.frame.height/2)
+
+        perfectLabel.layer.position = .init(x: labelSuperView.frame.width * (1-0.75), y: labelSuperView.frame.height/2)
+        
+        
+        goodLine.layer.position = .init(x: lineSuperView.frame.width * (1-0.2), y: lineSuperView.frame.height/2)
+
+        excellentLine.layer.position = .init(x: lineSuperView.frame.width * (1-0.5), y: lineSuperView.frame.height/2)
+
+        perfectLine.layer.position = .init(x: lineSuperView.frame.width * (1-0.75), y: lineSuperView.frame.height/2)
+
+
         
         progressBar.layer.borderWidth = 5;
         progressBar.layer.borderColor =  UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
@@ -146,6 +201,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         progressBar.subviews[1].clipsToBounds = true
         
         progressBar.transform = CGAffineTransform(rotationAngle: .pi);
+        progressBar.layer.backgroundColor = UIColor(red:225/255, green:225/255, blue:225/255, alpha:1).cgColor
+        
     }
     
     func getGameData(){
@@ -153,8 +210,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         let game = LocalStorage.allGameInfo
         if game != nil{
             print("game")
-            allGameLevels = game!
-            print(allGameLevels)
+            allGameAnimals = game!
+            print(allGameAnimals)
             
         }
     }
@@ -191,6 +248,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         //update num of hearts because its new animal
         numOfHeart = 3;
         updateHeart()
+        getWordBraille()
     }
     
     
@@ -262,12 +320,23 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         if(numOfHeart != 0){
             numOfHeart = numOfHeart - 1
             updateHeart()
+            if(gameLevel[index].AllLetters.count == 5){
+            Hint5ViewController.instance.showAlert(title: gameLevel[index].Arabic, brailleArray: animalBraille)
+            }
+            else if(gameLevel[index].AllLetters.count == 4){
+            Hint4ViewController.instance.showAlert(title: gameLevel[index].Arabic, brailleArray: animalBraille)
+            }
+            else if(gameLevel[index].AllLetters.count == 3){
+            Hint3ViewController.instance.showAlert(title: gameLevel[index].Arabic, brailleArray: animalBraille)
+            }
+
         }
         else{
             print("no hearts left")
             numOfHeart = 3
             updateHeart()
         }
+//        Hint5ViewController.instance.showAlert(title: gameLevel[index].Arabic, brailleArray: animalBraille)
     }
     
     @IBAction func pressCheck(_ sender: UIButton) {
@@ -291,6 +360,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         print(gameLevel[index].currentPoint)
         //update progresssbar
         progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
+        
+        //add animal to completed animals with point
         
         
         //if level did not finish
@@ -372,12 +443,34 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     //        self.dismiss(animated: true, completion: nil)
     //    }
     
+    
+    
     func didContinueButtonTapped() {
         stopIcon.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
     }
     
     func didExitButtonTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func didNextButtonTapped() {
+        print("next pressed")
+        index = 0
+        levelNum = ConvertLevel.FindNextLevel(levelName: levelNum)
+        progressBar.setProgress(0.0, animated: true)
+        updateLevel()
+        viewDidLoad()
+    }
+    
+    func didRedoButtonTapped() {
+        print("redo pressed")
+        index = 0
+        progressBar.setProgress(0.0, animated: true)
+        gameLevel[0].currentPoint = 0
+        gameLevel[1].currentPoint = 0
+        gameLevel[2].currentPoint = 0
+
+        viewDidLoad()
     }
     
 }

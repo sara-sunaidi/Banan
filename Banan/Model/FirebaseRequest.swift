@@ -158,4 +158,9 @@ class FirebaseRequest{
             completion(allGameAnimal,nil)
         }
     }
+    
+//    static func addGameLevel(){
+//        
+//    }
+    
 }

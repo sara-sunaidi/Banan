@@ -5195,21 +5195,81 @@
                                             <constraint firstAttribute="height" constant="150" id="uWl-G9-ySV"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-cF-vMc">
+                                        <rect key="frame" x="130" y="10" width="574" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="جيد" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c29-3A-XPE">
+                                                <rect key="frame" x="477" y="3" width="60" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ممتاز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-nr-6yc">
+                                                <rect key="frame" x="321" y="3" width="62" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="رائع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx5-j3-Zbq">
+                                                <rect key="frame" x="24" y="3" width="61" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3FE-Bz-X1N"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeX-Ff-Qsg">
+                                        <rect key="frame" x="130" y="50" width="574" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="UB2-MO-GvB">
+                                                <rect key="frame" x="424" y="0.0" width="27" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-Vb-vsT">
+                                                <rect key="frame" x="295" y="0.0" width="27" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="MFC-Xk-tAl">
+                                                <rect key="frame" x="140" y="0.0" width="27" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Kn4-Dh-WJR"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="qxE-cF-vMc" firstAttribute="leading" secondItem="1kV-zG-nSn" secondAttribute="leading" constant="130" id="5DK-AT-JW0"/>
+                                    <constraint firstItem="EeX-Ff-Qsg" firstAttribute="leading" secondItem="1kV-zG-nSn" secondAttribute="leading" constant="130" id="9MI-mE-GWS"/>
                                     <constraint firstAttribute="height" constant="170" id="A4X-Oz-TIk"/>
                                     <constraint firstAttribute="bottom" secondItem="iYy-D3-FYR" secondAttribute="bottom" id="CTY-va-Ugv"/>
                                     <constraint firstItem="Snf-H5-Wv6" firstAttribute="centerX" secondItem="1kV-zG-nSn" secondAttribute="centerX" id="DG8-Ad-GJa"/>
                                     <constraint firstItem="geR-uD-GJP" firstAttribute="trailing" secondItem="Snf-H5-Wv6" secondAttribute="trailing" id="EAJ-eD-yLG"/>
                                     <constraint firstItem="wvZ-zr-z68" firstAttribute="leading" secondItem="1kV-zG-nSn" secondAttribute="leading" constant="30" id="Foc-Vd-vaM"/>
+                                    <constraint firstAttribute="trailing" secondItem="EeX-Ff-Qsg" secondAttribute="trailing" constant="130" id="Ife-3r-pQt"/>
+                                    <constraint firstItem="qxE-cF-vMc" firstAttribute="centerX" secondItem="1kV-zG-nSn" secondAttribute="centerX" id="JrV-cb-THS"/>
                                     <constraint firstItem="Snf-H5-Wv6" firstAttribute="top" secondItem="1kV-zG-nSn" secondAttribute="top" constant="50" id="RLV-HC-JpU"/>
                                     <constraint firstAttribute="bottom" secondItem="geR-uD-GJP" secondAttribute="bottom" id="bOp-dX-a3X"/>
+                                    <constraint firstAttribute="trailing" secondItem="qxE-cF-vMc" secondAttribute="trailing" constant="130" id="bsO-no-SbZ"/>
                                     <constraint firstItem="9kw-Gm-8To" firstAttribute="leading" secondItem="1kV-zG-nSn" secondAttribute="leading" constant="80" id="cDT-NX-Seg"/>
+                                    <constraint firstItem="geR-uD-GJP" firstAttribute="top" secondItem="EeX-Ff-Qsg" secondAttribute="bottom" constant="50" id="cp9-dl-M3S"/>
                                     <constraint firstItem="Snf-H5-Wv6" firstAttribute="leading" secondItem="1kV-zG-nSn" secondAttribute="leading" constant="130" id="giV-Iy-ssj"/>
                                     <constraint firstAttribute="trailing" secondItem="Snf-H5-Wv6" secondAttribute="trailing" constant="130" id="hL1-EA-qA1"/>
                                     <constraint firstItem="geR-uD-GJP" firstAttribute="leading" secondItem="iYy-D3-FYR" secondAttribute="trailing" constant="89" id="hrw-2r-2ma"/>
+                                    <constraint firstItem="EeX-Ff-Qsg" firstAttribute="top" secondItem="qxE-cF-vMc" secondAttribute="bottom" constant="10" id="jSu-LT-tyY"/>
                                     <constraint firstItem="9kw-Gm-8To" firstAttribute="top" secondItem="1kV-zG-nSn" secondAttribute="top" constant="8" id="lVe-UQ-AtO"/>
                                     <constraint firstItem="wvZ-zr-z68" firstAttribute="top" secondItem="1kV-zG-nSn" secondAttribute="top" constant="-17" id="nQQ-8T-2ID"/>
+                                    <constraint firstItem="Snf-H5-Wv6" firstAttribute="top" secondItem="qxE-cF-vMc" secondAttribute="bottom" constant="10" id="wd5-6c-oS4"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPc-Hi-lsB">
@@ -5412,10 +5472,18 @@
                     <connections>
                         <outlet property="animalImage" destination="DQN-Kn-2xd" id="dfi-gc-btS"/>
                         <outlet property="animalLabel" destination="DzT-xw-Pa1" id="SjQ-fW-wmq"/>
+                        <outlet property="excellentLabel" destination="7eV-nr-6yc" id="Lwf-Cy-Fez"/>
+                        <outlet property="excellentLine" destination="Yqk-Vb-vsT" id="8NJ-Pm-GbN"/>
+                        <outlet property="goodLabel" destination="c29-3A-XPE" id="pEk-yW-8W6"/>
+                        <outlet property="goodLine" destination="UB2-MO-GvB" id="mea-zc-Sma"/>
                         <outlet property="heart1" destination="Qi0-pt-6rz" id="nMJ-3C-wNJ"/>
                         <outlet property="heart2" destination="4BU-eM-7GW" id="BWT-0N-Gx1"/>
                         <outlet property="heart3" destination="kYH-QX-1Dn" id="42y-O1-Vt0"/>
+                        <outlet property="labelSuperView" destination="qxE-cF-vMc" id="vZT-AB-oEa"/>
+                        <outlet property="lineSuperView" destination="EeX-Ff-Qsg" id="lb0-sT-rwu"/>
                         <outlet property="passedAnimals" destination="nXz-3b-8PG" id="2U5-aZ-7YK"/>
+                        <outlet property="perfectLabel" destination="qx5-j3-Zbq" id="O8O-UW-CAW"/>
+                        <outlet property="perfectLine" destination="MFC-Xk-tAl" id="dCF-VD-nac"/>
                         <outlet property="progressBar" destination="Snf-H5-Wv6" id="3dW-n1-R6d"/>
                         <outlet property="skipButton" destination="eaJ-XQ-ofj" id="bGh-F2-K9z"/>
                         <outlet property="stopIcon" destination="8RG-Yo-XlY" id="Zoo-iG-HLq"/>
@@ -5423,7 +5491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUe-ch-bor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="2855"/>
+            <point key="canvasLocation" x="1502.8776978417268" y="2854.7738693467336"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -5492,6 +5560,7 @@
         <image name="speaker" width="71" height="67"/>
         <image name="star123-1" width="138" height="170"/>
         <image name="triangle-1" width="99" height="82"/>
+        <image name="verticalDashLine" width="50" height="566"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

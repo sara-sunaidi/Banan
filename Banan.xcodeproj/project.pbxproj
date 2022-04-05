@@ -68,6 +68,12 @@
 		56B8218727FA70E400523574 /* LevelFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B8218627FA70E400523574 /* LevelFailView.xib */; };
 		56B8218927FA730500523574 /* LevelFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8218827FA730500523574 /* LevelFailViewController.swift */; };
 		56B8218B27FA82C200523574 /* ConvertLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8218A27FA82C200523574 /* ConvertLevel.swift */; };
+		56B8218D27FBA1F000523574 /* Hint5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B8218C27FBA1F000523574 /* Hint5View.xib */; };
+		56B8218F27FBAA4D00523574 /* Hint5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8218E27FBAA4C00523574 /* Hint5ViewController.swift */; };
+		56B8219127FBC0CA00523574 /* Hint4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B8219027FBC0C900523574 /* Hint4View.xib */; };
+		56B8219327FBC34000523574 /* Hint4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8219227FBC33F00523574 /* Hint4ViewController.swift */; };
+		56B8219927FBCD0700523574 /* Hint3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8219827FBCD0600523574 /* Hint3ViewController.swift */; };
+		56B8219B27FBCD6000523574 /* Hint3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B8219A27FBCD5F00523574 /* Hint3View.xib */; };
 		56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */; };
 		56BD5EBA27E0F4A600F6DBB6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB927E0F4A600F6DBB6 /* Extension.swift */; };
 		56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */; };
@@ -163,6 +169,12 @@
 		56B8218627FA70E400523574 /* LevelFailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelFailView.xib; sourceTree = "<group>"; };
 		56B8218827FA730500523574 /* LevelFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFailViewController.swift; sourceTree = "<group>"; };
 		56B8218A27FA82C200523574 /* ConvertLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLevel.swift; sourceTree = "<group>"; };
+		56B8218C27FBA1F000523574 /* Hint5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint5View.xib; sourceTree = "<group>"; };
+		56B8218E27FBAA4C00523574 /* Hint5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint5ViewController.swift; sourceTree = "<group>"; };
+		56B8219027FBC0C900523574 /* Hint4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint4View.xib; sourceTree = "<group>"; };
+		56B8219227FBC33F00523574 /* Hint4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint4ViewController.swift; sourceTree = "<group>"; };
+		56B8219827FBCD0600523574 /* Hint3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint3ViewController.swift; sourceTree = "<group>"; };
+		56B8219A27FBCD5F00523574 /* Hint3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint3View.xib; sourceTree = "<group>"; };
 		56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPageViewController.swift; sourceTree = "<group>"; };
 		56BD5EB927E0F4A600F6DBB6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +278,9 @@
 				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
 				56B8218227F9E42500523574 /* LevelDoneView.xib */,
 				56B8218627FA70E400523574 /* LevelFailView.xib */,
+				56B8218C27FBA1F000523574 /* Hint5View.xib */,
+				56B8219027FBC0C900523574 /* Hint4View.xib */,
+				56B8219A27FBCD5F00523574 /* Hint3View.xib */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
 				56290D35279E089000F3AC5F /* Info.plist */,
@@ -346,6 +361,9 @@
 				562E3EBC27F906D900CBEEE2 /* StopGameViewController.swift */,
 				56B8218427F9FCDD00523574 /* LevelDoneViewController.swift */,
 				56B8218827FA730500523574 /* LevelFailViewController.swift */,
+				56B8218E27FBAA4C00523574 /* Hint5ViewController.swift */,
+				56B8219227FBC33F00523574 /* Hint4ViewController.swift */,
+				56B8219827FBCD0600523574 /* Hint3ViewController.swift */,
 				71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */,
 				71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */,
 			);
@@ -517,6 +535,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B8219B27FBCD6000523574 /* Hint3View.xib in Resources */,
+				56B8219127FBC0CA00523574 /* Hint4View.xib in Resources */,
+				56B8218D27FBA1F000523574 /* Hint5View.xib in Resources */,
 				56B8217D27F9E04F00523574 /* Dog.mp3 in Resources */,
 				56B8218727FA70E400523574 /* LevelFailView.xib in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
@@ -564,6 +585,7 @@
 				56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
+				56B8219927FBCD0700523574 /* Hint3ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */,
@@ -574,6 +596,7 @@
 				56B8218527F9FCDD00523574 /* LevelDoneViewController.swift in Sources */,
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
+				56B8218F27FBAA4D00523574 /* Hint5ViewController.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
 				71A3A91327EB78BE009F9B09 /* CustomButton.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
@@ -597,6 +620,7 @@
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				56B8218B27FA82C200523574 /* ConvertLevel.swift in Sources */,
 				4D97C0B727E7261C00AC16A0 /* ViewProfileViewController.swift in Sources */,
+				56B8219327FBC34000523574 /* Hint4ViewController.swift in Sources */,
 				56BD5ED127E4316F00F6DBB6 /* FirebaseRequest.swift in Sources */,
 				56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */,
 				56B8218927FA730500523574 /* LevelFailViewController.swift in Sources */,
