@@ -187,11 +187,11 @@ class LearnLetterViewController: UIViewController {
         }
         
     }
-     //set progress bar
-    func setProgress(){
-       // let filteredArray = levelArray.map{$0.Letter}
-    }
-
+    // set progress bar
+//    func setProgress(){
+//       // let filteredArray = levelArray.map{$0.Letter}
+//    }
+//
     // animate progress bar
     func animateProgress(){
         let i = 1/Float(letters?.count ?? 1)
