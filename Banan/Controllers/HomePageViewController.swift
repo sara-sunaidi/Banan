@@ -108,6 +108,7 @@ class HomePageViewController : UIViewController{
 
     
     @IBAction func pressLearn(_ sender: UIButton) {
+        print("second commit")
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
     }
