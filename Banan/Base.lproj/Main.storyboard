@@ -843,6 +843,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="DashBorad" cornerStyle="capsule"/>
+                                <connections>
+                                    <segue destination="fK0-c0-oJ8" kind="presentation" identifier="ToDashboard" modalPresentationStyle="currentContext" id="dRt-ct-Dv2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hd-EH-lCu">
                                 <rect key="frame" x="111" y="389" width="630" height="253"/>
@@ -4200,16 +4203,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardRectangular" translatesAutoresizingMaskIntoConstraints="NO" id="fyd-uW-JM0">
-                                <rect key="frame" x="60" y="64" width="714" height="1070"/>
+                                <rect key="frame" x="60" y="40" width="714" height="1094"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لوحة التقدم" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R57-rS-os7">
-                                <rect key="frame" x="328" y="117" width="178.5" height="42.5"/>
+                                <rect key="frame" x="328" y="93" width="178.5" height="42.5"/>
                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="38"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edy-C9-I3X">
-                                <rect key="frame" x="695" y="115.5" width="33" height="46"/>
+                                <rect key="frame" x="695" y="91.5" width="33" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="8Bc-Eh-K5t"/>
                                     <constraint firstAttribute="height" constant="46" id="aaZ-uF-S3c"/>
@@ -4221,7 +4224,7 @@
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FS4-Qy-ZVi">
-                                <rect key="frame" x="203" y="230" width="446" height="28"/>
+                                <rect key="frame" x="203" y="206" width="446" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsD-p3-zI6">
                                         <rect key="frame" x="0.0" y="13" width="163" height="2"/>
@@ -4258,7 +4261,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-Ec-seH">
-                                <rect key="frame" x="186" y="290" width="480" height="90"/>
+                                <rect key="frame" x="186" y="266" width="480" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOx-mx-12k">
                                         <rect key="frame" x="260" y="0.0" width="230" height="90"/>
@@ -4357,7 +4360,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrm-Vx-Dvm">
-                                <rect key="frame" x="214" y="429" width="424" height="28"/>
+                                <rect key="frame" x="214" y="405" width="424" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-s6-BL4">
                                         <rect key="frame" x="0.0" y="13" width="163" height="2"/>
@@ -4398,7 +4401,7 @@
                                 <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7g-os-AnH">
-                                <rect key="frame" x="186" y="462" width="480" height="587"/>
+                                <rect key="frame" x="186" y="438" width="480" height="611"/>
                                 <connections>
                                     <segue destination="X3a-1J-uAk" kind="embed" destinationCreationSelector="uplaodList:" id="Kwn-mA-Gi0"/>
                                 </connections>
