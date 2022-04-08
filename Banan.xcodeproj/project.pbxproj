@@ -155,6 +155,8 @@
 		334F95C3280075FC00CADD89 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
 		334F95C52800763200CADD89 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		334F95C72800765E00CADD89 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
+		334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almarai-Bold.ttf"; path = "../../../../../Desktop/Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almarai-Regular.ttf"; path = "../../../../../Desktop/Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334F95CB28007C0900CADD89 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */,
+				334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		56290D1B279E088F00F3AC5F = {
 			isa = PBXGroup;
 			children = (
@@ -278,9 +289,10 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				334F95CB28007C0900CADD89 /* Fonts */,
+				56B0C76227E7D3D3005C0D54 /* Sound */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
-				56B0C76227E7D3D3005C0D54 /* Sound */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
