@@ -4186,7 +4186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0J-Dq-Pqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="2855"/>
+            <point key="canvasLocation" x="-350" y="2682"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="ain-Mg-tMi">
@@ -4443,7 +4443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI5-Sv-FqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.65467625899282" y="3560.8040201005024"/>
+            <point key="canvasLocation" x="1060" y="3221"/>
         </scene>
         <!--Hosting Controller-->
         <scene sceneID="zQW-E5-uTg">
@@ -4451,7 +4451,7 @@
                 <hostingController id="X3a-1J-uAk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrQ-Ap-bc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="4144"/>
+            <point key="canvasLocation" x="1060" y="3804"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

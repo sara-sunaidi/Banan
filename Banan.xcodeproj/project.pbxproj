@@ -38,6 +38,10 @@
 		334F95BE27FC7C5C00CADD89 /* Waw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 334F959F27FC7C5C00CADD89 /* Waw.mp3 */; };
 		334F95BF27FC7C5C00CADD89 /* Kha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 334F95A027FC7C5C00CADD89 /* Kha.mp3 */; };
 		334F95C027FC7C5C00CADD89 /* 6aa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 334F95A127FC7C5C00CADD89 /* 6aa.mp3 */; };
+		334F95C22800759D00CADD89 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C12800759D00CADD89 /* DashboardViewController.swift */; };
+		334F95C4280075FC00CADD89 /* BoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C3280075FC00CADD89 /* BoardList.swift */; };
+		334F95C62800763300CADD89 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C52800763200CADD89 /* Board.swift */; };
+		334F95C82800765E00CADD89 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C72800765E00CADD89 /* BoardRow.swift */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -147,6 +151,10 @@
 		334F959F27FC7C5C00CADD89 /* Waw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Waw.mp3; sourceTree = "<group>"; };
 		334F95A027FC7C5C00CADD89 /* Kha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Kha.mp3; sourceTree = "<group>"; };
 		334F95A127FC7C5C00CADD89 /* 6aa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6aa.mp3; sourceTree = "<group>"; };
+		334F95C12800759D00CADD89 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		334F95C3280075FC00CADD89 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
+		334F95C52800763200CADD89 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		334F95C72800765E00CADD89 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +299,9 @@
 				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 				4DC0E31F27BFDBA400560589 /* homepageViewController.swift */,
 				4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */,
+				334F95C3280075FC00CADD89 /* BoardList.swift */,
+				334F95C52800763200CADD89 /* Board.swift */,
+				334F95C72800765E00CADD89 /* BoardRow.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -329,6 +340,7 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				334F95C12800759D00CADD89 /* DashboardViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
 				56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */,
@@ -596,6 +608,7 @@
 				56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */,
 				4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
+				334F95C4280075FC00CADD89 /* BoardList.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
@@ -606,7 +619,10 @@
 				56B0C75B27E7BDCD005C0D54 /* LearnLetterViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
 				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
+				334F95C82800765E00CADD89 /* BoardRow.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
+				334F95C62800763300CADD89 /* Board.swift in Sources */,
+				334F95C22800759D00CADD89 /* DashboardViewController.swift in Sources */,
 				56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,
 				4D97C0B727E7261C00AC16A0 /* ViewProfileViewController.swift in Sources */,
