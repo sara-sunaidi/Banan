@@ -110,11 +110,9 @@ class HomePageViewController : UIViewController{
     
     @IBAction func pressLearn(_ sender: UIButton) {
         print("second commit")
-        print("yeess third")
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
     }
     @IBAction func profilePressed(_ sender: UIButton) {
-        print("third commit, is it workin??")
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
 }
