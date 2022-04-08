@@ -39,7 +39,7 @@ class LocalStorage{
                     let child = try decoder.decode(Child.self, from: data)
                     return child
                 }catch{
-                    print("err get user")
+//                    print("err get user")
                 }
             }
             return nil
@@ -56,7 +56,7 @@ class LocalStorage{
                 UserDefaults.standard.set(data, forKey: LettersKey)
                 
             }catch{
-                print("UserDefaults error cannot set for child key", error.localizedDescription)
+                print("UserDefaults error cannot set for letter key", error.localizedDescription)
             }
             
         }
@@ -69,7 +69,7 @@ class LocalStorage{
                     print(lett)
                     return lett
                 }catch{
-                    print("err get user")
+                    print("err get letter")
                 }
             }
             return nil
@@ -86,7 +86,7 @@ class LocalStorage{
                 UserDefaults.standard.set(data, forKey: WordsKey)
                 
             }catch{
-                print("UserDefaults error cannot set for child key", error.localizedDescription)
+                print("UserDefaults error cannot set for word key", error.localizedDescription)
             }
             
         }
@@ -99,7 +99,7 @@ class LocalStorage{
                     print(word)
                     return word
                 }catch{
-                    print("err get user")
+                    print("err get word")
                 }
             }
             return nil
@@ -116,7 +116,7 @@ class LocalStorage{
                 UserDefaults.standard.set(data, forKey: GameKey)
                 
             }catch{
-                print("UserDefaults error cannot set for child key", error.localizedDescription)
+                print("UserDefaults error cannot set for game key", error.localizedDescription)
             }
             
         }
@@ -129,7 +129,7 @@ class LocalStorage{
                     print(game)
                     return game
                 }catch{
-                    print("err get user")
+                    print("err get game")
                 }
         }
             return nil

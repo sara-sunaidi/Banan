@@ -82,7 +82,11 @@ class HomePageViewController : UIViewController{
         self.completedWords = child.completedWords
         
         self.name.text = child.name
-        self.points.text = "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))
+//        currentLevel.map({Int($0.Points)!}).reduce(0, +)
+        let allPoints = child.GameLevels.map({Int($0["UserPoints"]!)!}).reduce(0, +)
+        self.points.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
+
+//        self.points.text = "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))
         let Profile = child.gender
         
         if Profile == "Boy"{
@@ -98,13 +102,53 @@ class HomePageViewController : UIViewController{
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "GoToLearningPage"{
-//            let destination = segue.destination as! LearningPageViewController
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "GoToGame" {
+            let destination = segue.destination as! GameViewController
+            destination.levelNum = "First"
+            destination.currentLevel = [
+                        Game(
+                            AllLetters:["Kaf","Lam","Baa"],
+                            Arabic: "كلب",
+                            Level:"First",
+                            Points: "130",
+                            Animal: "Dog"),
+                
+                        Game(
+                            AllLetters:["Ayn","Sad","Faa","Waw","Raa"],
+                            Arabic: "عصفور",
+                            Level:"First",
+                            Points: "100",
+                            Animal: "Bird"),
+                
+                        Game(
+                            AllLetters:["Baa","Gaf","Raa","Ttt"],
+                            Arabic: "بقرة",
+                            Level:"First",
+                            Points: "100",
+                            Animal: "Cow"),
+                
+                        //        Game(
+                        //            AllLetters:["2lf","Sen","Dal"],
+                        //            Arabic: "أسد",
+                        //            Level:"First",
+                        //            Points: "100",
+                        //            Animal: "Lion"),
+                
+                
+                
+                
+                        //        Game(
+                        //            AllLetters:["Gaf","Raa","Dal"],
+                        //            Arabic: "قرد",
+                        //            Level:"First",
+                        //            Points: "125",
+                        //            Animal: "Monkey")
+                    ]
+
+        }
+    }
 
     
     @IBAction func pressLearn(_ sender: UIButton) {

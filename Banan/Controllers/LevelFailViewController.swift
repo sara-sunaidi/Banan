@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AVFoundation
 
 // Protocol in UIView Class for navigation purposes
 protocol LevelFailViewControllerDelegate {
@@ -40,6 +41,8 @@ class LevelFailViewController : UIView {
     
     @IBOutlet weak var levelScore: UILabel!
     
+    var player: AVAudioPlayer?
+
     
     var delegate: LevelFailViewControllerDelegate?
 
@@ -76,10 +79,27 @@ class LevelFailViewController : UIView {
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
     }
-    
-    func showAlert(title: String, level: String, gameArray: [Game], totalScore: Int, imageName: String) {
+    func playSound(soundName: String){
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+        //to find sound name:
+        //letters![index!].Letter
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    func showAlert(title: String, level: String, gameArray: [Game], totalScore: Int, imageName: String, soundName: String) {
 //        currentAlertType = alertType
         commonInit()
+        playSound(soundName: soundName)
         
         self.title?.text = title
         self.level?.text = level

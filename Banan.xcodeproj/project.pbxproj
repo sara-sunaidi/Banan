@@ -50,6 +50,9 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		562CA6272800A3A1004EC8C5 /* WinLastLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 562CA6262800A3A1004EC8C5 /* WinLastLevel.mp3 */; };
+		562CA62A2800AA47004EC8C5 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 562CA6292800AA47004EC8C5 /* GameOver.mp3 */; };
+		562CA62C2800B178004EC8C5 /* WinAnyLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 562CA62B2800B178004EC8C5 /* WinAnyLevel.mp3 */; };
 		562E3EB127F68B9C00CBEEE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */; };
 		562E3EB327F746FC00CBEEE2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB227F746FB00CBEEE2 /* Game.swift */; };
 		562E3EB527F8D92900CBEEE2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */; };
@@ -151,6 +154,9 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		562CA6262800A3A1004EC8C5 /* WinLastLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WinLastLevel.mp3; sourceTree = "<group>"; };
+		562CA6292800AA47004EC8C5 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		562CA62B2800B178004EC8C5 /* WinAnyLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WinAnyLevel.mp3; sourceTree = "<group>"; };
 		562E3EB027F68B9B00CBEEE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		562E3EB227F746FB00CBEEE2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -341,7 +347,6 @@
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
-				56B8218A27FA82C200523574 /* ConvertLevel.swift */,
 				562E3EB427F8D92800CBEEE2 /* FirstViewController.swift */,
 				56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */,
 				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
@@ -382,6 +387,9 @@
 		56B8217527F9D7A900523574 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				562CA6262800A3A1004EC8C5 /* WinLastLevel.mp3 */,
+				562CA6292800AA47004EC8C5 /* GameOver.mp3 */,
+				562CA62B2800B178004EC8C5 /* WinAnyLevel.mp3 */,
 				56B8218027F9E37200523574 /* Lion.mp3 */,
 				56B8217C27F9E04F00523574 /* Dog.mp3 */,
 			);
@@ -392,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
+				56B8218A27FA82C200523574 /* ConvertLevel.swift */,
 				56BD5ED327E431F000F6DBB6 /* LocalStorage.swift */,
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
 				562E3EB227F746FB00CBEEE2 /* Game.swift */,
@@ -539,15 +548,18 @@
 				56B8219127FBC0CA00523574 /* Hint4View.xib in Resources */,
 				56B8218D27FBA1F000523574 /* Hint5View.xib in Resources */,
 				56B8217D27F9E04F00523574 /* Dog.mp3 in Resources */,
+				562CA62C2800B178004EC8C5 /* WinAnyLevel.mp3 in Resources */,
 				56B8218727FA70E400523574 /* LevelFailView.xib in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
+				562CA62A2800AA47004EC8C5 /* GameOver.mp3 in Resources */,
 				562E3EBB27F8FA6A00CBEEE2 /* StopGameView.xib in Resources */,
 				71A3A90927EB7451009F9B09 /* CustomConfirmationView.xib in Resources */,
 				71A3A90B27EB7640009F9B09 /* CustomAcknowledgementView.xib in Resources */,
 				56B8218327F9E42500523574 /* LevelDoneView.xib in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
+				562CA6272800A3A1004EC8C5 /* WinLastLevel.mp3 in Resources */,
 				56B8218127F9E37200523574 /* Lion.mp3 in Resources */,
 				715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */,
 				715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */,
@@ -811,7 +823,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -824,7 +836,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -850,7 +862,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -862,7 +874,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";

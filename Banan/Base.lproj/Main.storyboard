@@ -5198,24 +5198,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-cF-vMc">
                                         <rect key="frame" x="130" y="10" width="574" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="جيد" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c29-3A-XPE">
-                                                <rect key="frame" x="477" y="3" width="60" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
-                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ممتاز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-nr-6yc">
-                                                <rect key="frame" x="321" y="3" width="62" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ممتاز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-nr-6yc">
+                                                <rect key="frame" x="268.5" y="3.5" width="37.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
                                                 <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="رائع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx5-j3-Zbq">
-                                                <rect key="frame" x="24" y="3" width="61" height="25"/>
+                                                <rect key="frame" x="122" y="3" width="61" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="جيد" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c29-3A-XPE">
+                                                <rect key="frame" x="434" y="2" width="60" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="20"/>
                                                 <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -5225,6 +5224,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3FE-Bz-X1N"/>
+                                            <constraint firstItem="7eV-nr-6yc" firstAttribute="centerX" secondItem="qxE-cF-vMc" secondAttribute="centerX" id="Zs0-An-AKF"/>
+                                            <constraint firstItem="7eV-nr-6yc" firstAttribute="centerY" secondItem="qxE-cF-vMc" secondAttribute="centerY" id="tWe-rf-UrG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeX-Ff-Qsg">
@@ -5234,17 +5235,19 @@
                                                 <rect key="frame" x="424" y="0.0" width="27" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-Vb-vsT">
-                                                <rect key="frame" x="295" y="0.0" width="27" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="MFC-Xk-tAl">
                                                 <rect key="frame" x="140" y="0.0" width="27" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verticalDashLine" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-Vb-vsT">
+                                                <rect key="frame" x="262" y="0.0" width="50" height="30"/>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Yqk-Vb-vsT" firstAttribute="top" secondItem="EeX-Ff-Qsg" secondAttribute="top" id="56I-R5-gQB"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yqk-Vb-vsT" secondAttribute="bottom" id="5qG-Kx-ry7"/>
                                             <constraint firstAttribute="height" constant="30" id="Kn4-Dh-WJR"/>
+                                            <constraint firstItem="Yqk-Vb-vsT" firstAttribute="centerX" secondItem="EeX-Ff-Qsg" secondAttribute="centerX" id="ave-IL-85K"/>
                                         </constraints>
                                     </view>
                                 </subviews>

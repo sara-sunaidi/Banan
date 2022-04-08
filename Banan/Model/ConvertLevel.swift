@@ -43,4 +43,18 @@ class ConvertLevel{
         var index = ConvertLevel.levelArray.firstIndex(where: {$0 == levelName}) ?? 0       
         return ConvertLevel.levelTitleArray[index]
    }
+    static func findIndex(Level: String) -> Int{
+        //error if not found
+        return ConvertLevel.levelArray.firstIndex(where: {$0 == Level}) ?? 0
+    }
+    static func isLastLevel(availableLvels: [String], currentLevel: String) -> Bool{
+        
+        let currentIndex = findIndex(Level: currentLevel)
+        for oneLevel in availableLvels{
+            if currentIndex < findIndex(Level: oneLevel){
+                return false
+            }
+        }
+        return true
+    }
 }
