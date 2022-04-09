@@ -82,7 +82,10 @@ class HomePageViewController : UIViewController{
         self.completedWords = child.completedWords
         
         self.name.text = child.name
-        self.points.text = "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        let allPoints = child.GameLevels.map({Int($0["UserPoints"]!)!}).reduce(0, +)
+        
+        self.points.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
+//        "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))
         let Profile = child.gender
         
         if Profile == "Boy"{
@@ -98,21 +101,57 @@ class HomePageViewController : UIViewController{
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "GoToLearningPage"{
-//            let destination = segue.destination as! LearningPageViewController
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var currentLevel : [Game]
+
+        let game = LocalStorage.allGameInfo
+//        if game != nil{
+////            allGameAnimals = game!
+            currentLevel = game!.filter({$0.Level == "First"})
 //        }
-//    }
-    //comment to check revert
+        
+        if segue.identifier == "GoToGame" {
+            let destination = segue.destination as! GameViewController
+            destination.levelNum = "First"
+            destination.currentLevel = currentLevel
+//            [
+//                        Game(
+//                            AllLetters:["Kaf","Lam","Baa"],
+//                            Arabic: "كلب",
+//                            Level:"First",
+//                            Points: "130",
+//                            Animal: "Dog"),
+//
+//                        Game(
+//                            AllLetters:["Ayn","Sad","Faa","Waw","Raa"],
+//                            Arabic: "عصفور",
+//                            Level:"First",
+//                            Points: "100",
+//                            Animal: "Bird"),
+//
+//                        Game(
+//                            AllLetters:["Baa","Gaf","Raa","Ttt"],
+//                            Arabic: "بقرة",
+//                            Level:"First",
+//                            Points: "100",
+//                            Animal: "Cow"),
+//
+//                    ]
+
+        }
+    }
 
     
     @IBAction func pressLearn(_ sender: UIButton) {
-        print("second commit")
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
     }
     @IBAction func profilePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
+    
+    @IBAction func pressGame(_ sender: UIButton) {
+        
+            performSegue(withIdentifier: "GoToGame", sender: self)
+        
+        }
 }

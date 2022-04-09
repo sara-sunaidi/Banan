@@ -16,11 +16,13 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var password : String = ""
     var dob : String = ""
     var sex : String = ""
-    var score : String = "0"
+//    var score : String = "0"
     var name : String = ""
     
     let database = Firestore.firestore()
-        
+    
+    @IBOutlet weak var submit: UIButton!
+
     @IBOutlet weak var Name: UITextField!
 
        
@@ -62,7 +64,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     @IBAction func CreateAccount(_ sender: UIButton) {
 
         if Name.text == "" {
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء ادخل الاسم", acknowledgementType: .negative)      }
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)      }
         else{
             Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
                 if let e = error{
@@ -102,7 +104,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     
     func writeData(id: String){
         let docref = database.document("Children/\(id)")
-        docref.setData(["Email": email, "Name": Name.text, "DOB": dob, "Gender": sex, "Score": score,
+        docref.setData(["Email": email, "Name": Name.text, "DOB": dob, "Gender": sex, "GameLevels": [[String: String]](),
                         "CompletedCategory": [String](), "CompletedLetter": [String](), "CompletedLevel": [String](), "CompletedWord": [String]()])
 
     }

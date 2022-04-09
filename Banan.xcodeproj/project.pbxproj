@@ -50,6 +50,19 @@
 		56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */; };
 		56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290EB427A1C09000F3AC5F /* ProcessImageController.swift */; };
 		56290EB827A1FF5E00F3AC5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56290EB727A1FF5E00F3AC5F /* AVKit.framework */; };
+		562CA62E2800CBF4004EC8C5 /* ConvertLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA62D2800CBF4004EC8C5 /* ConvertLevel.swift */; };
+		562CA6302800CE1C004EC8C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA62F2800CE1C004EC8C5 /* Game.swift */; };
+		562CA6322800D367004EC8C5 /* StopGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA6312800D366004EC8C5 /* StopGameViewController.swift */; };
+		562CA6342800D4C4004EC8C5 /* StopGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CA6332800D4C4004EC8C5 /* StopGameView.xib */; };
+		562CA6362800D6D2004EC8C5 /* LevelFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA6352800D6D1004EC8C5 /* LevelFailViewController.swift */; };
+		562CA6382800D748004EC8C5 /* LevelDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA6372800D747004EC8C5 /* LevelDoneViewController.swift */; };
+		562CA63A2800D905004EC8C5 /* Hint5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA6392800D905004EC8C5 /* Hint5ViewController.swift */; };
+		562CA63C2800D9A2004EC8C5 /* Hint4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA63B2800D9A2004EC8C5 /* Hint4ViewController.swift */; };
+		562CA63E2800D9E0004EC8C5 /* Hint3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA63D2800D9E0004EC8C5 /* Hint3ViewController.swift */; };
+		562CA6402800DA14004EC8C5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA63F2800DA14004EC8C5 /* GameViewController.swift */; };
+		562CA6422800DA80004EC8C5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CA6412800DA80004EC8C5 /* FirstViewController.swift */; };
+		562CA6442800E0F5004EC8C5 /* LevelDoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */; };
+		562CA6462800E750004EC8C5 /* LevelFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CA6452800E750004EC8C5 /* LevelFailView.xib */; };
 		569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */; };
 		569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24627EBBA5100F13AAB /* WordViewController.swift */; };
 		569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */; };
@@ -68,6 +81,21 @@
 		56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED527E4325600F6DBB6 /* Child.swift */; };
 		56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED727E432A900F6DBB6 /* Letters.swift */; };
 		56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5ED927E432EE00F6DBB6 /* Words.swift */; };
+		56CBA4E22800E80700251F96 /* Hint5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E12800E80700251F96 /* Hint5View.xib */; };
+		56CBA4E42800E8BA00251F96 /* Hint4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E32800E8BA00251F96 /* Hint4View.xib */; };
+		56CBA4E62800E92700251F96 /* Hint3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E52800E92700251F96 /* Hint3View.xib */; };
+		56CBA4E92801052F00251F96 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E82801052F00251F96 /* GameOver.mp3 */; };
+		56CBA4EB2801056100251F96 /* WinAnyLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4EA2801056100251F96 /* WinAnyLevel.mp3 */; };
+		56CBA4ED2801059B00251F96 /* WinLastLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4EC2801059B00251F96 /* WinLastLevel.mp3 */; };
+		56CBA4EF280105FA00251F96 /* Dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4EE280105FA00251F96 /* Dog.mp3 */; };
+		56CBA4F12801064E00251F96 /* Bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4F02801064E00251F96 /* Bird.mp3 */; };
+		56CBA4F32801069100251F96 /* Chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4F22801069100251F96 /* Chicken.mp3 */; };
+		56CBA4F52801071700251F96 /* Donkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4F42801071700251F96 /* Donkey.mp3 */; };
+		56CBA4F72801074B00251F96 /* Cow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4F62801074B00251F96 /* Cow.mp3 */; };
+		56CBA4F92801076B00251F96 /* Sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4F82801076B00251F96 /* Sheep.mp3 */; };
+		56CBA4FB280107A700251F96 /* Elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4FA280107A700251F96 /* Elephant.mp3 */; };
+		56CBA4FD280107F700251F96 /* Horse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4FC280107F700251F96 /* Horse.mp3 */; };
+		56CBA4FF2801086200251F96 /* Duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4FE2801086200251F96 /* Duck.mp3 */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
 		71A3A90927EB7451009F9B09 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */; };
@@ -99,7 +127,7 @@
 /* Begin PBXFileReference section */
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
+		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4D97C0B227E5A6FB00AC16A0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		4D97C0B427E5A7C100AC16A0 /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +161,19 @@
 		56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		56290EB427A1C09000F3AC5F /* ProcessImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessImageController.swift; sourceTree = "<group>"; };
 		56290EB727A1FF5E00F3AC5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		562CA62D2800CBF4004EC8C5 /* ConvertLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLevel.swift; sourceTree = "<group>"; };
+		562CA62F2800CE1C004EC8C5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		562CA6312800D366004EC8C5 /* StopGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopGameViewController.swift; sourceTree = "<group>"; };
+		562CA6332800D4C4004EC8C5 /* StopGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopGameView.xib; sourceTree = "<group>"; };
+		562CA6352800D6D1004EC8C5 /* LevelFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelFailViewController.swift; sourceTree = "<group>"; };
+		562CA6372800D747004EC8C5 /* LevelDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDoneViewController.swift; sourceTree = "<group>"; };
+		562CA6392800D905004EC8C5 /* Hint5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint5ViewController.swift; sourceTree = "<group>"; };
+		562CA63B2800D9A2004EC8C5 /* Hint4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint4ViewController.swift; sourceTree = "<group>"; };
+		562CA63D2800D9E0004EC8C5 /* Hint3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint3ViewController.swift; sourceTree = "<group>"; };
+		562CA63F2800DA14004EC8C5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		562CA6412800DA80004EC8C5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelDoneView.xib; sourceTree = "<group>"; };
+		562CA6452800E750004EC8C5 /* LevelFailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelFailView.xib; sourceTree = "<group>"; };
 		569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLetterViewController.swift; sourceTree = "<group>"; };
 		569FF24627EBBA5100F13AAB /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoController.swift; sourceTree = "<group>"; };
@@ -151,6 +192,21 @@
 		56BD5ED527E4325600F6DBB6 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		56BD5ED727E432A900F6DBB6 /* Letters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters.swift; sourceTree = "<group>"; };
 		56BD5ED927E432EE00F6DBB6 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		56CBA4E12800E80700251F96 /* Hint5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint5View.xib; sourceTree = "<group>"; };
+		56CBA4E32800E8BA00251F96 /* Hint4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint4View.xib; sourceTree = "<group>"; };
+		56CBA4E52800E92700251F96 /* Hint3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint3View.xib; sourceTree = "<group>"; };
+		56CBA4E82801052F00251F96 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		56CBA4EA2801056100251F96 /* WinAnyLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WinAnyLevel.mp3; sourceTree = "<group>"; };
+		56CBA4EC2801059B00251F96 /* WinLastLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WinLastLevel.mp3; sourceTree = "<group>"; };
+		56CBA4EE280105FA00251F96 /* Dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dog.mp3; sourceTree = "<group>"; };
+		56CBA4F02801064E00251F96 /* Bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bird.mp3; sourceTree = "<group>"; };
+		56CBA4F22801069100251F96 /* Chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chicken.mp3; sourceTree = "<group>"; };
+		56CBA4F42801071700251F96 /* Donkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Donkey.mp3; sourceTree = "<group>"; };
+		56CBA4F62801074B00251F96 /* Cow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cow.mp3; sourceTree = "<group>"; };
+		56CBA4F82801076B00251F96 /* Sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sheep.mp3; sourceTree = "<group>"; };
+		56CBA4FA280107A700251F96 /* Elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Elephant.mp3; sourceTree = "<group>"; };
+		56CBA4FC280107F700251F96 /* Horse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Horse.mp3; sourceTree = "<group>"; };
+		56CBA4FE2801086200251F96 /* Duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Duck.mp3; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
@@ -231,10 +287,17 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				56CBA4E72801047C00251F96 /* Sounds */,
 				715BADEE27E7E4AB006087EC /* Fonts */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
+				562CA6332800D4C4004EC8C5 /* StopGameView.xib */,
+				562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */,
+				562CA6452800E750004EC8C5 /* LevelFailView.xib */,
+				56CBA4E12800E80700251F96 /* Hint5View.xib */,
+				56CBA4E32800E8BA00251F96 /* Hint4View.xib */,
+				56CBA4E52800E92700251F96 /* Hint3View.xib */,
 				71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */,
 				71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */,
 				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
@@ -254,7 +317,6 @@
 				4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */,
 				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
 				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
-				4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */,
 				71A3A91227EB78BE009F9B09 /* CustomButton.swift */,
 			);
 			path = Banan;
@@ -310,10 +372,19 @@
 				4D97C0B227E5A6FB00AC16A0 /* CategoryViewController.swift */,
 				4D97C0B427E5A7C100AC16A0 /* WordsViewController.swift */,
 				4D97C0B627E7261C00AC16A0 /* ViewProfileViewController.swift */,
+				562CA6312800D366004EC8C5 /* StopGameViewController.swift */,
+				562CA6352800D6D1004EC8C5 /* LevelFailViewController.swift */,
+				562CA6372800D747004EC8C5 /* LevelDoneViewController.swift */,
 				4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */,
 				71A3A91427EB79D7009F9B09 /* CustomConfirmationViewController.swift */,
 				71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */,
 				71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */,
+				4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */,
+				562CA6412800DA80004EC8C5 /* FirstViewController.swift */,
+				562CA63F2800DA14004EC8C5 /* GameViewController.swift */,
+				562CA63D2800D9E0004EC8C5 /* Hint3ViewController.swift */,
+				562CA63B2800D9A2004EC8C5 /* Hint4ViewController.swift */,
+				562CA6392800D905004EC8C5 /* Hint5ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -332,11 +403,32 @@
 			children = (
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
 				56BD5ED327E431F000F6DBB6 /* LocalStorage.swift */,
+				562CA62F2800CE1C004EC8C5 /* Game.swift */,
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
+				562CA62D2800CBF4004EC8C5 /* ConvertLevel.swift */,
 				56BD5ED727E432A900F6DBB6 /* Letters.swift */,
 				56BD5ED927E432EE00F6DBB6 /* Words.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		56CBA4E72801047C00251F96 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				56CBA4E82801052F00251F96 /* GameOver.mp3 */,
+				56CBA4EA2801056100251F96 /* WinAnyLevel.mp3 */,
+				56CBA4FE2801086200251F96 /* Duck.mp3 */,
+				56CBA4F42801071700251F96 /* Donkey.mp3 */,
+				56CBA4FC280107F700251F96 /* Horse.mp3 */,
+				56CBA4FA280107A700251F96 /* Elephant.mp3 */,
+				56CBA4EC2801059B00251F96 /* WinLastLevel.mp3 */,
+				56CBA4F22801069100251F96 /* Chicken.mp3 */,
+				56CBA4F82801076B00251F96 /* Sheep.mp3 */,
+				56CBA4F62801074B00251F96 /* Cow.mp3 */,
+				56CBA4F02801064E00251F96 /* Bird.mp3 */,
+				56CBA4EE280105FA00251F96 /* Dog.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		715BADEE27E7E4AB006087EC /* Fonts */ = {
@@ -474,13 +566,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
+				56CBA4E22800E80700251F96 /* Hint5View.xib in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
+				56CBA4EF280105FA00251F96 /* Dog.mp3 in Resources */,
+				56CBA4E62800E92700251F96 /* Hint3View.xib in Resources */,
 				71A3A90927EB7451009F9B09 /* CustomConfirmationView.xib in Resources */,
+				56CBA4EB2801056100251F96 /* WinAnyLevel.mp3 in Resources */,
+				56CBA4F32801069100251F96 /* Chicken.mp3 in Resources */,
+				56CBA4FF2801086200251F96 /* Duck.mp3 in Resources */,
 				71A3A90B27EB7640009F9B09 /* CustomAcknowledgementView.xib in Resources */,
+				56CBA4FD280107F700251F96 /* Horse.mp3 in Resources */,
+				56CBA4F92801076B00251F96 /* Sheep.mp3 in Resources */,
+				56CBA4E42800E8BA00251F96 /* Hint4View.xib in Resources */,
+				56CBA4F12801064E00251F96 /* Bird.mp3 in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
 				715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */,
 				715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */,
+				562CA6442800E0F5004EC8C5 /* LevelDoneView.xib in Resources */,
+				56CBA4F72801074B00251F96 /* Cow.mp3 in Resources */,
+				56CBA4ED2801059B00251F96 /* WinLastLevel.mp3 in Resources */,
+				56CBA4E92801052F00251F96 /* GameOver.mp3 in Resources */,
+				56CBA4FB280107A700251F96 /* Elephant.mp3 in Resources */,
+				562CA6462800E750004EC8C5 /* LevelFailView.xib in Resources */,
+				56CBA4F52801071700251F96 /* Donkey.mp3 in Resources */,
+				562CA6342800D4C4004EC8C5 /* StopGameView.xib in Resources */,
 				71A3A90D27EB76FE009F9B09 /* CustomAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +621,7 @@
 				4D79BC7127E7283600BE663C /* ResetPasswordViewController.swift in Sources */,
 				569FF25227EBBEC600F13AAB /* SnackbarViewModel.swift in Sources */,
 				56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */,
+				562CA6322800D367004EC8C5 /* StopGameViewController.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
@@ -521,21 +632,30 @@
 				56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */,
 				4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */,
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
+				562CA6382800D748004EC8C5 /* LevelDoneViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
 				71A3A91327EB78BE009F9B09 /* CustomButton.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
+				562CA63A2800D905004EC8C5 /* Hint5ViewController.swift in Sources */,
+				562CA6402800DA14004EC8C5 /* GameViewController.swift in Sources */,
 				56BD5ED427E431F000F6DBB6 /* LocalStorage.swift in Sources */,
+				562CA63E2800D9E0004EC8C5 /* Hint3ViewController.swift in Sources */,
+				562CA6422800DA80004EC8C5 /* FirstViewController.swift in Sources */,
 				56BD5EC427E0F7E500F6DBB6 /* LevelsViewController.swift in Sources */,
 				56BD5EC027E0F63300F6DBB6 /* Letters3ViewController.swift in Sources */,
 				569FF25027EBBE6300F13AAB /* SnackbarView.swift in Sources */,
+				562CA63C2800D9A2004EC8C5 /* Hint4ViewController.swift in Sources */,
 				4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */,
+				562CA62E2800CBF4004EC8C5 /* ConvertLevel.swift in Sources */,
 				71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */,
 				569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
+				562CA6362800D6D2004EC8C5 /* LevelFailViewController.swift in Sources */,
 				569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */,
+				562CA6302800CE1C004EC8C5 /* Game.swift in Sources */,
 				569FF24D27EBBC5D00F13AAB /* extention_UIImage.swift in Sources */,
 				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
@@ -731,7 +851,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -744,7 +864,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -770,7 +890,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -782,7 +902,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Bananaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";

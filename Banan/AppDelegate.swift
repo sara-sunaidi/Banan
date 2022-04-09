@@ -12,7 +12,7 @@ import FirebaseStorage
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.fetchLettersInfo()
         self.fetchWordsInfo()
+        self.fetchGameInfo()
         
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
@@ -41,9 +42,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                animatedSplashVC.isChild = false
             }
         }
-        
+        UIWindow(frame: UIScreen.main.bounds)
+
         return true
     }
+    
+    func fetchGameInfo(){
+            FirebaseRequest.setDBListenerGame(completion: fetchGame(_:_:))
+        }
+        
+        func fetchGame(_ data:Any?, _ error:Error?) -> Void {
+
+            if let data = data as? [Game]{
+                
+                LocalStorage.allGameInfo = data
+
+            }else{
+                print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+            }
+        }
+    
     
     func fetchWordsInfo(){
         FirebaseRequest.setDBListenerWords(completion: fetchWords(_:_:))
@@ -103,9 +121,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completedWords: data["CompletedWord"] as! [String],
                     completedLevels: data["CompletedLevel"] as! [String] ,
                     completedCategories: data["CompletedCategory"] as! [String],
+                    GameLevels: data["GameLevels"] as! [[String: String]] ,
                     email: data["Email"] as! String ,
                     name: data["Name"] as! String,
-                    score: data["Score"] as! String,
+//                    score: data["Score"] as! String,
                     gender: data["Gender"] as! String)
 
                 //Store child object in local storage
