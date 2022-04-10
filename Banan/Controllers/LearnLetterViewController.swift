@@ -19,12 +19,16 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     @IBOutlet weak var imageLetter: UIImageView!
     @IBOutlet weak var letter: UILabel!
     @IBOutlet weak var progressView1: UIProgressView!
+    
+    @IBOutlet weak var block: UIView!
+    
     @IBOutlet weak var circle1: UIButton!
     @IBOutlet weak var circle2: UIButton!
     @IBOutlet weak var circle3: UIButton!
     @IBOutlet weak var circle4: UIButton!
     @IBOutlet weak var circle5: UIButton!
     @IBOutlet weak var circle6: UIButton!
+    
     @IBOutlet weak var soundBtn: UIButton!
     @IBOutlet weak var helpBtn: UIButton!
     @IBOutlet weak var exitBtn: UIButton!
@@ -96,6 +100,8 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         addShadowBtn(soundBtn)
         addShadowBtn(helpBtn)
         addShadowBtn(exitBtn)
+        
+        block.layer.cornerRadius = 10
         
         addColor(letters![index!].Braille)
         

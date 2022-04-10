@@ -27,6 +27,57 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     let db = Firestore.firestore()
     var expectedResult : String?
     
+    //four letters
+    
+    @IBOutlet weak var fourLabel1: UILabel!
+    @IBOutlet weak var fourLabel2: UILabel!
+    @IBOutlet weak var fourLabel3: UILabel!
+    @IBOutlet weak var fourLabel4: UILabel!
+    
+    
+    @IBOutlet weak var fourblock1: UIView!
+    @IBOutlet weak var fourblock2: UIView!
+    @IBOutlet weak var fourblock3: UIView!
+    @IBOutlet weak var fourblock4: UIView!
+    
+    @IBOutlet weak var fourC1: UIButton!
+    @IBOutlet weak var fourC2: UIButton!
+    @IBOutlet weak var fourC3: UIButton!
+    @IBOutlet weak var fourC4: UIButton!
+    @IBOutlet weak var fourC5: UIButton!
+    @IBOutlet weak var fourC6: UIButton!
+    
+    
+    @IBOutlet weak var fourC11: UIButton!
+    @IBOutlet weak var fourC22: UIButton!
+    @IBOutlet weak var fourC33: UIButton!
+    @IBOutlet weak var fourC44: UIButton!
+    @IBOutlet weak var fourC55: UIButton!
+    @IBOutlet weak var fourC66: UIButton!
+
+    
+    @IBOutlet weak var fourC111: UIButton!
+    @IBOutlet weak var fourC222: UIButton!
+    @IBOutlet weak var fourC333: UIButton!
+    @IBOutlet weak var fourC444: UIButton!
+    @IBOutlet weak var fourC555: UIButton!
+    @IBOutlet weak var fourC666: UIButton!
+    
+    
+    @IBOutlet weak var fourC1111: UIButton!
+    @IBOutlet weak var fourC2222: UIButton!
+    @IBOutlet weak var fourC3333: UIButton!
+    @IBOutlet weak var fourC4444: UIButton!
+    @IBOutlet weak var fourC5555: UIButton!
+    @IBOutlet weak var fourC6666: UIButton!
+    
+    //
+    @IBOutlet weak var block1: UIView!
+    @IBOutlet weak var block2: UIView!
+    @IBOutlet weak var block3: UIView!
+    @IBOutlet weak var block4: UIView!
+    @IBOutlet weak var block5: UIView!
+    
     //letters of word
     @IBOutlet weak var letter1: UILabel!
     @IBOutlet weak var letter2: UILabel!
@@ -41,24 +92,32 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     @IBOutlet weak var cr4: UIButton!
     @IBOutlet weak var cr5: UIButton!
     @IBOutlet weak var cr6: UIButton!
+    
+    
     @IBOutlet weak var cr11: UIButton!
     @IBOutlet weak var cr22: UIButton!
     @IBOutlet weak var cr33: UIButton!
     @IBOutlet weak var cr44: UIButton!
     @IBOutlet weak var cr55: UIButton!
     @IBOutlet weak var cr66: UIButton!
+    
+    
     @IBOutlet weak var cr111: UIButton!
     @IBOutlet weak var cr222: UIButton!
     @IBOutlet weak var cr333: UIButton!
     @IBOutlet weak var cr444: UIButton!
     @IBOutlet weak var cr555: UIButton!
     @IBOutlet weak var cr666: UIButton!
+    
+    
     @IBOutlet weak var cr1111: UIButton!
     @IBOutlet weak var cr2222: UIButton!
     @IBOutlet weak var cr3333: UIButton!
     @IBOutlet weak var cr4444: UIButton!
     @IBOutlet weak var cr5555: UIButton!
     @IBOutlet weak var cr6666: UIButton!
+    
+    
     @IBOutlet weak var cr11111: UIButton!
     @IBOutlet weak var cr22222: UIButton!
     @IBOutlet weak var cr33333: UIButton!
@@ -118,7 +177,46 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         addShadow(cr44444)
         addShadow(cr55555)
         addShadow(cr66666)
+        //
+        addShadow(fourC1)
+        addShadow(fourC2)
+        addShadow(fourC3)
+        addShadow(fourC4)
+        addShadow(fourC5)
+        addShadow(fourC6)
         
+        addShadow(fourC11)
+        addShadow(fourC22)
+        addShadow(fourC33)
+        addShadow(fourC44)
+        addShadow(fourC55)
+        addShadow(fourC66)
+
+        addShadow(fourC111)
+        addShadow(fourC222)
+        addShadow(fourC333)
+        addShadow(fourC444)
+        addShadow(fourC555)
+        addShadow(fourC666)
+        
+        addShadow(fourC1111)
+        addShadow(fourC2222)
+        addShadow(fourC3333)
+        addShadow(fourC4444)
+        addShadow(fourC5555)
+        addShadow(fourC6666)
+        
+        block1.layer.cornerRadius = 10
+        block2.layer.cornerRadius = 10
+        block3.layer.cornerRadius = 10
+        block4.layer.cornerRadius = 10
+        block5.layer.cornerRadius = 10
+        
+        fourblock1.layer.cornerRadius = 10
+        fourblock2.layer.cornerRadius = 10
+        fourblock3.layer.cornerRadius = 10
+        fourblock4.layer.cornerRadius = 10
+
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         
@@ -338,36 +436,76 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     // show circle
     func showCircle(_ num: Int){
-        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
+//        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
         let wordArabic = allWords![index!].Arabic
         var wordArray = Array(wordArabic)
         if(num == 3){
             
-            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[0],letter2,wordArray[0])
-            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[1],letter3,wordArray[1])
-            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2])
+            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[0],letter2,wordArray[0], block: block2)
+            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[1],letter3,wordArray[1], block: block3)
+            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2], block: block4)
         }
         else if(num == 4){
-            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: superView.frame.height/1.5)
+//            block2.layer.position = .init(x= )
+//            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: fourLetttersView.layer.position.y)
             
-            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[0],letter2,wordArray[0])
-            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[1],letter3,wordArray[1])
-            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2])
-            setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,wordBraille[3],letter5,wordArray[3])
+            setBraille(fourC1,fourC2,fourC3,fourC4,fourC5,fourC6,wordBraille[0],fourLabel1,wordArray[0],block: fourblock1)
+            setBraille(fourC11,fourC22,fourC33,fourC44,fourC55,fourC66,wordBraille[1],fourLabel2,wordArray[1], block: fourblock2)
+            setBraille(fourC111,fourC222,fourC333,fourC444,fourC555,fourC666,wordBraille[2],fourLabel3,wordArray[2], block: fourblock3)
+            setBraille(fourC1111,fourC2222,fourC3333,fourC4444,fourC5555,fourC6666,wordBraille[3],fourLabel4,wordArray[3], block: fourblock4)
         }
         else{
             
-            setBraille(cr1,cr2,cr3,cr4,cr5,cr6,wordBraille[0],letter1,wordArray[0])
-            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[1],letter2,wordArray[1])
-            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[2],letter3,wordArray[2])
-            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[3],letter4,wordArray[3])
-            setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,wordBraille[4],letter5,wordArray[4])
+            setBraille(cr1,cr2,cr3,cr4,cr5,cr6,wordBraille[0],letter1,wordArray[0], block: block1)
+            setBraille(cr11,cr22,cr33,cr44,cr55,cr66,wordBraille[1],letter2,wordArray[1],block: block2)
+            setBraille(cr111,cr222,cr333,cr444,cr555,cr666,wordBraille[2],letter3,wordArray[2],block: block3)
+            setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[3],letter4,wordArray[3], block: block4)
+            setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,wordBraille[4],letter5,wordArray[4], block: block5)
         }
         
     }
     
     // hide circle
     func hideCircle(){
+        fourblock1.isHidden = true
+        fourblock2.isHidden = true
+        fourblock3.isHidden = true
+        fourblock4.isHidden = true
+        
+        fourC1.isHidden = true
+        fourC2.isHidden = true
+        fourC3.isHidden = true
+        fourC4.isHidden = true
+        fourC5.isHidden = true
+        fourC6.isHidden = true
+        
+        fourC11.isHidden = true
+        fourC22.isHidden = true
+        fourC33.isHidden = true
+        fourC44.isHidden = true
+        fourC55.isHidden = true
+        fourC66.isHidden = true
+        
+        fourC111.isHidden = true
+        fourC222.isHidden = true
+        fourC333.isHidden = true
+        fourC444.isHidden = true
+        fourC555.isHidden = true
+        fourC666.isHidden = true
+
+        fourC1111.isHidden = true
+        fourC2222.isHidden = true
+        fourC3333.isHidden = true
+        fourC4444.isHidden = true
+        fourC5555.isHidden = true
+        fourC6666.isHidden = true
+        
+        fourLabel1.text = ""
+        fourLabel2.text = ""
+        fourLabel3.text = ""
+        fourLabel4.text = ""
+
+        
         
         letter1.text = ""
         letter2.text = ""
@@ -409,6 +547,13 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         cr44444.isHidden = true
         cr55555.isHidden = true
         cr66666.isHidden = true
+        
+        block1.isHidden = true
+        block2.isHidden = true
+        block3.isHidden = true
+        block4.isHidden = true
+        block5.isHidden = true
+
     }
     
     // add shadow to circle
@@ -426,7 +571,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     }
     
     // set braille for letter
-    func setBraille(_ c1:UIButton,_ c2:UIButton, _ c3:UIButton, _ c4:UIButton, _ c5:UIButton, _ c6:UIButton,_ letter:String, _ label:UILabel,_ l:Character){
+    func setBraille(_ c1:UIButton,_ c2:UIButton, _ c3:UIButton, _ c4:UIButton, _ c5:UIButton, _ c6:UIButton,_ letter:String, _ label:UILabel,_ l:Character, block: UIView){
         
         c1.isHidden = false
         c2.isHidden = false
@@ -434,6 +579,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         c4.isHidden = false
         c5.isHidden = false
         c6.isHidden = false
+        block.isHidden = false
         
         label.text = "\(l)"
         for (i,s) in letter.enumerated() {
