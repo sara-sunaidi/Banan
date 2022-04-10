@@ -35,6 +35,8 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     
     @IBOutlet weak var prevLetterButton: UIButton!
     
+    @IBOutlet weak var checkBtn: UIButton!
+    
     var letters : [Letters]?
     var index: Int?
     var strLetter: String = "حرف "
@@ -100,6 +102,8 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         addShadowBtn(soundBtn)
         addShadowBtn(helpBtn)
         addShadowBtn(exitBtn)
+        addShadowBtn(prevLetterButton)
+        addShadowBtn(checkBtn)
         
         block.layer.cornerRadius = 10
         

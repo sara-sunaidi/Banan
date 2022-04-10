@@ -4349,6 +4349,7 @@
                     </view>
                     <connections>
                         <outlet property="block" destination="5EB-2O-ING" id="u9X-FJ-9DX"/>
+                        <outlet property="checkBtn" destination="CQp-L2-X2R" id="PyH-Gq-moO"/>
                         <outlet property="circle1" destination="qkj-SW-eSU" id="jbk-uK-6uh"/>
                         <outlet property="circle2" destination="iNx-ZF-gFS" id="Ip3-Ee-zb6"/>
                         <outlet property="circle3" destination="zFe-FA-h8r" id="NT6-bN-bSl"/>
