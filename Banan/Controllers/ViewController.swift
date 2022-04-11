@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view.
         //hello
         //perfect!
-        print("\(OpenCVWrapper.openCVVersionString())")
+        //print("\(OpenCVWrapper.openCVVersionString())")
 
     }
 

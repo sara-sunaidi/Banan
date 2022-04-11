@@ -106,9 +106,9 @@ class Letters3ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "GoToLearnLetter"{
-            let destination = segue.destination as! LearnLetterViewController
-            destination.letters = letters
-            destination.index = index
+            //let destination = segue.destination as! LearnLetterViewController
+            //destination.letters = letters
+            //destination.index = index
         }
     }
 }

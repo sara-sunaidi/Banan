@@ -28,7 +28,7 @@ class SignUp2ViewController: UIViewController {
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "EN")
-        dateFormatter.dateFormat =  "MMM dd, YYYY"
+        dateFormatter.dateFormat =  "MM dd, YYYY"
      
         let date = dateFormatter.date(from: dob)
         DOB.date = date ?? date1
@@ -66,7 +66,7 @@ class SignUp2ViewController: UIViewController {
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "EN")
-            dateFormatter.dateFormat = "MMM dd, YYYY"
+            dateFormatter.dateFormat = "MM dd, YYYY"
         
         let somedateString = dateFormatter.string(from: sender.date)
         

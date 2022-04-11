@@ -146,9 +146,9 @@ class CategoryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToWords" {
-            let destinationVC = segue.destination as? WordsViewController
-            destinationVC?.category = Category
-            destinationVC?.arabicCategory = arabicCategory
+//            let destinationVC = segue.destination as? WordsViewController
+//            destinationVC?.category = Category
+//            destinationVC?.arabicCategory = arabicCategory
 
             }
             }

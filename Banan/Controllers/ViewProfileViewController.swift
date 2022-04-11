@@ -54,12 +54,13 @@ class ViewProfileViewController : UIViewController{
                         print(date)
                         let Dob = Int(date!.suffix(4))
                         let calcAge = currentYear - Dob!
-                     print(calcAge)
+                     print("fff" ,calcAge)
                         if calcAge > 10 {
                         self.formatter.locale = Locale(identifier: "ar")
                             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنة"}
                         else {  self.formatter.locale = Locale(identifier: "ar")
                             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
+                        
 
                         if Profile == "Boy"{
                             self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
@@ -96,6 +97,10 @@ class ViewProfileViewController : UIViewController{
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
 //        self.performSegue(withIdentifier: "GoToHomePage", sender: self)
+    }
+    @IBAction func editProfilePressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoToEditProfile", sender: self)
+        
     }
 }
 
