@@ -133,7 +133,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completedWords: data["CompletedWord"] as! [String],
                     completedLevels: data["CompletedLevel"] as! [String] ,
                     completedCategories: data["CompletedCategory"] as! [String],
-                    completedGameAnimal: data["CompletedGameAnimal"] as! [[String: String]],
+            
+//                    completedGameAnimal: data["CompletedGameAnimal"] as! [[String: String]],
+                    GameLevels: data["GameLevels"] as? [[String: String]] ?? [["":""]],
                     email: data["Email"] as! String ,
                     name: data["Name"] as! String,
                     score: data["Score"] as! String,

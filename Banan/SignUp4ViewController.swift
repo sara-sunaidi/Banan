@@ -25,9 +25,12 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var Name: UITextField!
 
-       
+    @IBOutlet weak var load: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        load.isHidden = true
+        
         Name.text = name
         Name.layer.cornerRadius = 15.0
         Name.smartInsertDeleteType = UITextSmartInsertDeleteType.no
@@ -62,16 +65,22 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
    
 
     @IBAction func CreateAccount(_ sender: UIButton) {
+        load.isHidden = false
+        load.startAnimating()
 
         if Name.text == "" {
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)      }
+            load.hidesWhenStopped = true
+            load.stopAnimating()
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)
+        }
         else{
             Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
                 if let e = error{
         
                     print(e)
                     if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                                            
+                        load.hidesWhenStopped = true
+                        load.stopAnimating()
                         switch errorCode {
                                                 
                             case .emailAlreadyInUse:
@@ -94,7 +103,8 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
             let uid = Auth.auth().currentUser?.uid
             self.writeData(id: uid ?? "error")
                 
-            
+                    load.hidesWhenStopped = true
+                    load.stopAnimating()
             self.performSegue(withIdentifier: "ToHomePage", sender: self)
             }
         }

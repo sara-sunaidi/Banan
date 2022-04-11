@@ -112,7 +112,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     func getChildData(){
         let child = LocalStorage.childValue
         if child != nil {
-            self.completedGameAnimal = child!.completedGameAnimal
+           // self.completedGameAnimal = child!.completedGameAnimal
             
         }
     }

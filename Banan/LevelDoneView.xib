@@ -44,7 +44,7 @@
                             <rect key="frame" x="167" y="260" width="500" height="674"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shinyStar" translatesAutoresizingMaskIntoConstraints="NO" id="Mb8-V2-xab">
-                                    <rect key="frame" x="160" y="-90" width="180" height="180"/>
+                                    <rect key="frame" x="160" y="-87.5" width="180" height="180"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
@@ -53,7 +53,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أحسنت ! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hz-d5-aA3" userLabel="أحسنت !">
-                                    <rect key="frame" x="189" y="98" width="122.5" height="42"/>
+                                    <rect key="frame" x="184.5" y="100.5" width="131" height="40.5"/>
                                     <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="36"/>
                                     <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
@@ -110,13 +110,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مجموع النقاط" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx0-rk-Eh6">
-                                            <rect key="frame" x="105.5" y="13.5" width="109.5" height="27"/>
+                                            <rect key="frame" x="83.5" y="14" width="131.5" height="26"/>
                                             <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                             <color key="textColor" red="0.82745098039215681" green="0.68235294117647061" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="١٠٠ +" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adk-hX-leN">
-                                            <rect key="frame" x="10" y="13.5" width="56.5" height="27"/>
+                                            <rect key="frame" x="10" y="14" width="34" height="26"/>
                                             <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                             <color key="textColor" red="0.82745098039999998" green="0.68235294120000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -193,7 +193,7 @@
                                     <rect key="frame" x="80" y="239" width="340" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="قطة" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8b-r8-0ES">
-                                            <rect key="frame" x="97" y="6.5" width="235" height="27"/>
+                                            <rect key="frame" x="97" y="7" width="235" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="235" id="BtD-p7-fYH"/>
                                             </constraints>
@@ -202,7 +202,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٣٤ +" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1M-GE-dqi">
-                                            <rect key="frame" x="8" y="6.5" width="44.5" height="27"/>
+                                            <rect key="frame" x="8" y="7" width="45" height="26"/>
                                             <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                             <color key="textColor" red="0.82745098039999998" green="0.68235294120000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                                     <rect key="frame" x="80" y="287" width="340" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="دجاجة" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhT-vS-Dru">
-                                            <rect key="frame" x="97" y="6.5" width="235" height="27"/>
+                                            <rect key="frame" x="97" y="7" width="235" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="235" id="eLR-8f-JV6"/>
                                             </constraints>
@@ -228,7 +228,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨٠ +" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sX-xk-1DT">
-                                            <rect key="frame" x="8" y="6.5" width="44.5" height="27"/>
+                                            <rect key="frame" x="8" y="7" width="34" height="26"/>
                                             <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                             <color key="textColor" red="0.82745098039999998" green="0.68235294120000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -245,7 +245,7 @@
                                     <rect key="frame" x="80" y="335" width="340" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عصفور" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zeq-ia-cpW">
-                                            <rect key="frame" x="97" y="6.5" width="235" height="27"/>
+                                            <rect key="frame" x="97" y="7" width="235" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="235" id="Y5s-Sv-ip4"/>
                                             </constraints>
@@ -254,7 +254,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٣٤ +" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWE-wq-EQQ">
-                                            <rect key="frame" x="8" y="6.5" width="44.5" height="27"/>
+                                            <rect key="frame" x="8" y="7" width="45" height="26"/>
                                             <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                             <color key="textColor" red="0.82745098039999998" green="0.68235294120000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -269,7 +269,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أكملت المستوى الأول" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y40-gY-gvl">
-                                    <rect key="frame" x="169.5" y="148" width="161.5" height="27"/>
+                                    <rect key="frame" x="147.5" y="149" width="205.5" height="26"/>
                                     <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="23"/>
                                     <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>

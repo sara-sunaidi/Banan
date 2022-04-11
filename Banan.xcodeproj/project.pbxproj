@@ -33,6 +33,9 @@
 		4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */; };
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
+		4DEE74DA27FAF5D900A8694C /* GameLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE74D927FAF5D900A8694C /* GameLevelsViewController.swift */; };
+		4DEE74DE2801BCE200A8694C /* CompletedGameLevel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE74DD2801BCE100A8694C /* CompletedGameLevel.xib */; };
+		4DEE74E02802B43100A8694C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE74DF2802B43000A8694C /* CompletedLevel.swift */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -118,6 +121,9 @@
 		4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
+		4DEE74D927FAF5D900A8694C /* GameLevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevelsViewController.swift; sourceTree = "<group>"; };
+		4DEE74DD2801BCE100A8694C /* CompletedGameLevel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedGameLevel.xib; sourceTree = "<group>"; };
+		4DEE74DF2802B43000A8694C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 				71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */,
 				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
 				56B8218227F9E42500523574 /* LevelDoneView.xib */,
+				4DEE74DD2801BCE100A8694C /* CompletedGameLevel.xib */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
 				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
 				56290D35279E089000F3AC5F /* Info.plist */,
@@ -338,7 +345,9 @@
 				562E3EBC27F906D900CBEEE2 /* StopGameViewController.swift */,
 				56B8218427F9FCDD00523574 /* LevelDoneViewController.swift */,
 				71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */,
+				4DEE74DF2802B43000A8694C /* CompletedLevel.swift */,
 				71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */,
+				4DEE74D927FAF5D900A8694C /* GameLevelsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56B8217D27F9E04F00523574 /* Dog.mp3 in Resources */,
+				4DEE74DE2801BCE200A8694C /* CompletedGameLevel.xib in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				56290D31279E089000F3AC5F /* Assets.xcassets in Resources */,
@@ -558,6 +568,8 @@
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */,
 				4DCEDC6D27B386D300026D14 /* StartScreenViewController.swift in Sources */,
+				4DEE74DA27FAF5D900A8694C /* GameLevelsViewController.swift in Sources */,
+				4DEE74E02802B43100A8694C /* CompletedLevel.swift in Sources */,
 				4D97C0B527E5A7C100AC16A0 /* WordsViewController.swift in Sources */,
 				56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */,
 				4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */,
@@ -767,7 +779,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = D5JCDLCJN6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -775,7 +787,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -788,7 +800,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Banann;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -806,7 +818,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SUA68HSKPH;
+				DEVELOPMENT_TEAM = D5JCDLCJN6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -814,7 +826,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -826,7 +838,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sara.Banann;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Banann;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";

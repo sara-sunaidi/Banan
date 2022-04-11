@@ -39,6 +39,9 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
         SignUp1ViewController.sharedInstance = self
         
         CustomConfirmationViewController.instance.delegate = self
@@ -168,6 +171,12 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
         performSegue(withIdentifier: "SignUp1To2", sender: self)
         }
     }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignUp1To2" {
             let destinationVC = segue.destination as? SignUp2ViewController
