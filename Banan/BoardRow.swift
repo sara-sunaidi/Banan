@@ -32,10 +32,14 @@ struct BoardRow: View {
                 
                 ProgressBarView()
                 
+                HStack{
                 Text("١٠٠/٨٠")
                     .foregroundColor(Color(red: 0.525, green: 0.502, blue: 0.486))
-                    .font(.custom("Almarai", size: 18)).frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 235)
+                    .font(.custom("Almarai", size: 18))
+                    //.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 235)
+                    Spacer()
 
+                }
                 
             })
             
@@ -58,8 +62,8 @@ struct BoardRow: View {
 struct BoardRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            BoardRow(b:Board(level: "المستوى الأول", points: 70, eval: .excellent))
-            BoardRow(b:Board(level: "المستوى الأول", points: 70, eval: .excellent))
+            BoardRow(b:Board(level: "المستوى الأول", point: 70, eval: .excellent))
+            BoardRow(b:Board(level: "المستوى الأول", point: 70, eval: .excellent))
         }
     }
 }

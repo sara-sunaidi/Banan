@@ -17,8 +17,24 @@ struct Board: Identifiable {
     }
     var id = UUID()
     var level: String
-    var points: Int
+    var point: Int
+    var levels = [String]()
+    var points = [String]()
     var eval: BoardEvaluation
+    
+    //get child object
+    func getChild(){
+        let child = LocalStorage.childValue
+        if child != nil{
+            gameInfo(child: child!)
+        }
+    }
+    
+    //child game info
+    func gameInfo(child: Child){
+        
+       // let levels = child.GameLevels.map
+    }
     
     func getEvaluationInfo() -> String {
         var img = ""
@@ -42,8 +58,10 @@ struct Board: Identifiable {
 extension Board {
     // Dummy Data
     static func dummyData() -> [Board] {
-        return [Board(level: "المستوى الأول", points: 70, eval: .outStanding),
-                Board(level: "المستوى الثاني", points: 50, eval: .good),
-                Board(level: "المستوى الثالث", points: 90, eval: .tryAgain)]
+        // array of board
+        
+        return [Board(level: "المستوى الأول", point: 70, eval: .outStanding),
+                Board(level: "المستوى الثاني", point: 50, eval: .good),
+                Board(level: "المستوى الثالث", point: 90, eval: .tryAgain)]
     }
 }
