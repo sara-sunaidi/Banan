@@ -3185,37 +3185,6 @@
                                 <rect key="frame" x="0.0" y="247" width="834" height="793"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-Wk-Cwe">
-                                <rect key="frame" x="0.0" y="49" width="834" height="84"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="تعديل الملف الشخصي" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Da-kl-Gbw">
-                                        <rect key="frame" x="222.5" y="18" width="389" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="9Da-kl-Gbw" secondAttribute="height" multiplier="389:48" id="QNP-Dq-WMk"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="43"/>
-                                        <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4le-Hl-ci1">
-                                        <rect key="frame" x="754" y="18" width="33" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="backButton:" destination="AlA-Tx-4ep" eventType="touchUpInside" id="fr6-XN-n3k"/>
-                                            <action selector="backButtonPressed:" destination="r52-e5-aeb" eventType="touchUpInside" id="Zs2-UG-kZv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="9Da-kl-Gbw" firstAttribute="centerY" secondItem="I5g-Wk-Cwe" secondAttribute="centerY" id="JeZ-QI-sEn"/>
-                                    <constraint firstItem="9Da-kl-Gbw" firstAttribute="centerX" secondItem="I5g-Wk-Cwe" secondAttribute="centerX" id="x6q-ow-0fb"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yac-2f-mJr">
                                 <rect key="frame" x="293" y="422" width="240" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3318,6 +3287,31 @@
                                             <action selector="boyPressed:" destination="r52-e5-aeb" eventType="touchUpInside" id="IrG-0b-DJd"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-Wk-Cwe">
+                                <rect key="frame" x="0.0" y="49" width="834" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4le-Hl-ci1">
+                                        <rect key="frame" x="743" y="5" width="30" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButton:" destination="AlA-Tx-4ep" eventType="touchUpInside" id="fr6-XN-n3k"/>
+                                            <action selector="backButtonPressed:" destination="r52-e5-aeb" eventType="touchUpInside" id="Zs2-UG-kZv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تعديل الملف الشخصي" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Da-kl-Gbw">
+                                        <rect key="frame" x="223" y="0.0" width="389" height="52.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="43"/>
+                                        <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                         </subviews>
