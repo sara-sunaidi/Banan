@@ -31,9 +31,16 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
 
     @IBOutlet weak var Name: UITextField!
 
-       
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.isHidden = true
+        loading.hidesWhenStopped = true
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
         isValid = false
         Name.text = name
         Name.layer.cornerRadius = 15.0
@@ -41,6 +48,11 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         Name.delegate = self
 
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         dismissVC()
         self.dismiss(animated: true, completion: nil)
@@ -69,11 +81,13 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
    
     
     @IBAction func CreateAccount(_ sender: UIButton) {
-//        str.filter
         Name.text = Name.text?.filter
-//        Name.text?.components(separatedBy: CharacterSet.decimalDigits).joined()
         
+        loading.isHidden = false
+        loading.startAnimating()
+
         if Name.text == "" {
+            loading.stopAnimating()
             CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)      }
         else{
             isValid = true
@@ -82,7 +96,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         
                     print(e)
                     if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                                            
+                        loading.stopAnimating()
                         switch errorCode {
                                                 
                             case .emailAlreadyInUse:
@@ -105,7 +119,8 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
             let uid = Auth.auth().currentUser?.uid
             self.writeData(id: uid ?? "error")
                 
-            
+                    loading.stopAnimating()
+
             self.performSegue(withIdentifier: "ToHomePage", sender: self)
             }
         }

@@ -20,9 +20,18 @@ class LogInViewContoller : UIViewController{
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var LogInButton: UIButton!
     @IBOutlet weak var signUp: UIButton!
+    
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     var cheak : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.isHidden = true
+        loading.hidesWhenStopped = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view.
         emailTextfield.layer.cornerRadius = 15.0
         triangle.tintColor = UIColor.white
@@ -33,6 +42,11 @@ class LogInViewContoller : UIViewController{
         circle.tintColor = UIColor.white
         signUp.setAttributedTitle("إنشاء الحساب".underlined, for: .normal)
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func trianglePass(_ sender: UIButton) {
         password = "triangle"
         selectButton(sender)
@@ -62,15 +76,19 @@ class LogInViewContoller : UIViewController{
    
     
     @IBAction func loginPressed(_ sender: UIButton) {
+        loading.isHidden = false
+        loading.startAnimating()
+        
         if emailTextfield.text != ""{
             if cheak == false{
         if let email = emailTextfield.text,  password != "" {
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
             if let e = error{
-    
+
                 print(e)
                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                                        
+                    self.loading.stopAnimating()
+
                     switch errorCode {
                                             
                                         case .userNotFound:
@@ -88,7 +106,7 @@ class LogInViewContoller : UIViewController{
 //                self.errorAlert("البريد الالكتروني او كلمة المرور غير صحيحة")
             }
             else {
-                
+                self.loading.stopAnimating()
                 self.performSegue(withIdentifier: "GoToHomePage", sender: self)
             }
         }} else{

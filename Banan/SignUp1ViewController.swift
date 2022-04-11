@@ -38,6 +38,9 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
         SignUp1ViewController.sharedInstance = self
         
         CustomConfirmationViewController.instance.delegate = self
@@ -69,10 +72,13 @@ class SignUp1ViewController: UIViewController, CustomConfirmationViewControllerD
         default:
             password = ""
         }
-        
 
     }
-
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func emailChanged(_ sender: Any) {
         if let email = Email.text {
             if let errorMessage = invalidEmail(email) {
