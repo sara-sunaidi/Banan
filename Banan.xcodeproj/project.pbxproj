@@ -98,6 +98,7 @@
 		56CBA4FF2801086200251F96 /* Duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4FE2801086200251F96 /* Duck.mp3 */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
+		716D573E2804A3B100A51B96 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716D573D2804A3B100A51B96 /* EditProfileViewController.swift */; };
 		71A3A90927EB7451009F9B09 /* CustomConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */; };
 		71A3A90B27EB7640009F9B09 /* CustomAcknowledgementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */; };
 		71A3A90D27EB76FE009F9B09 /* CustomAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */; };
@@ -209,6 +210,7 @@
 		56CBA4FE2801086200251F96 /* Duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Duck.mp3; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		716D573D2804A3B100A51B96 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomConfirmationView.xib; sourceTree = "<group>"; };
 		71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAcknowledgementView.xib; sourceTree = "<group>"; };
 		71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertView.xib; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				562CA63D2800D9E0004EC8C5 /* Hint3ViewController.swift */,
 				562CA63B2800D9A2004EC8C5 /* Hint4ViewController.swift */,
 				562CA6392800D905004EC8C5 /* Hint5ViewController.swift */,
+				716D573D2804A3B100A51B96 /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */,
 				562CA6302800CE1C004EC8C5 /* Game.swift in Sources */,
 				569FF24D27EBBC5D00F13AAB /* extention_UIImage.swift in Sources */,
+				716D573E2804A3B100A51B96 /* EditProfileViewController.swift in Sources */,
 				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */,

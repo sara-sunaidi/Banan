@@ -97,5 +97,8 @@ class ViewProfileViewController : UIViewController{
         self.dismiss(animated: true, completion: nil)
 //        self.performSegue(withIdentifier: "GoToHomePage", sender: self)
     }
+    @IBAction func editProfilePressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoToEditProfile", sender: self)
+    }
 }
 
