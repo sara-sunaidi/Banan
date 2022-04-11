@@ -42,6 +42,8 @@
 		334F95C4280075FC00CADD89 /* BoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C3280075FC00CADD89 /* BoardList.swift */; };
 		334F95C62800763300CADD89 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C52800763200CADD89 /* Board.swift */; };
 		334F95C82800765E00CADD89 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C72800765E00CADD89 /* BoardRow.swift */; };
+		334F95CF2800872100CADD89 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */; };
+		334F95D02800872500CADD89 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -155,8 +157,8 @@
 		334F95C3280075FC00CADD89 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
 		334F95C52800763200CADD89 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		334F95C72800765E00CADD89 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
-		334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almarai-Bold.ttf"; path = "../../../../../Desktop/Almarai-Bold.ttf"; sourceTree = "<group>"; };
-		334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almarai-Regular.ttf"; path = "../../../../../Desktop/Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334F95AA27FC7C5C00CADD89 /* Alf.mp3 in Resources */,
+				334F95CF2800872100CADD89 /* Almarai-Bold.ttf in Resources */,
 				56290D34279E089000F3AC5F /* LaunchScreen.storyboard in Resources */,
 				4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */,
 				334F95A527FC7C5C00CADD89 /* Tha.mp3 in Resources */,
@@ -577,6 +580,7 @@
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
 				334F95B327FC7C5C00CADD89 /* Aaa.mp3 in Resources */,
 				334F95BC27FC7C5C00CADD89 /* Dal.mp3 in Resources */,
+				334F95D02800872500CADD89 /* Almarai-Regular.ttf in Resources */,
 				334F95B627FC7C5C00CADD89 /* Non.mp3 in Resources */,
 				334F95BB27FC7C5C00CADD89 /* Raa.mp3 in Resources */,
 				334F95A227FC7C5C00CADD89 /* Lam.mp3 in Resources */,
