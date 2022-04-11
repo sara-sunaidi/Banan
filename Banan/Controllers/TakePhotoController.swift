@@ -104,7 +104,7 @@ class TakePhotoController: UIViewController,
     @objc func didTapCheck(){
         print("##### in didTapCheck")
         let photoSettings = AVCapturePhotoSettings()
-//        photoSettings.flashMode = .on
+        photoSettings.flashMode = .on
         photoSettings.isHighResolutionPhotoEnabled = true
         photoSettings.isAutoStillImageStabilizationEnabled = true
         output.capturePhoto(with: photoSettings, delegate: self as AVCapturePhotoCaptureDelegate)
@@ -112,12 +112,31 @@ class TakePhotoController: UIViewController,
     }
     
     func processImage(_ img: UIImage) -> String{
-//        let croppedImg = OpenCVWrapper.detectFourCorner(img.normalized!)
-//        let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
-        let result = OpenCVWrapper.detectRedShapes(in: img.normalized!)
-        return result
+        
+        let cornersResult = OpenCVWrapper.checkCorners(img.normalized!)
+        print("- Corners result is \(cornersResult)")
+        if (cornersResult == "true"){
+            // corners are detected
+            print("- inside corners detected if true")
+            let croppedImg =  OpenCVWrapper.detectFourCorner(img.normalized!)
+            let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
+            let coordinatesResult = OpenCVWrapper.getCoordinatesStatus()
+            print("- Coordinate result is \(coordinatesResult)")
+            if (coordinatesResult == "true"){
+                // return Braille result
+                return result
+            }else{
+                // invalid coordinates
+                print("- ivalid coordinates false")
+                return result
+            }
+        } else {
+            // corners are not detected
+            print("- invalid corners false")
+            return "failed"
+        }
+
     }
-    
     
 }
 
@@ -141,54 +160,13 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
         
         if (image != nil){
             print("##### image is NOT nil ")
-//            capturedImage = image
-//            self.performSegue(withIdentifier: "sendPhotoToWord", sender: self)
-//            wordVC.setImage(image!)
-//            NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("image"), object: nil)
-           
             let result = processImage(image!)
             NotificationCenter.default.post(name: Notification.Name("result"), object: result)
             dismiss(animated: false)
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordViewController")
-//            if vc is WordViewController {
-//                vc.newImage = image
-//            }
-//            vc.modalPresentationStyle = .overFullScreen
-//            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
-            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier: "WordViewController" )as! WordViewController
-//            vc.newImage = image
-//            vc.modalPresentationStyle = .overFullScreen
-//            self.present(vc, animated:  true)
         }else{
             print("##### image is NIL ")
         }
-        
-        
-        
-//        func getUIImage () ->UIImage{
-//            return image!
-//        }
-        
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let vc = storyboard.instantiateViewController(identifier: "ProcessImageController" )as! ProcessImageController
-//                vc.source_image = image
-//                vc.modalPresentationStyle = .overFullScreen
-//                self.present(vc, animated:  true)
-        
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let pic = storyboard.instantiateViewController(withIdentifier: "ProcessImageController") as! ProcessImageController
-        //        pic.source_image = image
-        //        self.navigationController?.pushViewController(pic, animated: true)
-        
     }
-//    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-//           // dispose system shutter sound
-//           AudioServicesDisposeSystemSoundID(1108)
-//       }
-    
-    
 }
 
 

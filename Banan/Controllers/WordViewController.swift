@@ -54,7 +54,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     @IBOutlet weak var fourC44: UIButton!
     @IBOutlet weak var fourC55: UIButton!
     @IBOutlet weak var fourC66: UIButton!
-
+    
     
     @IBOutlet weak var fourC111: UIButton!
     @IBOutlet weak var fourC222: UIButton!
@@ -191,7 +191,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         addShadow(fourC44)
         addShadow(fourC55)
         addShadow(fourC66)
-
+        
         addShadow(fourC111)
         addShadow(fourC222)
         addShadow(fourC333)
@@ -216,7 +216,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         fourblock2.layer.cornerRadius = 10
         fourblock3.layer.cornerRadius = 10
         fourblock4.layer.cornerRadius = 10
-
+        
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         
@@ -273,12 +273,12 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     
     @IBAction func checkAnswerBtn(_ sender: Any) {
-        print("- in Check")
-//        let takeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TakePhotoController") as! TakePhotoController
+        print("- in checkAnswerBtn")
+        //        let takeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TakePhotoController") as! TakePhotoController
         takePhotoVC.checkCameraPermissions()
-                let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
-                    takePhotoVC.didTapCheck()
-                }
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
+            takePhotoVC.didTapCheck()
+        }
         
     }
     
@@ -286,18 +286,11 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     private func checkAnswer(_ actualResult: String){
         
         print("- in CheckAnswer")
-        expectedResult = allWords![index!].Arabic
-        print("- actualResult is \(actualResult)")
         
-        print("- in CheckAnswer IF")
-        // Correct Answer
-        if (actualResult == expectedResult){
-            
-            correctAnswer()
-        }
-        // Undetermined corners
-        else if (actualResult == "UnDetermined"){
-            // show fix paper message
+        if (actualResult == "failed"){
+            // Incorrect placment of pieces
+            print("- in CheckAnswer result is FAILED")
+            // call toast
             let viewModel: SnackbarViewModel
             
             viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
@@ -306,20 +299,33 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
             showSnackbar(snackbar: snackbar)
             
+        } else{
+            
+            expectedResult = allWords![index!].Arabic
+            
+            print("- actualResult is \(actualResult)")
+            
+            print("- in CheckAnswer ELSE")
+            
+            // Correct Answer
+            if (actualResult == expectedResult){
+                correctAnswer()
+            }
+            // Incorrect Answer
+            else{
+                
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
+                showSnackbar(snackbar: snackbar)
+            }
+            
+            
         }
-        // Incorrect Answer
-        else{
-            
-            // Snackbar calling is here
-            let viewModel: SnackbarViewModel
-            
-            viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
-            
-            let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-            let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
-            showSnackbar(snackbar: snackbar)
-        }
-        
         
     }
     
@@ -436,7 +442,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     // show circle
     func showCircle(_ num: Int){
-//        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
+        //        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
         let wordArabic = allWords![index!].Arabic
         var wordArray = Array(wordArabic)
         if(num == 3){
@@ -446,8 +452,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2], block: block4)
         }
         else if(num == 4){
-//            block2.layer.position = .init(x= )
-//            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: fourLetttersView.layer.position.y)
+            //            block2.layer.position = .init(x= )
+            //            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: fourLetttersView.layer.position.y)
             
             setBraille(fourC1,fourC2,fourC3,fourC4,fourC5,fourC6,wordBraille[0],fourLabel1,wordArray[0],block: fourblock1)
             setBraille(fourC11,fourC22,fourC33,fourC44,fourC55,fourC66,wordBraille[1],fourLabel2,wordArray[1], block: fourblock2)
@@ -492,7 +498,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         fourC444.isHidden = true
         fourC555.isHidden = true
         fourC666.isHidden = true
-
+        
         fourC1111.isHidden = true
         fourC2222.isHidden = true
         fourC3333.isHidden = true
@@ -504,7 +510,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         fourLabel2.text = ""
         fourLabel3.text = ""
         fourLabel4.text = ""
-
+        
         
         
         letter1.text = ""
@@ -553,7 +559,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         block3.isHidden = true
         block4.isHidden = true
         block5.isHidden = true
-
+        
     }
     
     // add shadow to circle

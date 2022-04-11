@@ -122,27 +122,34 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     
     private func checkAnswer(_ actualResult: String){
         
-        print("## in CheckAnswer")
+        print("- in CheckAnswer")
         
-        expectedResult = getLetter(letters![index!].Arabic)
-        print("##### actualResult is \(actualResult)")
-        print("##### expectedResult is \(expectedResult)")
+        if (actualResult == "failed"){
+            // Incorrect placment of pieces
+            print("- in CheckAnswer result is FAILED")
+            // call toast
+            let viewModel: SnackbarViewModel
             
-            print("## in CheckAnswer IF")
+            viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
+            
+            let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+            let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
+            showSnackbar(snackbar: snackbar)
+            
+        } else{
+            
+            expectedResult = getLetter(letters![index!].Arabic)
+            
+            print("- actualResult is \(actualResult)")
+            
+            print("- in CheckAnswer ELSE")
+            
+            // Correct Answer
             if (actualResult == expectedResult){
-                // Correct Answer
                 correctAnswer()
-            }else if (actualResult == "UnDetermined"){
-                // show fix paper message
-                let viewModel: SnackbarViewModel
-                
-                viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
-                
-                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
-                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
-                showSnackbar(snackbar: snackbar)
-            }else{
-                // Incorrect Answer
+            }
+            // Incorrect Answer
+            else{
                 
                 // Snackbar calling is here
                 let viewModel: SnackbarViewModel
@@ -153,8 +160,10 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
                 showSnackbar(snackbar: snackbar)
             }
-        
-        
+            
+            
+        }
+        // فاصل
     }
     
     func getLetter(_ s: String)-> String{

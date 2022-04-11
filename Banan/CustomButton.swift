@@ -14,7 +14,6 @@ final class CustomButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        var test = 0
         
         if shadowLayer == nil {
             shadowLayer = CAShapeLayer()
