@@ -110,20 +110,19 @@ class BananTests: XCTestCase {
     }
     
 //    //TC7
-//    func test_invalid_signup_name(){
-//        nameVC.email = "sara.alsunaidi58@gmail.com"
-//        nameVC.password = "star123"
-//        nameVC.dob = "Mar 25, 2016"
-//        nameVC.name = "23"
-//        nameVC.Name.text = "23"
-//
-//
-////        nameVC.textField(nameVC.Name, shouldChangeCharactersIn: nameVC.Name.text..NSMakeRange(0, <#T##UInt#>), replacementString: nameVC.Name.text ?? "")
-//
-//        nameVC.CreateAccount(nameVC.submit)
-//
+    func test_invalid_signup_name(){
+        nameVC.email = "test@gmail.com"
+        nameVC.password = "star123"
+        nameVC.dob = "Mar 25, 2016"
+        nameVC.Name.text = "23Lujain"
+
+        nameVC.CreateAccount(nameVC.submit)
+        
+        
+        XCTAssertTrue(nameVC.isValid && nameVC.Name.text == "Lujain")
+
 //        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال الاسم")
-//    }
+    }
     
 //    //TC8
     
@@ -142,15 +141,16 @@ class BananTests: XCTestCase {
     
 //    //TC8
     // dont know how to test it, it looks like scenario
-//    func test_valid_signup(){
-//        nameVC.email = "test@gmail.com"
-//        nameVC.password = "star123"
-//        nameVC.dob = "Mar 25, 2016"
-//        nameVC.sex = "Girl"
-//        nameVC.name = "Lujain"
-//
-//        //        XCTAssert
-//    }
+    func test_valid_signup(){
+        nameVC.email = "test@gmail.com"
+        nameVC.password = "star123"
+        nameVC.dob = "Mar 25, 2016"
+        nameVC.sex = "Girl"
+        nameVC.Name.text = "ساره"
+        nameVC.CreateAccount(nameVC.submit)
+
+        XCTAssertTrue(nameVC.isValid)
+    }
     
     
     //TC6
@@ -184,14 +184,15 @@ class BananTests: XCTestCase {
     //triangle
     
 //    //does not wait
-//    func test_valid_reset_password(){
-//        resetPasswordVC.oldPass = "triangle"
-//        resetPasswordVC.newPass = "star123"
-//
-//        resetPasswordVC.updatePassword(resetPasswordVC.saveButton)
-//        
-//        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "تم تغير كلمة المرور بنجاح")
-//    }
+    func test_valid_reset_password(){
+        resetPasswordVC.oldPass = "triangle"
+        resetPasswordVC.newPass = "star123"
+
+        resetPasswordVC.updatePassword(resetPasswordVC.saveButton)
+
+        XCTAssertTrue(resetPasswordVC.isValid)
+
+    }
     
     
     override func setUpWithError() throws {

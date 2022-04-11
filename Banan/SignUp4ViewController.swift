@@ -11,6 +11,12 @@ import FirebaseCore
 import FirebaseFirestore
 import Foundation
 
+extension String {
+    var filter: String {
+        return String(unicodeScalars.filter(CharacterSet.letters.contains))
+    }
+}
+
 class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var email : String = ""
     var password : String = ""
@@ -18,7 +24,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var sex : String = ""
 //    var score : String = "0"
     var name : String = ""
-    
+    var isValid = false
     let database = Firestore.firestore()
     
     @IBOutlet weak var submit: UIButton!
@@ -28,6 +34,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
        
     override func viewDidLoad() {
         super.viewDidLoad()
+        isValid = false
         Name.text = name
         Name.layer.cornerRadius = 15.0
         Name.smartInsertDeleteType = UITextSmartInsertDeleteType.no
@@ -60,12 +67,16 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
             return count <= 10 && allowedCharacters.isSuperset(of: characterSet)
         }
    
-
+    
     @IBAction func CreateAccount(_ sender: UIButton) {
-
+//        str.filter
+        Name.text = Name.text?.filter
+//        Name.text?.components(separatedBy: CharacterSet.decimalDigits).joined()
+        
         if Name.text == "" {
             CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم", acknowledgementType: .negative)      }
         else{
+            isValid = true
             Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
                 if let e = error{
         

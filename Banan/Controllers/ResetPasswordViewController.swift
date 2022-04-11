@@ -10,6 +10,8 @@ import Firebase
 import SwiftUI
 class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewControllerDelegate {
     var flag :Bool = false
+    var isValid = true
+
     var oldPass : String = ""
     var newPass : String = ""
     @IBOutlet weak var saveButton: UIButton!
@@ -28,6 +30,8 @@ class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         flag = false
+        isValid = false
+
         CustomAcknowledgementViewController.instance.delegate = self
         saveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         saveButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
@@ -130,6 +134,7 @@ class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewC
         if self.oldPass != ""{
             if self.newPass != "" {
                 if self.oldPass != self.newPass {
+                    isValid = true
          if user != nil{
              user?.reauthenticate(with: credential){ [self]authResult, error in
                 if let e = error{
