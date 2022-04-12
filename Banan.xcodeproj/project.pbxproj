@@ -44,6 +44,7 @@
 		334F95C82800765E00CADD89 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95C72800765E00CADD89 /* BoardRow.swift */; };
 		334F95CF2800872100CADD89 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */; };
 		334F95D02800872500CADD89 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */; };
+		334F95D22805124B00CADD89 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F95D12805124A00CADD89 /* Game.swift */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -159,6 +160,7 @@
 		334F95C72800765E00CADD89 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		334F95CC28007C2200CADD89 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		334F95CD28007C2200CADD89 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		334F95D12805124A00CADD89 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
 				56BD5ED727E432A900F6DBB6 /* Letters.swift */,
 				56BD5ED927E432EE00F6DBB6 /* Words.swift */,
+				334F95D12805124A00CADD89 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
 				334F95C4280075FC00CADD89 /* BoardList.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
+				334F95D22805124B00CADD89 /* Game.swift in Sources */,
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
 				56BD5ED427E431F000F6DBB6 /* LocalStorage.swift in Sources */,

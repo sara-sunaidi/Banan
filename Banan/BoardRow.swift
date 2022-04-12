@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BoardRow: View {
     
+    @State var percent : Float = 0
     var b: Board
     
     var body: some View {
@@ -29,11 +30,14 @@ struct BoardRow: View {
                         .resizable()
                         .frame(width: 23, height: 23)
                 })
+                VStack{
+                    ProgressBarView(percent: self.$percent)
+                }.onAppear() {
+                    self.percent = 0.9}.animation(.spring())
                 
-                ProgressBarView()
-                
+                //Text("\(Int(progress*100))%".convertedDigitsToLocale(Locale(identifier: "AR")))
                 HStack{
-                Text("١٠٠/٨٠")
+                    Text("١٠٠/"+"\(b.point*100)".convertedDigitsToLocale(Locale(identifier: "AR")))
                     .foregroundColor(Color(red: 0.525, green: 0.502, blue: 0.486))
                     .font(.custom("Almarai", size: 18))
                     //.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 235)
@@ -69,17 +73,28 @@ struct BoardRow_Previews: PreviewProvider {
 }
 
 struct ProgressBarView : View {
+    @Binding var percent : Float
+    
     var body: some View{
+       // GeometryReader { geometry in
         ZStack(alignment: .leading){
             
-          //  ZStack{
+          
             Capsule().fill(Color("Color3")).frame(height:20)
-          // }
-            Capsule().fill(Color("Color1")).frame(width: 200, height: 20)
+          
+            Capsule().fill(Color("Color1")).frame(width:CGFloat(self.calPercent()), height: 20)
         }.rotationEffect(.degrees(-180)).overlay(
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color("Color2"), lineWidth: 3)
         )
+        //}
     }
-}
+    
+
+    func calPercent()->Float{
+        let width = UIScreen.main.bounds.width - 540
+        return Float(width) * self.percent
+    }
+
 //Color.black.opacity(0.08)
+}
