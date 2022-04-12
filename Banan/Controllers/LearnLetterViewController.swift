@@ -13,8 +13,14 @@ import Firebase
 
 class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate {
     
+    var letters : [Letters]?
+    var index: Int?
+    var strLetter: String = "حرف "
+    var player: AVAudioPlayer?
+    var expectedResult : String?
+    var completedLetters: [String]?
     
-    
+    let db = Firestore.firestore()
     
     @IBOutlet weak var imageLetter: UIImageView!
     @IBOutlet weak var letter: UILabel!
@@ -37,13 +43,6 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     
     @IBOutlet weak var checkBtn: UIButton!
     
-    var letters : [Letters]?
-    var index: Int?
-    var strLetter: String = "حرف "
-    var player: AVAudioPlayer?
-    var expectedResult : String?
-    
-    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +96,9 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         block.layer.cornerRadius = 10
         
         addColor(letters![index!].Braille)
-        //animateProgress()
+       
+        //animateProgress
+        setProgress()
         
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
@@ -337,15 +338,35 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
     }
     
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }
+        
+    }
+
+    func setChildInfo(child: Child){
+        self.completedLetters = child.completedLetters
+        
+    }
     // set progress bar
     func setProgress(){
-        //var
+        getChildData()
+        var levelArray = [Letters?]()
+        levelArray = letters!
+//        let filteredArray = levelArray.map{$0.Letter}
+        let filteredArray = levelArray.map{$0!.Letter}
+        let intersect = Set(filteredArray).intersection(completedLetters ?? []).count
+        
+        progressView1.setProgress((Float(intersect) / Float(letters?.count ?? 1)), animated: true)
     }
     
     // animate progress bar
     func animateProgress(){
-        let i = 1/Float(letters?.count ?? 1)
-        progressView1.setProgress(i, animated: true)
+        setProgress()
+//        let i = 1/Float(letters?.count ?? 1)
+//        progressView1.setProgress(i, animated: true)
     }
     
     @IBAction func pressBack(_ sender: UIButton) {
