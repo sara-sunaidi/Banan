@@ -9,6 +9,8 @@ import UIKit
 import SwiftUI
 import FirebaseFirestore
 import Firebase
+import AVFoundation
+
 
 class LearningPageViewController: UIViewController {
 
@@ -17,6 +19,8 @@ class LearningPageViewController: UIViewController {
 
     var completedLetters: [String]?
     var completedWords: [String]?
+    var player: AVAudioPlayer?
+
     
     @IBOutlet weak var letterButton: UIButton!
     
@@ -118,11 +122,34 @@ class LearningPageViewController: UIViewController {
     }
     
     @IBAction func pressLearnLetters(_ sender: UIButton) {
+        playSound("Letters")
         self.performSegue(withIdentifier: "GoToLearnLettersPage", sender: self)
     }
     
     @IBAction func pressLearnWords(_ sender: UIButton) {
+        playSound("Words")
         self.performSegue(withIdentifier: "GoToLearnWordsPage", sender: self)
     }
     
+    // play sound
+    func playSound(_ name:String) {
+        
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 }

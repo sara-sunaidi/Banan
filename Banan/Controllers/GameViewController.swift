@@ -305,7 +305,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         playSound()
     }
     func playSound(){
-        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)", withExtension: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)-Game", withExtension: "mp3") else { return }
         //to find sound name:
         //letters![index!].Letter
         do {

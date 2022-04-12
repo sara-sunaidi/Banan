@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 import FirebaseFirestore
 import Firebase
+import AVFoundation
 
 class LevelsViewController: UIViewController {
     
@@ -35,7 +36,8 @@ class LevelsViewController: UIViewController {
     
     var completedLevels = [String]()
     var completedLetters = [String]()
-    
+    var player: AVAudioPlayer?
+
     //buttons
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
@@ -185,6 +187,7 @@ class LevelsViewController: UIViewController {
     @IBAction func levelPressed(_ sender: UIButton) {
         switch sender{
         case firstButton:
+            playSound("First")
             print("ggg")
             chosenLevel = first
             //            levelTitle = "المستوى الثاني"
@@ -193,54 +196,63 @@ class LevelsViewController: UIViewController {
             break;
             
         case secondButton:
+            playSound("Second")
             chosenLevel = second
             levelTitle = "المستوى الثاني"
             print("in second")
             break;
             
         case thirdButton:
+            playSound("Third")
             chosenLevel = third
             levelTitle = "المستوى الثالث"
             print("in third")
             break;
             
         case fourthButton:
+            playSound("Fourth")
             chosenLevel = fourth
             levelTitle = "المستوى الرابع"
             print("in fourth")
             break;
             
         case fifthButton:
+            playSound("Fifth")
             chosenLevel = fifth
             levelTitle = "المستوى الخامس"
             print("in fifth")
             break;
             
         case sixthButton:
+            playSound("Sixth")
             chosenLevel = sixth
             levelTitle = "المستوى السادس"
             print("in sixth")
             break;
             
         case seventhButton:
+            playSound("Seventh")
             chosenLevel = seventh
             levelTitle = "المستوى السابع"
             print("in seventh")
             break;
             
         case eighthButton:
+            playSound("Eighth")
             chosenLevel = eighth
             levelTitle = "المستوى الثامن"
             print("in eighth")
             break;
             
         case ninthButton:
+            playSound("Ninth")
             chosenLevel = ninth
             levelTitle = "المستوى التاسع"
             print("in ninth")
             break;
             
         case tenthButton:
+            playSound("Tenth")
             chosenLevel = tenth
             levelTitle = "المستوى العاشر"
             print("in tenth")
@@ -284,4 +296,25 @@ class LevelsViewController: UIViewController {
         }
     }
     
+    // play sound
+    func playSound(_ name:String) {
+        
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CategoryViewController: UIViewController {
 
@@ -21,6 +22,8 @@ class CategoryViewController: UIViewController {
 
     var Category : String = ""
     var arabicCategory : String = ""
+    var player: AVAudioPlayer?
+
 
     @IBOutlet weak var material: UIButton!
     @IBOutlet weak var food: UIButton!
@@ -89,6 +92,8 @@ class CategoryViewController: UIViewController {
         Category = "Material"
         arabicCategory = "أدوات"
         allWords = allMaterial
+        
+        playSound("Material")
         performSegue(withIdentifier: "GoToWords", sender: self)
     }
 
@@ -96,6 +101,8 @@ class CategoryViewController: UIViewController {
         Category = "Food"
         arabicCategory = "أطعمة"
         allWords = allFood
+        
+        playSound("Food")
         performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
@@ -103,6 +110,8 @@ class CategoryViewController: UIViewController {
         Category = "Place"
         arabicCategory = "أماكن"
         allWords = allPlace
+        
+        playSound("Place")
         performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
@@ -110,6 +119,8 @@ class CategoryViewController: UIViewController {
         Category = "Animal"
         arabicCategory = "حيوانات"
         allWords = allAnimal
+        
+        playSound("Animal")
         performSegue(withIdentifier: "GoToWords", sender: self)
     }
     
@@ -152,18 +163,28 @@ class CategoryViewController: UIViewController {
 
             }
             }
-            
-            
+    
+    // play sound
+    func playSound(_ name:String) {
         
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
-    */
 
 }
 

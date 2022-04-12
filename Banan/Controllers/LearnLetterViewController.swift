@@ -13,7 +13,7 @@ import Firebase
 
 class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate {
     
-   
+    
     
     
     @IBOutlet weak var imageLetter: UIImageView!
@@ -40,40 +40,28 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     var letters : [Letters]?
     var index: Int?
     var strLetter: String = "حرف "
-    //= "حرف اللام"
     var player: AVAudioPlayer?
     var expectedResult : String?
     
     let db = Firestore.firestore()
-    //    private let progressView: UIProgressView = {
-    //        let progressView = UIProgressView(progressViewStyle: .bar)
-    //        progressView.trackTintColor = .gray
-    //        progressView.progressTintColor = UIColor(named: "Color")
-    //        progressView.transform = progressView.transform.scaledBy(x: 1, y: 20)
-    //
-    //        return progressView
-    //    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playSound("\(letters![index!].Letter)")
+
         let lettersWithout = ["2aa", "Alf", "2lf", "Ttt"]
-        //2aa = ء
-        //Alf = ا
-        //2lf = أ
-        //Ttt = ة
+        
         if(index! == 0){
-            // or change background to gray?
             prevLetterButton.isHidden = true
-            //need to change plain to default
-            //            prevLetterButton.backgroundColor = UIColor(red: 134/255, green: 128/255, blue: 124/255, alpha: 0.5)
         }else {
             prevLetterButton.isHidden = false
         }
-       
+        
         if(lettersWithout.contains(letters![index!].Letter)){
             strLetter = ""
         }
-        //playSound()
-        // progressView1.frame = CGRect(x: 50, y: 20, width: 1000, height: 100)
+        
         strLetter += letters![index!].Arabic
         
         letter.text = strLetter
@@ -82,6 +70,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         progressView1.layer.borderWidth = 5;
         progressView1.layer.borderColor =  UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
+        
         // Set the rounded edge for the outer bar
         progressView1.layer.cornerRadius = 15
         progressView1.clipsToBounds = true
@@ -108,6 +97,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         block.layer.cornerRadius = 10
         
         addColor(letters![index!].Braille)
+        //animateProgress()
         
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
@@ -159,6 +149,10 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
                 showSnackbar(snackbar: snackbar)
+                
+                //play sound
+                playSound("Incorrect")
+
             }
             
             
@@ -225,7 +219,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         case "الذال":
             return "ذ"
         default:
-           return "- not found in switch"
+            return "- not found in switch"
         }
     }
     
@@ -235,18 +229,23 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         // # update user info
         updateCompletedLetter()
+        
+        //play sound
+        playSound("Correct")
+        //animate progress
+        animateProgress()
     }
     func updateCompletedLetter(){
         if let userId = Auth.auth().currentUser?.uid {
-                let collectionRef = self.db.collection("Children")
-                let thisUserDoc = collectionRef.document(userId)
+            let collectionRef = self.db.collection("Children")
+            let thisUserDoc = collectionRef.document(userId)
             thisUserDoc.updateData([
                 "CompletedLetter": FieldValue.arrayUnion([letters![index!].Letter])
-        ])
-            }
+            ])
+        }
     }
     @IBAction func pressSound(_ sender: UIButton) {
-        playSound()
+        playSound("\(letters![index!].Letter)")
     }
     // add shadow to circle
     func addShadow(_ crl: UIButton){
@@ -318,12 +317,11 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     }
     
     // play sound
-    func playSound() {
-        //progressView1.setProgress(0.3, animated: true)
+    func playSound(_ name:String) {
         
-        guard let url = Bundle.main.url(forResource: "Thl", withExtension: "mp3") else { return }
-        //to find sound name:
-        //letters![index!].Letter
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -339,17 +337,20 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         }
         
     }
+    
     // set progress bar
     func setProgress(){
-        //var 
+        //var
     }
     
     // animate progress bar
     func animateProgress(){
-        
+        let i = 1/Float(letters?.count ?? 1)
+        progressView1.setProgress(i, animated: true)
     }
+    
     @IBAction func pressBack(_ sender: UIButton) {
-//        self.dismiss(animated: true, completion: nil)
+        //        self.dismiss(animated: true, completion: nil)
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     
@@ -366,7 +367,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
         }
-       
+        
     }
     
     func didYesButtonTapped() {
@@ -416,22 +417,22 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
             }
         })
     }
-      
+    
     func didExitButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     func didContinueButtonTapped() {
         if (index == (letters!.count)-1){
             self.dismiss(animated: true, completion: nil)
         }else {
             index = index! + 1
             strLetter = "حرف "
-                viewDidLoad()
+            viewDidLoad()
         }
-       
+        
     }
-
+    
     func didRedoButtonTapped() {
         strLetter = "حرف "
         viewDidLoad()

@@ -14,6 +14,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 
 class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
@@ -26,6 +27,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     var wordBraille = [String]()
     let db = Firestore.firestore()
     var expectedResult : String?
+    var player: AVAudioPlayer?
+
     
     //four letters
     
@@ -137,6 +140,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         print("- in view load WORD")
         super.viewDidLoad()
         
+        playSound("\(allWords![index!].Word)")
+
         if(index! == 0){
             
             preWordButton.isHidden = true
@@ -322,6 +327,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                 let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
                 showSnackbar(snackbar: snackbar)
+                
+                //play sound
+                playSound("Incorrect")
             }
             
             
@@ -335,6 +343,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .word)
         
         updateCompletedWord()
+        
+        //play sound
+        playSound("Correct")
     }
     
     func updateCompletedWord(){
@@ -357,7 +368,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
-        // # play audio
+        playSound("\(allWords![index!].Word)")
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
@@ -628,7 +639,28 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             }
         }
     }
-    
+   
+    // play sound
+    func playSound(_ name:String) {
+        
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 }
 
 

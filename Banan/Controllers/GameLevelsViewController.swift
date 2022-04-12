@@ -66,7 +66,7 @@ class GameLevelsViewController: UIViewController {
         num = gameLevels.count-1
         
         for i in 0...num {
-        let points = gameLevels.map{$0["Score"]!}
+        let points = gameLevels.map{$0["Score"] ?? "0"}
             if (Double(points[i]) ?? 0 >= 0.20) {
                let levels = gameLevels.map{$0["Level"]!}
                   switch levels[i] {

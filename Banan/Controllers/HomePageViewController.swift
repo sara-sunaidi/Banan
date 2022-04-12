@@ -9,6 +9,8 @@ import UIKit
 import SwiftUI
 import FirebaseFirestore
 import Firebase
+import AVFoundation
+
 
 class HomePageViewController : UIViewController{
     @IBOutlet weak var name: UILabel!
@@ -27,7 +29,7 @@ class HomePageViewController : UIViewController{
     var wordsCount = Int()
     var completedLetters = [String]()
     var completedWords = [String]()
-    
+    var player: AVAudioPlayer?
 //    let db = Firestore.firestore()
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
@@ -103,6 +105,7 @@ class HomePageViewController : UIViewController{
     
     
     @IBAction func pressLearn(_ sender: UIButton) {
+        playSound("Practice")
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
     }
@@ -110,12 +113,34 @@ class HomePageViewController : UIViewController{
         performSegue(withIdentifier: "GoToProfile", sender: self)    }
     
     @IBAction func pressGame(_ sender: UIButton) {
-        
+        playSound("Game")
             performSegue(withIdentifier: "GoToGameLevels", sender: self)
         
         }
     @IBAction func pressDashBoard(_ sender: Any) {
         performSegue(withIdentifier: "GoToDashBoard", sender: self)
 
+    }
+
+    // play sound
+    func playSound(_ name:String) {
+        
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
 }
