@@ -39,7 +39,8 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
     let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         getChildData()
         CustomAcknowledgementViewController.instance.delegate = self
         let db = Firestore.firestore()
@@ -235,5 +236,8 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
             self.dismiss(animated: true, completion: nil)
 //            self.performSegue(withIdentifier: "GoToProfile", sender: self)
         }}
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 

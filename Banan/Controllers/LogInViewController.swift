@@ -195,6 +195,7 @@ class LogInViewContoller : UIViewController{
     @IBAction func signUp(_ sender: UIButton) {
         self.performSegue(withIdentifier: "GoToSignUp", sender: self)
     }
+    
 }
 
 
