@@ -7,17 +7,8 @@
 
 import UIKit
 
-class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
-    func didExitButtonTapped() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func didPlayAgainButtonTapped() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-   
-    
+class GameLevelsViewController: UIViewController {
+
     //buttons
     @IBOutlet weak var level1: UIButton!
     @IBOutlet weak var level2: UIButton!
@@ -35,40 +26,49 @@ class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     
+    @IBOutlet weak var score1: UILabel!
+    @IBOutlet weak var score2: UILabel!
+    @IBOutlet weak var score3: UILabel!
     
     var gameLevels = [[String: String]]()
-    var allAnimals = [Game]()
-    var Level1 = [Game]()
-    var Level2 = [Game]()
-    var Level3 = [Game]()
 
     var num : Int = 0
     var LevelNumber : Int = 0
     var LevelOne : Bool = false
     var LevelTwo : Bool = false
     var LevelThree : Bool = false
+    
+    var Level1 : Double = 0
+    var Level2 : Double = 0
+    var Level3 : Double = 0
+
+    var val : Int = 0
 
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
-        getGameAnimalsData()
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getChildData()
-        getGameAnimalsData()
-        groupByLevel()
-        
+       
+        score1.text = ""
+        score2.text = ""
+        score3.text = ""
+
         num = gameLevels.count-1
         
         for i in 0...num {
-        let points = gameLevels.map{$0["UserPoints"]!}
+        let points = gameLevels.map{$0["Score"]!}
             if (Double(points[i]) ?? 0 >= 0.20) {
                let levels = gameLevels.map{$0["Level"]!}
                   switch levels[i] {
                    case "First": LevelOne = true
+                      Level1 = Double(points[i]) ?? 0
                    case "Second": LevelTwo = true
+                      Level2 = Double(points[i]) ?? 0
                    case "Third": LevelThree = true
+                      Level3 = Double(points[i]) ?? 0
                   default:
                     LevelOne = false
                     LevelTwo = false
@@ -76,13 +76,30 @@ class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
                 }
             }
         }
+        print("ggggggg")
+        print(LevelOne)
+        print(Level1)
+        print(LevelTwo)
+        print(Level2)
+        print(LevelThree)
+        print(Level3)
+        print("ggggggg")
 
-
-        designButton(button: level1, pic: pic1, lock: lock1, completed: LevelOne, comp: LevelOne, label: label1)
-        designButton(button: level2, pic: pic2, lock: lock2, completed: LevelTwo, comp: LevelOne, label: label2)
-        designButton(button: level3, pic: pic3, lock: lock3, completed: LevelThree, comp: LevelTwo, label: label3)
-
-        CompletedLevel.instance.delegate = self
+        designButton(button: level1)
+        designButton(button: level2)
+        designButton(button: level3)
+        
+        if(LevelOne) {
+            designCurrentLevel(button: level1, pic: pic1, lock: lock1, label: score1, score: Level1)
+            designNextLevel(button: level2, pic: pic2, lock: lock2, label: label2)
+        }
+        if(LevelTwo) {
+            designCurrentLevel(button: level2, pic: pic2, lock: lock2, label: score2, score: Level2)
+            designNextLevel(button: level3, pic: pic3, lock: lock3, label: label3)
+        }
+        if(LevelThree){
+            designCurrentLevel(button: level3, pic: pic3, lock: lock3, label: score3, score: Level3)
+        }
     }
     
     func getChildData(){
@@ -91,34 +108,11 @@ class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
             setChildInfo(child: child!)
         }}
     
-    func getGameAnimalsData(){
-        let animal = LocalStorage.allGameInfo
-        if animal != nil{
-            allAnimals = animal!
-        }
-    }
-    
     func setChildInfo(child: Child){
         self.gameLevels = child.GameLevels
     }
     
-    func designButton(button : UIButton ,pic : UIImageView ,lock : UIImageView ,completed : Bool ,comp : Bool , label : UILabel){
-        if (comp) {
-        button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
-        let yourImage: UIImage = UIImage(named: "Vector (5)")!
-        pic.image = yourImage
-        let image : UIImage = UIImage(named:"openlock")!
-        lock.image = image
-        label.textColor = UIColor(red: 169/255, green: 106/255, blue: 74/255, alpha: 1)
-        }
-        if (completed) {
-//        button.tintColor =  UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
-            button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
-            let yourImage: UIImage = UIImage(systemName: "checkmark.circle.fill")!
-        lock.image = yourImage
-        lock.tintColor = UIColor(red: 169/255, green: 106/255, blue: 74/255, alpha: 1)
-      
-        }
+    func designButton(button : UIButton){
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         button.layer.shadowOpacity = 0.8
@@ -126,14 +120,30 @@ class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
         button.layer.masksToBounds = false
     }
     
-    func groupByLevel() {
-
-        Level1 = allAnimals.filter({$0.Level == "First"})
-        Level2 = allAnimals.filter({$0.Level == "Second"})
-        Level3 = allAnimals.filter({$0.Level == "Third"})
+    func designNextLevel (button : UIButton ,pic : UIImageView ,lock : UIImageView, label : UILabel) {
         
-        }
+        button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
+        let yourImage: UIImage = UIImage(named: "Vector (5)")!
+        pic.image = yourImage
+        let image : UIImage = UIImage(named:"openlock")!
+        lock.image = image
+        label.textColor = UIColor(red: 169/255, green: 106/255, blue: 74/255, alpha: 1)
+    }
     
+    func designCurrentLevel(button : UIButton ,pic : UIImageView ,lock : UIImageView, label : UILabel, score : Double) {
+        button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
+        let yourImage: UIImage = UIImage(named: "star")!
+    lock.image = yourImage
+
+        label.text = "\(returnArabicNum(num: Int(score*100)))/١٠٠"
+    }
+    
+    func returnArabicNum( num: Int) -> String{
+        let arabicNum = "\(num)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        
+        return "\(arabicNum)"
+    }
+
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -142,32 +152,18 @@ class GameLevelsViewController: UIViewController, CompletedLevelDelegate {
     @IBAction func levelOnePressed(_ sender: UIButton) {
         LevelNumber = 1
         
-        if (LevelOne) {
-            CompletedLevel.instance.showAlert(title: "أحسنت", level: "أكملت المستوى الأول", gameArray: Level1)
-        } else {
-            
-        }
-            
     }
     @IBAction func levelTwoPressed(_ sender: UIButton) {
         LevelNumber = 2
-        
-        if (LevelTwo) {
-            CompletedLevel.instance.showAlert(title: "أحسنت", level: "أكملت المستوى الثاني", gameArray: Level2)
-        } else {
+        if(LevelOne) {
             
         }
-
     }
     @IBAction func levelThreePressed(_ sender: UIButton) {
         LevelNumber = 3
-        
-        if (LevelThree) {
-            CompletedLevel.instance.showAlert(title: "أحسنت", level: "أكملت المستوى الثالث", gameArray: Level3)
-        } else {
+        if(LevelTwo) {
             
         }
-
     }
     
     /*
