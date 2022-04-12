@@ -10,9 +10,34 @@ import SwiftUI
 
 class DashboardViewController: UIViewController {
 
+    @IBOutlet weak var totalLevels: UILabel!
+    @IBOutlet weak var totalPoints: UILabel!
+    
+    //get child object
+   func getChild(){
+        let child = LocalStorage.childValue
+        if child != nil{
+            gameInfo(child: child!)
+            
+        }
+    }
+    
+    func gameInfo(child: Child){
+        
+        let allPoints = child.GameLevels.map({Int($0["UserPoints"]!)!}).reduce(0, +)
+        self.totalPoints.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        
+        let allLevels = child.GameLevels.map({ $0["Level"] })
+        self.totalLevels.text = "\(allLevels.count)".convertedDigitsToLocale(Locale(identifier: "AR"))
+
+        
+  
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getChild()
         // Do any additional setup after loading the view.
     }
     
@@ -20,13 +45,9 @@ class DashboardViewController: UIViewController {
         return UIHostingController(coder: coder, rootView: BoardList())
     }
     
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func pressBack(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

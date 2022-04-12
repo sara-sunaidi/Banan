@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Banan
-//
-//  Created by Sara Alsunaidi on 24/01/2022.
-//
-
 import UIKit
 import Firebase
 import FirebaseStorage
@@ -12,7 +5,7 @@ import FirebaseStorage
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -21,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.fetchLettersInfo()
         self.fetchWordsInfo()
+        self.fetchGameInfo()
         
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
@@ -31,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UserDefaults.standard.set(true, forKey: "isLogged")
                 //                Set is logged in child to true
 //                animatedSplashVC.isChild = true
-   
-                
+
             } else {
                 print("user not exist ")
                 UserDefaults.standard.set(false, forKey: "isLogged")
@@ -41,9 +34,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                animatedSplashVC.isChild = false
             }
         }
-        
+        UIWindow(frame: UIScreen.main.bounds)
+
         return true
     }
+    
+    func fetchGameInfo(){
+            FirebaseRequest.setDBListenerGame(completion: fetchGame(_:_:))
+        }
+        
+        func fetchGame(_ data:Any?, _ error:Error?) -> Void {
+
+            if let data = data as? [Game]{
+                
+                LocalStorage.allGameInfo = data
+
+            }else{
+                print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+            }
+        }
+    
     
     func fetchWordsInfo(){
         FirebaseRequest.setDBListenerWords(completion: fetchWords(_:_:))
@@ -75,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -103,9 +112,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completedWords: data["CompletedWord"] as! [String],
                     completedLevels: data["CompletedLevel"] as! [String] ,
                     completedCategories: data["CompletedCategory"] as! [String],
-                    email: data["Email"] as! String ,
+                    GameLevels: data["GameLevels"] as? [[String: String]] ?? [["String": "String"]]  ,
+                    email: data["Email"] as! String,
                     name: data["Name"] as! String,
-                    score: data["Score"] as! String,
+//                    score: data["Score"] as! String,
                     gender: data["Gender"] as! String)
 
                 //Store child object in local storage
@@ -119,4 +129,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-

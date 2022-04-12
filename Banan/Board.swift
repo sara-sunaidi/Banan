@@ -17,7 +17,7 @@ struct Board: Identifiable {
     }
     var id = UUID()
     var level: String
-    var point: Int
+    var point: Float
     var eval: BoardEvaluation
 
     static var levels = [String?]()
@@ -25,18 +25,18 @@ struct Board: Identifiable {
     static var evals = [String?]()
     
     //get child object
-    mutating func getChild(){
+   static func getChild(){
         print("in booooaaardddd")
         let child = LocalStorage.childValue
         if child != nil{
-            Board.levels = getGameLevels(child: child!)
-            Board.points = getGamePoitns(child: child!)
-            Board.evals = getGameEvals(child: child!)
+            levels = getGameLevels(child: child!)
+            points = getGamePoitns(child: child!)
+            evals = getGameEvals(child: child!)
         }
     }
     
     //get child completed levels
-     func getGameLevels(child: Child) -> [String?]{
+    static func getGameLevels(child: Child) -> [String?]{
         
         let gameLevels = child.GameLevels.map({ $0["Level"] })
         print("game level \(gameLevels)")
@@ -45,7 +45,7 @@ struct Board: Identifiable {
     }
     
     //get child point of each level
-    func getGamePoitns(child: Child) -> [String?]{
+   static func getGamePoitns(child: Child) -> [String?]{
        
        let gamePoitns = child.GameLevels.map({ $0["Score"] })
        print("game point \(gamePoitns)")
@@ -54,7 +54,7 @@ struct Board: Identifiable {
     }
     
     //get child eval of each level
-    func getGameEvals(child: Child) -> [String?]{
+   static func getGameEvals(child: Child) -> [String?]{
        
        let gameEvals = child.GameLevels.map({ $0["Evaluation"] })
        print("game point \(gameEvals)")
@@ -82,83 +82,91 @@ struct Board: Identifiable {
 }
 
 extension Board {
-    // Dummy Data
-  static func dummyData() -> [Board] {
+    
+  static func getBoards() -> [Board] {
+      getChild()
+      print("----in board extension")
+
         var boardArray = [Board]()
-        var i = 0
         var j = 0
 
         for l in levels {
+            print("----in for board extension")
+
             if(l == "First"){
+                print("----in first if board extension")
+
                 if(evals[j] == "رائع"){
-                    let b = Board(level: "المستوى الأول", point: Int(points[j]!)! , eval: .outStanding)
-                    boardArray[i] = b
-                    i = i+1
+                    print("---- \(Float(points[j]!)!)")
+
+                    let b = Board(level: "المستوى الأول", point: Float(points[j]!)! , eval: .outStanding)
+                    print("---- \(b)")
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 if(evals[j] == "ممتاز"){
-                    let b = Board(level: "المستوى الأول", point: Int(points[j]!)! , eval: .excellent)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الأول", point: Float(points[j]!)! , eval: .excellent)
+                    boardArray.append(b)
+                   // i = i+1
                 }
                 if(evals[j] == "جيد"){
-                    let b = Board(level: "المستوى الأول", point: Int(points[j]!)! , eval: .good)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الأول", point: Float(points[j]!)! , eval: .good)
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 if(evals[j] == "حاول مرة أخرى"){
-                    let b = Board(level: "المستوى الأول", point: Int(points[j]!)! , eval: .tryAgain)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الأول", point: Float(points[j]!)! , eval: .tryAgain)
+                    boardArray.append(b)
+                   // i = i+1
                 }
                 }
             else if (l == "Second"){
                 if(evals[j] == "رائع"){
-                    let b = Board(level: "المستوى الثاني", point: Int(points[j]!)! , eval: .outStanding)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثاني", point: Float(points[j]!)! , eval: .outStanding)
+                    boardArray.append(b)
+                  //  i = i+1
                 }
                 if(evals[j] == "ممتاز"){
-                    let b = Board(level: "المستوى الثاني", point: Int(points[j]!)! , eval: .excellent)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثاني", point: Float(points[j]!)! , eval: .excellent)
+                    boardArray.append(b)
+                   // i = i+1
                 }
                 if(evals[j] == "جيد"){
-                    let b = Board(level: "المستوى الثاني", point: Int(points[j]!)! , eval: .good)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثاني", point: Float(points[j]!)! , eval: .good)
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 if(evals[j] == "حاول مرة أخرى"){
-                    let b = Board(level: "المستوى الثاني", point: Int(points[j]!)! , eval: .tryAgain)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثاني", point: Float(points[j]!)! , eval: .tryAgain)
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 }
             else {
                 if(evals[j] == "رائع"){
-                    let b = Board(level: "المستوى الثالث", point: Int(points[j]!)! , eval: .outStanding)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثالث", point: Float(points[j]!)!, eval: .outStanding)
+                    boardArray.append(b)
+                   // i = i+1
                 }
                 if(evals[j] == "ممتاز"){
-                    let b = Board(level: "المستوى الثالث", point: Int(points[j]!)! , eval: .excellent)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثالث", point: Float(points[j]!)! , eval: .excellent)
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 if(evals[j] == "جيد"){
-                    let b = Board(level:"المستوى الثالث", point: Int(points[j]!)! , eval: .good)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثالث", point: Float(points[j]!)! , eval: .good)
+                    boardArray.append(b)
+                    //i = i+1
                 }
                 if(evals[j] == "حاول مرة أخرى"){
-                    let b = Board(level: "المستوى الثالث", point: Int(points[j]!)! , eval: .tryAgain)
-                    boardArray[i] = b
-                    i = i+1
+                    let b = Board(level: "المستوى الثالث", point: Float(points[j]!)! , eval: .tryAgain)
+                    boardArray.append(b)
+                    //i = i+1
                 }
             }
             j = j+1
          }
         return boardArray
     }
-      //return [Board(level: "المستوى الأول", point: 1, eval: .outStanding)]
   }
 

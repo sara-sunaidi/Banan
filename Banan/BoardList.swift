@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoardList: View {
     
-    let boards = Board.dummyData()
+    let boards = Board.getBoards()
 //    Board(level: "المستوى الأول", points: 70, eval: .outStanding)
     
     init(){
@@ -23,6 +23,11 @@ struct BoardList: View {
         
         VStack(alignment: .leading, spacing: 0){
 //            LabelledDivider(label: "الإنجازات")
+            if boards.isEmpty{
+                Text("لا توجد لديك إنجازات")
+                    .foregroundColor(Color(red: 0.137, green: 0.263, blue: 0.271))
+                    .font(.custom("Almarai", size: 23))
+            }else{
             List(boards){
                 board in
                 BoardRow(b: board)
@@ -31,14 +36,16 @@ struct BoardList: View {
             .listStyle(PlainListStyle())
             .background(Color.clear)
             .padding(.all, 0)
-        }
+        
         .listRowInsets(EdgeInsets()) // hack for ios14
             .background(Color(red: 0.949, green: 0.953, blue: 0.961))
 
         }
-
+        }
+    
 }
 
+}
 
 struct BoardList_Previews: PreviewProvider {
     static var previews: some View {
@@ -78,7 +85,7 @@ struct LabelledDivider: View {
             
     }
 }
-
+}
 struct ExDivider: View {
     let color: Color = Color(red: 0.525, green: 0.502, blue: 0.486)
     let width: CGFloat = 2
@@ -89,4 +96,5 @@ struct ExDivider: View {
             .edgesIgnoringSafeArea(.horizontal)
     }
 }
-}
+
+

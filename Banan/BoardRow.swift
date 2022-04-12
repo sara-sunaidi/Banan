@@ -33,11 +33,11 @@ struct BoardRow: View {
                 VStack{
                     ProgressBarView(percent: self.$percent)
                 }.onAppear() {
-                    self.percent = 0.9}.animation(.spring())
+                    self.percent = b.point}.animation(.spring())
                 
                 //Text("\(Int(progress*100))%".convertedDigitsToLocale(Locale(identifier: "AR")))
                 HStack{
-                    Text("١٠٠/"+"\(b.point*100)".convertedDigitsToLocale(Locale(identifier: "AR")))
+                    Text("١٠٠/"+"\(Int(b.point*100))".convertedDigitsToLocale(Locale(identifier: "AR")))
                     .foregroundColor(Color(red: 0.525, green: 0.502, blue: 0.486))
                     .font(.custom("Almarai", size: 18))
                     //.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 235)
@@ -80,9 +80,9 @@ struct ProgressBarView : View {
         ZStack(alignment: .leading){
             
           
-            Capsule().fill(Color("Color3")).frame(height:20)
+            Capsule().fill(Color("Color3")).frame(height:22)
           
-            Capsule().fill(Color("Color1")).frame(width:CGFloat(self.calPercent()), height: 20)
+            Capsule().fill(Color("Color1")).frame(width:CGFloat(self.calPercent()), height: 22)
         }.rotationEffect(.degrees(-180)).overlay(
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color("Color2"), lineWidth: 3)
