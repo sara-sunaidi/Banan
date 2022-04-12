@@ -403,6 +403,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     // The coming method to handle exit confirmation pop-up actions
     
     func didYesButtonTapped() {
+        player?.stop()
         print("- Yes tapped in word controller")
         self.dismiss(animated: true, completion: nil)
     }

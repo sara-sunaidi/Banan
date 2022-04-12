@@ -124,7 +124,7 @@ class HomePageViewController : UIViewController{
 
     // play sound
     func playSound(_ name:String) {
-        
+        player?.stop()
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
         else { return }
         

@@ -318,7 +318,6 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     
     // play sound
     func playSound(_ name:String) {
-        
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
         else { return }
         
@@ -371,6 +370,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     }
     
     func didYesButtonTapped() {
+        player?.stop()
         self.dismiss(animated: true, completion: nil)
     }
     
