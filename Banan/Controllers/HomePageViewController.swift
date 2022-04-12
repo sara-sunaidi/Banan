@@ -101,46 +101,6 @@ class HomePageViewController : UIViewController{
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var currentLevel : [Game]
-
-        let game = LocalStorage.allGameInfo
-//        if game != nil{
-////            allGameAnimals = game!
-            currentLevel = game!.filter({$0.Level == "First"})
-//        }
-        
-        if segue.identifier == "GoToGame" {
-            let destination = segue.destination as! GameViewController
-            destination.levelNum = "First"
-            destination.currentLevel = currentLevel
-//            [
-//                        Game(
-//                            AllLetters:["Kaf","Lam","Baa"],
-//                            Arabic: "كلب",
-//                            Level:"First",
-//                            Points: "130",
-//                            Animal: "Dog"),
-//
-//                        Game(
-//                            AllLetters:["Ayn","Sad","Faa","Waw","Raa"],
-//                            Arabic: "عصفور",
-//                            Level:"First",
-//                            Points: "100",
-//                            Animal: "Bird"),
-//
-//                        Game(
-//                            AllLetters:["Baa","Gaf","Raa","Ttt"],
-//                            Arabic: "بقرة",
-//                            Level:"First",
-//                            Points: "100",
-//                            Animal: "Cow"),
-//
-//                    ]
-
-        }
-    }
-
     
     @IBAction func pressLearn(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToLearningPage", sender: self)

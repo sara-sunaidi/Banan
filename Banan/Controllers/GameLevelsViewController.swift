@@ -33,7 +33,9 @@ class GameLevelsViewController: UIViewController {
     var gameLevels = [[String: String]]()
 
     var num : Int = 0
-    var LevelNumber : Int = 0
+    var currentLevel : [Game] = []
+
+    var LevelNumber : String = ""
     var LevelOne : Bool = false
     var LevelTwo : Bool = false
     var LevelThree : Bool = false
@@ -155,18 +157,24 @@ class GameLevelsViewController: UIViewController {
     
     
     @IBAction func levelOnePressed(_ sender: UIButton) {
-        LevelNumber = 1
+        LevelNumber = "First"
+        let game = LocalStorage.allGameInfo
+            currentLevel = game!.filter({$0.Level == "First"})
         performSegue(withIdentifier: "GoToGame", sender: self)
     }
     @IBAction func levelTwoPressed(_ sender: UIButton) {
-        LevelNumber = 2
+        LevelNumber = "Second"
+        let game = LocalStorage.allGameInfo
+            currentLevel = game!.filter({$0.Level == "Second"})
         if(LevelOne) {
             performSegue(withIdentifier: "GoToGame", sender: self)
 
         }
     }
     @IBAction func levelThreePressed(_ sender: UIButton) {
-        LevelNumber = 3
+        LevelNumber = "Third"
+        let game = LocalStorage.allGameInfo
+            currentLevel = game!.filter({$0.Level == "Third"})
         if(LevelTwo) {
             performSegue(withIdentifier: "GoToGame", sender: self)
 
@@ -175,8 +183,9 @@ class GameLevelsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToGame" {
             let destinationVC = segue.destination as? GameViewController
-            destinationVC?.LevelNumber = LevelNumber
-            
+            destinationVC?.levelNum = LevelNumber
+            destinationVC?.currentLevel = currentLevel
+
             }
         
         }
