@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		335B1AE02805FE7F003BFD52 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */; };
+		335B1AE22805FEEA003BFD52 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE12805FEEA003BFD52 /* Board.swift */; };
+		335B1AE42805FF26003BFD52 /* BoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE32805FF26003BFD52 /* BoardList.swift */; };
+		335B1AE62805FF64003BFD52 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE52805FF64003BFD52 /* BoardRow.swift */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -128,6 +132,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		335B1AE12805FEEA003BFD52 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		335B1AE32805FF26003BFD52 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
+		335B1AE52805FF64003BFD52 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +334,9 @@
 				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
 				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 				71A3A91227EB78BE009F9B09 /* CustomButton.swift */,
+				335B1AE12805FEEA003BFD52 /* Board.swift */,
+				335B1AE32805FF26003BFD52 /* BoardList.swift */,
+				335B1AE52805FF64003BFD52 /* BoardRow.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -363,6 +374,7 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
@@ -632,6 +644,7 @@
 				569FF25227EBBEC600F13AAB /* SnackbarViewModel.swift in Sources */,
 				56BD5ED827E432A900F6DBB6 /* Letters.swift in Sources */,
 				562CA6322800D367004EC8C5 /* StopGameViewController.swift in Sources */,
+				335B1AE22805FEEA003BFD52 /* Board.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
@@ -642,6 +655,7 @@
 				56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */,
 				4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */,
 				4D7408572805D75300C05666 /* GameLevelsViewController.swift in Sources */,
+				335B1AE02805FE7F003BFD52 /* DashboardViewController.swift in Sources */,
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
 				562CA6382800D748004EC8C5 /* LevelDoneViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
@@ -663,7 +677,9 @@
 				562CA62E2800CBF4004EC8C5 /* ConvertLevel.swift in Sources */,
 				71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */,
 				569FF24527E8A45000F13AAB /* LearnLetterViewController.swift in Sources */,
+				335B1AE42805FF26003BFD52 /* BoardList.swift in Sources */,
 				4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */,
+				335B1AE62805FF64003BFD52 /* BoardRow.swift in Sources */,
 				562CA6362800D6D2004EC8C5 /* LevelFailViewController.swift in Sources */,
 				569FF24B27EBBBE300F13AAB /* TakePhotoController.swift in Sources */,
 				562CA6302800CE1C004EC8C5 /* Game.swift in Sources */,

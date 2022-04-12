@@ -114,4 +114,8 @@ class HomePageViewController : UIViewController{
             performSegue(withIdentifier: "GoToGameLevels", sender: self)
         
         }
+    @IBAction func pressDashBoard(_ sender: Any) {
+        performSegue(withIdentifier: "GoToDashBoard", sender: self)
+
+    }
 }
