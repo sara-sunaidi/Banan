@@ -444,10 +444,10 @@ void searchK(int k){
             return [NSString stringWithUTF8String:word.c_str()];
         }
         // IF invalid coordinates
-        return [NSString stringWithUTF8String:@"failed",  CV_VERSION];
+        return [NSString stringWithFormat:@"failed",  CV_VERSION];
     }
     // IF red blobs are not existing
-    return [NSString stringWithUTF8String:@"failed",  CV_VERSION];
+    return [NSString stringWithFormat:@"failed",  CV_VERSION];
 }
 
 + (NSString *)getCoordinatesStatus{
