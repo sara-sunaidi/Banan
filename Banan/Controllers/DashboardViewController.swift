@@ -24,10 +24,10 @@ class DashboardViewController: UIViewController {
     
     func gameInfo(child: Child){
         
-        let allPoints = child.GameLevels.map({Int($0["UserPoints"]!)!}).reduce(0, +)
+        let allPoints = child.GameLevels.map({Int(($0["UserPoints"] ?? "0")) ?? 0}).reduce(0, +)
         self.totalPoints.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
-        let allLevels = child.GameLevels.map({ $0["Level"] })
+        let allLevels = child.GameLevels.map({ $0["Level"] ?? "0" })
         self.totalLevels.text = "\(allLevels.count)".convertedDigitsToLocale(Locale(identifier: "AR"))
 
         

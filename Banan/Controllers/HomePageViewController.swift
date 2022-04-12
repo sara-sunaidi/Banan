@@ -82,7 +82,7 @@ class HomePageViewController : UIViewController{
         self.completedWords = child.completedWords
         
         self.name.text = child.name
-        let allPoints = child.GameLevels.map({Int($0["UserPoints"]!)!}).reduce(0, +)
+        let allPoints = child.GameLevels.map({Int(($0["UserPoints"] ?? "0")) ?? 0}).reduce(0, +)
         
         self.points.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
 //        "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))

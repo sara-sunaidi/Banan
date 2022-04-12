@@ -24,9 +24,15 @@ struct BoardList: View {
         VStack(alignment: .leading, spacing: 0){
 //            LabelledDivider(label: "الإنجازات")
             if boards.isEmpty{
-                Text("لا توجد لديك إنجازات")
-                    .foregroundColor(Color(red: 0.137, green: 0.263, blue: 0.271))
-                    .font(.custom("Almarai", size: 23))
+                Spacer()
+                HStack(alignment: .center, spacing: 0){
+                    Spacer()
+                    Text("لا توجد لديك إنجازات")
+                        .foregroundColor(Color(red: 0.137, green: 0.263, blue: 0.271))
+                        .font(.custom("Almarai", size: 23))
+                    Spacer()
+                }
+                Spacer()
             }else{
             List(boards){
                 board in
@@ -42,6 +48,7 @@ struct BoardList: View {
 
         }
         }
+        .background(Color(red: 0.949, green: 0.953, blue: 0.961))
     
 }
 
