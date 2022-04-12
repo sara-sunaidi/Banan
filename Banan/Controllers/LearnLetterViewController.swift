@@ -154,7 +154,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 // Snackbar calling is here
                 let viewModel: SnackbarViewModel
                 
-                viewModel = SnackbarViewModel(text: "إجابة خاطئة..حاول مرة أخرى!", image: UIImage(named: "wrongAnswer"))
+                viewModel = SnackbarViewModel(text: "\(actualResult) إجابة خاطئة ... حاول مرة أخرى !", image: UIImage(named: "wrongAnswer"))
                 
                 let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
                 let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
