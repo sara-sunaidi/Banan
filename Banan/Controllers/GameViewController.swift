@@ -69,7 +69,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     let winSoundName = "WinLastLevel"
     let winAnyLevelSoundName = "WinAnyLevel"
 
-    
+    var LevelNumber : Int = 0
+
     override func viewWillAppear(_ animated: Bool) {
         print("in will  apear")
         //

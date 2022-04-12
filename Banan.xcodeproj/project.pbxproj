@@ -10,6 +10,7 @@
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
+		4D7408572805D75300C05666 /* GameLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7408562805D75200C05666 /* GameLevelsViewController.swift */; };
 		4D79BC7127E7283600BE663C /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */; };
 		4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97C0B227E5A6FB00AC16A0 /* CategoryViewController.swift */; };
 		4D97C0B527E5A7C100AC16A0 /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97C0B427E5A7C100AC16A0 /* WordsViewController.swift */; };
@@ -130,6 +131,7 @@
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		4D7408562805D75200C05666 /* GameLevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevelsViewController.swift; sourceTree = "<group>"; };
 		4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4D97C0B227E5A6FB00AC16A0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		4D97C0B427E5A7C100AC16A0 /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				562CA63B2800D9A2004EC8C5 /* Hint4ViewController.swift */,
 				562CA6392800D905004EC8C5 /* Hint5ViewController.swift */,
 				716D573D2804A3B100A51B96 /* EditProfileViewController.swift */,
+				4D7408562805D75200C05666 /* GameLevelsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				4D97C0B527E5A7C100AC16A0 /* WordsViewController.swift in Sources */,
 				56BD5EDA27E432EF00F6DBB6 /* Words.swift in Sources */,
 				4D97C0B327E5A6FB00AC16A0 /* CategoryViewController.swift in Sources */,
+				4D7408572805D75300C05666 /* GameLevelsViewController.swift in Sources */,
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
 				562CA6382800D748004EC8C5 /* LevelDoneViewController.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,

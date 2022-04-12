@@ -151,7 +151,7 @@ class HomePageViewController : UIViewController{
     
     @IBAction func pressGame(_ sender: UIButton) {
         
-            performSegue(withIdentifier: "GoToGame", sender: self)
+            performSegue(withIdentifier: "GoToGameLevels", sender: self)
         
         }
 }

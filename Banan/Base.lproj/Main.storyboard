@@ -1379,7 +1379,7 @@
                         <outlet property="points" destination="JIg-C1-yIs" id="R7h-Wz-chM"/>
                         <outlet property="profileImage" destination="gXV-dD-QtU" id="xvT-Gb-Vqv"/>
                         <segue destination="2Br-kp-Poj" kind="presentation" identifier="GoToProfile" modalPresentationStyle="currentContext" id="DBf-gC-w3l"/>
-                        <segue destination="OeF-Mh-Cqo" kind="presentation" identifier="GoToGame" modalPresentationStyle="currentContext" id="d93-0f-qv8"/>
+                        <segue destination="hjs-1s-GXB" kind="presentation" identifier="GoToGameLevels" modalPresentationStyle="currentContext" id="uxA-zM-04f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="902-ur-R6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1657,7 +1657,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-EC-X3s">
-                                        <rect key="frame" x="275" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="275" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2745,7 +2745,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbN-xA-VxZ">
-                                        <rect key="frame" x="275" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="275" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2985,7 +2985,7 @@
                                 <rect key="frame" x="0.0" y="45" width="834" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-YR-QtR">
-                                        <rect key="frame" x="275" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="275" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -5927,7 +5927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVF-5O-hWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731.6546762589928" y="2854.7738693467336"/>
+            <point key="canvasLocation" x="1819" y="3693"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="EwY-al-Qqu">
@@ -6122,11 +6122,181 @@
             </objects>
             <point key="canvasLocation" x="952.51798561151088" y="2854.7738693467336"/>
         </scene>
+        <!--Game Levels View Controller-->
+        <scene sceneID="vIq-z6-Hoo">
+            <objects>
+                <viewController id="hjs-1s-GXB" customClass="GameLevelsViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Grf-Hl-dpS">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameLevelsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-jP-a2B">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GameStart" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-G3-StG">
+                                <rect key="frame" x="107" y="24" width="617" height="1170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="البداية" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-ME-0ob">
+                                <rect key="frame" x="605" y="1087" width="64" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-2U-Qez">
+                                <rect key="frame" x="139" y="726" width="169" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.86274509799999999" green="0.61176470589999998" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="levelOnePressed:" destination="hjs-1s-GXB" eventType="touchUpInside" id="R51-Gp-D94"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daK-Ax-MWq">
+                                <rect key="frame" x="415" y="574" width="169" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.48627450980392156" green="0.61568627450980395" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="levelTwoPressed:" destination="hjs-1s-GXB" eventType="touchUpInside" id="GJn-eb-Doe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylv-Ks-6q3">
+                                <rect key="frame" x="107" y="404" width="169" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.3803921569" green="0.5568627451" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="levelThreePressed:" destination="hjs-1s-GXB" eventType="touchUpInside" id="Ey1-l0-g0t"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Vector (5)" translatesAutoresizingMaskIntoConstraints="NO" id="xA6-so-H0S">
+                                <rect key="frame" x="139" y="739" width="169" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Vector (6)" translatesAutoresizingMaskIntoConstraints="NO" id="k6H-9Y-SJE">
+                                <rect key="frame" x="107" y="417" width="169" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Vector (6)" translatesAutoresizingMaskIntoConstraints="NO" id="uYh-M9-e1N">
+                                <rect key="frame" x="415" y="587" width="169" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="openLock" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-xR-Ys0">
+                                <rect key="frame" x="203" y="739" width="41" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="closeLock" translatesAutoresizingMaskIntoConstraints="NO" id="J6q-aM-4jx">
+                                <rect key="frame" x="171" y="417" width="41" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="closeLock" translatesAutoresizingMaskIntoConstraints="NO" id="KRL-JP-wZV">
+                                <rect key="frame" x="479" y="586" width="41" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="المستوى الأول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YK1-hR-286">
+                                <rect key="frame" x="167" y="806" width="123" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="19"/>
+                                <color key="textColor" red="0.66274509800000003" green="0.41568627450000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="المستوى الثالث" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htj-OE-IaN">
+                                <rect key="frame" x="129" y="479" width="128" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="19"/>
+                                <color key="textColor" red="0.3803921569" green="0.49803921569999998" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3w-K6-y3R">
+                                <rect key="frame" x="743" y="33" width="58" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="0.30230753310000003" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcb-vZ-arv">
+                                <rect key="frame" x="755" y="38" width="34" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
+                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="hjs-1s-GXB" eventType="touchUpInside" id="xdr-cG-ljC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="المستوى الثاني" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-5S-o3y">
+                                <rect key="frame" x="440" y="652" width="123" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Almarai-Bold" family="Almarai" pointSize="19"/>
+                                <color key="textColor" red="0.3803921569" green="0.49803921569999998" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="١٠٠/١٠٠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7n-hD-bnb">
+                                <rect key="frame" x="208" y="783" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.37327274659999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="١٠٠/١٠٠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja0-on-EFX">
+                                <rect key="frame" x="176" y="460" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.37327274659999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="١٠٠/١٠٠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-Lo-KWI">
+                                <rect key="frame" x="484" y="631" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.37327274659999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ykg-kq-CQc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0ZP-jP-a2B" secondAttribute="bottom" id="8CL-71-oE7"/>
+                            <constraint firstItem="0ZP-jP-a2B" firstAttribute="trailing" secondItem="Grf-Hl-dpS" secondAttribute="trailing" id="e3q-Ys-ASx"/>
+                            <constraint firstItem="0ZP-jP-a2B" firstAttribute="leading" secondItem="Grf-Hl-dpS" secondAttribute="leading" id="jXa-P6-66w"/>
+                            <constraint firstItem="0ZP-jP-a2B" firstAttribute="top" secondItem="Grf-Hl-dpS" secondAttribute="top" id="lMb-Hd-uXr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label1" destination="YK1-hR-286" id="jTf-jO-VbQ"/>
+                        <outlet property="label2" destination="QcJ-5S-o3y" id="Oi7-VN-W1j"/>
+                        <outlet property="label3" destination="htj-OE-IaN" id="C05-i6-ZHE"/>
+                        <outlet property="level1" destination="7h2-2U-Qez" id="k2Q-UD-7tY"/>
+                        <outlet property="level2" destination="daK-Ax-MWq" id="gSj-JG-nBv"/>
+                        <outlet property="level3" destination="ylv-Ks-6q3" id="j0Y-NZ-4RR"/>
+                        <outlet property="lock1" destination="Nl9-xR-Ys0" id="rm1-Pp-0Ii"/>
+                        <outlet property="lock2" destination="KRL-JP-wZV" id="PtT-Wx-nLQ"/>
+                        <outlet property="lock3" destination="J6q-aM-4jx" id="D07-34-2Bn"/>
+                        <outlet property="pic1" destination="xA6-so-H0S" id="5Lq-sF-gxI"/>
+                        <outlet property="pic2" destination="uYh-M9-e1N" id="3mV-fM-c1a"/>
+                        <outlet property="pic3" destination="k6H-9Y-SJE" id="k0H-d6-eNY"/>
+                        <outlet property="score1" destination="e7n-hD-bnb" id="HO2-p2-Lim"/>
+                        <outlet property="score2" destination="IAn-Lo-KWI" id="q5R-gq-wbI"/>
+                        <outlet property="score3" destination="ja0-on-EFX" id="LOy-c4-Zdx"/>
+                        <segue destination="OeF-Mh-Cqo" kind="presentation" identifier="GoToGame" modalPresentationStyle="currentContext" id="EOd-O6-lZy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qh-Ho-Y3x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1819" y="2855"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aRI-FO-QJe"/>
         <segue reference="yD0-41-uUe"/>
-        <segue reference="sZa-XB-zTk"/>
+        <segue reference="DBf-gC-w3l"/>
         <segue reference="C36-KF-fOy"/>
         <segue reference="YTN-t0-tK2"/>
     </inferredMetricsTieBreakers>
@@ -6138,6 +6308,7 @@
         <image name="Crown" width="74" height="107"/>
         <image name="DashBorad" width="77" height="116"/>
         <image name="Exit" width="48" height="47"/>
+        <image name="GameStart" width="1230" height="2131"/>
         <image name="HomePage" width="834" height="1194"/>
         <image name="HomePageBar" width="477" height="108"/>
         <image name="LearnPage" width="358" height="512"/>
@@ -6157,6 +6328,8 @@
         <image name="Start Screen" width="556" height="796"/>
         <image name="Vector" width="9" height="13"/>
         <image name="Vector (1)" width="4" height="7"/>
+        <image name="Vector (5)" width="160" height="160"/>
+        <image name="Vector (6)" width="160" height="160"/>
         <image name="WordBackground" width="834" height="1194"/>
         <image name="animal" width="522" height="346"/>
         <image name="boy1" width="193" height="189"/>
@@ -6166,11 +6339,13 @@
         <image name="circle-1" width="82" height="91"/>
         <image name="circuleShape" width="512" height="538"/>
         <image name="circuleShape2" width="512" height="538"/>
+        <image name="closeLock" width="41" height="47"/>
         <image name="curlLine" width="1472" height="511"/>
         <image name="dottedLine" width="107" height="512"/>
         <image name="foods" width="328" height="342"/>
         <image name="gameBackground" width="834" height="1194"/>
         <image name="gameCircle" width="545" height="359"/>
+        <image name="gameLevelsBackground" width="556" height="796"/>
         <image name="girl1" width="187" height="201"/>
         <image name="green123-1" width="82" height="100"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
@@ -6179,6 +6354,7 @@
         <image name="logOut" width="48" height="47"/>
         <image name="logo,png" width="248" height="283"/>
         <image name="material" width="230" height="164"/>
+        <image name="openLock" width="41" height="47"/>
         <image name="parallelogram-1" width="127" height="116"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="penImage" width="36" height="36"/>
