@@ -93,7 +93,7 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
        // print(date)
         let year = Int(dob.suffix(4))
         let calcyear = currentYear - year!
-       let calcAge = Int(calcyear)
+        let calcAge = Int(calcyear)
         let monthAndDay = dob.prefix(5)
         let currentMonth = Int(monthAndDay.prefix(2))
         let currentday = Int(monthAndDay.suffix(2))
@@ -134,7 +134,6 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
             else {
                 comps.month = -calcmonth
             }
-          
             comps.year = -calcAge
             let maxDate = calendar.date(byAdding: comps, to: Date())
             //comps.year = -80
@@ -218,6 +217,7 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
                 flag = true
                let req = db.collection("Children").document(Auth.auth().currentUser!.uid)
                 req.updateData(["Name":name.text])
+                print("DOB",dob)
                 req.updateData(["DOB":dob])
                 req.updateData([ "Gender":sex])
                 CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغيير المعلومات بنجاح" , acknowledgementType: .positive)

@@ -23,6 +23,10 @@ class ViewProfileViewController : UIViewController{
     var formatter = NumberFormatter()
 
     let db = Firestore.firestore()
+    override func viewDidAppear(_ animated: Bool) {
+        getChildData()
+        viewDidLoad()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         resetPassword.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -35,43 +39,40 @@ class ViewProfileViewController : UIViewController{
         logOut.layer.shadowOpacity = 0.8
         logOut.layer.shadowRadius = 0.0
         logOut.layer.masksToBounds = false
-         self.email.text = Auth.auth().currentUser?.email
-        if let userId = Auth.auth().currentUser?.uid {
-                let collectionRef = self.db.collection("Children")
-                let thisUserDoc = collectionRef.document(userId)
-            thisUserDoc.getDocument(completion: { [self] document, error in
-                    if let err = error {
-                        print(err.localizedDescription)
-                        return
-                    }
-                    if let doc = document {
-                        self.name.text =  doc.get("Name") as? String
-//                        self.points.text = doc.get("Score") as? String
-                        let date = doc.get("DOB") as? String
-                        let Profile = doc.get("Gender") as? String
-                        let currentYear = Int(Calendar(identifier: .gregorian).dateComponents([.year], from: .now).year! )
-                      
-                        print(date)
-                        let Dob = Int(date!.suffix(4))
-                        let calcAge = currentYear - Dob!
-                     print(calcAge)
-                        if calcAge > 10 {
-                        self.formatter.locale = Locale(identifier: "ar")
-                            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنة"}
-                        else {  self.formatter.locale = Locale(identifier: "ar")
-                            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
 
-                        if Profile == "Boy"{
-                            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
-                           
-                        }
-                        else {
-                            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
-                            
-                        }
-                    }
-                })
-            }
+        
+    }
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }
+        
+    }
+    func setChildInfo(child: Child){
+        self.email.text = child.email
+        self.name.text = child.name
+        let date = child.DOB
+        let Profile = child.gender
+        let currentYear = Int(Calendar(identifier: .gregorian).dateComponents([.year], from: .now).year! )
+      
+        let Dob = Int(date.suffix(4))
+        let calcAge = currentYear - Dob!
+        if calcAge > 10 {
+        self.formatter.locale = Locale(identifier: "ar")
+            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنة"}
+        else {  self.formatter.locale = Locale(identifier: "ar")
+            self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
+
+        if Profile == "Boy"{
+            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
+           
+        }
+        else {
+            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
+            
+        }
+        
         
     }
     @IBAction func ressetPasswordPressed(_ sender: UIButton) {
