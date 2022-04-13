@@ -39,6 +39,7 @@ class CategoryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
         getWordsData()
+        viewDidLoad()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
