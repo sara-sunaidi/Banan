@@ -342,21 +342,14 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         // Call pop up
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .word)
         
-        updateCompletedWord()
+        // update list
+        FirebaseRequest.updateCompletedWord(word:allWords![index!].Word)
         
         //play sound
         playSound("Correct")
     }
     
-    func updateCompletedWord(){
-        if let userId = Auth.auth().currentUser?.uid {
-            let collectionRef = self.db.collection("Children")
-            let thisUserDoc = collectionRef.document(userId)
-            thisUserDoc.updateData([
-                "CompletedWord": FieldValue.arrayUnion([allWords![index!].Word])
-            ])
-        }
-    }
+    
     
     @IBAction func onClickPreWord(_ sender: Any) {
         index = index! - 1

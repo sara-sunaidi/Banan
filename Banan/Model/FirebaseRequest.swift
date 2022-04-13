@@ -125,39 +125,39 @@ class FirebaseRequest{
     }
     
     //fetch game
-     static func setDBListenerGame(completion:@escaping(_ data: Any?, _ err:Error?) -> Void){
-         
-         db.collection("GameAnimals").addSnapshotListener{ (documentSnapshot, error) in
-             
-             guard let document = documentSnapshot else {
-                 //Error
-                 print("Error fetching document: \(error!)")
-                 completion(nil,error)
- //                print("Not!!")
-                 return
-             }
-             var allGameAnimal = [Game]()
-             
-             for document in documentSnapshot!.documents {
-                 var dat = document.data()
-                 dat["Animal"] = document.documentID
- //                dat["imageName"] = "\(document.documentID)"
-                 allGameAnimal.append(Game(AllLetters: dat["AllLetters"] as! [String],
-                                       Arabic: dat["Arabic"] as! String,
-                                       Level: dat["Level"] as! String,
-                                           Points: dat["Points"] as! String ,
-                                           Animal: dat["Animal"] as! String
- //                                      imageName: dat["imageName"] as! String
-                                      ))
-                 
-             }
- //            print("SUCESSLetter!!")
-             
-             //Featch changers successfully
- //            print("data in seeting db listener")
-             completion(allGameAnimal,nil)
-         }
-     }
+    static func setDBListenerGame(completion:@escaping(_ data: Any?, _ err:Error?) -> Void){
+        
+        db.collection("GameAnimals").addSnapshotListener{ (documentSnapshot, error) in
+            
+            guard let document = documentSnapshot else {
+                //Error
+                print("Error fetching document: \(error!)")
+                completion(nil,error)
+                //                print("Not!!")
+                return
+            }
+            var allGameAnimal = [Game]()
+            
+            for document in documentSnapshot!.documents {
+                var dat = document.data()
+                dat["Animal"] = document.documentID
+                //                dat["imageName"] = "\(document.documentID)"
+                allGameAnimal.append(Game(AllLetters: dat["AllLetters"] as! [String],
+                                          Arabic: dat["Arabic"] as! String,
+                                          Level: dat["Level"] as! String,
+                                          Points: dat["Points"] as! String ,
+                                          Animal: dat["Animal"] as! String
+                                          //                                      imageName: dat["imageName"] as! String
+                                         ))
+                
+            }
+            //            print("SUCESSLetter!!")
+            
+            //Featch changers successfully
+            //            print("data in seeting db listener")
+            completion(allGameAnimal,nil)
+        }
+    }
     
     static func addGameLevels(levelName : String, score: Float, userPoints: Int, eval: String){
         //        print("hhhhhhhhhhhhhhhhhhhhhhhhhh")
@@ -199,6 +199,187 @@ class FirebaseRequest{
                                                       "Evaluation": eval
                                                      ]])
             ])
+        }
+    }
+    
+    static func updateCompletedLetter(letter: String){
+        if let userId = Auth.auth().currentUser?.uid {
+            let collectionRef = self.db.collection("Children")
+            let thisUserDoc = collectionRef.document(userId)
+            thisUserDoc.updateData([
+                "CompletedLetter": FieldValue.arrayUnion([letter])
+            ])
+        }
+        
+    }
+    
+    static func updateCompletedWord(word: String){
+        if let userId = Auth.auth().currentUser?.uid {
+            let collectionRef = self.db.collection("Children")
+            let thisUserDoc = collectionRef.document(userId)
+            thisUserDoc.updateData([
+                "CompletedWord": FieldValue.arrayUnion([word])
+            ])
+        }
+        //        print("-> The word is \(word)")
+        updateCompletedCategories()
+    }
+    
+    static func updateCompletedCategories() {
+        
+        var material = [String]()
+        var food = [String]()
+        var place = [String]()
+        var animal = [String]()
+        
+        var updateMaterial = true
+        var updateFood = true
+        var updatePlace = true
+        var updateAnimal = true
+        
+        var completedWords = [String]()
+        
+        // Step 1: get user completed words
+        if let userId = Auth.auth().currentUser?.uid {
+            let collectionRef = self.db.collection("Children")
+            let thisUserDoc = collectionRef.document(userId)
+            
+            thisUserDoc.getDocument{ (document, error) in
+                guard let document = document, document.exists else {
+                    print("Document does not exist")
+                    return
+                }
+                let dataDescription = document.data()
+                completedWords = dataDescription?["CompletedWord"] as! [String]
+                print(" Completed Words are -> \(completedWords)")
+            }
+            
+            // Step 2: get words for each category and compare them to completedWordsSet to know if it needs to be updated
+            
+            // Material Category
+            db.collection("Words").whereField("Category", isEqualTo: "Material").getDocuments(){(querySnapshor , err) in
+                if let oErr = err {
+                    print("Error: \(oErr.localizedDescription)")
+                } else {
+                    for document in querySnapshor!.documents
+                    {
+                        material.append(document.documentID)
+                        
+                        
+                    }
+                    //                print(" Material array is -> \(material)")
+                    
+                    
+                    for element in material {
+                        if(!completedWords.contains(element)){
+                            updateMaterial = false
+                        }
+                    }
+                    
+                    print(" update material flag -> \(updateMaterial)")
+                    
+                    if (updateMaterial){
+                        thisUserDoc.updateData([
+                            "CompletedCategory": FieldValue.arrayUnion(["Material"])
+                        ])
+                    }
+                    
+                }
+            }
+            
+            // Food Category
+            db.collection("Words").whereField("Category", isEqualTo: "Food").getDocuments(){(querySnapshor , err) in
+                if let oErr = err {
+                    print("Error: \(oErr.localizedDescription)")
+                } else {
+                    for document in querySnapshor!.documents
+                    {
+                        food.append(document.documentID)
+                        
+                        
+                    }
+                    //                print(" Food array is -> \(food)")
+                    
+                    
+                    for element in food {
+                        if(!completedWords.contains(element)){
+                            updateFood = false
+                        }
+                    }
+                    
+                    print(" update food flag -> \(updateFood)")
+                    
+                    if (updateFood){
+                        thisUserDoc.updateData([
+                            "CompletedCategory": FieldValue.arrayUnion(["Food"])
+                        ])
+                    }
+                    
+                }
+            }
+            
+            // Place Category
+            db.collection("Words").whereField("Category", isEqualTo: "Place").getDocuments(){(querySnapshor , err) in
+                if let oErr = err {
+                    print("Error: \(oErr.localizedDescription)")
+                } else {
+                    for document in querySnapshor!.documents
+                    {
+                        place.append(document.documentID)
+                        
+                        
+                    }
+                    //                print(" Place array is -> \(place)")
+                    
+                    
+                    for element in place {
+                        if(!completedWords.contains(element)){
+                            updatePlace = false
+                        }
+                    }
+                    
+                    print(" update place flag -> \(updatePlace)")
+                    
+                    if (updatePlace){
+                        thisUserDoc.updateData([
+                            "CompletedCategory": FieldValue.arrayUnion(["Place"])
+                        ])
+                    }
+                    
+                }
+            }
+            
+            // Animals Category
+            db.collection("Words").whereField("Category", isEqualTo: "Animal").getDocuments(){(querySnapshor , err) in
+                if let oErr = err {
+                    print("Error: \(oErr.localizedDescription)")
+                } else {
+                    for document in querySnapshor!.documents
+                    {
+                        animal.append(document.documentID)
+                        
+                        
+                    }
+                    //                print(" Animal array is -> \(animal)")
+                    
+                    
+                    for element in animal {
+                        if(!completedWords.contains(element)){
+                            updateAnimal = false
+                        }
+                    }
+                    
+                    print(" update animal flag -> \(updateAnimal)")
+                    
+                    if (updateAnimal){
+                        thisUserDoc.updateData([
+                            "CompletedCategory": FieldValue.arrayUnion(["Animal"])
+                        ])
+                    }
+                    
+                }
+            }
+            
         }
     }
 }

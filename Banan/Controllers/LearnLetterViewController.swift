@@ -229,22 +229,14 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
         // # update user info
-        updateCompletedLetter()
+        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter)
         
         //play sound
         playSound("Correct")
         //animate progress
         animateProgress()
     }
-    func updateCompletedLetter(){
-        if let userId = Auth.auth().currentUser?.uid {
-            let collectionRef = self.db.collection("Children")
-            let thisUserDoc = collectionRef.document(userId)
-            thisUserDoc.updateData([
-                "CompletedLetter": FieldValue.arrayUnion([letters![index!].Letter])
-            ])
-        }
-    }
+    
     @IBAction func pressSound(_ sender: UIButton) {
         playSound("\(letters![index!].Letter)")
     }
