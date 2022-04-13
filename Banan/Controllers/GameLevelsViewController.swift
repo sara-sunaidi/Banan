@@ -139,10 +139,12 @@ class GameLevelsViewController: UIViewController {
     
     func designCurrentLevel(button : UIButton ,pic : UIImageView ,lock : UIImageView, label : UILabel, score : Double) {
         button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
-        let yourImage: UIImage = UIImage(named: "star")!
-    lock.image = yourImage
+        let yourImage: UIImage = UIImage(named: "Vector (5)")!
+        pic.image = yourImage
+        let Image: UIImage = UIImage(named: "star")!
+        lock.image = Image
 
-        label.text = "\(returnArabicNum(num: Int(score*100)))/١٠٠"
+        label.text = "١٠٠/\(returnArabicNum(num: Int(score*100)))"
     }
     
     func returnArabicNum( num: Int) -> String{
