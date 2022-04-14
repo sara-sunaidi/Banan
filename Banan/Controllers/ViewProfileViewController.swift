@@ -8,7 +8,24 @@
 import UIKit
 import Firebase
 import SwiftUI
-class ViewProfileViewController : UIViewController{
+class ViewProfileViewController : UIViewController,CustomConfirmationViewControllerDelegate{
+    func didYesButtonTapped() {
+        let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "startPage" )
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated:  true)
+        
+        //added, need to test it
+        LocalStorage.removeChild()
+        
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
+    }
+    
     @IBOutlet weak var profileImage: UIButton!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var resetPassword: UIButton!
@@ -26,6 +43,8 @@ class ViewProfileViewController : UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
         viewDidLoad()
+        CustomConfirmationViewController.instance.delegate = self
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,20 +98,8 @@ class ViewProfileViewController : UIViewController{
         self.performSegue(withIdentifier: "GoToResetPassword", sender: self)
     }
     @IBAction func LogOutPressed(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-    do {
-      try firebaseAuth.signOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "startPage" )
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated:  true)
-        
-        //added, need to test it
-        LocalStorage.removeChild()
-        
-    } catch let signOutError as NSError {
-      print("Error signing out: %@", signOutError)
-    }
+        CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل انت متأكد من تسجيل الخروج ؟")
+       
     }
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
