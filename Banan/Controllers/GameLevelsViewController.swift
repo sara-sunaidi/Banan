@@ -66,7 +66,7 @@ class GameLevelsViewController: UIViewController {
 
         num = gameLevels.count-1
         
-        for i in 0...num {
+        for i in stride(from: 0, through: num, by: 1)  {
         let points = gameLevels.map{$0["Score"] ?? "0"}
             if (Double(points[i]) ?? 0 >= 0.20) {
                let levels = gameLevels.map{$0["Level"]!}
@@ -98,15 +98,15 @@ class GameLevelsViewController: UIViewController {
         designButton(button: level3)
         
         if(LevelOne) {
-            designCurrentLevel(button: level1, pic: pic1, lock: lock1, label: score1, score: Level1)
+            designCurrentLevel(button: level1, pic: pic1, lock: lock1, label: score1, score: Level1, lab: label1)
             designNextLevel(button: level2, pic: pic2, lock: lock2, label: label2)
         }
         if(LevelTwo) {
-            designCurrentLevel(button: level2, pic: pic2, lock: lock2, label: score2, score: Level2)
+            designCurrentLevel(button: level2, pic: pic2, lock: lock2, label: score2, score: Level2, lab: label2)
             designNextLevel(button: level3, pic: pic3, lock: lock3, label: label3)
         }
         if(LevelThree){
-            designCurrentLevel(button: level3, pic: pic3, lock: lock3, label: score3, score: Level3)
+            designCurrentLevel(button: level3, pic: pic3, lock: lock3, label: score3, score: Level3, lab: label3)
         }
     }
     
@@ -138,13 +138,13 @@ class GameLevelsViewController: UIViewController {
         label.textColor = UIColor(red: 169/255, green: 106/255, blue: 74/255, alpha: 1)
     }
     
-    func designCurrentLevel(button : UIButton ,pic : UIImageView ,lock : UIImageView, label : UILabel, score : Double) {
+    func designCurrentLevel(button : UIButton ,pic : UIImageView ,lock : UIImageView, label : UILabel, score : Double, lab : UILabel) {
         button.tintColor =  UIColor(red: 220/255, green: 156/255, blue: 123/255, alpha: 1)
         let yourImage: UIImage = UIImage(named: "Vector (5)")!
         pic.image = yourImage
         let Image: UIImage = UIImage(named: "star")!
         lock.image = Image
-
+        lab.textColor = UIColor(red: 169/255, green: 106/255, blue: 74/255, alpha: 1)
         label.text = "١٠٠/\(returnArabicNum(num: Int(score*100)))"
     }
     
