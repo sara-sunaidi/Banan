@@ -36,6 +36,7 @@ class HomePageViewController : UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         profileImage.tintColor = UIColor.white
         dashBoard.tintColor = UIColor.white
         instructions.tintColor = UIColor.white

@@ -45,7 +45,7 @@
 		3357141E2806221E00AC9A4E /* Hammer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FA2806221D00AC9A4E /* Hammer.mp3 */; };
 		3357141F2806221E00AC9A4E /* Compass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FB2806221D00AC9A4E /* Compass.mp3 */; };
 		335714202806221E00AC9A4E /* Library.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FC2806221D00AC9A4E /* Library.mp3 */; };
-		335714212806221E00AC9A4E /* Resturant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FD2806221D00AC9A4E /* Resturant.mp3 */; };
+		335714212806221E00AC9A4E /* Restaurant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FD2806221D00AC9A4E /* Restaurant.mp3 */; };
 		335714222806221E00AC9A4E /* Ruler.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FE2806221D00AC9A4E /* Ruler.mp3 */; };
 		335714232806221E00AC9A4E /* Stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335713FF2806221D00AC9A4E /* Stadium.mp3 */; };
 		335714242806221E00AC9A4E /* Key.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 335714002806221D00AC9A4E /* Key.mp3 */; };
@@ -258,7 +258,7 @@
 		335713FA2806221D00AC9A4E /* Hammer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hammer.mp3; sourceTree = "<group>"; };
 		335713FB2806221D00AC9A4E /* Compass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Compass.mp3; sourceTree = "<group>"; };
 		335713FC2806221D00AC9A4E /* Library.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Library.mp3; sourceTree = "<group>"; };
-		335713FD2806221D00AC9A4E /* Resturant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Resturant.mp3; sourceTree = "<group>"; };
+		335713FD2806221D00AC9A4E /* Restaurant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Restaurant.mp3; sourceTree = "<group>"; };
 		335713FE2806221D00AC9A4E /* Ruler.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ruler.mp3; sourceTree = "<group>"; };
 		335713FF2806221D00AC9A4E /* Stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stadium.mp3; sourceTree = "<group>"; };
 		335714002806221D00AC9A4E /* Key.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Key.mp3; sourceTree = "<group>"; };
@@ -483,7 +483,7 @@
 				335713F52806221D00AC9A4E /* Peache.mp3 */,
 				335714012806221D00AC9A4E /* Pear.mp3 */,
 				335713F22806221D00AC9A4E /* Pencil.mp3 */,
-				335713FD2806221D00AC9A4E /* Resturant.mp3 */,
+				335713FD2806221D00AC9A4E /* Restaurant.mp3 */,
 				335713FE2806221D00AC9A4E /* Ruler.mp3 */,
 				3357140B2806221D00AC9A4E /* Saw.mp3 */,
 				335714072806221D00AC9A4E /* School.mp3 */,
@@ -945,7 +945,7 @@
 				335714102806221E00AC9A4E /* Donkey.mp3 in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
 				335714692806222F00AC9A4E /* 2aa.mp3 in Resources */,
-				335714212806221E00AC9A4E /* Resturant.mp3 in Resources */,
+				335714212806221E00AC9A4E /* Restaurant.mp3 in Resources */,
 				3357142A2806221E00AC9A4E /* Cucumber.mp3 in Resources */,
 				335713E82806220100AC9A4E /* Game.mp3 in Resources */,
 				335714532806222F00AC9A4E /* Thl.mp3 in Resources */,
@@ -1268,6 +1268,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1308,6 +1309,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

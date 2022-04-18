@@ -21,6 +21,8 @@ class Letters4ViewController: UIViewController {
 
     
     override func viewDidAppear(_ animated: Bool) {
+      //  player?.stop()
+
         getChildData()
         
         assignLettersImage(btn: letterOne, index: 0)

@@ -118,6 +118,8 @@ class LearningPageViewController: UIViewController {
 
     
     @IBAction func pressBack(_ sender: UIButton) {
+        player?.stop()
+
         self.dismiss(animated: true, completion: nil)
     }
     

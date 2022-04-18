@@ -18,6 +18,8 @@ class Letters2ViewController: UIViewController {
     var index = 0
 
     override func viewDidAppear(_ animated: Bool) {
+      //  player?.stop()
+
         getChildData()
         assignLettersImage(btn: letterOne, index: 0)
         assignLettersImage(btn: letterTwo, index: 1)

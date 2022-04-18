@@ -86,6 +86,8 @@ class CategoryViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
+        player?.stop()
+
         self.dismiss(animated: true, completion: nil)
     }
 

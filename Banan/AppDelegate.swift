@@ -11,7 +11,9 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var orientationLock = UIInterfaceOrientationMask.portrait
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -45,6 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIWindow(frame: UIScreen.main.bounds)
 
         return true
+    }
+    
+    // lock screen to single orientation
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            return self.orientationLock
     }
     
     func fetchGameInfo(){

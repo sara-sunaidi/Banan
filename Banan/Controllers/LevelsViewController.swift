@@ -63,7 +63,7 @@ class LevelsViewController: UIViewController {
     @IBOutlet weak var ninthLable: UILabel!
     @IBOutlet weak var tenthLable: UILabel!
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {        
         getChildData()
         getLettersData()
         groupByLevel()
@@ -180,6 +180,7 @@ class LevelsViewController: UIViewController {
     
     
     @IBAction func pressBack(_ sender: UIButton) {
+        player?.stop()
         //performSegue(withIdentifier: "GoToHomePage", sender: self)
         self.dismiss(animated: true, completion: nil)
     }
@@ -187,6 +188,7 @@ class LevelsViewController: UIViewController {
     @IBAction func levelPressed(_ sender: UIButton) {
         switch sender{
         case firstButton:
+            player?.stop()
             playSound("First")
             print("ggg")
             chosenLevel = first
@@ -196,6 +198,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case secondButton:
+            player?.stop()
             playSound("Second")
             chosenLevel = second
             levelTitle = "المستوى الثاني"
@@ -203,6 +206,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case thirdButton:
+            player?.stop()
             playSound("Third")
             chosenLevel = third
             levelTitle = "المستوى الثالث"
@@ -210,6 +214,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case fourthButton:
+            player?.stop()
             playSound("Fourth")
             chosenLevel = fourth
             levelTitle = "المستوى الرابع"
@@ -217,6 +222,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case fifthButton:
+            player?.stop()
             playSound("Fifth")
             chosenLevel = fifth
             levelTitle = "المستوى الخامس"
@@ -224,6 +230,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case sixthButton:
+            player?.stop()
             playSound("Sixth")
             chosenLevel = sixth
             levelTitle = "المستوى السادس"
@@ -231,6 +238,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case seventhButton:
+            player?.stop()
             playSound("Seventh")
             chosenLevel = seventh
             levelTitle = "المستوى السابع"
@@ -238,6 +246,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case eighthButton:
+            player?.stop()
             playSound("Eighth")
             chosenLevel = eighth
             levelTitle = "المستوى الثامن"
@@ -245,6 +254,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case ninthButton:
+            player?.stop()
             playSound("Ninth")
             chosenLevel = ninth
             levelTitle = "المستوى التاسع"
@@ -252,6 +262,7 @@ class LevelsViewController: UIViewController {
             break;
             
         case tenthButton:
+            player?.stop()
             playSound("Tenth")
             chosenLevel = tenth
             levelTitle = "المستوى العاشر"
