@@ -103,6 +103,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
         
+        NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
     }
     

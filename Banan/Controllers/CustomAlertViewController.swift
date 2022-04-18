@@ -28,6 +28,8 @@ class CustomAlertViewController : UIView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
     
+    @IBOutlet weak var continueLabel: UILabel!
+    
     var delegate: CustomAlertViewControllerDelegate?
     
     // enum to perform diffrent format for each alertType.
@@ -65,7 +67,7 @@ class CustomAlertViewController : UIView {
         alertView.layer.cornerRadius = 50
         
         //Btns format (*Not Working need to be fixed*)
-        continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
+//        continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
         
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -83,12 +85,14 @@ class CustomAlertViewController : UIView {
             
         case .word:
             img?.image = UIImage(named: "shinyStar")
-            continueBtn?.setTitle("المتابعة للكلمة التالية", for: .normal)
+//            continueBtn?.setTitle("المتابعة للكلمة التالية", for: .normal)
+            continueLabel.text = "المتابعة للكلمة التالية"
             print("### in showAlert word")
             
         case .letter:
             img?.image = UIImage(named: "shinyStar")
-            continueBtn?.setTitle("المتابعة للحرف التالي", for: .normal)
+//            continueBtn?.setTitle("المتابعة للحرف التالي", for: .normal)
+            continueLabel.text = "المتابعة للحرف التالي"
             print("### in showAlert letter")
             
         } // end switch

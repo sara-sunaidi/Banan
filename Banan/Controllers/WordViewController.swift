@@ -225,6 +225,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         
+        NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
         
