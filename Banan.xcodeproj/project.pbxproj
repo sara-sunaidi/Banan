@@ -138,6 +138,7 @@
 		4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */; };
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
+		5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A391280F2DAB00B144EA /* PlayAllSounds.swift */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -337,6 +338,7 @@
 		4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
+		5608A391280F2DAB00B144EA /* PlayAllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAllSounds.swift; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 			isa = PBXGroup;
 			children = (
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
+				5608A391280F2DAB00B144EA /* PlayAllSounds.swift */,
 				56BD5ED327E431F000F6DBB6 /* LocalStorage.swift */,
 				562CA62F2800CE1C004EC8C5 /* Game.swift */,
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
@@ -1042,6 +1045,7 @@
 				335B1AE02805FE7F003BFD52 /* DashboardViewController.swift in Sources */,
 				71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */,
 				562CA6382800D748004EC8C5 /* LevelDoneViewController.swift in Sources */,
+				5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */,
 				56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */,
 				56BD5ED627E4325600F6DBB6 /* Child.swift in Sources */,
 				71A3A91327EB78BE009F9B09 /* CustomButton.swift in Sources */,

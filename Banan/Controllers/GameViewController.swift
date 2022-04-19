@@ -5,7 +5,7 @@
 //  Created by Sara Alsunaidi on 01/04/2022.
 //
 import UIKit
-import AVFoundation
+//import AVFoundation
 
 
 class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate, Hint5ViewControllerDelegate, Hint4ViewControllerDelegate
@@ -41,7 +41,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBOutlet weak var skipButton: UIButton!
     
-    var player: AVAudioPlayer?
+    //    var player: AVAudioPlayer?
     
     
     var GameLevels = [[String:String]]() //levels that the user played, from db-localstorage
@@ -68,14 +68,14 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     let gameOverSoundName = "GameOver"
     let winSoundName = "WinLastLevel"
     let winAnyLevelSoundName = "WinAnyLevel"
-
+    
     var LevelNumber : Int = 0
-
+    
     override func viewWillAppear(_ animated: Bool) {
         print("in will  apear")
         //
         designProgressbar() //design progressbar
-//        designBarLabels()
+        //        designBarLabels()
         getChildData()
         getGameData()
         
@@ -127,7 +127,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        player?.stop() //stop any prev animal sound
+        //        player?.stop() //stop any prev animal sound
+        PlayAllSounds.sharedInstance.stop()
         
         //start current animal sound?
         playSound()
@@ -135,10 +136,10 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         levelTitle = ConvertLevel.FindLevelTitle(levelName: levelNum!)
         let allLevels = allGameAnimals.map({$0.Level})
         isLastLevel = ConvertLevel.isLastLevel(availableLvels: allLevels, currentLevel: levelNum)
-        print("is last level?")
-        print(isLastLevel)
-        print("width in view did load: ")
-        print(labelSuperView.frame.width)
+        //        print("is last level?")
+        //        print(isLastLevel)
+        //        print("width in view did load: ")
+        //        print(labelSuperView.frame.width)
         designProgressbar() //design progressbar
         designBarLabels()
         
@@ -186,9 +187,9 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         
     }
     func designProgressbar(){
-        print("width3  in method: ")
-        print(labelSuperView.frame.width)
-        print("in design prog")
+        //        print("width3  in method: ")
+        //        print(labelSuperView.frame.width)
+        //        print("in design prog")
         
         
         
@@ -305,21 +306,24 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         playSound()
     }
     func playSound(){
-        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)-Game", withExtension: "mp3") else { return }
-        //to find sound name:
-        //letters![index!].Letter
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            guard let player = player else { return }
-            
-            player.play()
-        } catch let error {
-            print(error.localizedDescription)
-        }
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "\(currentLevel[index].Animal)-Game")
+        //
+        //        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)-Game", withExtension: "mp3") else { return }
+        //        //to find sound name:
+        //        //letters![index!].Letter
+        //        do {
+        //            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        //            try AVAudioSession.sharedInstance().setActive(true)
+        //
+        //            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        //
+        //            guard let player = player else { return }
+        //
+        //            player.play()
+        //        } catch let error {
+        //            print(error.localizedDescription)
+        //        }
     }
     
     @IBAction func pressInstructions(_ sender: UIButton) {
@@ -354,8 +358,9 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBAction func pressCheck(_ sender: UIButton) {
         
         print("press check")
-        player?.stop() //stop any prev animal sound
-
+        //        player?.stop() //stop any prev animal sound
+        PlayAllSounds.sharedInstance.stop()
+        
         
         //if the answer was correct, do the following
         
@@ -408,7 +413,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             
             imageName = "tryAgain"
             levelPassed = false
-
+            
         }
         else
         {
@@ -470,7 +475,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         }
         else{
             if(nextLevelAvailable){
-                LevelDoneViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: currentLevel, totalScore: levelUserPoints , imageName: imageName, soundName: winSoundName)
+                LevelDoneViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: currentLevel, totalScore: levelUserPoints , imageName: imageName, soundName: levelPassed ? winSoundName : gameOverSoundName)
             }else{
                 LevelFailViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: currentLevel, totalScore: levelUserPoints , imageName: imageName, soundName: gameOverSoundName)
             }
@@ -489,7 +494,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBAction func pressStop(_ sender: UIButton) {
         
-        player?.stop()
+        //        player?.stop()
+        PlayAllSounds.sharedInstance.stop()
         
         print("press stop")
         stopIcon.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)

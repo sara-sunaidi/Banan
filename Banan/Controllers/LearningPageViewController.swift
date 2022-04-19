@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import FirebaseFirestore
 import Firebase
-import AVFoundation
+//import AVFoundation
 
 
 class LearningPageViewController: UIViewController {
@@ -19,7 +19,7 @@ class LearningPageViewController: UIViewController {
 
     var completedLetters: [String]?
     var completedWords: [String]?
-    var player: AVAudioPlayer?
+//    var player: AVAudioPlayer?
 
     
     @IBOutlet weak var letterButton: UIButton!
@@ -85,9 +85,9 @@ class LearningPageViewController: UIViewController {
         print("in getLettersData")
         let lett = LocalStorage.allLettersInfo
         if lett != nil{
-            print("itsnill")
+//            print("itsnill")
             allLetters = lett!
-            print(allLetters)
+//            print(allLetters)
 
         }
     }
@@ -118,40 +118,23 @@ class LearningPageViewController: UIViewController {
 
     
     @IBAction func pressBack(_ sender: UIButton) {
-        player?.stop()
+//        player?.stop()
 
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pressLearnLetters(_ sender: UIButton) {
-        playSound("Letters")
+//        playSound("Letters")
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "Letters")
         self.performSegue(withIdentifier: "GoToLearnLettersPage", sender: self)
     }
     
     @IBAction func pressLearnWords(_ sender: UIButton) {
-        playSound("Words")
+//        playSound("Words")
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "Words")
         self.performSegue(withIdentifier: "GoToLearnWordsPage", sender: self)
     }
     
-    // play sound
-    func playSound(_ name:String) {
-        
-        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
-        else { return }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            guard let player = player else { return }
-            
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-    }
 }

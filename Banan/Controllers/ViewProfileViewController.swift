@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import SwiftUI
 class ViewProfileViewController : UIViewController,CustomConfirmationViewControllerDelegate{
+    
     func didYesButtonTapped() {
         let firebaseAuth = Auth.auth()
     do {
@@ -48,6 +49,7 @@ class ViewProfileViewController : UIViewController,CustomConfirmationViewControl
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getChildData()
         resetPassword.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         resetPassword.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         resetPassword.layer.shadowOpacity = 0.8

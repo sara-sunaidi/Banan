@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 import SwiftUI
-import AVFoundation
+//import AVFoundation
 
 // Protocol in UIView Class for navigation purposes
 protocol LevelDoneViewControllerDelegate {
@@ -43,7 +43,7 @@ class LevelDoneViewController : UIView {
     
     @IBOutlet weak var levelScore: UILabel!
     
-    var player: AVAudioPlayer?
+//    var player: AVAudioPlayer?
 
     
     var delegate: LevelDoneViewControllerDelegate?
@@ -82,21 +82,23 @@ class LevelDoneViewController : UIView {
         
     }
     func playSound(soundName: String){
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
-        //to find sound name:
-        //letters![index!].Letter
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            guard let player = player else { return }
-            
-            player.play()
-        } catch let error {
-            print(error.localizedDescription)
-        }
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: soundName)
+//        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+//        //to find sound name:
+//        //letters![index!].Letter
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+//
+//            guard let player = player else { return }
+//
+//            player.play()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
     }
     
     func showAlert(title: String, level: String, gameArray: [Game], totalScore: Int, imageName: String, soundName: String) {

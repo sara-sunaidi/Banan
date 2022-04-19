@@ -202,7 +202,7 @@ class FirebaseRequest{
         }
     }
     
-    static func updateCompletedLetter(letter: String){
+    static func updateCompletedLetter(letter: String, level: String){
         if let userId = Auth.auth().currentUser?.uid {
             let collectionRef = self.db.collection("Children")
             let thisUserDoc = collectionRef.document(userId)
@@ -210,6 +210,7 @@ class FirebaseRequest{
                 "CompletedLetter": FieldValue.arrayUnion([letter])
             ])
         }
+        updateCompletedLetterLevels(level: level)
         
     }
     
@@ -377,6 +378,61 @@ class FirebaseRequest{
                         ])
                     }
                     
+                }
+            }
+            
+        }
+    }
+   
+    
+    static func updateCompletedLetterLevels(level :String) {
+        
+//        var material = [String]()
+//        var food = [String]()
+//        var place = [String]()
+//        var animal = [String]()
+//
+//        var updateMaterial = true
+//        var updateFood = true
+//        var updatePlace = true
+//        var updateAnimal = true
+        
+        var completedLetters = [String]()
+        var levelLetters = [String]()
+        
+        // Step 1: get user completed letters
+        if let userId = getUserId() {
+            let collectionRef = self.db.collection("Children")
+            let thisUserDoc = collectionRef.document(userId)
+            
+            thisUserDoc.getDocument{ (document, error) in
+                guard let document = document, document.exists else {
+                    print("Document does not exist")
+                    return
+                }
+                let dataDescription = document.data()
+                completedLetters = dataDescription?["completedLetter"] as! [String]
+                print(" Completed letters are -> \(completedLetters)")
+            }
+            
+            // Step 2: get words for each category and compare them to completedWordsSet to know if it needs to be updated
+            
+            // Material Category
+            db.collection("Letters").whereField("Level", isEqualTo: level).getDocuments(){(querySnapshor , err) in
+                if let oErr = err {
+                    print("Error: \(oErr.localizedDescription)")
+                } else {
+                    for document in querySnapshor!.documents
+                    {
+                        levelLetters.append(document.documentID)
+                    }
+                    
+                    var intersect =  Set(levelLetters).intersection(completedLetters).count
+                     
+                     if( intersect == levelLetters.count){
+                         //update completed level
+                         thisUserDoc.updateData(["CompletedLevel": FieldValue.arrayUnion([level])])
+                     }
                 }
             }
             

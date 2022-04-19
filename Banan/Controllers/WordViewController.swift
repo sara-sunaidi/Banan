@@ -14,7 +14,7 @@
 
 import UIKit
 import Firebase
-import AVFoundation
+//import AVFoundation
 
 
 class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
@@ -27,7 +27,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     var wordBraille = [String]()
     let db = Firestore.firestore()
     var expectedResult : String?
-    var player: AVAudioPlayer?
+//    var player: AVAudioPlayer?
 
     
     //four letters
@@ -140,7 +140,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         print("- in view load WORD")
         super.viewDidLoad()
         
-        playSound("\(allWords![index!].Word)")
+//        playSound("\(allWords![index!].Word)")
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
 
         if(index! == 0){
             
@@ -330,7 +332,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
                 showSnackbar(snackbar: snackbar)
                 
                 //play sound
-                playSound("Incorrect")
+//                playSound("Incorrect")
+                PlayAllSounds.sharedInstance.stop()
+                PlayAllSounds.sharedInstance.play(name: "Incorrect")
             }
             
             
@@ -347,7 +351,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         FirebaseRequest.updateCompletedWord(word:allWords![index!].Word)
         
         //play sound
-        playSound("Correct")
+//        playSound("Correct")
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "Correct")
     }
     
     
@@ -362,7 +368,10 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
-        playSound("\(allWords![index!].Word)")
+//        playSound("\(allWords![index!].Word)")
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+        
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
@@ -397,7 +406,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     // The coming method to handle exit confirmation pop-up actions
     
     func didYesButtonTapped() {
-        player?.stop()
+//        player?.stop()
+        PlayAllSounds.sharedInstance.stop()
         print("- Yes tapped in word controller")
         self.dismiss(animated: true, completion: nil)
     }
@@ -635,27 +645,27 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         }
     }
    
-    // play sound
-    func playSound(_ name:String) {
-        
-        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
-        else { return }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            guard let player = player else { return }
-            
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-    }
+//    // play sound
+//    func playSound(_ name:String) {
+//
+//        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+//        else { return }
+//
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+//
+//            guard let player = player else { return }
+//
+//            player.play()
+//
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//
+//    }
 }
 
 
