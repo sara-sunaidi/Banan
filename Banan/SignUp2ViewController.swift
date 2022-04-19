@@ -30,7 +30,7 @@ class SignUp2ViewController: UIViewController {
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "EN")
-        dateFormatter.dateFormat =  "MM dd, YYYY"
+        dateFormatter.dateFormat =  "MM dd, yyyy"
      
         let date = dateFormatter.date(from: dob)
         DOB.date = date ?? date1
