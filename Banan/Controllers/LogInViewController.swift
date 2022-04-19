@@ -40,7 +40,7 @@ class LogInViewContoller : UIViewController{
         red123.tintColor = UIColor.white
         parallelogram.tintColor = UIColor.white
         circle.tintColor = UIColor.white
-        signUp.setAttributedTitle("إنشاء الحساب".underlined, for: .normal)
+      
     }
     
     @objc func dismissKeyboard() {
