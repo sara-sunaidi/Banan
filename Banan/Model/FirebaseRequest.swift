@@ -411,7 +411,7 @@ class FirebaseRequest{
                     return
                 }
                 let dataDescription = document.data()
-                completedLetters = dataDescription?["completedLetter"] as! [String]
+                completedLetters = dataDescription?["CompletedLetter"] as! [String]
                 print(" Completed letters are -> \(completedLetters)")
             }
             

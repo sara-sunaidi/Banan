@@ -104,21 +104,6 @@ String dumpRotatedRect(const RotatedRect& argument)
 }
 
 CV_WRAP static inline
-RotatedRect testRotatedRect(float x, float y, float w, float h, float angle)
-{
-    return RotatedRect(Point2f(x, y), Size2f(w, h), angle);
-}
-
-CV_WRAP static inline
-std::vector<RotatedRect> testRotatedRectVector(float x, float y, float w, float h, float angle)
-{
-    std::vector<RotatedRect> result;
-    for (int i = 0; i < 10; i++)
-        result.push_back(RotatedRect(Point2f(x + i, y + 2 * i), Size2f(w, h), angle + 10 * i));
-    return result;
-}
-
-CV_WRAP static inline
 String dumpRange(const Range& argument)
 {
     if (argument == Range::all())
@@ -129,12 +114,6 @@ String dumpRange(const Range& argument)
     {
         return format("range: (s=%d, e=%d)", argument.start, argument.end);
     }
-}
-
-CV_WRAP static inline
-int testOverwriteNativeMethod(int argument)
-{
-    return argument;
 }
 
 CV_WRAP static inline
@@ -218,10 +197,6 @@ AsyncArray testAsyncException()
     }
     return p.getArrayResult();
 }
-
-namespace fs {
-    CV_EXPORTS_W cv::String getCacheDirectoryForDownloads();
-} // namespace fs
 
 //! @}  // core_utils
 }  // namespace cv::utils

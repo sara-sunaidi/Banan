@@ -7,9 +7,9 @@
     <key>CFBundleIdentifier</key>
     <string>org.opencv</string>
     <key>CFBundleVersion</key>
-    <string>4.5.5</string>
+    <string>3.4.16</string>
     <key>CFBundleShortVersionString</key>
-    <string>4.5.5</string>
+    <string>3.4.16</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundlePackageType</key>
