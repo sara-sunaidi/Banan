@@ -15,6 +15,7 @@ class SnackbarView: UIView {
     enum color {
         case red
         case yellow
+        case green
     }
     
     private let label:UILabel = {
@@ -50,6 +51,10 @@ class SnackbarView: UIView {
         case .yellow:
             backgroundColor = UIColor(red: 0.9294, green: 0.8, blue: 0.4549, alpha: 0.7)
             label.textColor = UIColor(red: 0.6196, green: 0.4314, blue: 0, alpha: 1.0)
+            
+        case .green:
+            backgroundColor = UIColor(red: 121/255, green: 166/255, blue: 143/255, alpha: 0.7)
+            label.textColor = UIColor(red: 35/255, green: 66/255, blue: 68/255, alpha: 1.0)
         }
        
         

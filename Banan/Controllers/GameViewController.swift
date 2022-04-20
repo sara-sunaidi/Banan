@@ -57,6 +57,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     var levelTitle = ""
     
+    var expectedResult : String?
+
     
     var levelPoints = 0 //full level points
     var levelUserPoints = 0
@@ -131,7 +133,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         PlayAllSounds.sharedInstance.stop()
         
         //start current animal sound?
-        playSound()
+        playSound("\(currentLevel[index].Animal)-Game")
         
         levelTitle = ConvertLevel.FindLevelTitle(levelName: levelNum!)
         let allLevels = allGameAnimals.map({$0.Level})
@@ -169,7 +171,156 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         Hint4ViewController.instance.delegate = self
         Hint3ViewController.instance.delegate = self
         
+        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
+        
     }
+    
+    @objc func didGetNotification(_ notification:Notification){
+        let result = notification.object as! String?
+        checkAnswer(result!)
+    }
+    
+    private func checkAnswer(_ actualResult: String){
+        
+        print("- in CheckAnswer")
+        
+        if (actualResult == "failed"){
+            // Incorrect placment of pieces
+            print("- in CheckAnswer result is FAILED")
+            // call toast
+            let viewModel: SnackbarViewModel
+            
+            viewModel = SnackbarViewModel(text: "رجاءً تأكد من وضع القطع في مكانها الصحيح !", image: UIImage(named: "Warning"))
+            
+            let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+            let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .yellow)
+            showSnackbar(snackbar: snackbar)
+            
+        } else{
+            
+            expectedResult = currentLevel![index].Arabic
+            
+            print("- actualResult is \(actualResult)")
+            
+            print("- in CheckAnswer ELSE")
+            
+            // Correct Answer
+            if (actualResult == expectedResult){
+                correctAnswer()
+            }
+            // Incorrect Answer
+            else{
+                
+                // Snackbar calling is here
+                let viewModel: SnackbarViewModel
+                
+                viewModel = SnackbarViewModel(text: "\"\(actualResult)\" إجابة خاطئة ... حاول مرة أخرى !", image: UIImage(named: "wrongAnswer"))
+                
+                let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+                let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .red)
+                showSnackbar(snackbar: snackbar)
+                
+                //play sound
+                playSound("Incorrect")
+
+            }
+            
+            
+        }
+    }
+    
+    private func correctAnswer(){
+        //play sound
+        playSound("Correct")
+        
+        //if the answer was correct, do the following
+        numOfPassed = numOfPassed + 1
+        updatePassedLabel()
+        
+        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
+        
+        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
+        curPoints += 20 // because the answer was currect
+        
+        currentLevel[index].setCurrent(point: curPoints) // save current point locally
+        
+        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
+        
+        
+        //update progresssbar
+        progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
+        
+        
+        //if level did not finish
+        if(index != currentLevel.count - 1){
+//            // Call pop up
+//            CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
+            
+            // Snackbar calling is here
+            let viewModel: SnackbarViewModel
+            
+            viewModel = SnackbarViewModel(text: "أحسنت ... إجابة صحيحة", image: UIImage(named: "excellent"))
+            
+            let frame = CGRect(x: 0, y: 0, width: view.frame.size.width/1.5, height: 100)
+            let snackbar = SnackbarView(viewModel: viewModel, frame: frame, color: .green)
+            showSnackbar(snackbar: snackbar)
+            
+            index = index + 1
+            
+            viewDidLoad()
+        }
+        else{
+            //else pop up message with total points and pass or fail
+            //total point in level
+            finishLevel()
+        }
+    }
+    
+    public func showSnackbar(snackbar: SnackbarView){
+        
+        let width = view.frame.size.width/1.5
+        
+        // set frame to start position
+        snackbar.frame = CGRect(
+            x: (view.frame.size.width-width)/2,
+            y: view.frame.size.height,
+            width: width,
+            height: 130)
+        
+        view.addSubview(snackbar)
+        
+        // animate it upwards
+        UIView.animate(withDuration: 0.5, animations: {
+            snackbar.frame = CGRect(
+                x: (self.view.frame.size.width-width)/2,
+                y: self.view.frame.size.height - 140,
+                width: width,
+                height: 130)
+        }, completion: { done in
+            if done {
+                DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+                    
+                    // animate it downwards
+                    UIView.animate(withDuration: 0.7, animations: {
+                        snackbar.frame = CGRect(
+                            x: (self.view.frame.size.width-width)/2,
+                            y: self.view.frame.size.height,
+                            width: width,
+                            height: 130)
+                    }, completion: { finished in
+                        if finished{
+                            snackbar.removeFromSuperview()
+                        }
+                        
+                    })
+                })
+                
+                
+            }
+        })
+    }
+    
     func designBarLabels(){
         goodLabel.layer.position = .init(x: labelSuperView.frame.width * (1-0.2), y: labelSuperView.frame.height/2)
         
@@ -303,11 +454,11 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBAction func pressSpeaker(_ sender: UIButton) {
         print("play sound")
-        playSound()
+        playSound("\(currentLevel[index].Animal)-Game")
     }
-    func playSound(){
+    func playSound(_ name:String){
         PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "\(currentLevel[index].Animal)-Game")
+        PlayAllSounds.sharedInstance.play(name: name)
         //
         //        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)-Game", withExtension: "mp3") else { return }
         //        //to find sound name:
@@ -358,41 +509,45 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBAction func pressCheck(_ sender: UIButton) {
         
         print("press check")
+        takePhotoVC.checkCameraPermissions()
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
+            takePhotoVC.didTapCheck()
+        }
         //        player?.stop() //stop any prev animal sound
-        PlayAllSounds.sharedInstance.stop()
-        
-        
-        //if the answer was correct, do the following
-        
-        numOfPassed = numOfPassed + 1
-        updatePassedLabel()
-        
-        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
-        
-        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
-        curPoints += 20 // because the answer was currect
-        
-        currentLevel[index].setCurrent(point: curPoints) // save current point locally
-        
-        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
-        
-        
-        //update progresssbar
-        progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
-        
-        
-        //if level did not finish
-        if(index != currentLevel.count - 1){
-            index = index + 1
-            
-            viewDidLoad()
-        }
-        else{
-            //else pop up message with total points and pass or fail
-            //total point in level
-            finishLevel()
-        }
-        
+//        PlayAllSounds.sharedInstance.stop()
+//
+//
+//        //if the answer was correct, do the following
+//
+//        numOfPassed = numOfPassed + 1
+//        updatePassedLabel()
+//
+//        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
+//
+//        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
+//        curPoints += 20 // because the answer was currect
+//
+//        currentLevel[index].setCurrent(point: curPoints) // save current point locally
+//
+//        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
+//
+//
+//        //update progresssbar
+//        progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
+//
+//
+//        //if level did not finish
+//        if(index != currentLevel.count - 1){
+//            index = index + 1
+//
+//            viewDidLoad()
+//        }
+//        else{
+//            //else pop up message with total points and pass or fail
+//            //total point in level
+//            finishLevel()
+//        }
+//
     }
     
     

@@ -230,7 +230,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
         // # update user info
-        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter)
+        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter, level: letters![index!].Level)
         
         //play sound
         playSound("Correct")
@@ -416,7 +416,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
                     
                     // animate it downwards
-                    UIView.animate(withDuration: 0.5, animations: {
+                    UIView.animate(withDuration: 0.7, animations: {
                         snackbar.frame = CGRect(
                             x: (self.view.frame.size.width-width)/2,
                             y: self.view.frame.size.height,
