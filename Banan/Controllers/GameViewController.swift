@@ -207,6 +207,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             
             // Correct Answer
             if (actualResult == expectedResult){
+                playSound("Correct")
                 correctAnswer()
             }
             // Incorrect Answer
@@ -232,7 +233,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     private func correctAnswer(){
         //play sound
-        playSound("Correct")
+//        playSound("Correct")
         
         //if the answer was correct, do the following
         numOfPassed = numOfPassed + 1
