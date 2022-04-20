@@ -200,7 +200,6 @@
 		71A3A91527EB79D7009F9B09 /* CustomConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91427EB79D7009F9B09 /* CustomConfirmationViewController.swift */; };
 		71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */; };
 		71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */; };
-		71FD52182804EE440092ECEA /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FD52172804EE440092ECEA /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,7 +406,6 @@
 		71A3A91427EB79D7009F9B09 /* CustomConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationViewController.swift; sourceTree = "<group>"; };
 		71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		71FD52172804EE440092ECEA /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,7 +428,6 @@
 				56290E90279F234A00F3AC5F /* CoreGraphics.framework in Frameworks */,
 				4DC0E31E27BC136100560589 /* FirebaseStorage in Frameworks */,
 				56290E8E279F231100F3AC5F /* AssetsLibrary.framework in Frameworks */,
-				71FD52182804EE440092ECEA /* opencv2.framework in Frameworks */,
 				4DC0E31027BC136100560589 /* FirebaseAuth in Frameworks */,
 				4DC0E31C27BC136100560589 /* FirebaseFunctionsSwift-Beta in Frameworks */,
 				4DC0E31A27BC136100560589 /* FirebaseFirestoreSwift-Beta in Frameworks */,
@@ -587,7 +584,6 @@
 		56290D1B279E088F00F3AC5F = {
 			isa = PBXGroup;
 			children = (
-				71FD52172804EE440092ECEA /* opencv2.framework */,
 				56290D26279E088F00F3AC5F /* Banan */,
 				56290D3D279E089100F3AC5F /* BananTests */,
 				56290D47279E089100F3AC5F /* BananUITests */,
@@ -1259,7 +1255,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CKU3XD8X9U;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1300,7 +1296,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CKU3XD8X9U;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
