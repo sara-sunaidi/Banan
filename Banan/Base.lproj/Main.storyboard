@@ -1277,11 +1277,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oky-c0-VZb">
-                                <rect key="frame" x="111" y="642" width="630" height="253"/>
+                                <rect key="frame" x="147" y="643" width="547" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.91764705879999997" green="0.58823529409999997" blue="0.42352941179999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="BrailleBlocks2"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="BrailleBlock2"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="pressGame:" destination="TId-jZ-MzO" eventType="touchUpInside" id="qBP-1V-aF7"/>
                                 </connections>
@@ -1302,17 +1304,6 @@
                                 <connections>
                                     <action selector="pressDashBoard:" destination="TId-jZ-MzO" eventType="touchUpInside" id="chS-03-Qux"/>
                                     <segue destination="smG-5J-e3t" kind="presentation" identifier="GoToDashBoard" modalPresentationStyle="currentContext" id="j4Q-wD-sVn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hd-EH-lCu">
-                                <rect key="frame" x="111" y="389" width="630" height="253"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.91764705879999997" green="0.58823529409999997" blue="0.42352941179999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="BrailleBlocks1"/>
-                                <connections>
-                                    <action selector="pressLearn:" destination="TId-jZ-MzO" eventType="touchUpInside" id="QDU-y3-8Sr"/>
-                                    <segue destination="oHn-xR-rP2" kind="presentation" identifier="GoToLearningPage" modalPresentationStyle="currentContext" id="rrs-ce-8fI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXV-dD-QtU">
@@ -1343,6 +1334,19 @@
                                 <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hd-EH-lCu">
+                                <rect key="frame" x="158" y="331" width="530" height="294"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.91764705879999997" green="0.58823529409999997" blue="0.42352941179999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="BrailleBlock1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressLearn:" destination="TId-jZ-MzO" eventType="touchUpInside" id="QDU-y3-8Sr"/>
+                                    <segue destination="oHn-xR-rP2" kind="presentation" identifier="GoToLearningPage" modalPresentationStyle="currentContext" id="rrs-ce-8fI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VWi-Su-21G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1367,7 +1371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="902-ur-R6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326.6187050359713" y="1960.8040201005026"/>
+            <point key="canvasLocation" x="2325.9259259259256" y="1960.5555555555554"/>
         </scene>
         <!--Learning Page View Controller-->
         <scene sceneID="cUH-74-1ao">
@@ -1640,7 +1644,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-EC-X3s">
-                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2728,7 +2732,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbN-xA-VxZ">
-                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2968,7 +2972,7 @@
                                 <rect key="frame" x="0.0" y="45" width="810" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-YR-QtR">
-                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -6552,13 +6556,13 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yD0-41-uUe"/>
-        <segue reference="sZa-XB-zTk"/>
-        <segue reference="C36-KF-fOy"/>
-        <segue reference="YTN-t0-tK2"/>
+        <segue reference="DBf-gC-w3l"/>
+        <segue reference="kQ8-fG-EeK"/>
+        <segue reference="YiQ-fX-NIg"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="BrailleBlocks1" width="638" height="261"/>
-        <image name="BrailleBlocks2" width="638" height="261"/>
+        <image name="BrailleBlock1" width="853" height="460"/>
+        <image name="BrailleBlock2" width="880" height="450"/>
         <image name="BraillePurple" width="512" height="729"/>
         <image name="BrailleYellow" width="512" height="729"/>
         <image name="Crown" width="74" height="107"/>
