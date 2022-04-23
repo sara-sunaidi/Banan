@@ -230,7 +230,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
         // # update user info
-        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter)
+        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter, level: letters![index!].Level)
         
         //play sound
         playSound("Correct")
