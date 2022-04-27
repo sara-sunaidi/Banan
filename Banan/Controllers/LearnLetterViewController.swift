@@ -11,7 +11,10 @@ import SwiftUI
 //import AVFoundation
 import Firebase
 
-class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate {
+class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate,LetterInstructionsViewControllerDelegate{
+    func didDoneButtonTapped() {
+        //self.dismiss(animated: true, completion: nil)
+    }
     
     var letters : [Letters]?
     var index: Int?
@@ -102,9 +105,10 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
-        
+        LetterInstructionsViewController.instance.delegate = self
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
+        LetterInstructionsViewController.instance.showAlert()//check
     }
     
     @objc func didGetNotification(_ notification:Notification){
@@ -454,6 +458,11 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         strLetter = "حرف "
         viewDidLoad()
     }
+    @IBAction func instructionButtonPressed(_ sender: UIButton) {
+        LetterInstructionsViewController.instance.showAlert()
+    }
+        
+   
 }
 
 

@@ -1644,7 +1644,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-EC-X3s">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2732,7 +2732,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbN-xA-VxZ">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2972,7 +2972,7 @@
                                 <rect key="frame" x="0.0" y="45" width="810" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-YR-QtR">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -4197,6 +4197,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="instructionButtonPressed:" destination="hRv-p3-Bze" eventType="touchUpInside" id="KvP-G6-cM1"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQI-OX-9yY">
                                 <rect key="frame" x="103" y="592" width="352" height="418"/>
@@ -4446,6 +4449,7 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="instructionButtonPressed:" destination="0gR-3Y-BME" eventType="touchUpInside" id="VHU-qR-BGZ"/>
                                     <action selector="onClickGuide:" destination="0gR-3Y-BME" eventType="touchUpInside" id="vt6-dE-4es"/>
                                 </connections>
                             </button>
@@ -6555,10 +6559,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="aRI-FO-QJe"/>
         <segue reference="yD0-41-uUe"/>
-        <segue reference="DBf-gC-w3l"/>
-        <segue reference="kQ8-fG-EeK"/>
-        <segue reference="YiQ-fX-NIg"/>
+        <segue reference="sZa-XB-zTk"/>
+        <segue reference="C36-KF-fOy"/>
+        <segue reference="YTN-t0-tK2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BrailleBlock1" width="853" height="460"/>
@@ -6587,7 +6592,7 @@
         <image name="SignUp Screen3" width="278" height="398"/>
         <image name="SignUp Screen4" width="278" height="398"/>
         <image name="Sound" width="71" height="67"/>
-        <image name="Start Screen" width="556" height="796"/>
+        <image name="Start Screen" width="1219" height="1790"/>
         <image name="StatisticsRectagular" width="224" height="92"/>
         <image name="Vector" width="9" height="13"/>
         <image name="Vector (1)" width="4" height="7"/>

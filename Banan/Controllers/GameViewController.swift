@@ -9,8 +9,14 @@ import UIKit
 
 
 class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate, Hint5ViewControllerDelegate, Hint4ViewControllerDelegate
-, Hint3ViewControllerDelegate
+, Hint3ViewControllerDelegate,
+GameInstructionsViewControllerDelegate
+
 {
+    func didDoneButtonTapped() {
+        
+    }
+    
     
     
     @IBOutlet weak var heart1: UIButton!
@@ -170,10 +176,10 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         Hint5ViewController.instance.delegate = self
         Hint4ViewController.instance.delegate = self
         Hint3ViewController.instance.delegate = self
-        
+        GameInstructionsViewController.instance.delegate = self
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
-        
+        GameInstructionsViewController.instance.showAlert() 
     }
     
     @objc func didGetNotification(_ notification:Notification){
@@ -480,8 +486,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     @IBAction func pressInstructions(_ sender: UIButton) {
         
-        print( "press Instructions")
-    }
+        GameInstructionsViewController.instance.showAlert()    }
     
     @IBAction func pressHint(_ sender: UIButton) {
         
@@ -689,5 +694,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         
         viewDidLoad()
     }
+    
+    
     
 }
