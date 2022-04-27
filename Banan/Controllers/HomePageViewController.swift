@@ -104,6 +104,12 @@ class HomePageViewController : UIViewController{
         
     }
     
+    @IBAction func pressInstructions(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeInstructions") as! HomeInstructionsViewController
+        view.window?.rootViewController = controller
+        view.window?.makeKeyAndVisible()
+    }
     
     @IBAction func pressLearn(_ sender: UIButton) {
         playSound("Practice")

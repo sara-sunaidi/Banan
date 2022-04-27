@@ -190,6 +190,7 @@
 		56CBA4E22800E80700251F96 /* Hint5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E12800E80700251F96 /* Hint5View.xib */; };
 		56CBA4E42800E8BA00251F96 /* Hint4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E32800E8BA00251F96 /* Hint4View.xib */; };
 		56CBA4E62800E92700251F96 /* Hint3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E52800E92700251F96 /* Hint3View.xib */; };
+		56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
 		716D573E2804A3B100A51B96 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716D573D2804A3B100A51B96 /* EditProfileViewController.swift */; };
@@ -397,6 +398,7 @@
 		56CBA4E12800E80700251F96 /* Hint5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint5View.xib; sourceTree = "<group>"; };
 		56CBA4E32800E8BA00251F96 /* Hint4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint4View.xib; sourceTree = "<group>"; };
 		56CBA4E52800E92700251F96 /* Hint3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint3View.xib; sourceTree = "<group>"; };
+		56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInstructionsViewController.swift; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		716D573D2804A3B100A51B96 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */,
+				56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
@@ -1053,6 +1056,7 @@
 				569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
 				562CA63A2800D905004EC8C5 /* Hint5ViewController.swift in Sources */,
+				56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */,
 				562CA6402800DA14004EC8C5 /* GameViewController.swift in Sources */,
 				56BD5ED427E431F000F6DBB6 /* LocalStorage.swift in Sources */,
 				562CA63E2800D9E0004EC8C5 /* Hint3ViewController.swift in Sources */,
