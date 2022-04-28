@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ngz-ae-oey">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2e-dl-oEl">
     <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -6687,7 +6687,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVk-s8-3dv">
-                                        <rect key="frame" x="215" y="812" width="309" height="198"/>
+                                        <rect key="frame" x="215" y="862" width="309" height="198"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat2" translatesAutoresizingMaskIntoConstraints="NO" id="ccu-pO-urI">
                                                 <rect key="frame" x="0.0" y="0.0" width="309" height="198"/>
@@ -6699,7 +6699,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKV-Ja-9tH">
-                                                <rect key="frame" x="53" y="104" width="88" height="35"/>
+                                                <rect key="frame" x="48" y="104" width="88" height="35"/>
                                                 <color key="backgroundColor" red="0.90196078430000004" green="0.64705884459999996" blue="0.51372551919999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="88" id="XMx-dT-Koy"/>
@@ -6727,25 +6727,6 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="showNext:" destination="Ngz-ae-oey" eventType="touchUpInside" id="hFW-Y9-wOQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXj-xr-46h">
-                                                <rect key="frame" x="169" y="104" width="88" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="88" id="GWc-Pj-s3j"/>
-                                                    <constraint firstAttribute="height" constant="35" id="IQM-eP-nkt"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="chevron.forward" catalog="system" imagePlacement="trailing" title="السابق" imagePadding="0.0">
-                                                    <backgroundConfiguration key="background" cornerRadius="16">
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="strokeColor" red="0.52549019607843139" green="0.50196078431372548" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="Almarai-Bold" family="Almarai" pointSize="14"/>
-                                                    <color key="baseForegroundColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="showPrevious:" destination="Ngz-ae-oey" eventType="touchUpInside" id="QWT-U8-296"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9NC-Sr-fbD">
@@ -6779,23 +6760,73 @@
                                                     <action selector="showNext:" destination="Ngz-ae-oey" eventType="touchUpInside" id="7vj-JP-AC1"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXj-xr-46h">
+                                                <rect key="frame" x="186" y="104" width="88" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="88" id="GWc-Pj-s3j"/>
+                                                    <constraint firstAttribute="height" constant="35" id="IQM-eP-nkt"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.forward" catalog="system" imagePlacement="trailing" title="السابق" imagePadding="0.0">
+                                                    <backgroundConfiguration key="background" cornerRadius="16">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" red="0.52549019607843139" green="0.50196078431372548" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="Almarai-Bold" family="Almarai" pointSize="14"/>
+                                                    <color key="baseForegroundColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="showPrevious:" destination="Ngz-ae-oey" eventType="touchUpInside" id="QWT-U8-296"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-9o-ufa">
+                                                <rect key="frame" x="16" y="104" width="162" height="35"/>
+                                                <color key="backgroundColor" red="0.90196078430000004" green="0.64705884459999996" blue="0.51372551919999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="162" id="HCN-om-mYd"/>
+                                                    <constraint firstAttribute="height" constant="35" id="gRs-xh-MdP"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.90196078430000004" green="0.64705884459999996" blue="0.51372551919999998" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="تسجيل الدخول">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="تسجيل الدخول">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.13725490196078433" green="0.25882352941176467" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="28" name="GeezaPro-Bold"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" imagePlacement="leading" title="المتابعة لتعلم القطع">
+                                                    <backgroundConfiguration key="background" cornerRadius="17">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="Almarai-Bold" family="Almarai" pointSize="14"/>
+                                                    <color key="baseForegroundColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="VXj-xr-46h" secondAttribute="trailing" constant="52" id="18H-vX-h2x"/>
+                                            <constraint firstAttribute="trailing" secondItem="VXj-xr-46h" secondAttribute="trailing" constant="35" id="18H-vX-h2x"/>
                                             <constraint firstItem="ccu-pO-urI" firstAttribute="top" secondItem="rVk-s8-3dv" secondAttribute="top" id="FeP-FT-4x1"/>
                                             <constraint firstAttribute="bottom" secondItem="9NC-Sr-fbD" secondAttribute="bottom" constant="59" id="G7y-Pp-FGz"/>
                                             <constraint firstAttribute="height" constant="198" id="Gw5-LD-wam"/>
+                                            <constraint firstAttribute="bottom" secondItem="pdt-9o-ufa" secondAttribute="bottom" constant="59" id="Kji-6g-BTi"/>
                                             <constraint firstAttribute="bottom" secondItem="CmI-WG-6oI" secondAttribute="bottom" constant="102" id="NT2-l9-yNk"/>
-                                            <constraint firstItem="VXj-xr-46h" firstAttribute="leading" secondItem="EKV-Ja-9tH" secondAttribute="trailing" constant="28" id="QsO-kZ-U62"/>
+                                            <constraint firstItem="VXj-xr-46h" firstAttribute="leading" secondItem="EKV-Ja-9tH" secondAttribute="trailing" constant="50" id="QsO-kZ-U62"/>
                                             <constraint firstAttribute="trailing" secondItem="CmI-WG-6oI" secondAttribute="trailing" constant="8" id="ShT-ql-ult"/>
                                             <constraint firstAttribute="bottom" secondItem="VXj-xr-46h" secondAttribute="bottom" constant="59" id="Xeu-Gb-aWl"/>
                                             <constraint firstAttribute="bottom" secondItem="ccu-pO-urI" secondAttribute="bottom" id="YOA-1w-Jc8"/>
                                             <constraint firstItem="ccu-pO-urI" firstAttribute="leading" secondItem="rVk-s8-3dv" secondAttribute="leading" id="c4o-Jv-vrp"/>
+                                            <constraint firstItem="pdt-9o-ufa" firstAttribute="leading" secondItem="rVk-s8-3dv" secondAttribute="leading" constant="16" id="e5o-jf-ppb"/>
                                             <constraint firstItem="CmI-WG-6oI" firstAttribute="leading" secondItem="rVk-s8-3dv" secondAttribute="leading" constant="8" id="hgU-3P-Qrj"/>
                                             <constraint firstAttribute="trailing" secondItem="ccu-pO-urI" secondAttribute="trailing" id="iWT-lx-P3p"/>
                                             <constraint firstItem="9NC-Sr-fbD" firstAttribute="centerX" secondItem="rVk-s8-3dv" secondAttribute="centerX" id="jCC-UN-W0R"/>
                                             <constraint firstItem="CmI-WG-6oI" firstAttribute="top" secondItem="rVk-s8-3dv" secondAttribute="top" constant="8" id="jk5-9M-qLT"/>
                                             <constraint firstAttribute="bottom" secondItem="EKV-Ja-9tH" secondAttribute="bottom" constant="59" id="kPe-2a-7yI"/>
+                                            <constraint firstItem="VXj-xr-46h" firstAttribute="leading" secondItem="pdt-9o-ufa" secondAttribute="trailing" constant="8" symbolic="YES" id="oCj-tb-Xqy"/>
                                             <constraint firstAttribute="width" constant="309" id="ptu-Ae-1UK"/>
                                         </constraints>
                                     </view>
@@ -6806,7 +6837,7 @@
                                     <constraint firstItem="rVk-s8-3dv" firstAttribute="leading" secondItem="GLC-oN-1wn" secondAttribute="trailing" id="ILg-Re-kKa"/>
                                     <constraint firstAttribute="trailing" secondItem="Bc8-Bl-75B" secondAttribute="trailing" constant="45" id="N6h-Eh-8Iy"/>
                                     <constraint firstAttribute="bottom" secondItem="Bc8-Bl-75B" secondAttribute="bottom" constant="50" id="aKB-Ma-bBK"/>
-                                    <constraint firstAttribute="bottom" secondItem="rVk-s8-3dv" secondAttribute="bottom" constant="70" id="jow-Ge-u5B"/>
+                                    <constraint firstAttribute="bottom" secondItem="rVk-s8-3dv" secondAttribute="bottom" constant="20" id="jow-Ge-u5B"/>
                                     <constraint firstAttribute="bottom" secondItem="GLC-oN-1wn" secondAttribute="bottom" id="sJX-gJ-Eug"/>
                                 </constraints>
                             </view>
@@ -6832,15 +6863,19 @@
                         <outlet property="chat" destination="ccu-pO-urI" id="EUQ-9s-TsK"/>
                         <outlet property="dark" destination="Jgo-P1-x1Q" id="leE-GN-gk1"/>
                         <outlet property="dashBoard" destination="uIl-ou-Amq" id="5eL-eB-Wlk"/>
+                        <outlet property="instructionBtn" destination="CYX-Qo-hrr" id="PEH-OH-RpD"/>
                         <outlet property="instructionLabel" destination="CmI-WG-6oI" id="ENS-67-Ai0"/>
                         <outlet property="instructions" destination="CYX-Qo-hrr" id="s5i-sG-Ohf"/>
+                        <outlet property="learnReflectorBtn" destination="pdt-9o-ufa" id="Hra-gk-eE3"/>
                         <outlet property="name" destination="agt-IV-l0l" id="xDT-q2-eI4"/>
                         <outlet property="nextInstructionBtn" destination="EKV-Ja-9tH" id="pfq-vW-jzN"/>
+                        <outlet property="playBtn" destination="IXs-YV-xyy" id="0iC-tq-wvq"/>
                         <outlet property="pointView" destination="tWR-nA-Laa" id="rNl-70-QKd"/>
                         <outlet property="points" destination="b8B-pQ-1wD" id="FvP-Ck-9dQ"/>
                         <outlet property="practiceBtn" destination="zVl-SL-FNx" id="Mz3-xR-AIo"/>
                         <outlet property="prevInstructionBtn" destination="VXj-xr-46h" id="uOj-Hp-oyJ"/>
                         <outlet property="profileImage" destination="zVo-bd-V6n" id="mGd-uN-Oap"/>
+                        <outlet property="reportBtn" destination="uIl-ou-Amq" id="UU1-LN-fXc"/>
                         <outlet property="startInstructionBtn" destination="9NC-Sr-fbD" id="bHE-Op-n8X"/>
                     </connections>
                 </viewController>
