@@ -102,6 +102,16 @@ class HomePageViewController : UIViewController{
             //profileImage.image = UIImage(named: "girl123.png")
         }
         
+        let viewInstruction = UserDefaults.standard.bool(forKey: "viewInstruction")
+        print("eeeeeeeeeeeeeee")
+        print(viewInstruction)
+        if(!viewInstruction){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "HomeInstructions") as! HomeInstructionsViewController
+            view.window?.rootViewController = controller
+            view.window?.makeKeyAndVisible()
+        }
+        
     }
     
     @IBAction func pressInstructions(_ sender: UIButton) {

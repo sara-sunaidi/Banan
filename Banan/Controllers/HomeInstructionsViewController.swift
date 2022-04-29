@@ -21,6 +21,7 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
     @IBOutlet weak var name: UILabel!
     
 
+    @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var instructions: UIButton!
     @IBOutlet weak var dashBoard: UIButton!
     @IBOutlet weak var profileImage: UIButton!
@@ -129,6 +130,7 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(true, forKey: "viewInstruction")
         instructionsText = ["أهلا بك في بَنان!\n لنبدأ الرحلة...",
                             
                             "من هنا تستطيع الوصول إلى صفحتك الشخصية",
@@ -224,11 +226,13 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
         
         if Profile == "Boy"{
             self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
+            self.personImage.image = UIImage(named: "boy1.png")
             //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
             // profileImage.image = UIImage(named: "boy123.png")
         }
         else {
             self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
+            self.personImage.image = UIImage(named: "girl1.png")
             //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
             //profileImage.image = UIImage(named: "girl123.png")
         }

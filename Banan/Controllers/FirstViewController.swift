@@ -12,11 +12,21 @@ class FirstViewController: UIViewController {
         super.viewDidAppear(animated)
         
         let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
+        let viewInstruction = UserDefaults.standard.bool(forKey: "viewInstruction")
+
         if(isLogged){
+            if(!viewInstruction){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeInstructions") as! HomeInstructionsViewController
+                view.window?.rootViewController = controller
+                view.window?.makeKeyAndVisible()
+            }
+            else{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomePageViewController
             view.window?.rootViewController = controller
             view.window?.makeKeyAndVisible()
+            }
         }else{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "startPage") as! StartScreenViewController

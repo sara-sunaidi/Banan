@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let storage = Storage.storage()
         //let db = Firebase.firestore()
-        
+        UserDefaults.standard.register(defaults: ["viewInstruction" : false])
         self.fetchLettersInfo()
         self.fetchWordsInfo()
         self.fetchGameInfo()
@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Fetch user data
                 self.fetchUserInfo()
                 UserDefaults.standard.set(true, forKey: "isLogged")
+//                UserDefaults.standard.set(false, forKey: "viewInstruction")
+
                 //                Set is logged in child to true
 //                animatedSplashVC.isChild = true
 
