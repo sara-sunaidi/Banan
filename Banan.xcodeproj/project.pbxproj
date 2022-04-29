@@ -190,6 +190,10 @@
 		56CBA4E22800E80700251F96 /* Hint5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E12800E80700251F96 /* Hint5View.xib */; };
 		56CBA4E42800E8BA00251F96 /* Hint4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E32800E8BA00251F96 /* Hint4View.xib */; };
 		56CBA4E62800E92700251F96 /* Hint3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E52800E92700251F96 /* Hint3View.xib */; };
+		56D463DB281B446F00338940 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 56D463DA281B446F00338940 /* reflector.gif */; };
+		56D463DD281B45A900338940 /* ReflectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D463DC281B45A900338940 /* ReflectorView.xib */; };
+		56D463DF281B46EE00338940 /* ReflectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463DE281B46ED00338940 /* ReflectorViewController.swift */; };
+		56D463E1281B643400338940 /* GifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463E0281B643300338940 /* GifExtension.swift */; };
 		56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
@@ -398,6 +402,10 @@
 		56CBA4E12800E80700251F96 /* Hint5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint5View.xib; sourceTree = "<group>"; };
 		56CBA4E32800E8BA00251F96 /* Hint4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint4View.xib; sourceTree = "<group>"; };
 		56CBA4E52800E92700251F96 /* Hint3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint3View.xib; sourceTree = "<group>"; };
+		56D463DA281B446F00338940 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reflector.gif; sourceTree = "<group>"; };
+		56D463DC281B45A900338940 /* ReflectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReflectorView.xib; sourceTree = "<group>"; };
+		56D463DE281B46ED00338940 /* ReflectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectorViewController.swift; sourceTree = "<group>"; };
+		56D463E0281B643300338940 /* GifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifExtension.swift; sourceTree = "<group>"; };
 		56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInstructionsViewController.swift; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
@@ -611,12 +619,14 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
+				56D463D9281B445600338940 /* Gifs */,
 				56CBA4E72801047C00251F96 /* Sounds */,
 				715BADEE27E7E4AB006087EC /* Fonts */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D2D279E088F00F3AC5F /* Main.storyboard */,
 				562CA6332800D4C4004EC8C5 /* StopGameView.xib */,
+				56D463DC281B45A900338940 /* ReflectorView.xib */,
 				562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */,
 				562CA6452800E750004EC8C5 /* LevelFailView.xib */,
 				56CBA4E12800E80700251F96 /* Hint5View.xib */,
@@ -702,6 +712,7 @@
 				4D97C0B427E5A7C100AC16A0 /* WordsViewController.swift */,
 				4D97C0B627E7261C00AC16A0 /* ViewProfileViewController.swift */,
 				562CA6312800D366004EC8C5 /* StopGameViewController.swift */,
+				56D463DE281B46ED00338940 /* ReflectorViewController.swift */,
 				562CA6352800D6D1004EC8C5 /* LevelFailViewController.swift */,
 				562CA6372800D747004EC8C5 /* LevelDoneViewController.swift */,
 				4D79BC7027E7283600BE663C /* ResetPasswordViewController.swift */,
@@ -734,6 +745,7 @@
 			children = (
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
 				5608A391280F2DAB00B144EA /* PlayAllSounds.swift */,
+				56D463E0281B643300338940 /* GifExtension.swift */,
 				56BD5ED327E431F000F6DBB6 /* LocalStorage.swift */,
 				562CA62F2800CE1C004EC8C5 /* Game.swift */,
 				56BD5ED527E4325600F6DBB6 /* Child.swift */,
@@ -753,6 +765,14 @@
 				335713C22806219400AC9A4E /* OtherSound */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		56D463D9281B445600338940 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				56D463DA281B446F00338940 /* reflector.gif */,
+			);
+			path = Gifs;
 			sourceTree = "<group>";
 		};
 		715BADEE27E7E4AB006087EC /* Fonts */ = {
@@ -982,10 +1002,12 @@
 				335714882806224300AC9A4E /* Elephant-Game.mp3 in Resources */,
 				3357145B2806222F00AC9A4E /* Yaa.mp3 in Resources */,
 				335714582806222F00AC9A4E /* Sad.mp3 in Resources */,
+				56D463DD281B45A900338940 /* ReflectorView.xib in Resources */,
 				335713DD2806220100AC9A4E /* Fifth.mp3 in Resources */,
 				335714842806224300AC9A4E /* WinAnyLevel.mp3 in Resources */,
 				3357146C2806222F00AC9A4E /* Dhd.mp3 in Resources */,
 				335714272806221E00AC9A4E /* Tomato.mp3 in Resources */,
+				56D463DB281B446F00338940 /* reflector.gif in Resources */,
 				3357141E2806221E00AC9A4E /* Hammer.mp3 in Resources */,
 				3357146E2806222F00AC9A4E /* Shn.mp3 in Resources */,
 				3357145A2806222F00AC9A4E /* Mem.mp3 in Resources */,
@@ -1037,6 +1059,7 @@
 				335B1AE22805FEEA003BFD52 /* Board.swift in Sources */,
 				56BD5EC227E0F6A700F6DBB6 /* Letters2ViewController.swift in Sources */,
 				56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */,
+				56D463DF281B46EE00338940 /* ReflectorViewController.swift in Sources */,
 				56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */,
 				56290EB527A1C09000F3AC5F /* ProcessImageController.swift in Sources */,
 				71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */,
@@ -1058,6 +1081,7 @@
 				562CA63A2800D905004EC8C5 /* Hint5ViewController.swift in Sources */,
 				56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */,
 				562CA6402800DA14004EC8C5 /* GameViewController.swift in Sources */,
+				56D463E1281B643400338940 /* GifExtension.swift in Sources */,
 				56BD5ED427E431F000F6DBB6 /* LocalStorage.swift in Sources */,
 				562CA63E2800D9E0004EC8C5 /* Hint3ViewController.swift in Sources */,
 				562CA6422800DA80004EC8C5 /* FirstViewController.swift in Sources */,

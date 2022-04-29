@@ -11,10 +11,16 @@ import FirebaseFirestore
 import Firebase
 //import AVFoundation
 
-class HomeInstructionsViewController: UIViewController {
+class HomeInstructionsViewController: UIViewController, ReflectorViewControllerDelegate {
+    func didExitButtonTapped() {
+        backToHomePage()
+        print("clese pressed")
+    }
+    
     
     @IBOutlet weak var name: UILabel!
     
+
     @IBOutlet weak var instructions: UIButton!
     @IBOutlet weak var dashBoard: UIButton!
     @IBOutlet weak var profileImage: UIButton!
@@ -29,6 +35,7 @@ class HomeInstructionsViewController: UIViewController {
     var wordsCount = Int()
     var completedLetters = [String]()
     var completedWords = [String]()
+    @IBOutlet weak var skipInstructionBtn: UIButton!
     //    var player: AVAudioPlayer?
     //    let db = Firestore.firestore()
     @IBOutlet weak var chat: UIImageView!
@@ -62,10 +69,18 @@ class HomeInstructionsViewController: UIViewController {
     
     @IBAction func skipInstructions(_ sender: UIButton) {
         //                    view.sendSubviewToBack(profileImage)
-        view.insertSubview(profileImage, belowSubview: dark)
+//        view.insertSubview(profileImage, belowSubview: dark)
         //        view.insertSubview(profileImage, aboveSubview: profileImage)
         //        (_:aboveSubview:)
+        backToHomePage()
         
+    }
+    
+    func backToHomePage(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomePageViewController
+        view.window?.rootViewController = controller
+        view.window?.makeKeyAndVisible()
     }
     func showInstruction(){
         instructionLabel.text = instructionsText[index]
@@ -96,6 +111,10 @@ class HomeInstructionsViewController: UIViewController {
         
     }
     
+    @IBAction func learnReflectorPressed(_ sender: UIButton) {
+        dark.isHidden = true
+        ReflectorViewController.instance.showAlert()
+    }
     
     @IBAction func showPrevious(_ sender: UIButton) {
         index -= 1
@@ -110,7 +129,7 @@ class HomeInstructionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        instructionsText = ["أهلا بك في بنان!\n لنبدأ الرحلة...",
+        instructionsText = ["أهلا بك في بَنان!\n لنبدأ الرحلة...",
                             
                             "من هنا تستطيع الوصول إلى صفحتك الشخصية",
                             
@@ -124,7 +143,7 @@ class HomeInstructionsViewController: UIViewController {
                             
                             "تستطيع إعادة مشاهدة التعليمات مرة أخرى من هنا",
                             
-                            "انتهت رحلتنا التعليمية\n نتمنى لك تعلم ممتع مع بنان",
+                            "انتهت رحلتنا التعليمية\n نتمنى لك تعلمًا ماتعًا مع بَنان!",
                             
         ]
         
@@ -138,6 +157,10 @@ class HomeInstructionsViewController: UIViewController {
                             UIView()
         
         ]
+        
+//        skipInstructionBtn.setAttributedTitle("تسجيل الدخول".underlined, for: .normal)
+
+        ReflectorViewController.instance.delegate = self
         showInstruction()
         
         //            view.sendSubviewToBack(yourUIView)

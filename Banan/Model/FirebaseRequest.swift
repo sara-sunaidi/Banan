@@ -70,11 +70,11 @@ class FirebaseRequest{
                 dat["Letter"] = document.documentID
                 dat["imageName"] = "\(document.documentID)Pic.png"
                 
-                allLetters.append(Letters(Arabic: dat["Arabic"] as! String,
-                                          Braille: dat["Braille"] as! String,
-                                          Letter: dat["Letter"] as! String,
-                                          Level: dat["Level"] as! String,
-                                          imageName: dat["imageName"] as! String))
+                allLetters.append(Letters(Arabic: dat["Arabic"] as? String ?? "",
+                                          Braille: dat["Braille"] as? String ?? "",
+                                          Letter: dat["Letter"] as? String ?? "",
+                                          Level: dat["Level"] as? String ?? "",
+                                          imageName: dat["imageName"] as? String ?? ""))
                 
             }
             //            print("SUCESSLetter!!")
@@ -106,11 +106,11 @@ class FirebaseRequest{
                 dat["Word"] = document.documentID
                 dat["imageName"] = "\(document.documentID)"
                 
-                allWords.append(Words(AllLetters: dat["AllLetters"] as! [String],
-                                      Arabic: dat["Arabic"] as! String,
-                                      Category: dat["Category"] as! String,
-                                      Word: dat["Word"] as! String,
-                                      imageName: dat["imageName"] as! String
+                allWords.append(Words(AllLetters: dat["AllLetters"] as? [String] ?? [""],
+                                      Arabic: dat["Arabic"] as? String ?? "",
+                                      Category: dat["Category"] as? String ?? "",
+                                      Word: dat["Word"] as? String ?? "",
+                                      imageName: dat["imageName"] as? String ?? ""
                                      ))
                 
             }
@@ -142,11 +142,11 @@ class FirebaseRequest{
                 var dat = document.data()
                 dat["Animal"] = document.documentID
                 //                dat["imageName"] = "\(document.documentID)"
-                allGameAnimal.append(Game(AllLetters: dat["AllLetters"] as! [String],
-                                          Arabic: dat["Arabic"] as! String,
-                                          Level: dat["Level"] as! String,
-                                          Points: dat["Points"] as! String ,
-                                          Animal: dat["Animal"] as! String
+                allGameAnimal.append(Game(AllLetters: dat["AllLetters"] as? [String] ?? [""],
+                                          Arabic: dat["Arabic"] as? String ?? "",
+                                          Level: dat["Level"] as? String ?? "",
+                                          Points: dat["Points"] as? String ?? "",
+                                          Animal: dat["Animal"] as? String ?? ""
                                           //                                      imageName: dat["imageName"] as! String
                                          ))
                 
