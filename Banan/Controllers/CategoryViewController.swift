@@ -37,8 +37,6 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var completedAnimal: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-        getChildData()
-        getWordsData()
         viewDidLoad()
     }
     override func viewDidLoad() {

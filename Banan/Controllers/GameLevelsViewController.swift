@@ -47,7 +47,6 @@ class GameLevelsViewController: UIViewController {
     var val : Int = 0
 
     override func viewDidAppear(_ animated: Bool) {
-        getChildData()
         viewDidLoad()
     }
     

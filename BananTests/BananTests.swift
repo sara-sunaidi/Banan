@@ -15,6 +15,8 @@ class BananTests: XCTestCase {
     var genderVC : SignUp3ViewController!
     var nameVC : SignUp4ViewController!
     var resetPasswordVC : ResetPasswordViewController!
+    var editDataVC : EditProfileViewController!
+
     
     
     override func setUp() {
@@ -46,6 +48,10 @@ class BananTests: XCTestCase {
         resetPasswordVC = ResetPasswordViewController()
         resetPasswordVC = mainStoryBoard.instantiateViewController(identifier: "resetPass") as? ResetPasswordViewController
         resetPasswordVC.loadViewIfNeeded()
+        
+        editDataVC = EditProfileViewController()
+        editDataVC = mainStoryBoard.instantiateViewController(identifier: "editData") as? EditProfileViewController
+        editDataVC.loadViewIfNeeded()
     }
     
     override func tearDown() {
@@ -193,6 +199,24 @@ class BananTests: XCTestCase {
         XCTAssertTrue(resetPasswordVC.isValid)
 
     }
+    
+    func test_edit_empty_name(){
+            editDataVC.dob = "12 04, 2000"
+            editDataVC.name.text = ""
+            editDataVC.gender = "Boy"
+            editDataVC.saveButtonPressed(editDataVC.save)
+            
+            XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال الاسم")
+        }
+    
+    func test_valid_edit(){
+            editDataVC.dob = "12 04, 2000"
+            editDataVC.name.text = "ساره"
+            editDataVC.gender = "Girl"
+            editDataVC.saveButtonPressed(editDataVC.save)
+            
+            XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "تم تغيير المعلومات بنجاح")
+        }
     
 //    
 //    override func setUpWithError() throws {
