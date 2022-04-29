@@ -185,8 +185,8 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
         instructions.layer.shadowRadius = 0.0
         instructions.layer.masksToBounds = false
         getChildData()
-        getLettersData()
-        getWordsData()
+//        getLettersData()
+//        getWordsData()
         
     }
     
