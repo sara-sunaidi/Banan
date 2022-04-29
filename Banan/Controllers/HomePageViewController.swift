@@ -92,12 +92,12 @@ class HomePageViewController : UIViewController{
         let Profile = child.gender
         
         if Profile == "Boy"{
-            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "boy3.png")
             //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
            // profileImage.image = UIImage(named: "boy123.png")
         }
         else {
-            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "girl3.png")
             //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
             //profileImage.image = UIImage(named: "girl123.png")
         }
