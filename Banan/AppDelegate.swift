@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let storage = Storage.storage()
         //let db = Firebase.firestore()
-        UserDefaults.standard.register(defaults: ["viewInstruction" : false])
+//        UserDefaults.standard.register(defaults: ["viewInstruction" : false])
         self.fetchLettersInfo()
         self.fetchWordsInfo()
         self.fetchGameInfo()

@@ -121,7 +121,18 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
                 
                     loading.stopAnimating()
 
-            self.performSegue(withIdentifier: "ToHomePage", sender: self)
+                    
+//                    let viewInstruction = UserDefaults.standard.bool(forKey: "viewInstruction")
+//                    print("eeeeeeeeeeeeeee")
+//                    print(viewInstruction)
+//                    if(!viewInstruction){
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let controller = storyboard.instantiateViewController(withIdentifier: "HomeInstructions") as! HomeInstructionsViewController
+                        view.window?.rootViewController = controller
+                        view.window?.makeKeyAndVisible()
+//                    }
+                    
+//            self.performSegue(withIdentifier: "ToHomePage", sender: self)
             }
         }
         }

@@ -130,7 +130,7 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(true, forKey: "viewInstruction")
+//        UserDefaults.standard.set(true, forKey: "viewInstruction")
         instructionsText = ["أهلا بك في بَنان!\n لنبدأ الرحلة...",
                             
                             "من هنا تستطيع الوصول إلى صفحتك الشخصية",
