@@ -17,7 +17,11 @@ import Firebase
 //import AVFoundation
 
 
-class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate {
+class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate, WordInstructionsViewControllerDelegate  {
+    func didDoneButtonTapped() {
+    
+    }
+    
     
     
     @IBOutlet weak var fourLetttersView: UIView!
@@ -226,7 +230,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
-        
+        WordInstructionsViewController.instance.delegate = self
+       WordInstructionsViewController.instance.showAlert()//check
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
@@ -644,7 +649,12 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             }
         }
     }
-   
+    
+    
+    @IBAction func instructionButtonPressed(_ sender: UIButton) {
+        WordInstructionsViewController.instance.showAlert()
+    }
+    
 //    // play sound
 //    func playSound(_ name:String) {
 //
