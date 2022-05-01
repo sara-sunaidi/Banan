@@ -139,6 +139,7 @@
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
 		5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A391280F2DAB00B144EA /* PlayAllSounds.swift */; };
+		5623800B281F04AB00968AB2 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5623800A281F04AB00968AB2 /* reflector.gif */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -190,7 +191,6 @@
 		56CBA4E22800E80700251F96 /* Hint5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E12800E80700251F96 /* Hint5View.xib */; };
 		56CBA4E42800E8BA00251F96 /* Hint4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E32800E8BA00251F96 /* Hint4View.xib */; };
 		56CBA4E62800E92700251F96 /* Hint3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CBA4E52800E92700251F96 /* Hint3View.xib */; };
-		56D463DB281B446F00338940 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 56D463DA281B446F00338940 /* reflector.gif */; };
 		56D463DD281B45A900338940 /* ReflectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D463DC281B45A900338940 /* ReflectorView.xib */; };
 		56D463DF281B46EE00338940 /* ReflectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463DE281B46ED00338940 /* ReflectorViewController.swift */; };
 		56D463E1281B643400338940 /* GifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463E0281B643300338940 /* GifExtension.swift */; };
@@ -356,6 +356,7 @@
 		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
 		5608A391280F2DAB00B144EA /* PlayAllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAllSounds.swift; sourceTree = "<group>"; };
+		5623800A281F04AB00968AB2 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Downloads/reflector.gif; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -414,7 +415,6 @@
 		56CBA4E12800E80700251F96 /* Hint5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint5View.xib; sourceTree = "<group>"; };
 		56CBA4E32800E8BA00251F96 /* Hint4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint4View.xib; sourceTree = "<group>"; };
 		56CBA4E52800E92700251F96 /* Hint3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Hint3View.xib; sourceTree = "<group>"; };
-		56D463DA281B446F00338940 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reflector.gif; sourceTree = "<group>"; };
 		56D463DC281B45A900338940 /* ReflectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReflectorView.xib; sourceTree = "<group>"; };
 		56D463DE281B46ED00338940 /* ReflectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectorViewController.swift; sourceTree = "<group>"; };
 		56D463E0281B643300338940 /* GifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifExtension.swift; sourceTree = "<group>"; };
@@ -802,7 +802,7 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
-				56D463DA281B446F00338940 /* reflector.gif */,
+				5623800A281F04AB00968AB2 /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
 				71DB434A281CE2CE00676D93 /* WordInstructions.gif */,
@@ -1040,6 +1040,7 @@
 				335714292806221E00AC9A4E /* Mosque.mp3 in Resources */,
 				3357142B2806221E00AC9A4E /* School.mp3 in Resources */,
 				335713E72806220100AC9A4E /* Words.mp3 in Resources */,
+				5623800B281F04AB00968AB2 /* reflector.gif in Resources */,
 				335713DB2806220100AC9A4E /* Correct.mp3 in Resources */,
 				335714642806222F00AC9A4E /* Faa.mp3 in Resources */,
 				335714882806224300AC9A4E /* Elephant-Game.mp3 in Resources */,
@@ -1051,7 +1052,6 @@
 				3357146C2806222F00AC9A4E /* Dhd.mp3 in Resources */,
 				71DB4349281CE2C900676D93 /* GameInstructions.gif in Resources */,
 				335714272806221E00AC9A4E /* Tomato.mp3 in Resources */,
-				56D463DB281B446F00338940 /* reflector.gif in Resources */,
 				3357141E2806221E00AC9A4E /* Hammer.mp3 in Resources */,
 				3357146E2806222F00AC9A4E /* Shn.mp3 in Resources */,
 				3357145A2806222F00AC9A4E /* Mem.mp3 in Resources */,
@@ -1344,6 +1344,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "بنان";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1385,6 +1386,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Banan/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "بنان";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
