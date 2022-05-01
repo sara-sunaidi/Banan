@@ -86,11 +86,11 @@ class ViewProfileViewController : UIViewController,CustomConfirmationViewControl
             self.age.text = self.formatter.string(from: NSNumber(value: calcAge ) )! + " سنوات"}
 
         if Profile == "Boy"{
-            self.profileImage.configuration? .background.image = UIImage(named: "boy1.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "boy3.png")
            
         }
         else {
-            self.profileImage.configuration? .background.image = UIImage(named: "girl1.png")
+            self.profileImage.configuration? .background.image = UIImage(named: "girl3.png")
             
         }
         
