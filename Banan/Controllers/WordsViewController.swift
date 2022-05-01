@@ -24,7 +24,8 @@ class WordsViewController: UIViewController {
     //var Braille = [String]()
 
     var index : Int = 0
-    
+    var isChild : Bool = true
+
     @IBOutlet weak var Category: UILabel!
     
 //buttons
@@ -60,8 +61,6 @@ class WordsViewController: UIViewController {
     
 
     override func viewDidAppear(_ animated: Bool) {
-        getChildData()
-        getWordsData()
         viewDidLoad()
     }
     
@@ -79,8 +78,9 @@ class WordsViewController: UIViewController {
         button9.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         
         Category.text = arabicCategory
- 
+        if(isChild) {
         getChildData()
+        }
         getWordsData()
         
         designButton(button: button1, completed: completedWords.contains(allWords[0].Word))
@@ -224,6 +224,7 @@ class WordsViewController: UIViewController {
             let destination = segue.destination as! WordViewController
             destination.allWords = allWords
             destination.index = index
+            destination.isChild = isChild
         }
     }
     /*
