@@ -175,7 +175,7 @@
 		569FF24D27EBBC5D00F13AAB /* extention_UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */; };
 		569FF25027EBBE6300F13AAB /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF24F27EBBE6300F13AAB /* SnackbarView.swift */; };
 		569FF25227EBBEC600F13AAB /* SnackbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FF25127EBBEC600F13AAB /* SnackbarViewModel.swift */; };
-		56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */; };
+		56BD5EB827E0F40600F6DBB6 /* PracticePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB727E0F40600F6DBB6 /* PracticePageViewController.swift */; };
 		56BD5EBA27E0F4A600F6DBB6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EB927E0F4A600F6DBB6 /* Extension.swift */; };
 		56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */; };
 		56BD5EBE27E0F58200F6DBB6 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */; };
@@ -399,7 +399,7 @@
 		569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extention_UIImage.swift; sourceTree = "<group>"; };
 		569FF24F27EBBE6300F13AAB /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		569FF25127EBBEC600F13AAB /* SnackbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewModel.swift; sourceTree = "<group>"; };
-		56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPageViewController.swift; sourceTree = "<group>"; };
+		56BD5EB727E0F40600F6DBB6 /* PracticePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
 		56BD5EB927E0F4A600F6DBB6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters4ViewController.swift; sourceTree = "<group>"; };
 		56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
@@ -726,7 +726,7 @@
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
-				56BD5EB727E0F40600F6DBB6 /* LearningPageViewController.swift */,
+				56BD5EB727E0F40600F6DBB6 /* PracticePageViewController.swift */,
 				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
 				56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */,
 				56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */,
@@ -1149,7 +1149,7 @@
 				562CA6302800CE1C004EC8C5 /* Game.swift in Sources */,
 				569FF24D27EBBC5D00F13AAB /* extention_UIImage.swift in Sources */,
 				716D573E2804A3B100A51B96 /* EditProfileViewController.swift in Sources */,
-				56BD5EB827E0F40600F6DBB6 /* LearningPageViewController.swift in Sources */,
+				56BD5EB827E0F40600F6DBB6 /* PracticePageViewController.swift in Sources */,
 				4DCEDC7127B62B0400026D14 /* SignUp2ViewController.swift in Sources */,
 				56BD5EBC27E0F51800F6DBB6 /* Letters4ViewController.swift in Sources */,
 				56290EA0279F7C8200F3AC5F /* OpenCVWrapper.mm in Sources */,

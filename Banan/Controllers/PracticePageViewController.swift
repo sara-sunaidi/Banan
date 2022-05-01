@@ -12,7 +12,7 @@ import Firebase
 //import AVFoundation
 
 
-class LearningPageViewController: UIViewController {
+class PracticePageViewController: UIViewController {
 
     var allLetters = [Letters]()
     var allWords = [Words]()
