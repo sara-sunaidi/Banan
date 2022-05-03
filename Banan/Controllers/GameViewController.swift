@@ -19,6 +19,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBOutlet weak var heart2: UIButton!
     @IBOutlet weak var heart3: UIButton!
     
+    @IBOutlet weak var hintBtn: UIButton!
+
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var animalImage: UIImageView!
@@ -42,9 +44,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBOutlet weak var labelSuperView: UIView!
     
     @IBOutlet weak var skipButton: UIButton!
-    
-    //    var player: AVAudioPlayer?
-    
+        
     
     var GameLevels = [[String:String]]() //levels that the user played, from db-localstorage
     
@@ -68,7 +68,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     var numOfPassed = 0
     var numOfHeart = 3;
     var animalBraille = [String]() // braille representation for current animal
-    var isLastLevel = false //weather we arre in the last level or not
+    var isLastLevel = false //weather we are in the last level or not
     let gameOverSoundName = "GameOver"
     let winSoundName = "WinLastLevel"
     let winAnyLevelSoundName = "WinAnyLevel"
@@ -76,17 +76,15 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     var LevelNumber : Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
-        print("in will  apear")
-        //
         designProgressbar() //design progressbar
-        //        designBarLabels()
         getChildData()
         getGameData()
-        
     }
-    func didDoneButtonTapped() {
+    
+    func didDoneButtonTapped() {//??
     
     }
+    //no need, the user cannot change the orientation
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { [self] (UIViewControllerTransitionCoordinatorContext) -> Void in
             print("in will trans")
@@ -124,8 +122,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("in did appear")
-        
+//        print("in did appear")
         designProgressbar()
         designBarLabels()
     }
@@ -133,35 +130,27 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        player?.stop() //stop any prev animal sound
-        PlayAllSounds.sharedInstance.stop()
+        //        player?.stop()
+        PlayAllSounds.sharedInstance.stop() //stop any prev animal sound
         
-        //start current animal sound?
-        playSound("\(currentLevel[index].Animal)-Game")
         
-        levelTitle = ConvertLevel.FindLevelTitle(levelName: levelNum!)
-        let allLevels = allGameAnimals.map({$0.Level})
-        isLastLevel = ConvertLevel.isLastLevel(availableLvels: allLevels, currentLevel: levelNum)
-        //        print("is last level?")
-        //        print(isLastLevel)
-        //        print("width in view did load: ")
-        //        print(labelSuperView.frame.width)
+        updateLevelInfo()
         designProgressbar() //design progressbar
-        designBarLabels()
+        designBarLabels() //can be merge with progress bar because the orientation will not change
         
-        //        getChildData()
-        //        getGameData()
+        getChildData()
+        getGameData()
         getLettersData()
         
         updatePassedLabel()
         updateAnimalInfo()
         
         
-        levelPoints = currentLevel.map({Int($0.Points)!}).reduce(0, +)
-        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
+        levelPoints = currentLevel?.map({Int($0.Points)!}).reduce(0, +) ?? 0
+        levelUserPoints = currentLevel?.map({$0.currentPoint}).reduce(0, +) ?? 0
         
         
-        if(index == currentLevel.count - 1){
+        if(index == currentLevel?.count ?? 0 - 1 ){
             //last animal
             skipButton.isHidden = true
         }else{
@@ -177,8 +166,18 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         GameInstructionsViewController.instance.delegate = self
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
-        GameInstructionsViewController.instance.showAlert()
+        
+        
+        GameInstructionsViewController.instance.showAlert() // need update
     
+    }
+    
+    func updateLevelInfo(){
+        
+        levelTitle = ConvertLevel.FindLevelTitle(levelName: levelNum ?? "")
+        let allLevels = allGameAnimals.map({$0.Level})
+        isLastLevel = ConvertLevel.isLastLevel(availableLvels: allLevels, currentLevel: levelNum ?? "")
+        
     }
     
     @objc func didGetNotification(_ notification:Notification){
@@ -186,7 +185,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         checkAnswer(result!)
     }
     
-    private func checkAnswer(_ actualResult: String){
+     func checkAnswer(_ actualResult: String){
         
         print("- in CheckAnswer")
         
@@ -212,7 +211,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             
             // Correct Answer
             if (actualResult == expectedResult){
-                playSound("Correct")
+//                playSound("Correct")
                 correctAnswer()
             }
             // Incorrect Answer
@@ -238,21 +237,18 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     private func correctAnswer(){
         //play sound
-//        playSound("Correct")
+        playSound("Correct")
         
         //if the answer was correct, do the following
+        //claculate points
+        
         numOfPassed = numOfPassed + 1
         updatePassedLabel()
         
-        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
+        calculatePoints()
         
-        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
-        curPoints += 20 // because the answer was currect
-        
-        currentLevel[index].setCurrent(point: curPoints) // save current point locally
-        
-        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
-        
+//        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
+
         
         //update progresssbar
         progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
@@ -281,6 +277,17 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             //total point in level
             finishLevel()
         }
+    }
+    func calculatePoints(){
+        
+        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
+        
+        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
+        curPoints += 20 // because the answer was currect
+        
+        currentLevel[index].setCurrent(point: curPoints) // save current point locally
+        
+        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
     }
     
     public func showSnackbar(snackbar: SnackbarView){
@@ -344,11 +351,6 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         
     }
     func designProgressbar(){
-        //        print("width3  in method: ")
-        //        print(labelSuperView.frame.width)
-        //        print("in design prog")
-        
-        
         
         progressBar.layer.borderWidth = 5;
         progressBar.layer.borderColor =  UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
@@ -388,15 +390,19 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     func updatePassedLabel(){
         let arabicPassed = "\(numOfPassed)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        let arabicTotal = "\(currentLevel.count)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        let arabicTotal = "\(currentLevel?.count ?? 0)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         passedAnimals.text = "\(arabicTotal)/\(arabicPassed)"
     }
     
     func updateAnimalInfo(){
-        animalImage.image = UIImage(named: "\(currentLevel[index].Animal)")
         
-        animalLabel.text = currentLevel[index].Arabic
+        //start current animal sound?
+        playSound("\(currentLevel?[index].Animal ?? "")-Game")
+        
+        animalImage.image = UIImage(named: "\(currentLevel?[index].Animal ?? "")")
+        
+        animalLabel.text = currentLevel?[index].Arabic ?? ""
         
         //update num of hearts because its new animal
         numOfHeart = 3;
@@ -408,7 +414,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         // reset wordBraille
         animalBraille.removeAll()
         
-        let animalLetter = currentLevel[index].AllLetters
+        let animalLetter = currentLevel?[index].AllLetters ?? []
         
         for letterKey in animalLetter{
             let oneLetter = allLetters!.filter({$0.Letter == letterKey})
@@ -465,22 +471,6 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     func playSound(_ name:String){
         PlayAllSounds.sharedInstance.stop()
         PlayAllSounds.sharedInstance.play(name: name)
-        //
-        //        guard let url = Bundle.main.url(forResource: "\(currentLevel[index].Animal)-Game", withExtension: "mp3") else { return }
-        //        //to find sound name:
-        //        //letters![index!].Letter
-        //        do {
-        //            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-        //            try AVAudioSession.sharedInstance().setActive(true)
-        //
-        //            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-        //
-        //            guard let player = player else { return }
-        //
-        //            player.play()
-        //        } catch let error {
-        //            print(error.localizedDescription)
-        //        }
     }
     
     @IBAction func pressInstructions(_ sender: UIButton) {
@@ -519,41 +509,6 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
         }
-        //        player?.stop() //stop any prev animal sound
-//        PlayAllSounds.sharedInstance.stop()
-//
-//
-//        //if the answer was correct, do the following
-//
-//        numOfPassed = numOfPassed + 1
-//        updatePassedLabel()
-//
-//        var curPoints = Int(currentLevel[index].Points) ?? 0 //full point for current animal
-//
-//        curPoints = Int((Float(curPoints - 20 )/3.0) * Float(numOfHeart))
-//        curPoints += 20 // because the answer was currect
-//
-//        currentLevel[index].setCurrent(point: curPoints) // save current point locally
-//
-//        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
-//
-//
-//        //update progresssbar
-//        progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
-//
-//
-//        //if level did not finish
-//        if(index != currentLevel.count - 1){
-//            index = index + 1
-//
-//            viewDidLoad()
-//        }
-//        else{
-//            //else pop up message with total points and pass or fail
-//            //total point in level
-//            finishLevel()
-//        }
-//
     }
     
     
@@ -566,39 +521,38 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         var nextLevelAvailable = false
         
         let animalLevel = GameLevels.filter({$0["Level"] == levelNum})
-        
-        
         if(userPercent < 0.2){
             title = "حاول مرة اخرى"
             levelTitle = "لم تكمل \(levelTitle)"
             
             imageName = "tryAgain"
             levelPassed = false
-            
+            print("in try again")
         }
         else
         {
+            levelTitle = "أكملت \(levelTitle)"
+            levelPassed = true
+
             if (userPercent >= 0.2 && userPercent < 0.5 ){
                 title = "جيد"
-                levelTitle = "أكملت \(levelTitle)"
+//                levelTitle = "أكملت \(levelTitle)"
                 imageName = "good"
             }
             else if (userPercent >= 0.5 && userPercent < 0.75 ){
                 title = "ممتاز"
                 levelTitle = "أكملت \(levelTitle)"
-                imageName = "excellent"
+//                imageName = "excellent"
                 
             }else if (userPercent >= 0.75 ){
                 title = "رائع"
-                levelTitle = "أكملت \(levelTitle)"
+//                levelTitle = "أكملت \(levelTitle)"
                 imageName = "perfect"
             }
-            
-            levelPassed = true
         }
         
         if (animalLevel.count != 0) {
-            //means it is already stored in database, but is it passed?
+            //means it is already stored in database, either passed or not
             if(Float(animalLevel[0]["Score"]!)! > 0.2) {
                 print("next is available")
                 nextLevelAvailable = true
@@ -619,7 +573,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             if (levelPassed){
                 nextLevelAvailable = true
                 //add to db
-                FirebaseRequest.addGameLevels(levelName: levelNum!,
+                //should be added even if level not pased? need to test
+                FirebaseRequest.addGameLevels(levelName: levelNum ?? "",
                                               score: Float(round(1000 * userPercent) / 1000),
                                               userPoints: levelUserPoints,
                                               eval: title)
@@ -627,6 +582,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         }
         
         if(isLastLevel){
+            //change the sounds
             if(levelPassed){
                 LevelFailViewController.instance.showAlert(title: "مبهر!", level: "أكملت جميع المستويات", gameArray: currentLevel, totalScore: levelUserPoints , imageName: "medal", soundName: winSoundName)
             }
@@ -634,7 +590,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
                 LevelFailViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: currentLevel, totalScore: levelUserPoints , imageName: imageName, soundName: gameOverSoundName)
             }
         }
-        else{
+        else{ //not last level
             if(nextLevelAvailable){
                 LevelDoneViewController.instance.showAlert(title: title, level: "\(levelTitle)", gameArray: currentLevel, totalScore: levelUserPoints , imageName: imageName, soundName: levelPassed ? winSoundName : gameOverSoundName)
             }else{

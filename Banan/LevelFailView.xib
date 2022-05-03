@@ -349,7 +349,7 @@
         <image name="Points" width="74" height="62"/>
         <image name="ScorePopUp" width="351" height="49"/>
         <image name="replayVector" width="38" height="45"/>
-        <image name="tryAgain" width="95" height="77"/>
+        <image name="tryAgain" width="555" height="912"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

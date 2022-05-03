@@ -16,6 +16,7 @@ class BananTests: XCTestCase {
     var nameVC : SignUp4ViewController!
     var resetPasswordVC : ResetPasswordViewController!
     var editDataVC : EditProfileViewController!
+    var GameVC : GameViewController!
 
     
     
@@ -44,14 +45,22 @@ class BananTests: XCTestCase {
         nameVC = mainStoryBoard.instantiateViewController(identifier: "SignUp4") as? SignUp4ViewController
         nameVC.loadViewIfNeeded()
         
-        
+        //-----
         resetPasswordVC = ResetPasswordViewController()
         resetPasswordVC = mainStoryBoard.instantiateViewController(identifier: "resetPass") as? ResetPasswordViewController
         resetPasswordVC.loadViewIfNeeded()
         
+        //-----
         editDataVC = EditProfileViewController()
         editDataVC = mainStoryBoard.instantiateViewController(identifier: "editData") as? EditProfileViewController
         editDataVC.loadViewIfNeeded()
+        
+        //-----
+        GameVC = GameViewController()
+        GameVC = mainStoryBoard.instantiateViewController(identifier: "Game") as? GameViewController
+        GameVC.loadViewIfNeeded()
+        
+        
     }
     
     override func tearDown() {
@@ -59,8 +68,9 @@ class BananTests: XCTestCase {
         dateVC = nil
         genderVC = nil
         nameVC = nil
+        editDataVC = nil
         resetPasswordVC = nil
-        
+        GameVC = nil
         super.tearDown()
     }
     
@@ -189,7 +199,6 @@ class BananTests: XCTestCase {
     
     //triangle
     
-//    //does not wait
     func test_valid_reset_password(){
         resetPasswordVC.oldPass = "triangle"
         resetPasswordVC.newPass = "star123"
@@ -217,6 +226,106 @@ class BananTests: XCTestCase {
             
             XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "تم تغيير المعلومات بنجاح")
         }
+    
+    
+    //test pass level (not last) with and without hint
+    func test_calculate_score(){
+        let levelGame = [
+            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
+            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
+            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
+        
+        GameVC.currentLevel = levelGame
+        GameVC.isLastLevel = false
+        GameVC.index = 0
+//        GameVC.numOfHeart = 3
+        GameVC.calculatePoints()
+        
+        
+        GameVC.index = 1
+//        GameVC.pressHint(GameVC.hintBtn)
+        //or GameVC.numOfHeart = 2
+        GameVC.calculatePoints()
+
+        GameVC.index = 2
+        GameVC.numOfHeart = 3 //reset num of hearts
+        GameVC.calculatePoints()
+        
+        GameVC.finishLevel()
+        
+        let totalPoints = GameVC.levelUserPoints
+        print(totalPoints)
+        print(GameVC.isLastLevel)
+        XCTAssertEqual(LevelDoneViewController.instance.title.text, "رائع")
+//        XCTAssertEqual(LevelDoneViewController.instance.levelScore.text, "٢٤٠ +")
+//        XCTAssertEqual(totalPoints, 240)
+    }
+    
+    //test 1 incorrect answer  in level
+    //remove private keyword from check answer method 
+    func test_calculate_score_fail(){
+        let levelGame = [
+            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
+            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
+            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
+
+        
+        GameVC.currentLevel = levelGame
+        
+        GameVC.isLastLevel = false
+        
+        GameVC.index = 0
+        GameVC.checkAnswer("ارنب")
+        
+        GameVC.index = 1
+        GameVC.checkAnswer("كلب")
+        
+        GameVC.index = 2
+        GameVC.checkAnswer("فيل")
+        
+        let totalPoints = GameVC.levelUserPoints
+        print(totalPoints)
+//        XCTAssertEqual(LevelDoneViewController.instance.title.text, "ممتاز")
+//        XCTAssertEqual(LevelDoneViewController.instance.levelScore.text, "١٦٠ +")
+        XCTAssertEqual(totalPoints, 160)
+    }
+    
+    
+    //test 2 incorrect answer  in level and fail
+    //remove private keyword from check answer method
+    func test_calculate_score_all_fail(){
+        let levelGame = [
+            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
+            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
+            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
+
+        
+        GameVC.currentLevel = levelGame
+        
+        GameVC.isLastLevel = false
+        
+        GameVC.viewDidLoad()
+        
+        
+        GameVC.index = 0
+        GameVC.checkAnswer("ارنب")
+        
+        GameVC.index = 1
+        GameVC.checkAnswer("ارنب")
+
+        GameVC.index = 2
+//        GameVC.pressHint(GameVC.hintBtn)
+//        GameVC.pressHint(GameVC.hintBtn)
+//        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.numOfHeart = 0
+        GameVC.checkAnswer("فيل")
+        
+        let totalPoints = GameVC.levelUserPoints
+        print(totalPoints)
+//        XCTAssertEqual(LevelFailViewController.instance.title.text, "حاول مرة اخرى")
+        XCTAssertEqual(LevelFailViewController.instance.levelScore.text, "٢٠ +")
+//        XCTAssertEqual(totalPoints, 20)
+    }
     
 //    
 //    override func setUpWithError() throws {
