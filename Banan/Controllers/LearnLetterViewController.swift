@@ -97,7 +97,9 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         addShadowBtn(prevLetterButton)
         addShadowBtn(checkBtn)
         
+        
         block.layer.cornerRadius = 10
+        
         
         addColor(letters![index!].Braille)
        
@@ -256,17 +258,19 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     }
     // add shadow to circle
     func addShadow(_ crl: UIButton){
-        crl.backgroundColor = UIColor(red:204/255, green:204/255, blue:204/255, alpha:1)
-        crl.layer.borderWidth = 0
+        crl.backgroundColor = UIColor(red: 28/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        crl.layer.borderWidth = 5
+        crl.layer.borderColor = UIColor(red: 207/255, green: 190/255, blue: 170/255, alpha: 1.0).cgColor
         
         crl.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         crl.layer.shadowOffset = CGSize(width: 1, height: 2)
-        crl.layer.shadowOpacity = 2
+        crl.layer.shadowOpacity = 0
         crl.layer.shadowRadius = 0.0
         crl.layer.masksToBounds = false
-        //crl.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        crl.layer.cornerRadius = 0.5 * crl.bounds.size.width
+//        crl.frame = CGRect(width: 50, height: 50)
+
         
+        crl.layer.cornerRadius = 0.5 * crl.bounds.size.width
         
         
     }
@@ -284,41 +288,61 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
             
             if(s=="1"){
                 if(i==0){
-                    circle1.backgroundColor = UIColor(named: "Color1")
+                    circle1.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle1.layer.borderWidth = 4
-                    circle1.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle1.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    circle1.layer.cornerRadius = 0.5 * circle1.bounds.size.width
+                    circle1.layer.shadowOpacity = 2
+                    
+                }
                 else if(i==1){
-                    circle2.backgroundColor = UIColor(named: "Color1")
+                    circle2.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:118/255, green:168/255, blue:158/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle2.layer.borderWidth = 4
-                    circle2.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle2.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    circle2.layer.cornerRadius = 0.5 * circle2.bounds.size.width
+                    circle2.layer.shadowOpacity = 2
+                }
                 else if(i==2){
-                    circle3.backgroundColor = UIColor(named: "Color1")
+                    circle3.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle3.layer.borderWidth = 4
-                    circle3.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle3.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+
+                    circle3.layer.cornerRadius = 0.5 * circle3.bounds.size.width
+                    circle3.layer.shadowOpacity = 2
+                }
                 else if(i==3){
-                    circle4.backgroundColor = UIColor(named: "Color1")
+                    circle4.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle4.layer.borderWidth = 4
-                    circle4.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle4.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    circle4.layer.cornerRadius = 0.5 * circle4.bounds.size.width
+                    circle4.layer.shadowOpacity = 2
+                }
                 else if(i==4){
-                    circle5.backgroundColor = UIColor(named: "Color1")
+                    circle5.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle5.layer.borderWidth = 4
-                    circle5.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle5.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    circle5.layer.cornerRadius = 0.5 * circle5.bounds.size.width
+                    circle5.layer.shadowOpacity = 2
+                }
                 else{
-                    circle6.backgroundColor = UIColor(named: "Color1")
+                    circle6.backgroundColor = UIColor(named: "Color4")
                     //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
                     //circle1.layer.cornerRadius = 5
                     circle6.layer.borderWidth = 4
-                    circle6.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor}
+                    circle6.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    circle6.layer.cornerRadius = 0.5 * circle6.bounds.size.width
+                    circle6.layer.shadowOpacity = 2
+                }
             }
         }
     }

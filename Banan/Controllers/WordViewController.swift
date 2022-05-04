@@ -587,12 +587,13 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     // add shadow to circle
     func addShadow(_ crl: UIButton){
         // reset circle
-        crl.backgroundColor = UIColor(red:204/255, green:204/255, blue:204/255, alpha:1)
-        crl.layer.borderWidth = 0
+        crl.backgroundColor = UIColor(red: 28/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        crl.layer.borderWidth = 5
+        crl.layer.borderColor = UIColor(red: 207/255, green: 190/255, blue: 170/255, alpha: 1.0).cgColor
         
         crl.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         crl.layer.shadowOffset = CGSize(width: 1, height: 2)
-        crl.layer.shadowOpacity = 2
+        crl.layer.shadowOpacity = 0
         crl.layer.shadowRadius = 0.0
         crl.layer.masksToBounds = false
         crl.layer.cornerRadius = 0.5 * crl.bounds.size.width
@@ -614,38 +615,43 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
             
             if(s=="1"){
                 if(i==0){
-                    c1.backgroundColor = UIColor(named: "Color1")
+                    c1.backgroundColor = UIColor(named: "Color4")
                     c1.layer.borderWidth = 4
-                    c1.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c1.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c1.layer.shadowOpacity = 2
                 }
                 
                 else if(i==1){
-                    c2.backgroundColor = UIColor(named: "Color1")
+                    c2.backgroundColor = UIColor(named: "Color4")
                     c2.layer.borderWidth = 4
-                    c2.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c2.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c2.layer.shadowOpacity = 2
                 }
-                
                 else if(i==2){
-                    c3.backgroundColor = UIColor(named: "Color1")
+                    c3.backgroundColor = UIColor(named: "Color4")
                     c3.layer.borderWidth = 4
-                    c3.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c3.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c3.layer.shadowOpacity = 2
                 }
                 
                 else if(i==3){
-                    c4.backgroundColor = UIColor(named: "Color1")
+                    c4.backgroundColor = UIColor(named: "Color4")
                     c4.layer.borderWidth = 4
-                    c4.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c4.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c4.layer.shadowOpacity = 2
                 }
                 
                 else if(i==4){
-                    c5.backgroundColor = UIColor(named: "Color1")
+                    c5.backgroundColor = UIColor(named: "Color4")
                     c5.layer.borderWidth = 4
-                    c5.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c5.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c5.layer.shadowOpacity = 2
                 }
                 else{
-                    c6.backgroundColor = UIColor(named: "Color1")
+                    c6.backgroundColor = UIColor(named: "Color4")
                     c6.layer.borderWidth = 4
-                    c6.layer.borderColor = UIColor(red:145/255, green:203/255, blue:191/255, alpha:1).cgColor
+                    c6.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
+                    c6.layer.shadowOpacity = 2
                 }
             }
         }
