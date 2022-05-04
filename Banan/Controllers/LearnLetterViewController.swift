@@ -225,6 +225,14 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
             return "ث"
         case "الذال":
             return "ذ"
+        case  "التاء المربوطة":
+            return "ة"
+        case "الياء":
+            return "ي"
+        case "الواو":
+            return "و"
+        case "الزاي":
+            return "ز"
         default:
             return "- not found in switch"
         }
