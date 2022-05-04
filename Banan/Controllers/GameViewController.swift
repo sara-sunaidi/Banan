@@ -270,7 +270,11 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             
             index = index + 1
             
-            viewDidLoad()
+            playSound("Correct")
+            let timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { timer in
+                self.viewDidLoad()
+            }
+            
         }
         else{
             //else pop up message with total points and pass or fail

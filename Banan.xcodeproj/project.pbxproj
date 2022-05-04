@@ -139,7 +139,6 @@
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
 		5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A391280F2DAB00B144EA /* PlayAllSounds.swift */; };
-		5623800B281F04AB00968AB2 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5623800A281F04AB00968AB2 /* reflector.gif */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -206,6 +205,7 @@
 		71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */; };
 		71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */; };
 		71C64FCB280FC9ED00806893 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C64FCA280FC9ED00806893 /* opencv2.framework */; };
+		71C650302823071300806893 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71C6502F2823071200806893 /* reflector.gif */; };
 		71DB4337281CE0EA00676D93 /* LetterInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */; };
 		71DB4339281CE0FF00676D93 /* WordInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */; };
 		71DB433B281CE10600676D93 /* GameInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB433A281CE10600676D93 /* GameInstructionsView.xib */; };
@@ -356,7 +356,6 @@
 		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
 		5608A391280F2DAB00B144EA /* PlayAllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAllSounds.swift; sourceTree = "<group>"; };
-		5623800A281F04AB00968AB2 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Downloads/reflector.gif; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -430,6 +429,7 @@
 		71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		71C64FCA280FC9ED00806893 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		71C6502F2823071200806893 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Desktop/reflector.gif; sourceTree = "<group>"; };
 		71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LetterInstructionsView.xib; sourceTree = "<group>"; };
 		71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordInstructionsView.xib; sourceTree = "<group>"; };
 		71DB433A281CE10600676D93 /* GameInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInstructionsView.xib; sourceTree = "<group>"; };
@@ -802,7 +802,7 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
-				5623800A281F04AB00968AB2 /* reflector.gif */,
+				71C6502F2823071200806893 /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
 				71DB434A281CE2CE00676D93 /* WordInstructions.gif */,
@@ -1040,7 +1040,7 @@
 				335714292806221E00AC9A4E /* Mosque.mp3 in Resources */,
 				3357142B2806221E00AC9A4E /* School.mp3 in Resources */,
 				335713E72806220100AC9A4E /* Words.mp3 in Resources */,
-				5623800B281F04AB00968AB2 /* reflector.gif in Resources */,
+				71C650302823071300806893 /* reflector.gif in Resources */,
 				335713DB2806220100AC9A4E /* Correct.mp3 in Resources */,
 				335714642806222F00AC9A4E /* Faa.mp3 in Resources */,
 				335714882806224300AC9A4E /* Elephant-Game.mp3 in Resources */,

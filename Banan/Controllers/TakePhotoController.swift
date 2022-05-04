@@ -34,7 +34,7 @@ class TakePhotoController: UIViewController,
         switch AVCaptureDevice.authorizationStatus(for: .video){
             
         case .notDetermined:
-            print("##### in notDetermined")
+            print("- in notDetermined")
             // Request Access
             AVCaptureDevice.requestAccess(for: .video){
                 [weak self] granted in guard granted else {
@@ -49,7 +49,7 @@ class TakePhotoController: UIViewController,
             break
             
         case .authorized:
-            print("##### in authorized")
+            print("- in authorized")
             self.setUpCamera()
             
         case .denied:
@@ -62,7 +62,6 @@ class TakePhotoController: UIViewController,
     
     private func setUpCamera(){
         
-        print("- first lins in setupCamera")
         let session = AVCaptureSession()
         session.sessionPreset = AVCaptureSession.Preset.photo
         
@@ -78,20 +77,20 @@ class TakePhotoController: UIViewController,
             do{
                 
                 let input = try AVCaptureDeviceInput(device: device)
-                print("- outside canAddInput")
+              
                 if session.canAddInput(input){
-                    print("- inside canAddInput")
+                   
                     session.addInput(input)
                 }
                 output = AVCapturePhotoOutput()
                 if session.canAddOutput(output){
-                    print("- inside addOutput")
+                  
                     session.addOutput(output)
                     output.isHighResolutionCaptureEnabled = true
                 }
 
                 session.startRunning()
-                print("- session started")
+               
                 self.session = session
                
                 
@@ -102,13 +101,12 @@ class TakePhotoController: UIViewController,
     }
     
     @objc func didTapCheck(){
-        print("##### in didTapCheck")
+        print("- in didTapCheck")
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.flashMode = .on
         photoSettings.isHighResolutionPhotoEnabled = true
         photoSettings.isAutoStillImageStabilizationEnabled = true
         output.capturePhoto(with: photoSettings, delegate: self as AVCapturePhotoCaptureDelegate)
-        print("##### in didTapCheck after output ")
     }
     
     func processImage(_ img: UIImage) -> String{
@@ -117,8 +115,7 @@ class TakePhotoController: UIViewController,
         print("- Corners result is \(cornersResult)")
         if (cornersResult == "true"){
             // corners are detected
-            print("- inside corners detected if true")
-            let croppedImg =  OpenCVWrapper.detectFourCorner(img.normalized!)
+            let croppedImg =  OpenCVWrapper.detectFourCorners(img.normalized!)
             let result = OpenCVWrapper.detectRedShapes(in: croppedImg.normalized!)
             let coordinatesResult = OpenCVWrapper.getCoordinatesStatus()
             print("- Coordinate result is \(coordinatesResult)")
@@ -127,14 +124,32 @@ class TakePhotoController: UIViewController,
                 return result
             }else{
                 // invalid coordinates
-                print("- ivalid coordinates false")
+                print("- ivalid coordinates ")
                 return result
             }
         } else {
-            // corners are not detected
-            print("- invalid corners false")
+//            // corners are not detected
+            print("- invalid corners ")
             return "failed"
         }
+        // Ms.Halilas' code
+       
+      
+//            // corners are detected
+//            print("- inside corners detected")
+//            let croppedImg =  OpenCVWrapper.detectFourCornerss(img.normalized!)
+//            let result = OpenCVWrapper.detectRedShapess(in: croppedImg.normalized!)
+//            let coordinatesResult = OpenCVWrapper.getCoordinatesStatus()
+//            print("- Coordinate result is \(coordinatesResult)")
+//            if (coordinatesResult == "true"){
+//                // return Braille result
+//                return result
+//            }else{
+//                // invalid coordinates
+//                print("- ivalid coordinates ")
+//                return result
+//            }
+       
 
     }
     
@@ -145,21 +160,20 @@ extension TakePhotoController: AVCapturePhotoCaptureDelegate
 {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
-        print("##### inside extension")
+        print("- inside extension")
 //        if device.isSilentModeOn {
 //                    AudioServicesDisposeSystemSoundID(1108)
 //                }
         guard let data = photo.fileDataRepresentation() else {
-            print("##### inside extension guard")
+            print("- inside extension guard")
             return
         }
-        print("##### inside extension before image")
         let image = UIImage(data: data)
  
         session?.stopRunning()
         
         if (image != nil){
-            print("##### image is NOT nil ")
+            print("- image is NOT nil ")
             let result = processImage(image!)
             NotificationCenter.default.post(name: Notification.Name("result"), object: result)
             dismiss(animated: false)

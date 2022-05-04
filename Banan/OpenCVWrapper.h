@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)checkCorners:(UIImage *)image;
 + (NSString *)detectRedShapesInImage:(UIImage *)image;
 + (NSString *)getCoordinatesStatus;
-+ (UIImage *)detectFourCorner:(UIImage *)image;
++ (UIImage *)detectFourCorners:(UIImage *)image;
++ (NSString *)detectRedShapessInImage:(UIImage *)image;
++ (UIImage *)detectFourCornerss:(UIImage *)image;
 
 
 @end
