@@ -443,7 +443,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         view.addSubview(snackbar)
         
         // animate it upwards
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.6, animations: {
             snackbar.frame = CGRect(
                 x: (self.view.frame.size.width-width)/2,
                 y: self.view.frame.size.height - 140,
@@ -454,7 +454,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
                 DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
                     
                     // animate it downwards
-                    UIView.animate(withDuration: 0.7, animations: {
+                    UIView.animate(withDuration: 1.1, animations: {
                         snackbar.frame = CGRect(
                             x: (self.view.frame.size.width-width)/2,
                             y: self.view.frame.size.height,

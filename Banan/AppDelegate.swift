@@ -11,7 +11,7 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var isChild : Bool = false
+    var isChild : Bool = true
     var orientationLock = UIInterfaceOrientationMask.portrait
     
     var window: UIWindow?

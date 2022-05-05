@@ -137,7 +137,7 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
                             
                             "مجموع النقاط يزداد بانتهائك من كل مستوى من اللعب",
                             
-                            "من هنا تستطيع الوصول إلى تقرير عن مستوى تقدمك",
+                            "من هنا تستطيع متابعة تقدمك في مستويات اللعب",
                             
                             "تدرب على الحروف والكلمات",
                             
