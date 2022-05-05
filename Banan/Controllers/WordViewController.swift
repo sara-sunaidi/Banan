@@ -135,7 +135,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     @IBOutlet weak var speakerBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var wordLabel: UILabel!
-    
+    var completedWords: [String]?
     @IBOutlet var superView: UIView!
     @IBOutlet weak var preWordButton: CustomButton!
     
@@ -231,7 +231,15 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         WordInstructionsViewController.instance.delegate = self
-       WordInstructionsViewController.instance.showAlert()//check
+        if(appdelegate.isChild){
+            getChildData()
+        if(completedWords!.count<1){
+            LetterInstructionsViewController.instance.showAlert()}
+            
+        }
+        else{
+            LetterInstructionsViewController.instance.showAlert()
+        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
@@ -660,6 +668,18 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     @IBAction func instructionButtonPressed(_ sender: UIButton) {
         WordInstructionsViewController.instance.showAlert()
+    }
+    func getChildData(){
+        let child = LocalStorage.childValue
+        if child != nil {
+            setChildInfo(child: child!)
+        }
+        
+    }
+
+    func setChildInfo(child: Child){
+        self.completedWords = child.completedWords
+        
     }
     
 //    // play sound

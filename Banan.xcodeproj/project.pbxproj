@@ -194,6 +194,7 @@
 		56D463DF281B46EE00338940 /* ReflectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463DE281B46ED00338940 /* ReflectorViewController.swift */; };
 		56D463E1281B643400338940 /* GifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463E0281B643300338940 /* GifExtension.swift */; };
 		56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */; };
+		7106CA6528248B4D00447E5C /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7106CA6428248B4D00447E5C /* reflector.gif */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
 		715EE6102823F58100A067B0 /* LearningPageVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */; };
@@ -206,7 +207,6 @@
 		71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */; };
 		71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */; };
 		71C64FCB280FC9ED00806893 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C64FCA280FC9ED00806893 /* opencv2.framework */; };
-		71C650322824639F00806893 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71C650312824639F00806893 /* reflector.gif */; };
 		71DB4337281CE0EA00676D93 /* LetterInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */; };
 		71DB4339281CE0FF00676D93 /* WordInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */; };
 		71DB433B281CE10600676D93 /* GameInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB433A281CE10600676D93 /* GameInstructionsView.xib */; };
@@ -419,6 +419,7 @@
 		56D463DE281B46ED00338940 /* ReflectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectorViewController.swift; sourceTree = "<group>"; };
 		56D463E0281B643300338940 /* GifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifExtension.swift; sourceTree = "<group>"; };
 		56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInstructionsViewController.swift; sourceTree = "<group>"; };
+		7106CA6428248B4D00447E5C /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Downloads/reflector.gif; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningPageVisitorViewController.swift; sourceTree = "<group>"; };
@@ -431,7 +432,6 @@
 		71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		71C64FCA280FC9ED00806893 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		71C650312824639F00806893 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Desktop/reflector.gif; sourceTree = "<group>"; };
 		71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LetterInstructionsView.xib; sourceTree = "<group>"; };
 		71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordInstructionsView.xib; sourceTree = "<group>"; };
 		71DB433A281CE10600676D93 /* GameInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInstructionsView.xib; sourceTree = "<group>"; };
@@ -805,7 +805,7 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
-				71C650312824639F00806893 /* reflector.gif */,
+				7106CA6428248B4D00447E5C /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
 				71DB434A281CE2CE00676D93 /* WordInstructions.gif */,
@@ -948,7 +948,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C650322824639F00806893 /* reflector.gif in Resources */,
+				7106CA6528248B4D00447E5C /* reflector.gif in Resources */,
 				335714192806221E00AC9A4E /* Peache.mp3 in Resources */,
 				3357142E2806221E00AC9A4E /* Monkey.mp3 in Resources */,
 				335714122806221E00AC9A4E /* Airport.mp3 in Resources */,

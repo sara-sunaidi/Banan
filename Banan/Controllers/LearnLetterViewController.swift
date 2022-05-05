@@ -109,7 +109,14 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
         LetterInstructionsViewController.instance.delegate = self
-        LetterInstructionsViewController.instance.showAlert()
+        if(appdelegate.isChild){
+        if(completedLetters!.count<1){
+            LetterInstructionsViewController.instance.showAlert()}
+            
+        }
+        else{
+            LetterInstructionsViewController.instance.showAlert()
+        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
     }
@@ -385,7 +392,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     }
     // set progress bar
     func setProgress(){
-        getChildData()
+        if(appdelegate.isChild){ getChildData()}
         var levelArray = [Letters?]()
         levelArray = letters!
 //        let filteredArray = levelArray.map{$0.Letter}

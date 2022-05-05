@@ -167,8 +167,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
-        
-        GameInstructionsViewController.instance.showAlert() // need update
+        if(GameLevels.count<1){
+            GameInstructionsViewController.instance.showAlert() }// need update
     
     }
     

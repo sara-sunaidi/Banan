@@ -39,6 +39,7 @@ class CategoryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         viewDidLoad()
+  
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +50,11 @@ class CategoryViewController: UIViewController {
         animal.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         if(appdelegate.isChild){
             getChildData()
+            buttonCategory()
+
         }
         getWordsData()
         groupByLevel()
-        buttonCategory()
 
     }
             
