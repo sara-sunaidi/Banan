@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 //import XCTest
 
 extension String {
@@ -17,7 +18,7 @@ extension String {
 class StartScreenViewController: UIViewController {
 
     @IBOutlet weak var SignIn: UIButton!
-    
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //    override func viewDidAppear(_ animated: Bool) {
 //        let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
 //        if(isLogged){
@@ -37,9 +38,12 @@ class StartScreenViewController: UIViewController {
     
 
     @IBAction func StartAsVisitor(_ sender: Any) {
+        appdelegate.isChild = false
+        self.performSegue(withIdentifier: "GoToVisitorHomePage", sender: self)
     }
     
     @IBAction func SignUp1(_ sender: UIButton) {
+        appdelegate.isChild = true
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let vc = storyboard.instantiateViewController(identifier: "SignUp1" )
 //        vc.modalPresentationStyle = .overFullScreen
@@ -49,6 +53,7 @@ class StartScreenViewController: UIViewController {
     }
     
     @IBAction func SignIn(_ sender: UIButton) {
+        appdelegate.isChild = true
         performSegue(withIdentifier: "ToLogIn", sender: self)
 
     }

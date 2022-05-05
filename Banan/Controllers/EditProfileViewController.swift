@@ -210,14 +210,13 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
         //self.performSegue(withIdentifier: "GoToProfile", sender: self)
     }
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        print("ddd",dob)
-        print(name.text)
+       
         if  name.text != ""{
             if dob != ""{
                 flag = true
                let req = db.collection("Children").document(Auth.auth().currentUser!.uid)
                 req.updateData(["Name":name.text])
-                print("DOB",dob)
+            
                 req.updateData(["DOB":dob])
                 req.updateData([ "Gender":sex])
                 CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغيير المعلومات بنجاح" , acknowledgementType: .positive)
@@ -229,7 +228,7 @@ class EditProfileViewController: UIViewController , UITextFieldDelegate ,CustomA
         } else {
             CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "الرجاء إدخال الاسم" ,acknowledgementType: .negative)
             flag = false}
-        print(flag)
+       
     }
     func didDoneButtonTapped(){
         if flag  {

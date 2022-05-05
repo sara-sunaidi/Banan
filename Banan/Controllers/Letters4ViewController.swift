@@ -18,12 +18,14 @@ class Letters4ViewController: UIViewController {
     @IBOutlet weak var letterThree: UIButton!
     @IBOutlet weak var letterFour: UIButton!
     var index = 0
-
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidAppear(_ animated: Bool) {
       //  player?.stop()
 
-        getChildData()
+        if(appdelegate.isChild){
+            getChildData()}
+        
         
         assignLettersImage(btn: letterOne, index: 0)
         assignLettersImage(btn: letterTwo, index: 1)
@@ -34,7 +36,8 @@ class Letters4ViewController: UIViewController {
         super.viewDidLoad()
                 
         levelName.text = levelTitle
-        getChildData()
+        if(appdelegate.isChild){
+            getChildData()}
         
         assignLettersImage(btn: letterOne, index: 0)
         assignLettersImage(btn: letterTwo, index: 1)
@@ -70,10 +73,11 @@ class Letters4ViewController: UIViewController {
         btn.layer.masksToBounds = false
         
         
+        if(appdelegate.isChild){
         
         
         if(completedLetters!.contains(letters![index].Letter)){
-            btn.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
+            btn.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)}
         }
     }
     
