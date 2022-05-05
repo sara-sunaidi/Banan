@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
 
     var Category : String = ""
     var arabicCategory : String = ""
-    var isChild : Bool = true
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //    var player: AVAudioPlayer?
 
 
@@ -47,7 +47,7 @@ class CategoryViewController: UIViewController {
         food.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         place.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         animal.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
-        if(isChild){
+        if(appdelegate.isChild){
             getChildData()
         }
         getWordsData()
@@ -163,7 +163,7 @@ class CategoryViewController: UIViewController {
             let destinationVC = segue.destination as? WordsViewController
             destinationVC?.category = Category
             destinationVC?.arabicCategory = arabicCategory
-            destinationVC?.isChild = isChild
+            
 
             }
             }

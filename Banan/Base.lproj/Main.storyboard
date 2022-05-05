@@ -180,6 +180,7 @@
                         <segue destination="AlA-Tx-4ep" kind="presentation" identifier="StartToSignUp1" modalPresentationStyle="currentContext" id="YiQ-fX-NIg"/>
                         <segue destination="J52-NQ-hUa" kind="presentation" identifier="ToLogIn" modalPresentationStyle="currentContext" id="iRR-6x-4xd"/>
                         <segue destination="TId-jZ-MzO" kind="presentation" identifier="GoToHomePage" modalPresentationStyle="currentContext" id="kQ8-fG-EeK"/>
+                        <segue destination="DPh-gd-pRi" kind="presentation" identifier="GoToVisitorHomePage" modalPresentationStyle="currentContext" id="Svr-Uq-XRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-8Z-s3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1655,7 +1656,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-EC-X3s">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2582,7 +2583,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pe4-ut-FzW">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2744,7 +2745,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbN-xA-VxZ">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2984,7 +2985,7 @@
                                 <rect key="frame" x="0.0" y="45" width="810" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تدرب على الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-YR-QtR">
-                                        <rect key="frame" x="263" y="2.5" width="284" height="45"/>
+                                        <rect key="frame" x="263" y="2.5" width="284.5" height="45"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -6314,19 +6315,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBkd" translatesAutoresizingMaskIntoConstraints="NO" id="Gp9-2x-pOa">
-                                <rect key="frame" x="0.0" y="0.0" width="919" height="1080"/>
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardRectangular" translatesAutoresizingMaskIntoConstraints="NO" id="tcu-mh-ahL">
-                                <rect key="frame" x="60" y="40" width="799" height="1000"/>
+                                <rect key="frame" x="60" y="40" width="690" height="1000"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لوحة التقدم" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yR9-Z8-EYQ">
-                                <rect key="frame" x="370.5" y="93" width="178.5" height="42.5"/>
+                                <rect key="frame" x="316" y="93" width="178.5" height="42.5"/>
                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="38"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71w-Yu-I6A">
-                                <rect key="frame" x="780" y="91.5" width="33" height="46"/>
+                                <rect key="frame" x="671" y="91.5" width="33" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="Krf-Ib-iXE"/>
                                     <constraint firstAttribute="height" constant="46" id="PWD-hb-hwL"/>
@@ -6341,23 +6342,23 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhF-Lc-BvR">
-                                <rect key="frame" x="203" y="206" width="531" height="28"/>
+                                <rect key="frame" x="203" y="206" width="422" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhf-P5-DXj">
-                                        <rect key="frame" x="0.0" y="13" width="205.5" height="2"/>
+                                        <rect key="frame" x="0.0" y="13" width="151" height="2"/>
                                         <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="Fx2-dg-b1U"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الإحصائيات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1z-1E-hWE">
-                                        <rect key="frame" x="210.5" y="0.0" width="110" height="28"/>
+                                        <rect key="frame" x="156" y="0.0" width="110" height="28"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="25"/>
                                         <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feg-aw-VU5">
-                                        <rect key="frame" x="325.5" y="13" width="205.5" height="2"/>
+                                        <rect key="frame" x="271" y="13" width="151" height="2"/>
                                         <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="DYm-t5-9gr"/>
@@ -6378,25 +6379,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAj-uu-3J4">
-                                <rect key="frame" x="186" y="266" width="565" height="90"/>
+                                <rect key="frame" x="186" y="266" width="456" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYC-tX-W8O">
-                                        <rect key="frame" x="301.5" y="0.0" width="273.5" height="90"/>
+                                        <rect key="frame" x="248.5" y="0.0" width="217.5" height="90"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatisticsRectagular" translatesAutoresizingMaskIntoConstraints="NO" id="cSr-1O-wOU">
-                                                <rect key="frame" x="0.0" y="0.0" width="273.5" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="90"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shinyStar2" translatesAutoresizingMaskIntoConstraints="NO" id="ngS-tH-cah">
-                                                <rect key="frame" x="167" y="4" width="98.5" height="78"/>
+                                                <rect key="frame" x="132" y="4" width="77.5" height="78"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إجمالي النقاط" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmj-bJ-SS0">
-                                                <rect key="frame" x="31" y="14" width="136.5" height="23.5"/>
+                                                <rect key="frame" x="31" y="14" width="107.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="18"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="١٠٨" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPG-C8-dhU">
-                                                <rect key="frame" x="32" y="45" width="135.5" height="23.5"/>
+                                                <rect key="frame" x="32" y="45" width="106.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="21"/>
                                                 <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -6422,22 +6423,22 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="352-L8-Z4E">
-                                        <rect key="frame" x="0.0" y="0.0" width="273.5" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="217.5" height="90"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatisticsRectagular" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-ks-1TC">
-                                                <rect key="frame" x="0.0" y="0.0" width="273.5" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="90"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallCup" translatesAutoresizingMaskIntoConstraints="NO" id="S53-jK-WQA">
-                                                <rect key="frame" x="166" y="8" width="99.5" height="74"/>
+                                                <rect key="frame" x="131.5" y="8" width="78" height="74"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المستويات المجتازه" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkR-04-yZb">
-                                                <rect key="frame" x="22" y="15" width="148.5" height="18"/>
+                                                <rect key="frame" x="22" y="15" width="118.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="16"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="١٠٨" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-x0-1ih">
-                                                <rect key="frame" x="28" y="45" width="134.5" height="23.5"/>
+                                                <rect key="frame" x="28" y="45" width="107" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="21"/>
                                                 <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -6477,23 +6478,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dml-2P-gZC">
-                                <rect key="frame" x="216" y="405" width="505" height="28"/>
+                                <rect key="frame" x="213.5" y="405" width="401" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfB-aU-iZQ">
-                                        <rect key="frame" x="0.0" y="13" width="203.5" height="2"/>
+                                        <rect key="frame" x="0.0" y="13" width="151.5" height="2"/>
                                         <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="3cQ-q0-IHd"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الإنجازات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-Jw-3Sf">
-                                        <rect key="frame" x="208.5" y="0.0" width="88" height="28"/>
+                                        <rect key="frame" x="156.5" y="0.0" width="88" height="28"/>
                                         <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="25"/>
                                         <color key="textColor" red="0.52549019610000003" green="0.50196078430000002" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-CP-otX">
-                                        <rect key="frame" x="301.5" y="13" width="203.5" height="2"/>
+                                        <rect key="frame" x="249.5" y="13" width="151.5" height="2"/>
                                         <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="l15-69-wtI"/>
@@ -6514,11 +6515,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuO-zg-6Xp">
-                                <rect key="frame" x="326.5" y="977" width="266" height="2"/>
+                                <rect key="frame" x="290" y="977" width="230" height="2"/>
                                 <color key="backgroundColor" red="0.64313725489999995" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-0b-fRZ">
-                                <rect key="frame" x="186" y="438" width="565" height="517"/>
+                                <rect key="frame" x="186" y="438" width="456" height="517"/>
                                 <connections>
                                     <segue destination="iB0-Jc-WaM" kind="embed" destinationCreationSelector="uplaodList:" id="uYF-L0-zES"/>
                                 </connections>
@@ -6908,11 +6909,191 @@
             </objects>
             <point key="canvasLocation" x="-160" y="1190"/>
         </scene>
+        <!--Learning Page Visitor View Controller-->
+        <scene sceneID="JRe-Cc-t3c">
+            <objects>
+                <viewController id="DPh-gd-pRi" customClass="LearningPageVisitorViewController" customModule="Banan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9DA-Wx-kzH">
+                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="vLJ-fW-Jrh">
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="HomePage" translatesAutoresizingMaskIntoConstraints="NO" id="mkt-iL-2hr">
+                                        <rect key="frame" x="0.0" y="0.0" width="895" height="1212"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-vy-3X4">
+                                        <rect key="frame" x="0.0" y="45" width="810" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="تدرب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-ky-Rqe">
+                                                <rect key="frame" x="363" y="2.5" width="84.5" height="45"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="40"/>
+                                                <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qic-yR-tbF">
+                                                <rect key="frame" x="744" y="2" width="33" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="33" id="L1g-5m-oDd"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.13769999999999999" green="0.26118000000000002" blue="0.27000000000000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <backgroundConfiguration key="background" image="chevron.forward" catalog="system"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressBack:" destination="DPh-gd-pRi" eventType="touchUpInside" id="tpz-rL-lU2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Qic-yR-tbF" secondAttribute="bottom" constant="2" id="2af-3g-Nob"/>
+                                            <constraint firstItem="zDx-ky-Rqe" firstAttribute="centerY" secondItem="CKI-vy-3X4" secondAttribute="centerY" id="3BG-fW-oTB"/>
+                                            <constraint firstItem="Qic-yR-tbF" firstAttribute="top" secondItem="CKI-vy-3X4" secondAttribute="top" constant="2" id="Euk-D9-13e"/>
+                                            <constraint firstItem="zDx-ky-Rqe" firstAttribute="centerX" secondItem="CKI-vy-3X4" secondAttribute="centerX" id="Kxq-xk-7AB"/>
+                                            <constraint firstAttribute="height" constant="50" id="lAl-Pk-0gm"/>
+                                            <constraint firstItem="Qic-yR-tbF" firstAttribute="centerY" secondItem="CKI-vy-3X4" secondAttribute="centerY" id="xmg-Ur-g64"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qic-yR-tbF" secondAttribute="trailing" constant="45" id="zUk-AS-zA5"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مستعد للتعلم؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-SU-fgg">
+                                        <rect key="frame" x="448.5" y="158" width="221.5" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ApN-SU-fgg" secondAttribute="height" multiplier="183:43" id="Ybc-b6-Rka"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="36"/>
+                                        <color key="textColor" red="0.13725490200000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HE-iN-BHc">
+                                        <rect key="frame" x="132" y="351.5" width="546" height="150"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihc-sw-DNR">
+                                                <rect key="frame" x="0.0" y="0.0" width="546" height="150"/>
+                                                <color key="tintColor" red="0.80392156859999997" green="0.79215686269999996" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled">
+                                                    <backgroundConfiguration key="background" cornerRadius="30">
+                                                        <color key="backgroundColor" red="0.80392156859999997" green="0.79215686269999996" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressLearnLetters:" destination="DPh-gd-pRi" eventType="touchUpInside" id="v7G-iX-3Ed"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BraillePurple" translatesAutoresizingMaskIntoConstraints="NO" id="OJW-vG-bry">
+                                                <rect key="frame" x="456" y="38" width="56" height="74"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="HL5-p8-KaH"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="الحروف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-um-Yyc">
+                                                <rect key="frame" x="311.5" y="53" width="109.5" height="40.5"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="36"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ihc-sw-DNR" firstAttribute="leading" secondItem="4HE-iN-BHc" secondAttribute="leading" id="18L-CX-5E2"/>
+                                            <constraint firstItem="yxE-um-Yyc" firstAttribute="top" secondItem="4HE-iN-BHc" secondAttribute="top" constant="53" id="8SW-GW-jOx"/>
+                                            <constraint firstItem="OJW-vG-bry" firstAttribute="leading" secondItem="yxE-um-Yyc" secondAttribute="trailing" constant="31" id="Av5-Yt-vNh"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ihc-sw-DNR" secondAttribute="bottom" id="P7n-r7-dan"/>
+                                            <constraint firstItem="OJW-vG-bry" firstAttribute="centerY" secondItem="4HE-iN-BHc" secondAttribute="centerY" id="PAz-cd-eB2"/>
+                                            <constraint firstAttribute="height" constant="150" id="RPv-1X-8K7"/>
+                                            <constraint firstAttribute="trailing" secondItem="OJW-vG-bry" secondAttribute="trailing" constant="34" id="Rpq-sj-Ccu"/>
+                                            <constraint firstItem="Ihc-sw-DNR" firstAttribute="top" secondItem="4HE-iN-BHc" secondAttribute="top" id="UF7-Ta-hSl"/>
+                                            <constraint firstItem="OJW-vG-bry" firstAttribute="top" secondItem="4HE-iN-BHc" secondAttribute="top" constant="38" id="wpQ-DQ-D8g"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ihc-sw-DNR" secondAttribute="trailing" id="xoL-cI-Oxh"/>
+                                            <constraint firstAttribute="bottom" secondItem="OJW-vG-bry" secondAttribute="bottom" constant="38" id="yEy-bw-7Qd"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH4-QU-zW5">
+                                        <rect key="frame" x="132" y="601.5" width="546" height="150"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGO-pT-npb">
+                                                <rect key="frame" x="0.0" y="0.0" width="546" height="150"/>
+                                                <color key="tintColor" red="0.92941176469999998" green="0.83529411760000005" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled">
+                                                    <backgroundConfiguration key="background" cornerRadius="30">
+                                                        <color key="backgroundColor" red="0.92941176469999998" green="0.83529411760000005" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressLearnWords:" destination="DPh-gd-pRi" eventType="touchUpInside" id="SS6-tR-Kfd"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrailleYellow" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-oz-yvD">
+                                                <rect key="frame" x="456" y="38" width="56" height="74"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="bM5-fX-i4c"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الكلمات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fr6-yA-98p">
+                                                <rect key="frame" x="310.5" y="54" width="114.5" height="42"/>
+                                                <fontDescription key="fontDescription" name="Almarai-Regular" family="Almarai" pointSize="36"/>
+                                                <color key="textColor" red="0.1176470518" green="0.20784312490000001" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Fr6-yA-98p" firstAttribute="top" secondItem="cH4-QU-zW5" secondAttribute="top" constant="54" id="7cp-4l-bJ2"/>
+                                            <constraint firstItem="DDz-oz-yvD" firstAttribute="leading" secondItem="Fr6-yA-98p" secondAttribute="trailing" constant="31" id="8YK-gQ-1AS"/>
+                                            <constraint firstItem="TGO-pT-npb" firstAttribute="top" secondItem="cH4-QU-zW5" secondAttribute="top" id="BQq-49-pse"/>
+                                            <constraint firstItem="TGO-pT-npb" firstAttribute="leading" secondItem="cH4-QU-zW5" secondAttribute="leading" id="C2n-K6-Ihx"/>
+                                            <constraint firstAttribute="trailing" secondItem="DDz-oz-yvD" secondAttribute="trailing" constant="34" id="CJ7-cl-G1d"/>
+                                            <constraint firstAttribute="height" constant="150" id="F8U-n7-CPG"/>
+                                            <constraint firstItem="Fr6-yA-98p" firstAttribute="centerY" secondItem="DDz-oz-yvD" secondAttribute="centerY" id="cY2-cj-2TL"/>
+                                            <constraint firstAttribute="bottom" secondItem="DDz-oz-yvD" secondAttribute="bottom" constant="38" id="kRn-tz-L1Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="TGO-pT-npb" secondAttribute="trailing" id="nMc-Qp-kun"/>
+                                            <constraint firstAttribute="bottom" secondItem="TGO-pT-npb" secondAttribute="bottom" id="o83-tV-Sig"/>
+                                            <constraint firstItem="DDz-oz-yvD" firstAttribute="top" secondItem="cH4-QU-zW5" secondAttribute="top" constant="38" id="ofs-xM-xiz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="Myz-iX-1Kf"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Myz-iX-1Kf" firstAttribute="trailing" secondItem="ApN-SU-fgg" secondAttribute="trailing" constant="140" id="1d5-dM-jr4"/>
+                                    <constraint firstItem="cH4-QU-zW5" firstAttribute="top" secondItem="4HE-iN-BHc" secondAttribute="bottom" constant="100" id="6AA-Kj-IS0"/>
+                                    <constraint firstItem="CKI-vy-3X4" firstAttribute="leading" secondItem="Myz-iX-1Kf" secondAttribute="leading" id="GD6-1y-AtG"/>
+                                    <constraint firstItem="CKI-vy-3X4" firstAttribute="top" secondItem="Myz-iX-1Kf" secondAttribute="top" constant="45" id="JE4-zE-bB8"/>
+                                    <constraint firstItem="4HE-iN-BHc" firstAttribute="centerX" secondItem="vLJ-fW-Jrh" secondAttribute="centerX" id="KYf-XV-4gI"/>
+                                    <constraint firstItem="CKI-vy-3X4" firstAttribute="trailing" secondItem="Myz-iX-1Kf" secondAttribute="trailing" id="LD8-Ew-WG0"/>
+                                    <constraint firstItem="Myz-iX-1Kf" firstAttribute="bottom" secondItem="cH4-QU-zW5" secondAttribute="bottom" constant="328.5" id="LMi-ro-Vav"/>
+                                    <constraint firstItem="mkt-iL-2hr" firstAttribute="leading" secondItem="vLJ-fW-Jrh" secondAttribute="leading" id="TEE-Ki-hFd"/>
+                                    <constraint firstItem="mkt-iL-2hr" firstAttribute="top" secondItem="vLJ-fW-Jrh" secondAttribute="top" id="aAL-Zp-Vx0"/>
+                                    <constraint firstItem="ApN-SU-fgg" firstAttribute="top" secondItem="CKI-vy-3X4" secondAttribute="bottom" constant="63" id="bxo-Jw-FWj"/>
+                                    <constraint firstItem="Myz-iX-1Kf" firstAttribute="trailing" secondItem="cH4-QU-zW5" secondAttribute="trailing" constant="132" id="sN5-lq-CJj"/>
+                                    <constraint firstItem="Myz-iX-1Kf" firstAttribute="trailing" secondItem="4HE-iN-BHc" secondAttribute="trailing" constant="132" id="swI-UP-ndx"/>
+                                    <constraint firstItem="cH4-QU-zW5" firstAttribute="centerX" secondItem="vLJ-fW-Jrh" secondAttribute="centerX" id="vau-v8-CVE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1ww-56-Dci"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="letterButton" destination="Ihc-sw-DNR" id="Krt-cO-uSL"/>
+                        <outlet property="wordButton" destination="TGO-pT-npb" id="3uK-Z8-DhU"/>
+                        <segue destination="DyF-Aa-jTT" kind="presentation" identifier="GoToLearnLettersPage" modalPresentationStyle="currentContext" id="amV-6U-LTP"/>
+                        <segue destination="OeH-OP-muD" kind="presentation" identifier="GoToLearnWordsPage" modalPresentationStyle="currentContext" id="7rF-wm-G1d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gbj-HO-llp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2825.8992805755397" y="214.57286432160805"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yD0-41-uUe"/>
         <segue reference="sZa-XB-zTk"/>
-        <segue reference="kQ8-fG-EeK"/>
+        <segue reference="7rF-wm-G1d"/>
+        <segue reference="amV-6U-LTP"/>
+        <segue reference="62k-Uq-p9X"/>
         <segue reference="YiQ-fX-NIg"/>
     </inferredMetricsTieBreakers>
     <resources>

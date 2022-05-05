@@ -26,7 +26,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
     var name : String = ""
     var isValid = false
     let database = Firestore.firestore()
-    
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var submit: UIButton!
 
     @IBOutlet weak var Name: UITextField!
@@ -143,6 +143,7 @@ class SignUp4ViewController: UIViewController , UITextFieldDelegate {
         let docref = database.document("Children/\(id)")
         docref.setData(["Email": email, "Name": Name.text, "DOB": dob, "Gender": sex, "GameLevels": [[String: String]](),
                         "CompletedCategory": [String](), "CompletedLetter": [String](), "CompletedLevel": [String](), "CompletedWord": [String]()])
+        appdelegate.isChild = true
 
     }
     

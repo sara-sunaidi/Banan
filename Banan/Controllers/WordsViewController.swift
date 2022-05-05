@@ -24,7 +24,7 @@ class WordsViewController: UIViewController {
     //var Braille = [String]()
 
     var index : Int = 0
-    var isChild : Bool = true
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var Category: UILabel!
     
@@ -78,7 +78,7 @@ class WordsViewController: UIViewController {
         button9.tintColor =  UIColor(red: 237/255, green: 213/255, blue: 141/255, alpha: 1)
         
         Category.text = arabicCategory
-        if(isChild) {
+        if(appdelegate.isChild) {
         getChildData()
         }
         getWordsData()
@@ -224,7 +224,7 @@ class WordsViewController: UIViewController {
             let destination = segue.destination as! WordViewController
             destination.allWords = allWords
             destination.index = index
-            destination.isChild = isChild
+          
         }
     }
     /*

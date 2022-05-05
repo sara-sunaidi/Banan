@@ -23,7 +23,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
 //    var player: AVAudioPlayer?
     var expectedResult : String?
     var completedLetters: [String]?
-    
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     let db = Firestore.firestore()
     
     @IBOutlet weak var imageLetter: UIImageView!
@@ -245,7 +245,8 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
         
         // # update user info
-        FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter, level: letters![index!].Level)
+        if(appdelegate.isChild){
+            FirebaseRequest.updateCompletedLetter(letter: letters![index!].Letter, level: letters![index!].Level)}
         
         //play sound
         playSound("Correct")

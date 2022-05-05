@@ -62,9 +62,10 @@ class LevelsViewController: UIViewController {
     @IBOutlet weak var eighthLable: UILabel!
     @IBOutlet weak var ninthLable: UILabel!
     @IBOutlet weak var tenthLable: UILabel!
-    
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidAppear(_ animated: Bool) {        
-        getChildData()
+        if(appdelegate.isChild){
+            getChildData()}
         getLettersData()
         groupByLevel()
         buttonLevels()
@@ -72,7 +73,8 @@ class LevelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getChildData()
+        if(appdelegate.isChild){
+            getChildData()}
         getLettersData()
         groupByLevel()
         buttonLevels()
@@ -152,7 +154,8 @@ class LevelsViewController: UIViewController {
         print(arabicTotal)
         print("inter se")
         print(arabicIntersect)
-        label.text = "\(arabicTotal)/\(arabicIntersect) من الحروف تم دراستها"
+        if (appdelegate.isChild){
+            label.text = "\(arabicTotal)/\(arabicIntersect) من الحروف تم دراستها"}
         button.layer.cornerRadius = 30
         
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor

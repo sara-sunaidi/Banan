@@ -32,7 +32,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     let db = Firestore.firestore()
     var expectedResult : String?
 //    var player: AVAudioPlayer?
-    var isChild : Bool = true
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     //four letters
     
@@ -353,7 +353,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .word)
         
         // update list
-        if(isChild) {
+        if(appdelegate.isChild) {
         FirebaseRequest.updateCompletedWord(word:allWords![index!].Word)
         }
         //play sound
