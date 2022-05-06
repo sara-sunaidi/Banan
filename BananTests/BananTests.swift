@@ -146,23 +146,7 @@ class BananTests: XCTestCase {
 //        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال الاسم")
     }
     
-//    //TC8
-    
-    //it does not wait
-//    func test_signup_existing_email(){
-//        nameVC.email = "sara.alsunaidi58@gmail.com"
-//        nameVC.password = "star123"
-//        nameVC.dob = "Mar 25, 2016"
-//        nameVC.Name.text = "Sara"
-//        nameVC.CreateAccount(nameVC.submit)
-//
-//        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text,     "هذا المستخدم مسجل بالفعل sara.alsunaidi58@gmail.com"
-//)
-//    }
-    
-    
-//    //TC8
-    // dont know how to test it, it looks like scenario
+
     func test_valid_signup(){
         nameVC.email = "test@gmail.com"
         nameVC.password = "star123"
@@ -264,103 +248,60 @@ class BananTests: XCTestCase {
         XCTAssertTrue(LoginVC.isValid)
     }
     
-    //test pass level (not last) with and without hint
-    func test_calculate_score(){
+    func test_calculate_score_without_hint(){
         let levelGame = [
-            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
-            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
-            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
-        
-        GameVC.currentLevel = levelGame
-        GameVC.isLastLevel = false
-        GameVC.index = 0
-//        GameVC.numOfHeart = 3
-        GameVC.calculatePoints()
-        
-        
-        GameVC.index = 1
-//        GameVC.pressHint(GameVC.hintBtn)
-        //or GameVC.numOfHeart = 2
-        GameVC.calculatePoints()
-
-        GameVC.index = 2
-        GameVC.numOfHeart = 3 //reset num of hearts
-        GameVC.calculatePoints()
-        
-        GameVC.finishLevel()
-        
-        let totalPoints = GameVC.levelUserPoints
-        print(totalPoints)
-        print(GameVC.isLastLevel)
-        XCTAssertEqual(LevelDoneViewController.instance.title.text, "رائع")
-//        XCTAssertEqual(LevelDoneViewController.instance.levelScore.text, "٢٤٠ +")
-//        XCTAssertEqual(totalPoints, 240)
-    }
-    
-    //test 1 incorrect answer  in level
-    //remove private keyword from check answer method 
-    func test_calculate_score_fail(){
-        let levelGame = [
-            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
-            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
-            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
+            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "100", Animal: "Dog", currentPoint: 0),
+            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "100", Animal: "Duck", currentPoint: 0),
+            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "100", Animal: "Elephant", currentPoint: 0)]
 
         
         GameVC.currentLevel = levelGame
-        
         GameVC.isLastLevel = false
         
         GameVC.index = 0
-        GameVC.checkAnswer("ارنب")
-        
-        GameVC.index = 1
         GameVC.checkAnswer("كلب")
         
+        GameVC.index = 1
+        GameVC.checkAnswer("بطة")
+
         GameVC.index = 2
         GameVC.checkAnswer("فيل")
-        
-        let totalPoints = GameVC.levelUserPoints
-        print(totalPoints)
-//        XCTAssertEqual(LevelDoneViewController.instance.title.text, "ممتاز")
-//        XCTAssertEqual(LevelDoneViewController.instance.levelScore.text, "١٦٠ +")
-        XCTAssertEqual(totalPoints, 160)
+
+        XCTAssertTrue( LevelDoneViewController.instance.title.text == "رائع" && GameVC.levelUserPoints == 300 )
     }
     
     
-    //test 2 incorrect answer  in level and fail
-    //remove private keyword from check answer method
-    func test_calculate_score_all_fail(){
+    func test_calculate_score_with_hint(){
         let levelGame = [
-            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "80", Animal: "Duck", currentPoint: 0),
-            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "80", Animal: "Dog", currentPoint: 0),
-            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "80", Animal: "Elephant", currentPoint: 0)]
-
+            Game(AllLetters: ["Kaf", "Lam", "Baa"], Arabic: "كلب", Level: "First", Points: "100", Animal: "Dog", currentPoint: 0),
+            Game(AllLetters: ["Baa", "6aa", "Ttt"], Arabic: "بطة", Level: "First", Points: "100", Animal: "Duck", currentPoint: 0),
+            Game(AllLetters: ["Faa", "Yaa", "Lam"], Arabic: "فيل", Level: "First", Points: "100", Animal: "Elephant", currentPoint: 0)]
         
         GameVC.currentLevel = levelGame
-        
         GameVC.isLastLevel = false
-        
         GameVC.viewDidLoad()
         
-        
         GameVC.index = 0
-        GameVC.checkAnswer("ارنب")
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.checkAnswer("كلب") //20 point
+        
+        GameVC.numOfHeart = 3 // reset num of heart for new animal
         
         GameVC.index = 1
-        GameVC.checkAnswer("ارنب")
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.checkAnswer("بطة") //20 point
+
+        GameVC.numOfHeart = 3 // reset num of heart for new animal
 
         GameVC.index = 2
-//        GameVC.pressHint(GameVC.hintBtn)
-//        GameVC.pressHint(GameVC.hintBtn)
-//        GameVC.pressHint(GameVC.hintBtn)
-        GameVC.numOfHeart = 0
-        GameVC.checkAnswer("فيل")
-        
-        let totalPoints = GameVC.levelUserPoints
-        print(totalPoints)
-//        XCTAssertEqual(LevelFailViewController.instance.title.text, "حاول مرة اخرى")
-        XCTAssertEqual(LevelFailViewController.instance.levelScore.text, "٢٠ +")
-//        XCTAssertEqual(totalPoints, 20)
+        GameVC.pressHint(GameVC.hintBtn)
+        GameVC.checkAnswer("فيل") //73 point
+
+        XCTAssertTrue( LevelDoneViewController.instance.title.text == "جيد" && GameVC.levelUserPoints == 113 )
     }
     
 //    
