@@ -17,6 +17,7 @@ class BananTests: XCTestCase {
     var resetPasswordVC : ResetPasswordViewController!
     var editDataVC : EditProfileViewController!
     var GameVC : GameViewController!
+    var LoginVC : LogInViewContoller!
 
     
     
@@ -60,6 +61,10 @@ class BananTests: XCTestCase {
         GameVC = mainStoryBoard.instantiateViewController(identifier: "Game") as? GameViewController
         GameVC.loadViewIfNeeded()
         
+        //-----
+        LoginVC = LogInViewContoller()
+        LoginVC = mainStoryBoard.instantiateViewController(identifier: "LogIn") as? LogInViewContoller
+        LoginVC.loadViewIfNeeded()
         
     }
     
@@ -71,6 +76,7 @@ class BananTests: XCTestCase {
         editDataVC = nil
         resetPasswordVC = nil
         GameVC = nil
+        LoginVC = nil
         super.tearDown()
     }
     
@@ -227,6 +233,36 @@ class BananTests: XCTestCase {
             XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "تم تغيير المعلومات بنجاح")
         }
     
+    func test_empty_login_email(){
+        LoginVC.emailTextfield.text = ""
+        
+        LoginVC.loginPressed(LoginVC.LogInButton)
+        
+        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال البريد الالكتروني")
+    }
+    
+    func test_invalid_login_email(){
+        LoginVC.emailTextfield.text = "@gmail"
+        LoginVC.loginPressed(LoginVC.LogInButton)
+        
+        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال البريد الالكتروني بشكل صحيح")
+    }
+    
+    func test_empty_login_password(){
+        LoginVC.emailTextfield.text = "testing@gmail.com"
+        LoginVC.loginPressed(LoginVC.LogInButton)
+        
+        XCTAssertEqual(CustomAcknowledgementViewController.instance.message.text, "الرجاء إدخال كلمة المرور")
+    }
+    
+    func test_valid_login(){
+        LoginVC.emailTextfield.text = "testing@gmail.com"
+        LoginVC.password = "triangle"
+        
+        LoginVC.loginPressed(LoginVC.LogInButton)
+        
+        XCTAssertTrue(LoginVC.isValid)
+    }
     
     //test pass level (not last) with and without hint
     func test_calculate_score(){

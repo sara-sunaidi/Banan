@@ -22,7 +22,7 @@ class LogInViewContoller : UIViewController{
     @IBOutlet weak var signUp: UIButton!
     
     @IBOutlet weak var loading: UIActivityIndicatorView!
-    
+    var isValid = false
     var cheak : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +40,7 @@ class LogInViewContoller : UIViewController{
         red123.tintColor = UIColor.white
         parallelogram.tintColor = UIColor.white
         circle.tintColor = UIColor.white
+        isValid = false
       
     }
     
@@ -80,8 +81,15 @@ class LogInViewContoller : UIViewController{
         loading.startAnimating()
         
         if emailTextfield.text != ""{
-            if cheak == false{
+            if let errorMessage = invalidEmail(emailTextfield.text!)  {
+            errorAlert("الرجاء إدخال البريد الالكتروني بشكل صحيح")
+//            emailError.text = "الرجاء إدخال البريد الالكتروني بشكل صحسح"
+      
+            
+        }else
+//            if cheak == false{
         if let email = emailTextfield.text,  password != "" {
+            isValid = true
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
             if let e = error{
 
@@ -112,12 +120,13 @@ class LogInViewContoller : UIViewController{
         }} else{
             errorAlert("الرجاء إدخال كلمة المرور")
             
-        }}else {
-            errorAlert("الرجاء إدخال البريد الالكتروني بشكل صحيح")
-//            emailError.text = "الرجاء إدخال البريد الالكتروني بشكل صحسح"
-      
-            
         }
+//            if let errorMessage = invalidEmail(emailTextfield.text!)  {
+//            errorAlert("الرجاء إدخال البريد الالكتروني بشكل صحيح")
+////            emailError.text = "الرجاء إدخال البريد الالكتروني بشكل صحسح"
+//
+//
+//        }
           // ...
         }else {
             errorAlert("الرجاء إدخال البريد الالكتروني")
