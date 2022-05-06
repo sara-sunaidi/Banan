@@ -11,7 +11,9 @@ protocol GameInstructionsViewControllerDelegate {
     func didNextPopUpButtonTapped()
     //func didYesButtonTapped()
 }
-class GameInstructionsViewController : UIView,GameHintInstructionsViewControllerDelegate {
+class GameInstructionsViewController : UIView
+//,GameHintInstructionsViewControllerDelegate
+{
     func didDoneButtonTapped() {
         
     }
