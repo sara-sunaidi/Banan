@@ -11,9 +11,17 @@ import SwiftUI
 //import AVFoundation
 import Firebase
 
-class LearnLetterViewController: UIViewController, CustomConfirmationViewControllerDelegate, CustomAlertViewControllerDelegate,LetterInstructionsViewControllerDelegate {
+class LearnLetterViewController: UIViewController,
+                                 CustomConfirmationViewControllerDelegate,
+                                 CustomAlertViewControllerDelegate,
+                                 InstructionsViewControllerDelegate
+//                                 LetterInstructionsViewControllerDelegate
+
+{
     func didDoneButtonTapped() {
-        
+        if(autoInstruction){
+        playSound("\(letters![index!].Letter)")
+        }
     }
     
     
@@ -24,7 +32,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     var expectedResult : String?
     var completedLetters: [String]?
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     
     @IBOutlet weak var imageLetter: UIImageView!
     @IBOutlet weak var letter: UILabel!
@@ -46,12 +54,14 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     @IBOutlet weak var prevLetterButton: UIButton!
     
     @IBOutlet weak var checkBtn: UIButton!
-    
+    var autoInstruction = false
+    var preWord = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playSound("\(letters![index!].Letter)")
+//        playSound("\(letters![index!].Letter)")
+        PlayAllSounds.sharedInstance.stop()
 
         let lettersWithout = ["2aa", "Alf", "2lf", "Ttt"]
         
@@ -108,15 +118,26 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
-        LetterInstructionsViewController.instance.delegate = self
+//        LetterInstructionsViewController.instance.delegate = self
+        InstructionsViewController.instance.delegate = self
+
         if(appdelegate.isChild){
-        if(completedLetters!.count<1){
-            LetterInstructionsViewController.instance.showAlert()}
+        if(completedLetters!.count<1 && preWord == false){
+            autoInstruction = true
+//            LetterInstructionsViewController.instance.showAlert()
+            InstructionsViewController.instance.showAlert(name: "LetterInstruction")
+
+        }else{
+            autoInstruction = false
+            playSound("\(letters![index!].Letter)")
+        }
             
         }
-        else{
-            LetterInstructionsViewController.instance.showAlert()
-        }
+//        else{
+////            LetterInstructionsViewController.instance.showAlert()
+//            InstructionsViewController.instance.showAlert(name: "LetterInstruction")
+//
+//        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
     }
@@ -415,6 +436,7 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
     }
     
     @IBAction func pressPreviousLetter(_ sender: UIButton) {
+        preWord = true
         index = index! - 1
         strLetter = "حرف "
         
@@ -500,7 +522,11 @@ class LearnLetterViewController: UIViewController, CustomConfirmationViewControl
         viewDidLoad()
     }
     @IBAction func instructionButtonPressed(_ sender: UIButton) {
-        LetterInstructionsViewController.instance.showAlert()
+        PlayAllSounds.sharedInstance.stop()
+        autoInstruction = false
+//        LetterInstructionsViewController.instance.showAlert()
+        InstructionsViewController.instance.showAlert(name: "LetterInstruction")
+
     }
 }
 

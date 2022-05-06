@@ -8,8 +8,16 @@ import UIKit
 //import AVFoundation
 
 
-class GameViewController: UIViewController, StopGameViewControllerDelegate, LevelDoneViewControllerDelegate, LevelFailViewControllerDelegate, Hint5ViewControllerDelegate, Hint4ViewControllerDelegate
-, Hint3ViewControllerDelegate,GameInstructionsViewControllerDelegate
+class GameViewController: UIViewController,
+                          StopGameViewControllerDelegate,
+                          LevelDoneViewControllerDelegate,
+                          LevelFailViewControllerDelegate,
+                          Hint5ViewControllerDelegate,
+                          Hint4ViewControllerDelegate,
+                          Hint3ViewControllerDelegate,
+                          GameInstructionsViewControllerDelegate,
+                          InstructionsViewControllerDelegate
+
 {
  
     
@@ -44,7 +52,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     @IBOutlet weak var labelSuperView: UIView!
     
     @IBOutlet weak var skipButton: UIButton!
-        
+    var autoInstruction = false
     
     var GameLevels = [[String:String]]() //levels that the user played, from db-localstorage
     
@@ -81,8 +89,14 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         getGameData()
     }
     
-    func didDoneButtonTapped() {//??
-    
+    func didDoneButtonTapped() {
+        if(autoInstruction){//the user did not hear the sound yet
+        //start current animal sound?
+        playSound("\(currentLevel?[index].Animal ?? "")-Game")
+        }
+    }
+    func didNextPopUpButtonTapped(){
+        InstructionsViewController.instance.showAlert(name: "GameHintInstructions")
     }
     //no need, the user cannot change the orientation
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -150,7 +164,7 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         levelUserPoints = currentLevel?.map({$0.currentPoint}).reduce(0, +) ?? 0
         
         
-        if(index == currentLevel?.count ?? 0 - 1 ){
+        if(index == (currentLevel?.count ?? 0) - 1 ){
             //last animal
             skipButton.isHidden = true
         }else{
@@ -164,11 +178,20 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
         Hint4ViewController.instance.delegate = self
         Hint3ViewController.instance.delegate = self
         GameInstructionsViewController.instance.delegate = self
+        InstructionsViewController.instance.delegate = self
+
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
-        if(GameLevels.count<1){
-            GameInstructionsViewController.instance.showAlert() }// need update
+        if(GameLevels.count<1 && index == 0){
+            autoInstruction = true
+            GameInstructionsViewController.instance.showAlert()
+            
+        }else{
+            autoInstruction = false
+            //start current animal sound?
+            playSound("\(currentLevel?[index].Animal ?? "")-Game")
+        }
     
     }
     
@@ -401,8 +424,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     
     func updateAnimalInfo(){
         
-        //start current animal sound?
-        playSound("\(currentLevel?[index].Animal ?? "")-Game")
+//        //start current animal sound?
+//        playSound("\(currentLevel?[index].Animal ?? "")-Game")
         
         animalImage.image = UIImage(named: "\(currentLevel?[index].Animal ?? "")")
         
@@ -478,7 +501,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
     }
     
     @IBAction func pressInstructions(_ sender: UIButton) {
-        
+        PlayAllSounds.sharedInstance.stop() //stop any prev animal sound
+        autoInstruction = false
         GameInstructionsViewController.instance.showAlert()
     }
     
@@ -545,8 +569,8 @@ class GameViewController: UIViewController, StopGameViewControllerDelegate, Leve
             }
             else if (userPercent >= 0.5 && userPercent < 0.75 ){
                 title = "ممتاز"
-                levelTitle = "أكملت \(levelTitle)"
-//                imageName = "excellent"
+//                levelTitle = "أكملت \(levelTitle)"
+                imageName = "excellent"
                 
             }else if (userPercent >= 0.75 ){
                 title = "رائع"

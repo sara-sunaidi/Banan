@@ -24,6 +24,7 @@ class ReflectorViewController : UIView {
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var alertView: UIView!
+    var name = ""
 //    @IBOutlet weak var img: UIImageView!
 //    @IBOutlet weak var title: UILabel!
 //    @IBOutlet weak var message: UILabel!
@@ -33,7 +34,7 @@ class ReflectorViewController : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         Bundle.main.loadNibNamed("ReflectorView", owner: self, options: nil)
-        commonInit()
+        commonInit(name: name)
         
     }
     
@@ -41,7 +42,7 @@ class ReflectorViewController : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func commonInit() {
+    private func commonInit(name: String) {
         
         Bundle.main.loadNibNamed("ReflectorView", owner: self, options: nil)
         
@@ -66,17 +67,18 @@ class ReflectorViewController : UIView {
 ////        confettiImageView.animationDuration = 5
 //        confettiImageView.animationDuration = 3
         
-        let gif = UIImage.gifImageWithName("reflector")
+        let gif = UIImage.gifImageWithName(name)
         reflector.image = gif
         alertView.layer.cornerRadius = 50
-        
+
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     func showAlert() {
         print("### in showAlert confirmation")
-        commonInit()
+        name = "reflector"
+        commonInit(name: name)
         
 //        self.title?.text = title
 //        self.message?.text = message

@@ -54,7 +54,7 @@
                                         <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="OnCkickYes:" destination="-1" eventType="touchUpInside" id="hbe-34-ZjZ"/>
+                                        <action selector="OnClickDone:" destination="-1" eventType="touchUpInside" id="Ahx-Ja-HOL"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llW-eP-6ti">
@@ -69,7 +69,7 @@
                                         <color key="baseForegroundColor" red="0.13725490200000001" green="0.26274509800000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="OnClickDone:" destination="-1" eventType="touchUpInside" id="bN3-cJ-HiR"/>
+                                        <action selector="OnClickNext:" destination="-1" eventType="touchUpInside" id="l5o-ZN-8ok"/>
                                     </connections>
                                 </button>
                             </subviews>

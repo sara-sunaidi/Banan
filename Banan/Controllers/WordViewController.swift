@@ -17,19 +17,27 @@ import Firebase
 //import AVFoundation
 
 
-class WordViewController: UIViewController, UINavigationControllerDelegate, CustomAlertViewControllerDelegate, CustomConfirmationViewControllerDelegate, WordInstructionsViewControllerDelegate  {
+class WordViewController: UIViewController, UINavigationControllerDelegate,
+                          CustomAlertViewControllerDelegate,
+                          CustomConfirmationViewControllerDelegate,
+                          InstructionsViewControllerDelegate
+//                          WordInstructionsViewControllerDelegate
+{
     func didDoneButtonTapped() {
-    
+        if(autoInstruction){
+    //play sound after instruction
+        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+        }
     }
     
     
     
-    @IBOutlet weak var fourLetttersView: UIView!
+//    @IBOutlet weak var fourLetttersView: UIView!
     var allWords : [Words]?
     var index: Int?
     var allLetters: [Letters]?
     var wordBraille = [String]()
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     var expectedResult : String?
 //    var player: AVAudioPlayer?
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
@@ -138,7 +146,8 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     var completedWords: [String]?
     @IBOutlet var superView: UIView!
     @IBOutlet weak var preWordButton: CustomButton!
-    
+    var autoInstruction = false
+    var preWord = false
     
     override func viewDidLoad() {
         print("- in view load WORD")
@@ -146,7 +155,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
 //        playSound("\(allWords![index!].Word)")
         PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+//        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
 
         if(index! == 0){
             
@@ -230,16 +239,26 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
-        WordInstructionsViewController.instance.delegate = self
+        InstructionsViewController.instance.delegate = self
+//        WordInstructionsViewController.instance.delegate = self
         if(appdelegate.isChild){
             getChildData()
-        if(completedWords!.count<1){
-            LetterInstructionsViewController.instance.showAlert()}
+        if(completedWords!.count<1 && preWord == false){
+            autoInstruction = true
+//            LetterInstructionsViewController.instance.showAlert()
+            InstructionsViewController.instance.showAlert(name: "WordInstructions")
+
+        }else{
+            autoInstruction = false
+            PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+        }
             
         }
-        else{
-            LetterInstructionsViewController.instance.showAlert()
-        }
+//        else{
+////            LetterInstructionsViewController.instance.showAlert()
+//            InstructionsViewController.instance.showAlert(name: "WordInstructions")
+//
+//        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         
@@ -373,6 +392,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     
     @IBAction func onClickPreWord(_ sender: Any) {
+        preWord = true
         index = index! - 1
         viewDidLoad()
         
@@ -388,9 +408,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
         
     }
     
-    @IBAction func onClickGuide(_ sender: Any) {
-        // # will be implemented in Group4
-    }
+//    @IBAction func onClickGuide(_ sender: Any) {
+//        // # will be implemented in Group4
+//    }
     
     
     // The coming three methods to handle correct answer pop-up actions
@@ -667,7 +687,11 @@ class WordViewController: UIViewController, UINavigationControllerDelegate, Cust
     
     
     @IBAction func instructionButtonPressed(_ sender: UIButton) {
-        WordInstructionsViewController.instance.showAlert()
+//        WordInstructionsViewController.instance.showAlert()
+        PlayAllSounds.sharedInstance.stop()
+        autoInstruction = false
+        InstructionsViewController.instance.showAlert(name: "WordInstructions")
+
     }
     func getChildData(){
         let child = LocalStorage.childValue

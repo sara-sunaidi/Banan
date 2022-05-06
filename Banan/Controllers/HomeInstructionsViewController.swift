@@ -11,11 +11,18 @@ import FirebaseFirestore
 import Firebase
 //import AVFoundation
 
-class HomeInstructionsViewController: UIViewController, ReflectorViewControllerDelegate {
-    func didExitButtonTapped() {
+class HomeInstructionsViewController: UIViewController,
+//ReflectorViewControllerDelegate
+InstructionsViewControllerDelegate {
+    func didDoneButtonTapped() {
+        print("yaay")
         backToHomePage()
-        print("clese pressed")
     }
+    
+//    func didExitButtonTapped() {
+//        backToHomePage()
+//        print("clese pressed")
+//    }
     
     
     @IBOutlet weak var name: UILabel!
@@ -114,7 +121,8 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
     
     @IBAction func learnReflectorPressed(_ sender: UIButton) {
         dark.isHidden = true
-        ReflectorViewController.instance.showAlert()
+//        ReflectorViewController.instance.showAlert()
+        InstructionsViewController.instance.showAlert(name: "reflector")
     }
     
     @IBAction func showPrevious(_ sender: UIButton) {
@@ -162,7 +170,9 @@ class HomeInstructionsViewController: UIViewController, ReflectorViewControllerD
         
 //        skipInstructionBtn.setAttributedTitle("تسجيل الدخول".underlined, for: .normal)
 
-        ReflectorViewController.instance.delegate = self
+//        ReflectorViewController.instance.delegate = self
+        InstructionsViewController.instance.delegate = self
+
         showInstruction()
         
         //            view.sendSubviewToBack(yourUIView)

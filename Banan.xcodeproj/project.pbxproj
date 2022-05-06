@@ -139,6 +139,9 @@
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
 		5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A391280F2DAB00B144EA /* PlayAllSounds.swift */; };
+		5623801328249E7900968AB2 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5623801228249E7900968AB2 /* reflector.gif */; };
+		562380152824A11F00968AB2 /* InstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562380142824A11F00968AB2 /* InstructionsView.xib */; };
+		562380172824A1DF00968AB2 /* InstructiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562380162824A1DC00968AB2 /* InstructiosViewController.swift */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
 		56290D2A279E088F00F3AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D29279E088F00F3AC5F /* SceneDelegate.swift */; };
 		56290D2C279E088F00F3AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D2B279E088F00F3AC5F /* ViewController.swift */; };
@@ -194,7 +197,6 @@
 		56D463DF281B46EE00338940 /* ReflectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463DE281B46ED00338940 /* ReflectorViewController.swift */; };
 		56D463E1281B643400338940 /* GifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D463E0281B643300338940 /* GifExtension.swift */; };
 		56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */; };
-		7106CA6528248B4D00447E5C /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7106CA6428248B4D00447E5C /* reflector.gif */; };
 		715BADF027E7E4ED006087EC /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */; };
 		715BADF227E7E4FF006087EC /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */; };
 		715EE6102823F58100A067B0 /* LearningPageVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */; };
@@ -357,6 +359,9 @@
 		4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp3ViewController.swift; sourceTree = "<group>"; };
 		4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp4ViewController.swift; sourceTree = "<group>"; };
 		5608A391280F2DAB00B144EA /* PlayAllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAllSounds.swift; sourceTree = "<group>"; };
+		5623801228249E7900968AB2 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reflector.gif; sourceTree = "<group>"; };
+		562380142824A11F00968AB2 /* InstructionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsView.xib; sourceTree = "<group>"; };
+		562380162824A1DC00968AB2 /* InstructiosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructiosViewController.swift; sourceTree = "<group>"; };
 		56290D24279E088F00F3AC5F /* Banan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56290D27279E088F00F3AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56290D29279E088F00F3AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -419,7 +424,6 @@
 		56D463DE281B46ED00338940 /* ReflectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectorViewController.swift; sourceTree = "<group>"; };
 		56D463E0281B643300338940 /* GifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifExtension.swift; sourceTree = "<group>"; };
 		56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInstructionsViewController.swift; sourceTree = "<group>"; };
-		7106CA6428248B4D00447E5C /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Downloads/reflector.gif; sourceTree = "<group>"; };
 		715BADEF27E7E4ED006087EC /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		715BADF127E7E4FF006087EC /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningPageVisitorViewController.swift; sourceTree = "<group>"; };
@@ -660,6 +664,7 @@
 				56CBA4E52800E92700251F96 /* Hint3View.xib */,
 				71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */,
 				71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */,
+				562380142824A11F00968AB2 /* InstructionsView.xib */,
 				71DB433A281CE10600676D93 /* GameInstructionsView.xib */,
 				71DB433C281CE10F00676D93 /* GameHintInstructionsView.xib */,
 				71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */,
@@ -761,6 +766,7 @@
 				71DB4340281CE14C00676D93 /* WordInstrructionsViewController.swift */,
 				71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */,
 				71DB4344281CE15800676D93 /* GameHintInstructions.swift */,
+				562380162824A1DC00968AB2 /* InstructiosViewController.swift */,
 				715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */,
 			);
 			path = Controllers;
@@ -805,9 +811,9 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
-				7106CA6428248B4D00447E5C /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
+				5623801228249E7900968AB2 /* reflector.gif */,
 				71DB434A281CE2CE00676D93 /* WordInstructions.gif */,
 				71DB434C281CE2D200676D93 /* LetterInstruction.gif */,
 			);
@@ -948,7 +954,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7106CA6528248B4D00447E5C /* reflector.gif in Resources */,
+				5623801328249E7900968AB2 /* reflector.gif in Resources */,
 				335714192806221E00AC9A4E /* Peache.mp3 in Resources */,
 				3357142E2806221E00AC9A4E /* Monkey.mp3 in Resources */,
 				335714122806221E00AC9A4E /* Airport.mp3 in Resources */,
@@ -1017,6 +1023,7 @@
 				335714102806221E00AC9A4E /* Donkey.mp3 in Resources */,
 				56290D2F279E088F00F3AC5F /* Main.storyboard in Resources */,
 				335714692806222F00AC9A4E /* 2aa.mp3 in Resources */,
+				562380152824A11F00968AB2 /* InstructionsView.xib in Resources */,
 				335714212806221E00AC9A4E /* Restaurant.mp3 in Resources */,
 				3357142A2806221E00AC9A4E /* Cucumber.mp3 in Resources */,
 				335713E82806220100AC9A4E /* Game.mp3 in Resources */,
@@ -1129,6 +1136,7 @@
 				4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */,
 				569FF24727EBBA5100F13AAB /* WordViewController.swift in Sources */,
 				4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */,
+				562380172824A1DF00968AB2 /* InstructiosViewController.swift in Sources */,
 				71DB4345281CE15800676D93 /* GameHintInstructions.swift in Sources */,
 				562CA63A2800D905004EC8C5 /* Hint5ViewController.swift in Sources */,
 				56F9AE752818E1C6009C8468 /* HomeInstructionsViewController.swift in Sources */,

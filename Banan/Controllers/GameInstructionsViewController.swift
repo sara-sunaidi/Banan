@@ -8,10 +8,14 @@
 import Foundation
 protocol GameInstructionsViewControllerDelegate {
     func didDoneButtonTapped()
+    func didNextPopUpButtonTapped()
     //func didYesButtonTapped()
 }
 class GameInstructionsViewController : UIView,GameHintInstructionsViewControllerDelegate {
     func didDoneButtonTapped() {
+        
+    }
+    func didNextPopUpButtonTapped() {
         
     }
     
@@ -57,13 +61,23 @@ class GameInstructionsViewController : UIView,GameHintInstructionsViewController
         UIApplication.shared.keyWindow?.addSubview(parentView!)
     }
 
-    @IBAction func OnClickDone(_ sender: Any) {
+    @IBAction func OnClickNext(_ sender: UIButton) {
         parentView.removeFromSuperview()
-            delegate?.didDoneButtonTapped()
-      GameHintInstructionsViewController.instance.delegate = self
-       GameHintInstructionsViewController.instance.showAlert()
+            delegate?.didNextPopUpButtonTapped()
+//      GameHintInstructionsViewController.instance.delegate = self
+//       GameHintInstructionsViewController.instance.showAlert()
     }
+//    @IBAction func OnClickDone(_ sender: Any) {
+//        parentView.removeFromSuperview()
+//            delegate?.didDoneButtonTapped()
+//      GameHintInstructionsViewController.instance.delegate = self
+//       GameHintInstructionsViewController.instance.showAlert()
+//    }
 
+    @IBAction func OnClickDone(_ sender: UIButton) {
+        parentView.removeFromSuperview()
+        delegate?.didDoneButtonTapped()
+    }
     @IBAction func OnCkickYes(_ sender: Any) {
         parentView.removeFromSuperview()
     }
