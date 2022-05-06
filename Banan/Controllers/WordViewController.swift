@@ -254,11 +254,12 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         }
             
         }
-//        else{
-////            LetterInstructionsViewController.instance.showAlert()
+        else{
+            PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+//            LetterInstructionsViewController.instance.showAlert()
 //            InstructionsViewController.instance.showAlert(name: "WordInstructions")
-//
-//        }
+
+        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
         

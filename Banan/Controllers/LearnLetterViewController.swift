@@ -133,11 +133,12 @@ class LearnLetterViewController: UIViewController,
         }
             
         }
-//        else{
-////            LetterInstructionsViewController.instance.showAlert()
+        else{
+            playSound("\(letters![index!].Letter)")
+//            LetterInstructionsViewController.instance.showAlert()
 //            InstructionsViewController.instance.showAlert(name: "LetterInstruction")
-//
-//        }
+
+        }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
     }
