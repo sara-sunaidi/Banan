@@ -118,8 +118,9 @@ class LogInViewContoller : UIViewController{
                 self.performSegue(withIdentifier: "GoToHomePage", sender: self)
             }
         }} else{
+            self.loading.stopAnimating()
             errorAlert("الرجاء إدخال كلمة المرور")
-            
+
         }
 //            if let errorMessage = invalidEmail(emailTextfield.text!)  {
 //            errorAlert("الرجاء إدخال البريد الالكتروني بشكل صحيح")
@@ -129,6 +130,7 @@ class LogInViewContoller : UIViewController{
 //        }
           // ...
         }else {
+            self.loading.stopAnimating()
             errorAlert("الرجاء إدخال البريد الالكتروني")
            
             
