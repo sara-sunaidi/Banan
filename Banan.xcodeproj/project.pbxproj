@@ -111,6 +111,7 @@
 		335B1AE22805FEEA003BFD52 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE12805FEEA003BFD52 /* Board.swift */; };
 		335B1AE42805FF26003BFD52 /* BoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE32805FF26003BFD52 /* BoardList.swift */; };
 		335B1AE62805FF64003BFD52 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B1AE52805FF64003BFD52 /* BoardRow.swift */; };
+		33E09A2B2827CE2500268572 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 33E09A2A2827CE2500268572 /* reflector.gif */; };
 		4D51A2BC27B132B900C3F300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */; };
 		4D700E1627CE0E43002B0EC5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */; };
 		4D700E1A27CE1C18002B0EC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */; };
@@ -139,7 +140,6 @@
 		4DCEDC7327B6308E00026D14 /* SignUp3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */; };
 		4DCEDC7527B630AE00026D14 /* SignUp4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */; };
 		5608A392280F2DAB00B144EA /* PlayAllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A391280F2DAB00B144EA /* PlayAllSounds.swift */; };
-		5623801328249E7900968AB2 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5623801228249E7900968AB2 /* reflector.gif */; };
 		562380152824A11F00968AB2 /* InstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562380142824A11F00968AB2 /* InstructionsView.xib */; };
 		562380172824A1DF00968AB2 /* InstructiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562380162824A1DC00968AB2 /* InstructiosViewController.swift */; };
 		56290D28279E088F00F3AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56290D27279E088F00F3AC5F /* AppDelegate.swift */; };
@@ -208,9 +208,6 @@
 		71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */; };
 		71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */; };
 		71C64FCB280FC9ED00806893 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C64FCA280FC9ED00806893 /* opencv2.framework */; };
-		71C6503428249A1F00806893 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71C6503328249A1F00806893 /* reflector.gif */; };
-		71DB4337281CE0EA00676D93 /* LetterInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */; };
-		71DB4339281CE0FF00676D93 /* WordInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */; };
 		71DB433B281CE10600676D93 /* GameInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB433A281CE10600676D93 /* GameInstructionsView.xib */; };
 		71DB4343281CE15200676D93 /* GameInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */; };
 		71DB4347281CE2C200676D93 /* GameHintInstructions.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4346281CE2C200676D93 /* GameHintInstructions.gif */; };
@@ -341,6 +338,7 @@
 		335B1AE12805FEEA003BFD52 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		335B1AE32805FF26003BFD52 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
 		335B1AE52805FF64003BFD52 /* BoardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
+		33E09A2A2827CE2500268572 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reflector.gif; sourceTree = "<group>"; };
 		4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D700E1527CE0E43002B0EC5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4D700E1927CE1C18002B0EC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -431,9 +429,6 @@
 		71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		71C64FCA280FC9ED00806893 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		71C6503328249A1F00806893 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Desktop/reflector.gif; sourceTree = "<group>"; };
-		71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LetterInstructionsView.xib; sourceTree = "<group>"; };
-		71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordInstructionsView.xib; sourceTree = "<group>"; };
 		71DB433A281CE10600676D93 /* GameInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInstructionsView.xib; sourceTree = "<group>"; };
 		71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInstructionsViewController.swift; sourceTree = "<group>"; };
 		71DB4346281CE2C200676D93 /* GameHintInstructions.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GameHintInstructions.gif; sourceTree = "<group>"; };
@@ -796,7 +791,7 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
-				71C6503328249A1F00806893 /* reflector.gif */,
+				33E09A2A2827CE2500268572 /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
 				5623801228249E7900968AB2 /* reflector.gif */,
@@ -940,7 +935,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C6503428249A1F00806893 /* reflector.gif in Resources */,
 				335714192806221E00AC9A4E /* Peache.mp3 in Resources */,
 				3357142E2806221E00AC9A4E /* Monkey.mp3 in Resources */,
 				335714122806221E00AC9A4E /* Airport.mp3 in Resources */,
@@ -1055,6 +1049,7 @@
 				3357146A2806222F00AC9A4E /* Waw.mp3 in Resources */,
 				335713E92806220100AC9A4E /* Ninth.mp3 in Resources */,
 				562CA6462800E750004EC8C5 /* LevelFailView.xib in Resources */,
+				33E09A2B2827CE2500268572 /* reflector.gif in Resources */,
 				3357145C2806222F00AC9A4E /* Sen.mp3 in Resources */,
 				562CA6342800D4C4004EC8C5 /* StopGameView.xib in Resources */,
 				335713E42806220100AC9A4E /* Sixth.mp3 in Resources */,
@@ -1326,7 +1321,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8Q34XAWTV;
+				DEVELOPMENT_TEAM = S8XCZWKTN5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1368,7 +1363,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8Q34XAWTV;
+				DEVELOPMENT_TEAM = S8XCZWKTN5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
