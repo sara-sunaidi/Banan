@@ -164,7 +164,7 @@ void searchK(int k){
           int ar = areas[idx];
 
 
-          if(ar > 400 && ar < 5000){
+          if(ar > 400 && ar < 2000){
 
        cv::drawContours(
         emptyImg, contours, idx,
@@ -266,7 +266,7 @@ void searchK(int k){
           int ar = areas[idx];
 
 
-          if(ar > 400 && ar < 5000){
+          if(ar > 400 && ar < 2000){
 
        cv::drawContours(
         emptyImg, contours, idx,
