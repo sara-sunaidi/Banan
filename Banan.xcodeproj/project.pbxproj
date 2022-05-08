@@ -208,6 +208,9 @@
 		71A3A91727EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */; };
 		71A3A91B27EB7C27009F9B09 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */; };
 		71C64FCB280FC9ED00806893 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C64FCA280FC9ED00806893 /* opencv2.framework */; };
+		71C6503428249A1F00806893 /* reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71C6503328249A1F00806893 /* reflector.gif */; };
+		71DB4337281CE0EA00676D93 /* LetterInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */; };
+		71DB4339281CE0FF00676D93 /* WordInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */; };
 		71DB433B281CE10600676D93 /* GameInstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DB433A281CE10600676D93 /* GameInstructionsView.xib */; };
 		71DB4343281CE15200676D93 /* GameInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */; };
 		71DB4347281CE2C200676D93 /* GameHintInstructions.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71DB4346281CE2C200676D93 /* GameHintInstructions.gif */; };
@@ -428,6 +431,9 @@
 		71A3A91627EB7AF5009F9B09 /* CustomAcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAcknowledgementViewController.swift; sourceTree = "<group>"; };
 		71A3A91A27EB7C27009F9B09 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		71C64FCA280FC9ED00806893 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		71C6503328249A1F00806893 /* reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = reflector.gif; path = ../../../../../Desktop/reflector.gif; sourceTree = "<group>"; };
+		71DB4336281CE0EA00676D93 /* LetterInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LetterInstructionsView.xib; sourceTree = "<group>"; };
+		71DB4338281CE0FF00676D93 /* WordInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordInstructionsView.xib; sourceTree = "<group>"; };
 		71DB433A281CE10600676D93 /* GameInstructionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInstructionsView.xib; sourceTree = "<group>"; };
 		71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInstructionsViewController.swift; sourceTree = "<group>"; };
 		71DB4346281CE2C200676D93 /* GameHintInstructions.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GameHintInstructions.gif; sourceTree = "<group>"; };
@@ -790,6 +796,7 @@
 		56D463D9281B445600338940 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				71C6503328249A1F00806893 /* reflector.gif */,
 				71DB4346281CE2C200676D93 /* GameHintInstructions.gif */,
 				71DB4348281CE2C900676D93 /* GameInstructions.gif */,
 				5623801228249E7900968AB2 /* reflector.gif */,
@@ -933,7 +940,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5623801328249E7900968AB2 /* reflector.gif in Resources */,
+				71C6503428249A1F00806893 /* reflector.gif in Resources */,
 				335714192806221E00AC9A4E /* Peache.mp3 in Resources */,
 				3357142E2806221E00AC9A4E /* Monkey.mp3 in Resources */,
 				335714122806221E00AC9A4E /* Airport.mp3 in Resources */,
