@@ -129,7 +129,7 @@ void searchK(int k){
     
     // original
     cv::inRange( hsv_image, cv::Scalar(100,150,0), cv::Scalar(140,255,255), mask1);
-    cv::inRange( hsv_image, cv::Scalar(100,110,0), cv::Scalar(140,255,255), mask2);
+    cv::inRange( hsv_image, cv::Scalar(100,105,0), cv::Scalar(140,255,255), mask2);
 
     // Combine the above two images
     cv::bitwise_or(mask1,mask2,mask);
@@ -232,7 +232,7 @@ void searchK(int k){
     
     // original
     cv::inRange( hsv_image, cv::Scalar(100,150,0), cv::Scalar(140,255,255), mask1);
-    cv::inRange( hsv_image, cv::Scalar(100,110,0), cv::Scalar(140,255,255), mask2);
+    cv::inRange( hsv_image, cv::Scalar(100,105,0), cv::Scalar(140,255,255), mask2);
 
     // Combine the above two images
     cv::bitwise_or(mask1,mask2,mask);
@@ -299,7 +299,8 @@ void searchK(int k){
 
       }
 
-    cv::Mat crop_image = mat(Range(min_y,max_y+w_add),Range(min_x,max_x+h_add));
+//    cv::Mat crop_image = mat(Range(min_y,max_y+w_add),Range(min_x,max_x+h_add));
+    cv::Mat crop_image = mat(Range(min_y,max_y),Range(min_x,max_x));
     return MatToUIImage(crop_image); //mat
 }
 
