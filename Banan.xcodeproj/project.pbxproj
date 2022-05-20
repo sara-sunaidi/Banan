@@ -636,44 +636,22 @@
 		56290D26279E088F00F3AC5F /* Banan */ = {
 			isa = PBXGroup;
 			children = (
-				56D463D9281B445600338940 /* Gifs */,
-				56CBA4E72801047C00251F96 /* Sounds */,
-				715BADEE27E7E4AB006087EC /* Fonts */,
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
-				56290D2D279E088F00F3AC5F /* Main.storyboard */,
-				562CA6332800D4C4004EC8C5 /* StopGameView.xib */,
-				56D463DC281B45A900338940 /* ReflectorView.xib */,
-				562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */,
-				562CA6452800E750004EC8C5 /* LevelFailView.xib */,
-				56CBA4E12800E80700251F96 /* Hint5View.xib */,
-				56CBA4E32800E8BA00251F96 /* Hint4View.xib */,
-				56CBA4E52800E92700251F96 /* Hint3View.xib */,
-				562380142824A11F00968AB2 /* InstructionsView.xib */,
-				71DB433A281CE10600676D93 /* GameInstructionsView.xib */,
-				71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */,
-				71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */,
-				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
-				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
-				56290D35279E089000F3AC5F /* Info.plist */,
 				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
 				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
 				56290E9D279F7C8200F3AC5F /* Banan-Bridging-Header.h */,
 				56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */,
 				4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */,
+				56290D35279E089000F3AC5F /* Info.plist */,
+				56D463D9281B445600338940 /* Gifs */,
+				56CBA4E72801047C00251F96 /* Sounds */,
+				715BADEE27E7E4AB006087EC /* Fonts */,
 				569FF24E27EBBD9100F13AAB /* Snackbar */,
+				5679E76E2837BD7E0037F780 /* View */,
 				56290EB627A1C0B100F3AC5F /* Controllers */,
-				4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */,
-				4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */,
 				56BD5ED227E4318B00F6DBB6 /* Model */,
-				4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */,
-				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
-				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
-				71A3A91227EB78BE009F9B09 /* CustomButton.swift */,
-				335B1AE12805FEEA003BFD52 /* Board.swift */,
-				335B1AE32805FF26003BFD52 /* BoardList.swift */,
-				335B1AE52805FF64003BFD52 /* BoardRow.swift */,
 			);
 			path = Banan;
 			sourceTree = "<group>";
@@ -711,6 +689,7 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */,
 				335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */,
 				56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */,
 				56290D2B279E088F00F3AC5F /* ViewController.swift */,
@@ -721,7 +700,6 @@
 				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
 				56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */,
 				56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */,
-				56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */,
 				56290EB427A1C09000F3AC5F /* ProcessImageController.swift */,
 				569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */,
 				56BD5EBF27E0F63300F6DBB6 /* Letters3ViewController.swift */,
@@ -748,8 +726,36 @@
 				71DB4342281CE15200676D93 /* GameInstructionsViewController.swift */,
 				562380162824A1DC00968AB2 /* InstructiosViewController.swift */,
 				715EE60F2823F58100A067B0 /* LearningPageVisitorViewController.swift */,
+				4DCEDC6E27B4CFC900026D14 /* SignUp1ViewController.swift */,
+				4DCEDC7027B62B0400026D14 /* SignUp2ViewController.swift */,
+				4DCEDC7227B6308E00026D14 /* SignUp3ViewController.swift */,
+				4DCEDC7427B630AE00026D14 /* SignUp4ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5679E76E2837BD7E0037F780 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56290D2D279E088F00F3AC5F /* Main.storyboard */,
+				562CA6332800D4C4004EC8C5 /* StopGameView.xib */,
+				56D463DC281B45A900338940 /* ReflectorView.xib */,
+				562CA6432800E0F4004EC8C5 /* LevelDoneView.xib */,
+				562CA6452800E750004EC8C5 /* LevelFailView.xib */,
+				56CBA4E52800E92700251F96 /* Hint3View.xib */,
+				56CBA4E32800E8BA00251F96 /* Hint4View.xib */,
+				56CBA4E12800E80700251F96 /* Hint5View.xib */,
+				562380142824A11F00968AB2 /* InstructionsView.xib */,
+				71DB433A281CE10600676D93 /* GameInstructionsView.xib */,
+				71A3A90827EB7451009F9B09 /* CustomConfirmationView.xib */,
+				71A3A90A27EB7640009F9B09 /* CustomAcknowledgementView.xib */,
+				71A3A90C27EB76FE009F9B09 /* CustomAlertView.xib */,
+				56290D32279E089000F3AC5F /* LaunchScreen.storyboard */,
+				335B1AE32805FF26003BFD52 /* BoardList.swift */,
+				335B1AE52805FF64003BFD52 /* BoardRow.swift */,
+				56BD5EBD27E0F58200F6DBB6 /* CircularProgressView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		569FF24E27EBBD9100F13AAB /* Snackbar */ = {
@@ -764,6 +770,7 @@
 		56BD5ED227E4318B00F6DBB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71A3A91227EB78BE009F9B09 /* CustomButton.swift */,
 				56BD5ED027E4316F00F6DBB6 /* FirebaseRequest.swift */,
 				5608A391280F2DAB00B144EA /* PlayAllSounds.swift */,
 				56D463E0281B643300338940 /* GifExtension.swift */,
@@ -773,6 +780,7 @@
 				562CA62D2800CBF4004EC8C5 /* ConvertLevel.swift */,
 				56BD5ED727E432A900F6DBB6 /* Letters.swift */,
 				56BD5ED927E432EE00F6DBB6 /* Words.swift */,
+				335B1AE12805FEEA003BFD52 /* Board.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
