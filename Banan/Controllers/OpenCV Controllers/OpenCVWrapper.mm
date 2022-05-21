@@ -107,7 +107,6 @@ void searchK(int k){
 
 // Braille Detection Code :D v
 
-
 // Method that returns String regarding crop status
 + (NSString *)checkCorners:(UIImage *)image{
     
@@ -127,7 +126,6 @@ void searchK(int k){
     cv::Mat mask1;
     cv::Mat mask2;
     
-    
     // original
     cv::inRange( hsv_image, cv::Scalar(100,150,0), cv::Scalar(140,255,255), mask1);
     cv::inRange( hsv_image, cv::Scalar(100,100,0), cv::Scalar(140,255,255), mask2);
@@ -140,10 +138,6 @@ void searchK(int k){
     cv::SimpleBlobDetector::Params params;
     params.filterByArea = true;
     params.minArea =  250.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
-    
-    //        params.filterByCircularity = false;
-    ////          params.maxCircularity = 0.8;
-    //        params.minCircularity = 0.75;// squares are 0.785
     
     // Filter by Inertia
     //        params.filterByInertia = true;
@@ -168,10 +162,9 @@ void searchK(int k){
     if(keypoints.size() != 4){
         cout << "- missing corners condition" << endl;
         exist = false;
-        // return 1;
     }
     
-    //    if (exist){
+        if (exist){
     float blobSize = 0.0f;
     for (int i = 0; i < static_cast<int>(keypoints.size()); ++i) {
         blobSize += keypoints[i].size;
@@ -263,6 +256,7 @@ void searchK(int k){
         cout << "- missing corners condition" << endl;
         exist = false;
     }
+}
     
     if(exist){
         return [NSString stringWithFormat:@"true",  CV_VERSION];
@@ -288,7 +282,6 @@ void searchK(int k){
     cv::Mat mask1;
     cv::Mat mask2;
     
-    
     // original
     cv::inRange( hsv_image, cv::Scalar(100,150,0), cv::Scalar(140,255,255), mask1);
     cv::inRange( hsv_image, cv::Scalar(100,100,0), cv::Scalar(140,255,255), mask2);
@@ -301,11 +294,7 @@ void searchK(int k){
     cv::SimpleBlobDetector::Params params;
     params.filterByArea = true;
     params.minArea =  250.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
-    
-    //        params.filterByCircularity = false;
-    ////          params.maxCircularity = 0.8;
-    //        params.minCircularity = 0.75;// squares are 0.785
-    
+
     // Filter by Inertia
     //        params.filterByInertia = true;
     params.minInertiaRatio = 0.4;
@@ -324,11 +313,11 @@ void searchK(int k){
     blobDetector->detect(mask, keypoints); //red_hue_image
     
     cout << "- detected corners number is " << keypoints.size() <<endl;
-    bool exist = true;
+//    bool exist = true;
     
     if(keypoints.size() != 4){
         cout << "- missing corners condition" << endl;
-        exist = false;
+//        exist = false;
     }
     
     //    if (exist){
