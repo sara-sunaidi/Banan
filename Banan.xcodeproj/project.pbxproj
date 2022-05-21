@@ -689,7 +689,6 @@
 				569FF24627EBBA5100F13AAB /* WordViewController.swift */,
 				569FF24A27EBBBE300F13AAB /* TakePhotoController.swift */,
 				56BD5EB727E0F40600F6DBB6 /* PracticePageViewController.swift */,
-				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
 				56BD5EC327E0F7E500F6DBB6 /* LevelsViewController.swift */,
 				56BD5EBB27E0F51800F6DBB6 /* Letters4ViewController.swift */,
 				569FF24427E8A45000F13AAB /* LearnLetterViewController.swift */,
@@ -751,6 +750,7 @@
 		5679E770283913450037F780 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				569FF24C27EBBC5D00F13AAB /* extention_UIImage.swift */,
 				562CA62D2800CBF4004EC8C5 /* ConvertLevel.swift */,
 				56D463E0281B643300338940 /* GifExtension.swift */,
 				56BD5EB927E0F4A600F6DBB6 /* Extension.swift */,
