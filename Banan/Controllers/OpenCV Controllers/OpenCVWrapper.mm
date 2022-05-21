@@ -139,7 +139,7 @@ void searchK(int k){
     // Remove noise
     cv::SimpleBlobDetector::Params params;
     params.filterByArea = true;
-    params.minArea =  230.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
+    params.minArea =  250.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
     
     //        params.filterByCircularity = false;
     ////          params.maxCircularity = 0.8;
@@ -205,7 +205,7 @@ void searchK(int k){
     
     //    cout << "Total Contours Detected: " << contours.size() << endl;
     
-    Mat emptyImg(mat.rows, mat.cols, CV_8UC1, Scalar(0,0,0));
+    Mat emptyImg(pic_blue.rows, pic_blue.cols, CV_8UC1, Scalar(0,0,0));
     
     int min_x= 0, min_y=0,max_x=0,max_y=0,w_add=0,h_add=0;
     vector<int> sortIdx(contours.size());
@@ -223,7 +223,7 @@ void searchK(int k){
         int ar = areas[idx];
         
         
-        if(ar > 300 && ar < 2100){
+        if(ar > 100 ){
             
             cv::drawContours(
                              emptyImg, contours, idx,
@@ -300,7 +300,7 @@ void searchK(int k){
     // Remove noise
     cv::SimpleBlobDetector::Params params;
     params.filterByArea = true;
-    params.minArea =  230.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
+    params.minArea =  250.0f;//5.0f * 5.0f; //2.0f * 2.0f; //3.14159
     
     //        params.filterByCircularity = false;
     ////          params.maxCircularity = 0.8;
@@ -329,7 +329,6 @@ void searchK(int k){
     if(keypoints.size() != 4){
         cout << "- missing corners condition" << endl;
         exist = false;
-        // return 1;
     }
     
     //    if (exist){
@@ -340,7 +339,7 @@ void searchK(int k){
     blobSize = blobSize/keypoints.size();
     // make image from the edited keypoint set(draw line for display)
     cv::Mat temp = cv::Mat(mask.rows, mask.cols, mask.type(), cvScalar(0, 0, 0));
-    //    temp.setTo(0);
+//    temp.setTo(0);
     for (int i = 0; i < static_cast<int>(keypoints.size()); ++i) {
         circle(temp, cv::Point(keypoints[i].pt.x, keypoints[i].pt.y), blobSize / 2, Scalar(255), -1, LINE_AA);
     }
@@ -351,31 +350,31 @@ void searchK(int k){
     
     //    }
     cv::Mat test;
-    cv::bitwise_and(mask,mask,test, temp);
+    cv::bitwise_and(mask,mask,test,temp);
     // _______________________________________________
     
     cv::Mat result_blue;
     cv::bitwise_and(mat,mat,result_blue,test);
-    
+
     cv::Mat pic_blue;
     cv::cvtColor(result_blue, pic_blue, cv::COLOR_BGR2GRAY);
-    
+
     vector<vector<cv::Point> > contours;
     vector< cv::Vec4i > hierarchy;
     cv::findContours(pic_blue, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
     
     //    cout << "Total Contours Detected: " << contours.size() << endl;
     
-    Mat emptyImg(mat.rows, mat.cols, CV_8UC1, Scalar(0,0,0));
+    Mat emptyImg(pic_blue.rows, pic_blue.cols, CV_8UC1, Scalar(0,0,0));
     
     int min_x= 0, min_y=0,max_x=0,max_y=0,w_add=0,h_add=0;
-    vector<int> sortIdx(contours.size());
-    vector<float> areas(contours.size());
-    for( int n = 0; n < (int)contours.size(); n++ ) {
+      vector<int> sortIdx(contours.size());
+      vector<float> areas(contours.size());
+      for( int n = 0; n < (int)contours.size(); n++ ) {
         sortIdx[n] = n;
         areas[n] = contourArea(contours[n], false);
-        
-    }
+
+      }
     
     int num_corner = 0;
     for( int n = 0; n < contours.size() ; n++ ) {
@@ -383,7 +382,7 @@ void searchK(int k){
         int ar = areas[idx];
         
         
-        if(ar > 300 && ar < 2100){
+        if(ar > 100 ){
             
             cv::drawContours(
                              emptyImg, contours, idx,

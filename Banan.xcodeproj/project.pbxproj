@@ -633,8 +633,6 @@
 				56290D27279E088F00F3AC5F /* AppDelegate.swift */,
 				56290D29279E088F00F3AC5F /* SceneDelegate.swift */,
 				56290D30279E089000F3AC5F /* Assets.xcassets */,
-				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
-				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
 				56290E9D279F7C8200F3AC5F /* Banan-Bridging-Header.h */,
 				56290EA1279F7CD800F3AC5F /* PrefixHeader.pch */,
 				4D51A2BB27B132B900C3F300 /* GoogleService-Info.plist */,
@@ -684,6 +682,7 @@
 		56290EB627A1C0B100F3AC5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7157D44C28393A2C008462DF /* OpenCV Controllers */,
 				4DCEDC6C27B386D300026D14 /* StartScreenViewController.swift */,
 				335B1ADF2805FE7F003BFD52 /* DashboardViewController.swift */,
 				56F9AE742818E1C6009C8468 /* HomeInstructionsViewController.swift */,
@@ -806,6 +805,15 @@
 				71DB434C281CE2D200676D93 /* LetterInstruction.gif */,
 			);
 			path = Gifs;
+			sourceTree = "<group>";
+		};
+		7157D44C28393A2C008462DF /* OpenCV Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				56290E9E279F7C8200F3AC5F /* OpenCVWrapper.h */,
+				56290E9F279F7C8200F3AC5F /* OpenCVWrapper.mm */,
+			);
+			path = "OpenCV Controllers";
 			sourceTree = "<group>";
 		};
 		715BADEE27E7E4AB006087EC /* Fonts */ = {
@@ -1325,7 +1333,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S8XCZWKTN5;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1349,7 +1357,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Madawi.Banan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shaden.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
@@ -1367,7 +1375,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S8XCZWKTN5;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1390,7 +1398,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Madawi.Banan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shaden.Banan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Banan/Banan-Bridging-Header.h";
