@@ -83,14 +83,6 @@ class GameLevelsViewController: UIViewController {
                 }
             }
         }
-//        print("ggggggg")
-//        print(LevelOne)
-//        print(Level1)
-//        print(LevelTwo)
-//        print(Level2)
-//        print(LevelThree)
-//        print(Level3)
-//        print("ggggggg")
 
         designButton(button: level1)
         designButton(button: level2)
@@ -191,14 +183,4 @@ class GameLevelsViewController: UIViewController {
             }
         
         }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

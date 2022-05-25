@@ -22,7 +22,6 @@ class Letters4ViewController: UIViewController {
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidAppear(_ animated: Bool) {
-      //  player?.stop()
         if(appdelegate.isChild){
             getChildData()}
         
@@ -31,6 +30,7 @@ class Letters4ViewController: UIViewController {
         assignLettersImage(btn: letterThree, index: 2)
         assignLettersImage(btn: letterFour, index: 3)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 

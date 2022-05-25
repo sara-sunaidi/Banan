@@ -140,8 +140,6 @@ class LocalStorage{
     static func removeChild(){
         if checkExistChild() {
             UserDefaults.standard.removeObject(forKey: "child")
-//            UserDefaults.standard.removeObject(forKey: "viewInstruction")
-
         }
     }
     

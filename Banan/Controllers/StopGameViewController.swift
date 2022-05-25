@@ -6,7 +6,6 @@
 //
 import Foundation
 import UIKit
-import SwiftUI
 
 // Protocol in UIView Class for navigation purposes
 protocol StopGameViewControllerDelegate {
@@ -21,9 +20,6 @@ class StopGameViewController : UIView {
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var alertView: UIView!
-//    @IBOutlet weak var img: UIImageView!
-//    @IBOutlet weak var title: UILabel!
-//    @IBOutlet weak var message: UILabel!
     
     var delegate: StopGameViewControllerDelegate?
     
@@ -42,11 +38,6 @@ class StopGameViewController : UIView {
         
         Bundle.main.loadNibNamed("StopGameView", owner: self, options: nil)
         
-        // img format
-//        img.layer.cornerRadius = img.bounds.size.width/2
-//        img.layer.borderColor = UIColor.white.cgColor
-//        img.layer.borderWidth = 5
-        
         // alert dialog format
         alertView.layer.cornerRadius = 50
         
@@ -55,18 +46,12 @@ class StopGameViewController : UIView {
     }
     
     func showAlert() {
-        print("### in showAlert confirmation")
         commonInit()
         
-//        self.title?.text = title
-//        self.message?.text = message
-//        if we needed to change img :
-//            img?.image = UIImage(named: "ExclamationMark")
         UIApplication.shared.keyWindow?.addSubview(parentView!)
     }
     
     @IBAction func onClickYes(_ sender: Any) {
-        print("### in Yes btn ")
         parentView.removeFromSuperview()
         
         delegate?.didContinueButtonTapped()
@@ -75,10 +60,8 @@ class StopGameViewController : UIView {
     
     
     @IBAction func onClickCancel(_ sender: Any) {
-        print("### in Cancel btn ")
         parentView.removeFromSuperview()
         delegate?.didExitButtonTapped()
     }
-    
     
 }

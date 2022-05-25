@@ -1,10 +1,5 @@
-//
-//  OpenCVWrapper.m
-//  OpenCVTest
-//
-//  Created by Timothy Poulsen on 11/27/18.
-//  Copyright © 2018 Timothy Poulsen. All rights reserved.
-//
+
+
 #include <iostream>
 #include <bitset>
 #import <opencv2/opencv.hpp>
@@ -12,7 +7,6 @@
 #import <opencv2/imgcodecs/ios.h>
 #import <UIKit/UIKit.h>
 #define HASH_H
-
 
 
 using namespace std;

@@ -7,9 +7,6 @@
 
 import UIKit
 import SwiftUI
-import FirebaseFirestore
-import Firebase
-//import AVFoundation
 
 
 class PracticePageViewController: UIViewController {
@@ -19,8 +16,6 @@ class PracticePageViewController: UIViewController {
 
     var completedLetters: [String]?
     var completedWords: [String]?
-//    var player: AVAudioPlayer?
-
     
     @IBOutlet weak var letterButton: UIButton!
     
@@ -41,11 +36,9 @@ class PracticePageViewController: UIViewController {
         
         designButtons()
 
-        print("1")
     }
     
     @IBSegueAction func GoToCircleBar(_ coder: NSCoder) -> UIViewController? {
-        print("6")
         getLettersData()
         getChildData()
         let letterPercent = Float(completedLetters!.count)/Float(allLetters.count)
@@ -54,7 +47,6 @@ class PracticePageViewController: UIViewController {
     }
     
     @IBSegueAction func GoToCircularBar2(_ coder: NSCoder) -> UIViewController? {
-        print("7")
         getWordsData()
         let wordPercent = Float(completedWords!.count)/Float(allWords.count)
         return UIHostingController(coder: coder, rootView: CircularProgressView(passedVal: wordPercent).background(Color(red: 237 / 255, green: 213 / 255, blue: 141 / 255)))
@@ -62,9 +54,7 @@ class PracticePageViewController: UIViewController {
     
     func designButtons(){
         letterLabel.text = "\(completedLetters?.count ?? 0) من الحروف تم دراستها".convertedDigitsToLocale(Locale(identifier: "AR"))
-        print("pp")
-//        print(completedWords)
-//        print(completedWords?.count)
+       
         wordLabel.text = "\(completedWords?.count ?? 0) من الكلمات تم دراستها".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         letterButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -82,13 +72,9 @@ class PracticePageViewController: UIViewController {
     }
 
     func getLettersData(){
-        print("in getLettersData")
         let lett = LocalStorage.allLettersInfo
         if lett != nil{
-//            print("itsnill")
             allLetters = lett!
-//            print(allLetters)
-
         }
     }
     
@@ -102,9 +88,7 @@ class PracticePageViewController: UIViewController {
 
     func setChildInfo(child: Child){
         self.completedLetters = child.completedLetters
-        
         self.completedWords = child.completedWords
-        
     }
     
     func getWordsData(){
@@ -114,27 +98,24 @@ class PracticePageViewController: UIViewController {
         }
     }
     
-
-
     
     @IBAction func pressBack(_ sender: UIButton) {
-//        player?.stop()
-
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pressLearnLetters(_ sender: UIButton) {
-//        playSound("Letters")
-        PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "Letters")
+        playSound("Letters")
         self.performSegue(withIdentifier: "GoToLearnLettersPage", sender: self)
     }
     
     @IBAction func pressLearnWords(_ sender: UIButton) {
-//        playSound("Words")
-        PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "Words")
+        playSound("Words")
         self.performSegue(withIdentifier: "GoToLearnWordsPage", sender: self)
+    }
+    
+    func playSound(_ name: String){
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: name)
     }
     
 }

@@ -5,19 +5,13 @@
 //  Created by Noura  on 10/08/1443 AH.
 //
 
-//import Foundation
 import UIKit
-import SwiftUI
-//import AVFoundation
-import Firebase
 
 class LearnLetterViewController: UIViewController,
                                  CustomConfirmationViewControllerDelegate,
                                  CustomAlertViewControllerDelegate,
-                                 InstructionsViewControllerDelegate
-//                                 LetterInstructionsViewControllerDelegate
-
-{
+                                 InstructionsViewControllerDelegate{
+    
     func didDoneButtonTapped() {
         if(autoInstruction){
         playSound("\(letters![index!].Letter)")
@@ -28,11 +22,9 @@ class LearnLetterViewController: UIViewController,
     var letters : [Letters]?
     var index: Int?
     var strLetter: String = "حرف "
-//    var player: AVAudioPlayer?
     var expectedResult : String?
     var completedLetters: [String]?
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
-//    let db = Firestore.firestore()
     
     @IBOutlet weak var imageLetter: UIImageView!
     @IBOutlet weak var letter: UILabel!
@@ -60,7 +52,6 @@ class LearnLetterViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        playSound("\(letters![index!].Letter)")
         PlayAllSounds.sharedInstance.stop()
 
         let lettersWithout = ["2aa", "Alf", "2lf", "Ttt"]
@@ -118,7 +109,6 @@ class LearnLetterViewController: UIViewController,
         
         CustomConfirmationViewController.instance.delegate = self
         CustomAlertViewController.instance.delegate = self
-//        LetterInstructionsViewController.instance.delegate = self
         InstructionsViewController.instance.delegate = self
 
         if(appdelegate.isChild){
@@ -135,9 +125,6 @@ class LearnLetterViewController: UIViewController,
         }
         else{
             playSound("\(letters![index!].Letter)")
-//            LetterInstructionsViewController.instance.showAlert()
-//            InstructionsViewController.instance.showAlert(name: "LetterInstruction")
-
         }
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("result"), object: nil)
@@ -319,8 +306,6 @@ class LearnLetterViewController: UIViewController,
             if(s=="1"){
                 if(i==0){
                     circle1.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle1.layer.borderWidth = 4
                     circle1.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
                     circle1.layer.cornerRadius = 0.5 * circle1.bounds.size.width
@@ -329,8 +314,6 @@ class LearnLetterViewController: UIViewController,
                 }
                 else if(i==1){
                     circle2.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:118/255, green:168/255, blue:158/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle2.layer.borderWidth = 4
                     circle2.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
                     circle2.layer.cornerRadius = 0.5 * circle2.bounds.size.width
@@ -338,8 +321,6 @@ class LearnLetterViewController: UIViewController,
                 }
                 else if(i==2){
                     circle3.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle3.layer.borderWidth = 4
                     circle3.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
 
@@ -348,8 +329,6 @@ class LearnLetterViewController: UIViewController,
                 }
                 else if(i==3){
                     circle4.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle4.layer.borderWidth = 4
                     circle4.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
                     circle4.layer.cornerRadius = 0.5 * circle4.bounds.size.width
@@ -357,8 +336,6 @@ class LearnLetterViewController: UIViewController,
                 }
                 else if(i==4){
                     circle5.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle5.layer.borderWidth = 4
                     circle5.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
                     circle5.layer.cornerRadius = 0.5 * circle5.bounds.size.width
@@ -366,8 +343,6 @@ class LearnLetterViewController: UIViewController,
                 }
                 else{
                     circle6.backgroundColor = UIColor(named: "Color4")
-                    //UIColor(red:193/255, green:222/255, blue:183/255, alpha:1)
-                    //circle1.layer.cornerRadius = 5
                     circle6.layer.borderWidth = 4
                     circle6.layer.borderColor = UIColor(red: 226/255, green: 59/255, blue: 18/255, alpha: 1.0).cgColor
                     circle6.layer.cornerRadius = 0.5 * circle6.bounds.size.width
@@ -381,23 +356,6 @@ class LearnLetterViewController: UIViewController,
     func playSound(_ name:String) {
         PlayAllSounds.sharedInstance.stop()
         PlayAllSounds.sharedInstance.play(name: name)
-//        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
-//        else { return }
-//
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-//
-//            guard let player = player else { return }
-//
-//            player.play()
-//
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-        
     }
     
     func getChildData(){
@@ -405,7 +363,6 @@ class LearnLetterViewController: UIViewController,
         if child != nil {
             setChildInfo(child: child!)
         }
-        
     }
 
     func setChildInfo(child: Child){
@@ -417,7 +374,6 @@ class LearnLetterViewController: UIViewController,
         if(appdelegate.isChild){ getChildData()}
         var levelArray = [Letters?]()
         levelArray = letters!
-//        let filteredArray = levelArray.map{$0.Letter}
         let filteredArray = levelArray.map{$0!.Letter}
         let intersect = Set(filteredArray).intersection(completedLetters ?? []).count
         
@@ -427,12 +383,9 @@ class LearnLetterViewController: UIViewController,
     // animate progress bar
     func animateProgress(){
         setProgress()
-//        let i = 1/Float(letters?.count ?? 1)
-//        progressView1.setProgress(i, animated: true)
     }
     
     @IBAction func pressBack(_ sender: UIButton) {
-        //        self.dismiss(animated: true, completion: nil)
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     
@@ -446,15 +399,18 @@ class LearnLetterViewController: UIViewController,
     
     @IBAction func pressCheckAnswer(_ sender: Any) {
         print("## in Check")
-        takePhotoVC.checkCameraPermissions()
+        let canOpenCamera = takePhotoVC.checkCameraPermissions()
+        if(canOpenCamera){
         let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
+        }}
+        else{
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "يجب عليك السماح للكاميرا" ,acknowledgementType: .negative)
         }
         
     }
     
     func didYesButtonTapped() {
-//        player?.stop()
         PlayAllSounds.sharedInstance.stop()
         self.dismiss(animated: true, completion: nil)
     }
@@ -525,12 +481,7 @@ class LearnLetterViewController: UIViewController,
     @IBAction func instructionButtonPressed(_ sender: UIButton) {
         PlayAllSounds.sharedInstance.stop()
         autoInstruction = false
-//        LetterInstructionsViewController.instance.showAlert()
         InstructionsViewController.instance.showAlert(name: "LetterInstruction")
 
     }
 }
-
-
-
-//CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)

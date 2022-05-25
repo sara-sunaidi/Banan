@@ -20,7 +20,6 @@ class Letters3ViewController: UIViewController {
     var index = 0
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidAppear(_ animated: Bool) {
-       // player?.stop()
 
         if(appdelegate.isChild){
             getChildData()}

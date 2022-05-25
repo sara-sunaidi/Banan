@@ -6,15 +6,8 @@
 //
 
 import UIKit
-import SwiftUI
-import FirebaseFirestore
-import Firebase
-//import AVFoundation
 
 class LevelsViewController: UIViewController {
-    
-    
-//    let db = Firestore.firestore()
     
     var allLetters = [Letters]()
     
@@ -36,7 +29,6 @@ class LevelsViewController: UIViewController {
     
     var completedLevels = [String]()
     var completedLetters = [String]()
-//    var player: AVAudioPlayer?
 
     //buttons
     @IBOutlet weak var firstButton: UIButton!
@@ -65,7 +57,8 @@ class LevelsViewController: UIViewController {
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidAppear(_ animated: Bool) {        
         if(appdelegate.isChild){
-            getChildData()}
+            getChildData()
+        }
         getLettersData()
         groupByLevel()
         buttonLevels()
@@ -81,13 +74,9 @@ class LevelsViewController: UIViewController {
         
     }
     func getLettersData(){
-        print("in getLettersData")
         let lett = LocalStorage.allLettersInfo
         if lett != nil{
-            print("itsnill")
             allLetters = lett!
-            print(allLetters)
-            
         }
     }
     
@@ -96,7 +85,6 @@ class LevelsViewController: UIViewController {
         if child != nil {
             setChildInfo(child: child!)
         }
-        
     }
     
     func setChildInfo(child: Child){
@@ -105,8 +93,7 @@ class LevelsViewController: UIViewController {
     }
     
     func buttonLevels(){
-        print("kk")
-        print(first.count)
+        
         designButton(completed: completedLevels.contains("First"), levelArray: first, label: firstLabel, button: firstButton)
         
         designButton(completed: completedLevels.contains("Second"), levelArray: second, label: secondLabel, button: secondButton)
@@ -127,9 +114,6 @@ class LevelsViewController: UIViewController {
         designButton(completed: completedLevels.contains("Ninth"), levelArray: ninth, label: ninthLable, button: ninthButton)
         
         designButton(completed: completedLevels.contains("Tenth"), levelArray: tenth, label: tenthLable, button: tenthButton)
-        
-        
-        
     }
     
     
@@ -137,10 +121,6 @@ class LevelsViewController: UIViewController {
         
         let filteredArray = levelArray.map{$0.Letter}
         let intersect = Set(filteredArray).intersection(completedLetters).count
-        print("filtere count:")
-        print(filteredArray.count)
-        print("intersect:")
-        print(intersect)
         
         //English num to Arabic num
         let arabicIntersect = "\(intersect)".convertedDigitsToLocale(Locale(identifier: "AR"))
@@ -150,14 +130,12 @@ class LevelsViewController: UIViewController {
             //green color
             button.backgroundColor = UIColor(red: 193/255, green: 222/255, blue: 183/255, alpha: 1)
         }
-        print("ar total:")
-        print(arabicTotal)
-        print("inter se")
-        print(arabicIntersect)
+
         if (appdelegate.isChild){
-            label.text = "\(arabicTotal)/\(arabicIntersect) من الحروف تم دراستها"}
-        button.layer.cornerRadius = 30
+            label.text = "\(arabicTotal)/\(arabicIntersect) من الحروف تم دراستها"
+        }
         
+        button.layer.cornerRadius = 30
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         button.layer.shadowOpacity = 0.8
@@ -178,13 +156,11 @@ class LevelsViewController: UIViewController {
         eighth = allLetters.filter({$0.Level == "Eighth"})
         ninth = allLetters.filter({$0.Level == "Ninth"})
         tenth = allLetters.filter({$0.Level == "Tenth"})
-        print("end grouping")
     }
     
     
     @IBAction func pressBack(_ sender: UIButton) {
         PlayAllSounds.sharedInstance.stop()
-        //performSegue(withIdentifier: "GoToHomePage", sender: self)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -192,10 +168,7 @@ class LevelsViewController: UIViewController {
         switch sender{
         case firstButton:
             playSound("First")
-            print("ggg")
             chosenLevel = first
-            //            levelTitle = "المستوى الثاني"
-            print("in first")
             levelTitle = "المستوى الأول"
             break;
             
@@ -203,68 +176,60 @@ class LevelsViewController: UIViewController {
             playSound("Second")
             chosenLevel = second
             levelTitle = "المستوى الثاني"
-            print("in second")
             break;
             
         case thirdButton:
             playSound("Third")
             chosenLevel = third
             levelTitle = "المستوى الثالث"
-            print("in third")
             break;
             
         case fourthButton:
             playSound("Fourth")
             chosenLevel = fourth
             levelTitle = "المستوى الرابع"
-            print("in fourth")
             break;
             
         case fifthButton:
             playSound("Fifth")
             chosenLevel = fifth
             levelTitle = "المستوى الخامس"
-            print("in fifth")
             break;
             
         case sixthButton:
             playSound("Sixth")
             chosenLevel = sixth
             levelTitle = "المستوى السادس"
-            print("in sixth")
             break;
             
         case seventhButton:
             playSound("Seventh")
             chosenLevel = seventh
             levelTitle = "المستوى السابع"
-            print("in seventh")
             break;
             
         case eighthButton:
             playSound("Eighth")
             chosenLevel = eighth
             levelTitle = "المستوى الثامن"
-            print("in eighth")
             break;
             
         case ninthButton:
             playSound("Ninth")
             chosenLevel = ninth
             levelTitle = "المستوى التاسع"
-            print("in ninth")
             break;
             
         case tenthButton:
             playSound("Tenth")
             chosenLevel = tenth
             levelTitle = "المستوى العاشر"
-            print("in tenth")
             break;
             
         default:
             print("select another btn level")
         }
+        
         if(chosenLevel.count == 2){
             self.performSegue(withIdentifier: "GoToLetters2", sender: self)
         }
@@ -288,14 +253,12 @@ class LevelsViewController: UIViewController {
         else if segue.identifier == "GoToLetters3"{
             let destination = segue.destination as! Letters3ViewController
             destination.letters = chosenLevel
-            //            destination.completedLetters = completedLetters
             destination.levelTitle = levelTitle
         }
         
         else if segue.identifier == "GoToLetters4"{
             let destination = segue.destination as! Letters4ViewController
             destination.letters = chosenLevel
-            //            destination.completedLetters = completedLetters
             destination.levelTitle = levelTitle
         }
     }
@@ -304,23 +267,5 @@ class LevelsViewController: UIViewController {
     func playSound(_ name:String) {
         PlayAllSounds.sharedInstance.stop()
         PlayAllSounds.sharedInstance.play(name: name)
-        
-//        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
-//        else { return }
-//
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-//
-//            guard let player = player else { return }
-//
-//            player.play()
-//
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-        
     }
 }

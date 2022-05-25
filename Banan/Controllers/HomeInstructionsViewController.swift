@@ -7,24 +7,14 @@
 
 import UIKit
 import SwiftUI
-import FirebaseFirestore
-import Firebase
-//import AVFoundation
 
 class HomeInstructionsViewController: UIViewController,
-//ReflectorViewControllerDelegate
 InstructionsViewControllerDelegate {
+    
     func didDoneButtonTapped() {
-        print("yaay")
         backToHomePage()
     }
-    
-//    func didExitButtonTapped() {
-//        backToHomePage()
-//        print("clese pressed")
-//    }
-    
-    
+ 
     @IBOutlet weak var name: UILabel!
     
 
@@ -44,8 +34,6 @@ InstructionsViewControllerDelegate {
     var completedLetters = [String]()
     var completedWords = [String]()
     @IBOutlet weak var skipInstructionBtn: UIButton!
-    //    var player: AVAudioPlayer?
-    //    let db = Firestore.firestore()
     @IBOutlet weak var chat: UIImageView!
     
     @IBOutlet weak var instructionLabel: UILabel!
@@ -76,12 +64,7 @@ InstructionsViewControllerDelegate {
     }
     
     @IBAction func skipInstructions(_ sender: UIButton) {
-        //                    view.sendSubviewToBack(profileImage)
-//        view.insertSubview(profileImage, belowSubview: dark)
-        //        view.insertSubview(profileImage, aboveSubview: profileImage)
-        //        (_:aboveSubview:)
         backToHomePage()
-        
     }
     
     func backToHomePage(){
@@ -99,6 +82,7 @@ InstructionsViewControllerDelegate {
             nextInstructionBtn.isHidden = true
             prevInstructionBtn.isHidden = true
             view.insertSubview(instructionsView[index+1], belowSubview: dark)
+            
         }else if(index == instructionsView.count-1){ //last element
             learnReflectorBtn.isHidden = false
             startInstructionBtn.isHidden = true
@@ -115,13 +99,10 @@ InstructionsViewControllerDelegate {
             view.insertSubview(instructionsView[index-1], belowSubview: dark)
             
         }
-        //        index += 1
-        
     }
     
     @IBAction func learnReflectorPressed(_ sender: UIButton) {
         dark.isHidden = true
-//        ReflectorViewController.instance.showAlert()
         InstructionsViewController.instance.showAlert(name: "reflector")
     }
     
@@ -138,7 +119,6 @@ InstructionsViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UserDefaults.standard.set(true, forKey: "viewInstruction")
         instructionsText = ["أهلا بك في بَنان!\n لنبدأ الرحلة...",
                             
                             "من هنا تستطيع الوصول إلى صفحتك الشخصية",
@@ -168,18 +148,10 @@ InstructionsViewControllerDelegate {
         
         ]
         
-//        skipInstructionBtn.setAttributedTitle("تسجيل الدخول".underlined, for: .normal)
-
-//        ReflectorViewController.instance.delegate = self
         InstructionsViewController.instance.delegate = self
 
         showInstruction()
-        
-        //            view.sendSubviewToBack(yourUIView)
-        //            view.bringSubviewToFront(profileImage)
-        //            view.bringSubviewToFront(chat)
-        //            instructionLabel.text = "من هنا تستطيع الوصول إلى صفحتك الشخصية"
-        
+
         profileImage.tintColor = UIColor.white
         dashBoard.tintColor = UIColor.white
         instructions.tintColor = UIColor.white
@@ -195,8 +167,6 @@ InstructionsViewControllerDelegate {
         instructions.layer.shadowRadius = 0.0
         instructions.layer.masksToBounds = false
         getChildData()
-//        getLettersData()
-//        getWordsData()
         
     }
     
@@ -231,20 +201,15 @@ InstructionsViewControllerDelegate {
         let allPoints = child.GameLevels.map({Int(($0["UserPoints"] ?? "0")) ?? 0}).reduce(0, +)
         
         self.points.text = "\(allPoints)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        //        "\(child.score)".convertedDigitsToLocale(Locale(identifier: "AR"))
         let Profile = child.gender
         
         if Profile == "Boy"{
             self.profileImage.configuration? .background.image = UIImage(named: "boy3.png")
             self.personImage.image = UIImage(named: "boy2.png")
-            //profileImage.setImage(UIImage(named: "boy123.png"), for: .normal)
-            // profileImage.image = UIImage(named: "boy123.png")
         }
         else {
             self.profileImage.configuration? .background.image = UIImage(named: "girl3.png")
             self.personImage.image = UIImage(named: "girl2.png")
-            //profileImage.setImage(UIImage(named:"girl123.png"), for:.normal)
-            //profileImage.image = UIImage(named: "girl123.png")
         }
         
     }
@@ -252,8 +217,6 @@ InstructionsViewControllerDelegate {
     
     @IBAction func pressLearn(_ sender: UIButton) {
         playSound("Practice")
-        //        PlayAllSounds.sharedInstance.stop()
-        //        PlayAllSounds.sharedInstance.play(name: "Practice")
         performSegue(withIdentifier: "GoToLearningPage", sender: self)
         
     }
@@ -262,8 +225,6 @@ InstructionsViewControllerDelegate {
     
     @IBAction func pressGame(_ sender: UIButton) {
         playSound("Game")
-        //        PlayAllSounds.sharedInstance.stop()
-        //        PlayAllSounds.sharedInstance.play(name: "Game")
         performSegue(withIdentifier: "GoToGameLevels", sender: self)
         
     }

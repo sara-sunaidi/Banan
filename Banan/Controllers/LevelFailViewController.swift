@@ -4,10 +4,9 @@
 //
 //  Created by Sara Alsunaidi on 04/04/2022.
 //
+
 import Foundation
 import UIKit
-import SwiftUI
-//import AVFoundation
 
 // Protocol in UIView Class for navigation purposes
 protocol LevelFailViewControllerDelegate {
@@ -40,8 +39,6 @@ class LevelFailViewController : UIView {
     
     @IBOutlet weak var levelScore: UILabel!
     
-//    var player: AVAudioPlayer?
-
     
     var delegate: LevelFailViewControllerDelegate?
 
@@ -71,9 +68,6 @@ class LevelFailViewController : UIView {
         // alert dialog format
         alertView.layer.cornerRadius = 50
         
-        //Btns format (*Not Working need to be fixed*)
-//        continueButton.titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
-        
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
@@ -82,31 +76,13 @@ class LevelFailViewController : UIView {
         PlayAllSounds.sharedInstance.stop()
         PlayAllSounds.sharedInstance.play(name: soundName)
         
-//        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
-//        //to find sound name:
-//        //letters![index!].Letter
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-//
-//            guard let player = player else { return }
-//
-//            player.play()
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
     }
     func showAlert(title: String, level: String, gameArray: [Game], totalScore: Int, imageName: String, soundName: String) {
-//        currentAlertType = alertType
         commonInit()
         playSound(soundName: soundName)
         
         self.title?.text = title
         self.level?.text = level
-        
-
         
         word1.text = gameArray[0].Arabic
         score1.text = returnArabicNum(num: gameArray[0].currentPoint)
@@ -118,26 +94,9 @@ class LevelFailViewController : UIView {
         score3.text = returnArabicNum(num: gameArray[2].currentPoint)
         
         
-//        var levelTotal = gameArray.map({Int($0.Points) ?? 0}).reduce(0, +)
-//        var userTotal = gameArray.map({$0.currentPoint}).reduce(0, +)
-        
         levelScore.text = returnArabicNum(num: totalScore)
-        
-        
-//        if(Float(userTotal)/Float(levelTotal) <0.2
-//        img?.image = UIImage(named: "shinyStar")
         img?.image = UIImage(named: imageName)
 
-//            continueBtn?.setTitle("المتابعة للكلمة التالية", for: .normal)
-//            print("### in showAlert word")
-//
-////        case .letter:
-//            img?.image = UIImage(named: "shinyStar")
-//            continueBtn?.setTitle("المتابعة للحرف التالي", for: .normal)
-//            print("### in showAlert letter")
-            
-//        } // end switch
-        
         UIApplication.shared.keyWindow?.addSubview(parentView!)
     }
     func returnArabicNum( num: Int) -> String{
@@ -148,32 +107,12 @@ class LevelFailViewController : UIView {
     
     
     @IBAction func onClickRedo(_ sender: Any) {
-        print("### in redo btn ")
         parentView.removeFromSuperview()
         
         delegate?.didRedoButtonTapped()
     }
     @IBAction func onClickExit(_ sender: Any) {
-        print("### in exit btn ")
         parentView.removeFromSuperview()
-        
-        // Diffrent handlers based on alertType (letter? or word?)
-        //        switch currentAlertType {
-        //
-        //        case .word:
-        //            print("### in exit btn > closed as WORD ")
         delegate?.didExitButtonTapped()
-        
-        
-        //        case .letter:
-        //            print("### in exit btn > closed as LETTER ")
-        //            delegate?.didExitButtonTapped()
-        
-        //        case .none:
-        //            //this case should never be excuted !
-        //            print("### in exit btn > closed as NONE ")
-        
-        //        } // end switch
-        
     }
 }

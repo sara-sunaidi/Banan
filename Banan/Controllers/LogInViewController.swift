@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import SwiftUI
+
 class LogInViewContoller : UIViewController{
     var password : String=""
     @IBOutlet weak var triangle: UIButton!
@@ -208,18 +208,3 @@ class LogInViewContoller : UIViewController{
     }
     
 }
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-

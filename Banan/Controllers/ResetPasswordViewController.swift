@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import SwiftUI
+
 class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewControllerDelegate {
     var flag :Bool = false
     var isValid = true
@@ -140,33 +140,13 @@ class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewC
                 if let e = error{
                     self.errorAlert("لم تنجح عملية تغير كلمة المرور هناك مشكلة")
                 }else{
-                  
-                       
-                            
-                                Auth.auth().currentUser?.updatePassword(to: self.newPass)
-                    
-//                    let alert = UIAlertController(title: "تأكيد", message: "تم تغير كلمة المرور بنجاح", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//                        switch action.style{
-//                            case .default:
-//                            print("default")
-//                            self.dismiss(animated: true, completion: nil)
-//                            case .cancel:
-//                            print("cancel")
-//                           self.dismiss(animated: true, completion: nil)
-//                            case .destructive:
-//                            print("destructive")
-                            
-//                        }
-//                    }))
-//                    self.present(alert, animated: true, completion: nil)
+                    Auth.auth().currentUser?.updatePassword(to: self.newPass)
                     self.flag = true
                     CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغير كلمة المرور بنجاح" , acknowledgementType: .positive)
-                    
-               
-                
-           
-                        }}}
+                        }
+             }
+         }
+
         }else{
             self.errorAlert("الرجاء إدخال كلمة مرور جديدة مختلفة عن كلمة المرور السابقة")
         }
@@ -176,30 +156,13 @@ class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewC
             }else {
            self.errorAlert(" الرجاء إدخال كلمة المرور السابقة")
        }
-        
     }
     
     func errorAlert (_ e : String){
-//        let alert = UIAlertController(title: "تنبيه", message: e, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//            switch action.style{
-//                case .default:
-//                print("default")
-//
-//                case .cancel:
-//                print("cancel")
-//
-//                case .destructive:
-//                print("destructive")
-//
-//            }
-//        }))
-//        self.present(alert, animated: true, completion: nil)
      CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: e , acknowledgementType: .negative)
 }
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-//        self.performSegue(withIdentifier: "GoToProfile", sender: self)
     }
     func didDoneButtonTapped(){
         if flag  {

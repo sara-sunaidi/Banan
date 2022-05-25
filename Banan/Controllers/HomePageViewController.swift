@@ -33,6 +33,10 @@ class HomePageViewController : UIViewController{
 //    let db = Firestore.firestore()
     override func viewDidAppear(_ animated: Bool) {
         getChildData()
+        
+        var canOpenCamera = takePhotoVC.checkCameraPermissions()
+//        UserDefaults.standard.set(canOpenCamera, forKey: "canOpenCamera")
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()

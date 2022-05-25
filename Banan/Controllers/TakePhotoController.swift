@@ -29,7 +29,8 @@ class TakePhotoController: UIViewController,
 
     }
 
-    func checkCameraPermissions(){
+    func checkCameraPermissions() -> Bool{
+        var returnedResult = false
         
         switch AVCaptureDevice.authorizationStatus(for: .video){
             
@@ -46,18 +47,27 @@ class TakePhotoController: UIViewController,
             }
             
         case .restricted:
+            print("- in restricted")
+            returnedResult = false
             break
             
         case .authorized:
             print("- in authorized")
+            returnedResult = true
             self.setUpCamera()
+
             
         case .denied:
+            print("- in denied")
+            returnedResult = false
             break
+
         @unknown default:
+            returnedResult = false
             break
-        }
         
+        }
+        return returnedResult
     }
     
     private func setUpCamera(){

@@ -5,8 +5,6 @@
 //  Created by Sara Alsunaidi on 01/04/2022.
 //
 import UIKit
-//import AVFoundation
-
 
 class GameViewController: UIViewController,
                           StopGameViewControllerDelegate,
@@ -16,12 +14,9 @@ class GameViewController: UIViewController,
                           Hint4ViewControllerDelegate,
                           Hint3ViewControllerDelegate,
                           GameInstructionsViewControllerDelegate,
-                          InstructionsViewControllerDelegate
-
-{
+                          InstructionsViewControllerDelegate{
  
-    
-    
+
     
     @IBOutlet weak var heart1: UIButton!
     @IBOutlet weak var heart2: UIButton!
@@ -82,7 +77,7 @@ class GameViewController: UIViewController,
     let winAnyLevelSoundName = "WinAnyLevel"
     
     var LevelNumber : Int = 0
-    
+    var canOpenCamera = false;
     override func viewWillAppear(_ animated: Bool) {
         designProgressbar() //design progressbar
         getChildData()
@@ -91,7 +86,7 @@ class GameViewController: UIViewController,
     
     func didDoneButtonTapped() {
         if(autoInstruction){//the user did not hear the sound yet
-        //start current animal sound?
+        //start current animal sound
         playSound("\(currentLevel?[index].Animal ?? "")-Game")
         }
     }
@@ -102,9 +97,7 @@ class GameViewController: UIViewController,
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { [self] (UIViewControllerTransitionCoordinatorContext) -> Void in
             print("in will trans")
-            
             designBarLabels()
-            
             
             let orient = UIApplication.shared.statusBarOrientation
             
@@ -136,7 +129,6 @@ class GameViewController: UIViewController,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        print("in did appear")
         designProgressbar()
         designBarLabels()
     }
@@ -144,7 +136,6 @@ class GameViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        player?.stop()
         PlayAllSounds.sharedInstance.stop() //stop any prev animal sound
         
         
@@ -189,7 +180,7 @@ class GameViewController: UIViewController,
             
         }else{
             autoInstruction = false
-            //start current animal sound?
+            //start current animal sound
             playSound("\(currentLevel?[index].Animal ?? "")-Game")
         }
     
@@ -270,18 +261,12 @@ class GameViewController: UIViewController,
         
         calculatePoints()
         
-//        levelUserPoints = currentLevel.map({$0.currentPoint}).reduce(0, +)
-
-        
         //update progresssbar
         progressBar.setProgress(Float(levelUserPoints)/Float(levelPoints), animated: true)
         
         
         //if level did not finish
         if(index != currentLevel.count - 1){
-//            // Call pop up
-//            CustomAlertViewController.instance.showAlert(title: "ممتاز", message: "لقد أجبت إجابة صحيحة", alertType: .letter)
-            
             // Snackbar calling is here
             let viewModel: SnackbarViewModel
             
@@ -423,10 +408,6 @@ class GameViewController: UIViewController,
     }
     
     func updateAnimalInfo(){
-        
-//        //start current animal sound?
-//        playSound("\(currentLevel?[index].Animal ?? "")-Game")
-        
         animalImage.image = UIImage(named: "\(currentLevel?[index].Animal ?? "")")
         
         animalLabel.text = currentLevel?[index].Arabic ?? ""
@@ -533,10 +514,15 @@ class GameViewController: UIViewController,
     @IBAction func pressCheck(_ sender: UIButton) {
         
         print("press check")
-        takePhotoVC.checkCameraPermissions()
+        let canOpenCamera = takePhotoVC.checkCameraPermissions()
+
+        if(canOpenCamera){
         let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
         }
+        }else{
+                CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "يجب عليك السماح للكاميرا" ,acknowledgementType: .negative)
+            }
     }
     
     

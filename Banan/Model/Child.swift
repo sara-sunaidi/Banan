@@ -19,6 +19,5 @@ struct Child: Codable {
     
     var email :String = ""
     var name :String = ""
-//    var score :String = "0"
     var gender :String = ""
 }

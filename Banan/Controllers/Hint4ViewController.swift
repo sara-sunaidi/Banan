@@ -6,12 +6,9 @@
 //
 import Foundation
 import UIKit
-import SwiftUI
 
 // Protocol in UIView Class for navigation purposes
 protocol Hint4ViewControllerDelegate {
-//    func didExitButtonTapped()
-//    func didRedoButtonTapped()
 }
 
 class Hint4ViewController : UIView {
@@ -21,7 +18,6 @@ class Hint4ViewController : UIView {
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var img: UIImageView!
-//    @IBOutlet weak var redoBtn: CustomButton!
     
 
     @IBOutlet weak var OkBtn: CustomButton!
@@ -64,18 +60,10 @@ class Hint4ViewController : UIView {
     
     //----
     
-//    @IBOutlet weak var cr11111: UIButton!
-//    @IBOutlet weak var cr22222: UIButton!
-//    @IBOutlet weak var cr33333: UIButton!
-//    @IBOutlet weak var cr44444: UIButton!
-//    @IBOutlet weak var cr55555: UIButton!
-//    @IBOutlet weak var cr66666: UIButton!
-    
     @IBOutlet weak var block1: UIView!
     @IBOutlet weak var block2: UIView!
     @IBOutlet weak var block3: UIView!
     @IBOutlet weak var block4: UIView!
-//    @IBOutlet weak var block5: UIView!
     
     var delegate: Hint4ViewControllerDelegate?
 
@@ -105,9 +93,6 @@ class Hint4ViewController : UIView {
         // alert dialog format
         alertView.layer.cornerRadius = 50
         
-        //Btns format (*Not Working need to be fixed*)
-//        continueButton.titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
-        
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
@@ -115,7 +100,6 @@ class Hint4ViewController : UIView {
         block2.layer.cornerRadius = 10
         block3.layer.cornerRadius = 10
         block4.layer.cornerRadius = 10
-//        block5.layer.cornerRadius = 10
         
     }
     func setBraille(_ c1:UIButton,_ c2:UIButton, _ c3:UIButton, _ c4:UIButton, _ c5:UIButton, _ c6:UIButton,_ letterBraille:String){
@@ -180,24 +164,10 @@ class Hint4ViewController : UIView {
         setBraille(cr11,cr22,cr33,cr44,cr55,cr66,brailleArray[1])
         setBraille(cr111,cr222,cr333,cr444,cr555,cr666,brailleArray[2])
         setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,brailleArray[3])
-//        setBraille(cr11111,cr22222,cr33333,cr44444,cr55555,cr66666,brailleArray[4])
-//            continueBtn?.setTitle("المتابعة للكلمة التالية", for: .normal)
-//            print("### in showAlert word")
-//
-////        case .letter:
-//            img?.image = UIImage(named: "shinyStar")
-//            continueBtn?.setTitle("المتابعة للحرف التالي", for: .normal)
-//            print("### in showAlert letter")
-            
-//        } // end switch
         
         UIApplication.shared.keyWindow?.addSubview(parentView!)
     }
-//    func returnArabicNum( num: Int) -> String{
-//        let arabicNum = "\(num)".convertedDigitsToLocale(Locale(identifier: "AR"))
-//
-//        return "\(arabicNum) +"
-//    }
+
     func addShadow(circle : UIButton){
     circle.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
     circle.layer.shadowOffset = CGSize(width: 1, height: 2)
@@ -206,33 +176,10 @@ class Hint4ViewController : UIView {
     circle.layer.masksToBounds = false
     circle.layer.cornerRadius = 0.5 * circle.bounds.size.width
     }
-//    @IBAction func onClickRedo(_ sender: Any) {
-//        print("### in redo btn ")
-//        parentView.removeFromSuperview()
-//
-//        delegate?.didRedoButtonTapped()
-//    }
+
     @IBAction func onClickOk(_ sender: Any) {
         print("### in exit btn ")
         parentView.removeFromSuperview()
-        
-        // Diffrent handlers based on alertType (letter? or word?)
-        //        switch currentAlertType {
-        //
-        //        case .word:
-        //            print("### in exit btn > closed as WORD ")
-        //delegate?.didExitButtonTapped()
-        
-        
-        //        case .letter:
-        //            print("### in exit btn > closed as LETTER ")
-        //            delegate?.didExitButtonTapped()
-        
-        //        case .none:
-        //            //this case should never be excuted !
-        //            print("### in exit btn > closed as NONE ")
-        
-        //        } // end switch
         
     }
 }

@@ -13,37 +13,28 @@
 
 
 import UIKit
-import Firebase
-//import AVFoundation
-
 
 class WordViewController: UIViewController, UINavigationControllerDelegate,
                           CustomAlertViewControllerDelegate,
                           CustomConfirmationViewControllerDelegate,
                           InstructionsViewControllerDelegate
-//                          WordInstructionsViewControllerDelegate
 {
+    
     func didDoneButtonTapped() {
         if(autoInstruction){
-    //play sound after instruction
-        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
+            //play sound after instruction
+            playSound("\(allWords![index!].Word)")
         }
     }
     
-    
-    
-//    @IBOutlet weak var fourLetttersView: UIView!
     var allWords : [Words]?
     var index: Int?
     var allLetters: [Letters]?
     var wordBraille = [String]()
-//    let db = Firestore.firestore()
     var expectedResult : String?
-//    var player: AVAudioPlayer?
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     //four letters
-    
     @IBOutlet weak var fourLabel1: UILabel!
     @IBOutlet weak var fourLabel2: UILabel!
     @IBOutlet weak var fourLabel3: UILabel!
@@ -150,12 +141,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
     var preWord = false
     
     override func viewDidLoad() {
-        print("- in view load WORD")
         super.viewDidLoad()
         
-//        playSound("\(allWords![index!].Word)")
         PlayAllSounds.sharedInstance.stop()
-//        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
 
         if(index! == 0){
             
@@ -240,12 +228,12 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         CustomAlertViewController.instance.delegate = self
         CustomConfirmationViewController.instance.delegate = self
         InstructionsViewController.instance.delegate = self
-//        WordInstructionsViewController.instance.delegate = self
+
         if(appdelegate.isChild){
             getChildData()
         if(completedWords!.count<1 && preWord == false){
             autoInstruction = true
-//            LetterInstructionsViewController.instance.showAlert()
+
             InstructionsViewController.instance.showAlert(name: "WordInstructions")
 
         }else{
@@ -256,8 +244,6 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         }
         else{
             PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
-//            LetterInstructionsViewController.instance.showAlert()
-//            InstructionsViewController.instance.showAlert(name: "WordInstructions")
 
         }
         NotificationCenter.default.removeObserver(self)
@@ -266,8 +252,6 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         
         //add word image
         let image = UIImage(named: "\(allWords![index!].imageName)")
-        print("printing the img")
-        print(image)
         imageView.image = image
         //add word label
         wordLabel.text = allWords![index!].Arabic
@@ -280,13 +264,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func getLettersData(){
-        print("in getLettersData")
         let lett = LocalStorage.allLettersInfo
         if lett != nil{
-            print("itsnill")
             allLetters = lett!
-            //            print(allLetters)
-            
         }
     }
     
@@ -298,13 +278,10 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         for letterKey in wordLetter{
             let oneLetter = allLetters!.filter({$0.Letter == letterKey})
             let braille = oneLetter[0].Braille
-            //            print("what?")
-            //            print(braille)
+
             wordBraille.append(braille)
             
         }
-        print("printin word braille")
-        print(wordBraille)
     }
     
     @objc func didGetNotification(_ notification:Notification){
@@ -315,10 +292,14 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
     
     @IBAction func checkAnswerBtn(_ sender: Any) {
         print("- in checkAnswerBtn")
-        //        let takeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TakePhotoController") as! TakePhotoController
-        takePhotoVC.checkCameraPermissions()
+
+        var canOpenCamera = takePhotoVC.checkCameraPermissions()
+        if(canOpenCamera){
         let timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { timer in
             takePhotoVC.didTapCheck()
+        }}
+        else{
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "يجب عليك السماح للكاميرا" ,acknowledgementType: .negative)
         }
         
     }
@@ -365,9 +346,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
                 showSnackbar(snackbar: snackbar)
                 
                 //play sound
-//                playSound("Incorrect")
-                PlayAllSounds.sharedInstance.stop()
-                PlayAllSounds.sharedInstance.play(name: "Incorrect")
+                playSound("Incorrect")
             }
             
             
@@ -385,9 +364,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         FirebaseRequest.updateCompletedWord(word:allWords![index!].Word)
         }
         //play sound
-//        playSound("Correct")
-        PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "Correct")
+        playSound("Correct")
     }
     
     
@@ -403,16 +380,9 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         CustomConfirmationViewController.instance.showAlert(title: "تنبيه", message: "هل تود الخروج من الكلمة الحالية؟")
     }
     @IBAction func onClickSpeaker(_ sender: Any) {
-//        playSound("\(allWords![index!].Word)")
-        PlayAllSounds.sharedInstance.stop()
-        PlayAllSounds.sharedInstance.play(name: "\(allWords![index!].Word)")
-        
+        playSound("\(allWords![index!].Word)")
+ 
     }
-    
-//    @IBAction func onClickGuide(_ sender: Any) {
-//        // # will be implemented in Group4
-//    }
-    
     
     // The coming three methods to handle correct answer pop-up actions
     
@@ -493,7 +463,6 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
     
     // show circle
     func showCircle(_ num: Int){
-        //        fourLetttersView.layer.position = .init(x: superView.frame.width/1.6, y: superView.frame.height/1.45)
         let wordArabic = allWords![index!].Arabic
         var wordArray = Array(wordArabic)
         if(num == 3){
@@ -503,8 +472,6 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
             setBraille(cr1111,cr2222,cr3333,cr4444,cr5555,cr6666,wordBraille[2],letter4,wordArray[2], block: block4)
         }
         else if(num == 4){
-            //            block2.layer.position = .init(x= )
-            //            fourLetttersView.layer.position = .init(x: superView.frame.width/2, y: fourLetttersView.layer.position.y)
             
             setBraille(fourC1,fourC2,fourC3,fourC4,fourC5,fourC6,wordBraille[0],fourLabel1,wordArray[0],block: fourblock1)
             setBraille(fourC11,fourC22,fourC33,fourC44,fourC55,fourC66,wordBraille[1],fourLabel2,wordArray[1], block: fourblock2)
@@ -707,27 +674,11 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
         
     }
     
-//    // play sound
-//    func playSound(_ name:String) {
-//
-//        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3")
-//        else { return }
-//
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-//
-//            guard let player = player else { return }
-//
-//            player.play()
-//
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//
-//    }
+    // play sound
+    func playSound(_ name:String) {
+        PlayAllSounds.sharedInstance.stop()
+        PlayAllSounds.sharedInstance.play(name: name)
+    }
 }
 
 

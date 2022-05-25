@@ -9,10 +9,8 @@ import Foundation
 protocol GameInstructionsViewControllerDelegate {
     func didDoneButtonTapped()
     func didNextPopUpButtonTapped()
-    //func didYesButtonTapped()
 }
 class GameInstructionsViewController : UIView
-//,GameHintInstructionsViewControllerDelegate
 {
     func didDoneButtonTapped() {
         
@@ -66,15 +64,9 @@ class GameInstructionsViewController : UIView
     @IBAction func OnClickNext(_ sender: UIButton) {
         parentView.removeFromSuperview()
             delegate?.didNextPopUpButtonTapped()
-//      GameHintInstructionsViewController.instance.delegate = self
-//       GameHintInstructionsViewController.instance.showAlert()
+
     }
-//    @IBAction func OnClickDone(_ sender: Any) {
-//        parentView.removeFromSuperview()
-//            delegate?.didDoneButtonTapped()
-//      GameHintInstructionsViewController.instance.delegate = self
-//       GameHintInstructionsViewController.instance.showAlert()
-//    }
+
 
     @IBAction func OnClickDone(_ sender: UIButton) {
         parentView.removeFromSuperview()
@@ -90,6 +82,5 @@ class GameInstructionsViewController : UIView
         sender.layer.shadowRadius = 3.0
         sender.layer.masksToBounds = false
     }
-    //delegate?.didYesButtonTapped()
 
 }
