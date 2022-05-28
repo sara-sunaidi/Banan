@@ -389,4 +389,22 @@ class FirebaseRequest{
             
         }
     }
+
+    static func resetPassword(oldPass:String, newPass:String, completion: @escaping (_ data: Bool, _ err:Error?) -> Void){
+        var resetSucceed = false
+        let user = Auth.auth().currentUser
+        var credential: AuthCredential
+         credential = EmailAuthProvider.credential(withEmail: (user?.email)!, password: oldPass)
+      
+             user?.reauthenticate(with: credential){ [self]authResult, error in
+                if let e = error{
+                    resetSucceed = false
+                }else{
+                    Auth.auth().currentUser?.updatePassword(to: newPass)
+                    resetSucceed = true
+
+             }
+                 completion(resetSucceed,nil)
+    }
+    }
 }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewControllerDelegate {
     var flag :Bool = false
@@ -128,39 +127,39 @@ class ResetPasswordViewController : UIViewController ,CustomAcknowledgementViewC
         newCircle.tintColor = UIColor.white
     }
     @IBAction func updatePassword(_ sender: UIButton) {
-        let user = Auth.auth().currentUser
-        var credential: AuthCredential
-         credential = EmailAuthProvider.credential(withEmail: (user?.email)!, password: oldPass)
-        if self.oldPass != ""{
-            if self.newPass != "" {
-                if self.oldPass != self.newPass {
-                    isValid = true
-         if user != nil{
-             user?.reauthenticate(with: credential){ [self]authResult, error in
-                if let e = error{
-                    self.errorAlert("لم تنجح عملية تغير كلمة المرور هناك مشكلة")
-                }else{
-                    Auth.auth().currentUser?.updatePassword(to: self.newPass)
-                    self.flag = true
-                    CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغير كلمة المرور بنجاح" , acknowledgementType: .positive)
-                        }
-             }
-         }
-
-        }else{
-            self.errorAlert("الرجاء إدخال كلمة مرور جديدة مختلفة عن كلمة المرور السابقة")
+        
+        if(oldPass == ""){
+            self.errorAlert(" الرجاء إدخال كلمة المرور السابقة")
+            return
         }
-            }else {
-                self.errorAlert(" الرجاء إدخال كلمة المرور الجديدة")
-            }
-            }else {
-           self.errorAlert(" الرجاء إدخال كلمة المرور السابقة")
-       }
+        if(newPass == ""){
+            self.errorAlert(" الرجاء إدخال كلمة المرور الجديدة")
+            return
+        }
+        if(self.oldPass == self.newPass){
+            self.errorAlert("الرجاء إدخال كلمة مرور جديدة مختلفة عن كلمة المرور السابقة")
+            return
+        }
+        isValid = true
+        //when resetPassword methode done, resetProcessDone will start
+        FirebaseRequest.resetPassword(oldPass: oldPass, newPass: newPass,completion: resetProcessDone(_:_:))
+        
+    }
+    
+    func resetProcessDone(_ data:Bool, _ error:Error?) -> Void {
+        if(data){
+            self.flag = true
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "تم تغير كلمة المرور بنجاح" , acknowledgementType: .positive)
+        }else{
+            self.flag = false
+            self.errorAlert("لم تنجح عملية تغير كلمة المرور هناك مشكلة")
+        }
     }
     
     func errorAlert (_ e : String){
      CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: e , acknowledgementType: .negative)
 }
+    
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
