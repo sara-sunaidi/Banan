@@ -299,7 +299,7 @@ class WordViewController: UIViewController, UINavigationControllerDelegate,
             takePhotoVC.didTapCheck()
         }}
         else{
-            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "يجب عليك السماح للكاميرا" ,acknowledgementType: .negative)
+            CustomAcknowledgementViewController.instance.showAlert(title: "تنبيه", message: "يجب عليك السماح للتطبيق بالوصول إلى الكاميرا" ,acknowledgementType: .negative)
         }
         
     }

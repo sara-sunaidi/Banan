@@ -38,10 +38,6 @@ class StartScreenViewController: UIViewController {
     
     @IBAction func SignUp1(_ sender: UIButton) {
         appdelegate.isChild = true
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "SignUp1" )
-//        vc.modalPresentationStyle = .overFullScreen
-//        present(vc, animated:  true)
         performSegue(withIdentifier: "StartToSignUp1", sender: self)
 
     }
@@ -51,14 +47,5 @@ class StartScreenViewController: UIViewController {
         performSegue(withIdentifier: "ToLogIn", sender: self)
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

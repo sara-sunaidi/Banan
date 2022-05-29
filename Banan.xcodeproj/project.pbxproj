@@ -1343,7 +1343,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "بنان";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "تطبيق بنان يحتاج الوصول إلى الكاميرا لتصوير القطع";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1385,7 +1385,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banan/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "بنان";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Banan camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "تطبيق بنان يحتاج الوصول إلى الكاميرا لتصوير القطع";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
