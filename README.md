@@ -1,12 +1,31 @@
 # Banan-Tangible user interface based application for Braille collaborative learning
-An Arabic iOS application that aims to create an interactive environment for learning Braille, where the learner and his companion can learn and practice Braille using the Tangible User Interface (TUI). Image processing techniques using the OpenCV library and C++ were used to recognize the objects.
+Banan is an Arabic iOS application that aims to teach the Braille system in Arabic to visually impaired children, and anyone who wants to learn Braille. The application offers a variety of ways to teach the Braille system in an interactive way. The users will learn step by step, starting from teaching the alphabet to writing a complete word.
 
+Furthermore, Banan application helps families with visually impaired child learn the Braille system in order to support their child in the early stages and facilitate the educational process for the child. And to achieve this goal, the team set the following objectives:
 
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/68998849/175186297-00e0c45c-57cb-439d-80cd-0cdcbd29b4b8.png">
+
+## Banan Objectives
+
+- Developing an Arabic iOS application that facilitates the educational process of learning Braille system by using the Tangible User Interface.
+
+- Helping the children learn the Arabic alphabet representation in Braille in an interactive way.
+
+- Making the learning process more exciting by offering a variety of games that suit the user level.
+
+- Using the serious game technique to help the user increase and track his/her progress.
+
+- Teaching children the Braille system, which will increase their understanding of the environment around them.
+
+- Providing a way for people who have lost their vision lately to start learning and practicing Braille easily.
+
+
 
 
 ## Detection Process
 <img width="900" alt="image" src="https://user-images.githubusercontent.com/68998849/175187648-5c1be377-c6a8-4490-8ad6-d5949ff440d4.png">
+
+
 
 
 ## Some User Interface
