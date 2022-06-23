@@ -1,7 +1,9 @@
 # Banan-Tangible user interface based application for Braille collaborative learning
 Banan is an Arabic iOS application that aims to teach the Braille system in Arabic to visually impaired children, and anyone who wants to learn Braille. The application offers a variety of ways to teach the Braille system in an interactive way. The users will learn step by step, starting from teaching the alphabet to writing a complete word.
 
-Furthermore, Banan application helps families with visually impaired child learn the Braille system in order to support their child in the early stages and facilitate the educational process for the child. And to achieve this goal, the team set the following objectives:
+Furthermore, Banan application helps families with visually impaired child learn the Braille system in order to support their child in the early stages and facilitate the educational process for the child.
+
+
 
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/68998849/175186297-00e0c45c-57cb-439d-80cd-0cdcbd29b4b8.png">
 
